@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.render(
-<div class="title-wrapper">
-    Event Optimizer
-</div>
-, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <div className="title-wrapper">
+        Event Optimizer
+    </div>
+  </React.StrictMode>
+);
