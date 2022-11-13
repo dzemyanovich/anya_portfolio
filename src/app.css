@@ -1,0 +1,22 @@
+@import url('https://fonts.cdnfonts.com/css/druk-trial');
+
+body {
+    background-color: black; 
+    color: white;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.title-wrapper {
+    white-space: nowrap;
+    text-transform: uppercase;
+    height: 100%;
+    font-size: 130vh;
+    line-height: normal;
+    font-family: 'Druk Wide Trial', sans-serif;
+    text-align: center;
+    position: relative;
+    top: -20vh;
+    left: -5vh;
+}
