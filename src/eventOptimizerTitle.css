@@ -13,4 +13,14 @@
     left: -5vh;
     overflow-x: hidden;
     display: flex;
+    animation: 2s ease-out 0s 1 slideInFromRight;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: 0;
+    }
 }
