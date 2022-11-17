@@ -10,7 +10,7 @@
 
 @keyframes slideInFromBottom {
     0% {
-        margin-top: 2000px;
+        margin-top: 1000px;
     }
     100% {
         margin-top: 200px;
