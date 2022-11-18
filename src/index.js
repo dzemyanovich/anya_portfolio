@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from './layout';
-import Home from './home';
-import NoPage from './noPage';
-import EventOptimizerTitle from './eventOptimizerTitle';
-import EventOptimizer from './eventOptimizer';
+import Home from './pages/home/home';
+import NoPage from './pages/noPage';
+import EventOptimizerTitle from './pages/event-optimizer-title/eventOptimizerTitle';
+import EventOptimizer from './pages/event-optimizer/eventOptimizer';
 
 import './app.css';
 

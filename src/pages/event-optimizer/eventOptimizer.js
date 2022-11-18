@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './eventOptimizer.css';
-import burgerImage from './images/burger.png';
+import burgerImage from '../../images/burger.png';
 
 function EventOptimizer() {
     return (
