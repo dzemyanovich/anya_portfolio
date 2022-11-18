@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import pivunovaBrand from '../../images/pivunova_brand.png';
+import pivunova from '../../images/pivunova.svg';
+import './home.css';
+
 const Home = () => {
-  return <nav>
-    <ul>
-      <li>
-        <Link to='/event-optimizer-title'>Event Optimizer title</Link>
-      </li>
-      <li>
-        <Link to='/event-optimizer'>Event Optimizer</Link>
-      </li>
-    </ul>
-  </nav>;
+  return <div>
+    <img className="pivunova-brand" src={pivunovaBrand} width="150px" alt="pivunova brand" />
+    <div className="designer-title">UX/UI Designer</div>
+    <img className="pivunova-link" src={pivunova} alt="pivunova" width="24px" />
+    <Link className="projects-link" to='/projects'>Projects</Link>
+    <Link className="about-link" to='/about'>About</Link>
+    <Link className="contact-link" to='/contact'>Contact</Link>
+  </div>;
 };
 
 export default Home;
