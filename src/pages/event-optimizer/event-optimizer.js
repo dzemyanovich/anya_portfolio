@@ -1,12 +1,14 @@
 import React from 'react';
 
-import './event-optimizer.css';
-import burgerImage from '../../images/burger.png';
+import HomeLink from '../../components/home-link/home-link';
+
+import image from '../../images/burger.png';
 
 function EventOptimizer() {
     return (
         <div className="project-wrapper">
-            <img src={burgerImage} width="521px" alt="black burger" />
+            <HomeLink />
+            <img src={image} alt="black burger" />
             <div className="project-info">
                 <h3 className="project-title">About project</h3>
                 <div className="project-description">

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import HomeLink from '../../components/home-link/home-link';
 
-import mcdonalds from '../../images/mcdonalds.png';
+import supplyPlanning from '../../images/supply-planning.png';
 import havi from '../../images/havi.png';
 import burger from '../../images/burger.png';
 import zensupplies from '../../images/zensupplies.png';
-import designPlatform from '../../images/design_platform.png';
+import designPlatform from '../../images/design-platform.png';
 import './projects.css';
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
       <HomeLink />
       <img src={burger} alt="burger" />
       <Link className="title project-link" to='/event-optimizer-title'>Event Optimizer</Link>
-      <img src={mcdonalds} alt="mcdonalds" />
+      <img src={supplyPlanning} alt="supply planning" />
       <Link className="title project-link" to='/supply-planning-title'>Supply Planning</Link>
       <img src={havi} alt="havi" />
       <Link className="title project-link" to='/havi-title'>HAVI</Link>

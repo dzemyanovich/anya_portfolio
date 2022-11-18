@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import HomeLink from '../../components/home-link/home-link';
-import pivunovaBrand from '../../images/pivunova_brand.png';
+import pivunovaBrand from '../../images/pivunova-brand.png';
 import './home.css';
 
 const Home = () => {
