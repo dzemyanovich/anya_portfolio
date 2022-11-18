@@ -1,0 +1,18 @@
+.projects {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects > img {
+    width: 600px;
+    display: block;
+    margin-top: 200px;
+}
+
+.project-link {
+    text-decoration: none;
+    position: relative;
+    top: -180px;
+}

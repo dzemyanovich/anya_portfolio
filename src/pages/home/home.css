@@ -8,22 +8,7 @@
 }
 
 .designer-title {
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 1);
-    font-style: normal;
-    letter-spacing: 2px;
-    font-size: 25px;
-    font-family: 'Druk Wide Trial', sans-serif;
-    font-weight: 700;
     margin-top: 15px;
-}
-
-.pivunova-link {
-    position: fixed;
-    left: 0;
-    top: 0;
-    margin-left: 40px;
-    margin-top: 40px;
 }
 
 .about-link {
@@ -48,18 +33,4 @@
     bottom: 0;
     margin-left: 40px;
     margin-bottom: 40px;
-}
-
-.projects-link, .contact-link, .about-link {
-    font-family: 'Druk Wide Trial', sans-serif;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    letter-spacing: 2px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid transparent;
-}
-
-.projects-link:hover, .contact-link:hover, .about-link:hover {
-    border-bottom: 1px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
 }
