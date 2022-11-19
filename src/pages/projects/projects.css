@@ -1,14 +1,21 @@
 .projects {
-    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.image-container {
+    display: block;
+
     display: flex;
-    flex-direction: column;
+    height: 100%;
+    justify-content: center;
     align-items: center;
 }
 
-.projects > img {
-    width: 600px;
-    display: block;
-    margin-top: 200px;
+.image-container img {
+    max-width: 600px;
     animation: 3s ease-out 0s 1 fadeIn;
 }
 
@@ -21,8 +28,36 @@
     }
 }
 
-.project-link {
+.links-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.project-link-container {
+    height: 100%;
     text-decoration: none;
-    position: relative;
-    top: -180px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.project-link-container a {
+    text-decoration: none;
+}
+
+.project-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
