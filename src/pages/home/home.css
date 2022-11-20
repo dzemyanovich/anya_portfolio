@@ -1,12 +1,52 @@
-.pivunova-brand, .designer-title {
+.pivunova-brand, .designer-title-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.designer-title {
+.pivunova-brand-content {
+    position: relative;
+    bottom: -30px;
+    opacity: 0;
+    animation: 2s ease-out 3s 1 fadeIn, 2s ease-out 3s 1 slideIn;
+    animation-fill-mode: forwards;
+}
+
+.designer-title-wrapper {
     margin-top: 15px;
+    overflow-y: hidden;
+}
+
+.designer-title {
+    position: relative;
+    bottom: -30px;
+    animation: 2s ease-out 1s 1 slideIn;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        bottom: -30px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.about-link, .contact-link, .projects-link {
+    animation: 2s ease-out 4s 1 fadeIn;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .about-link {
