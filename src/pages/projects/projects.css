@@ -16,7 +16,9 @@
 
 .image-container img {
     max-width: 600px;
-    animation: 3s ease-out 0s 1 fadeIn;
+    animation: 2s ease-out 3s 1 fadeIn;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 @keyframes fadeIn {
@@ -53,6 +55,7 @@
 
 .project-link-container a {
     text-decoration: none;
+    overflow: hidden;
 }
 
 .project-link {
@@ -60,4 +63,20 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.link-text {
+    position: relative;
+    bottom: -30px;
+    animation: 2s ease-out 1s 1 slideIn;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        bottom: -30px;
+    }
+    100% {
+        bottom: 0;
+    }
 }
