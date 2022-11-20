@@ -35,8 +35,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    position: fixed;
+    background: black;
+    z-index: 1;
+    margin-top: 0;
     animation: 2s ease-out 0s 1 slideInFromBottom;
+    width: 100%;
+    height: 100%;
 }
 
 .project-wrapper > img {
@@ -45,10 +50,10 @@ body {
 
 @keyframes slideInFromBottom {
     0% {
-        margin-top: 1000px;
+        padding-top: 800px;
     }
     100% {
-        margin-top: 200px;
+        padding-top: 0;
     }
 }
 
