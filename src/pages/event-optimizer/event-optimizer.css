@@ -2,3 +2,9 @@
     width: 100%;
     position: fixed;
 }
+
+.event-optimizer .home-link {
+    position: absolute;
+    animation: 2s ease-out 2s 1 fadeIn;
+    animation-fill-mode: forwards;
+}
