@@ -8,7 +8,9 @@
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
     "dev": "webpack-dev-server --mode=development",
-    "prod": "webpack --mode=production"
+    "prod": "webpack-dev-server --mode=production",
+    "build": "webpack --mode=production",
+    "deploy": "aws s3 sync dist/ s3://anna-pivunova --acl public-read"
   },
   "dependencies": {
     "react": "^18.2.0",
