@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 
@@ -6,57 +7,37 @@ import image from '../../images/burger.png';
 import background from '../../images/event-optimizer-background.png';
 import './event-optimizer.css';
 
-function scrollDown(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const projectWrapper = document.querySelector('.event-optimizer .project-wrapper');
-    const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
-    const offsetHeight = document.querySelector('.project-wrapper').offsetHeight;
-
-    const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
-        ? event.deltaY
-        : event.deltaX;
-
-    if (move > 0 && Math.abs(marginTop) < offsetHeight || move < 0 && marginTop < 0) {
-        var newValue = marginTop - move;
-        if (newValue > 0) {
-            newValue = 0;
-        }
-        projectWrapper.style.marginTop = `${newValue}px`;
-    }
+function EventOptimizer() {
+    return [
+        <EventOptimizerHeader key="page-content-header" />,
+        <EventOptimizerHeader key="page-content-header-fixed" fixed={true} />,
+        <img key="page-content-background" className="event-optimizer-background" src={background} alt="event optimizer background" />,
+    ];
 }
 
-class EventOptimizer extends React.Component {
-    componentDidMount() {  
-        window.addEventListener('wheel', scrollDown, { passive:false });
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('wheel', scrollDown, { passive:false });
-    }
-
+class EventOptimizerHeader extends React.Component {
     render() {
         return (
-            <div className='event-optimizer'>
-                <div className="project-wrapper">
-                    <HomeLink />
-                    <img src={image} alt="black burger" />
-                    <div className="project-info">
-                        <h3 className="project-title">About project</h3>
-                        <div className="project-description">
-                            Event Optimizer is an information management platform for QSR industry dedicated to collect,
-                            visually track and analyze key data points of McDonald's & Subway based on data science
-                            (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
-                            forecasting. The tool is fully customizable to meet the specific needs of a department and company
-                            and ...
-                        </div>
+            <div className={`project-wrapper ${this.props.fixed ? 'fixed' : ''}`}>
+                {this.props.fixed && <HomeLink />}
+                <img src={image} alt="black burger" />
+                <div className="project-info">
+                    <h3 className="project-title">About project</h3>
+                    <div className="project-description">
+                        Event Optimizer is an information management platform for QSR industry dedicated to collect,
+                        visually track and analyze key data points of McDonald's & Subway based on data science
+                        (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+                        forecasting. The tool is fully customizable to meet the specific needs of a department and company
+                        and ...
                     </div>
                 </div>
-                <img className="event-optimizer-background" src={background} alt="event optimizer background" />
             </div>
         );
     }
 }
+
+EventOptimizerHeader.propTypes = {  
+    fixed: PropTypes.bool,
+};
 
 export default EventOptimizer;

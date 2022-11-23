@@ -1,10 +1,9 @@
 .event-optimizer-background {
     width: 100%;
     position: fixed;
+    display: none;
 }
 
-.event-optimizer .home-link {
-    position: absolute;
-    animation: 2s ease-out 2s 1 fadeIn;
-    animation-fill-mode: forwards;
+.project-page.content-view .event-optimizer-background {
+    display: block;
 }

@@ -40,35 +40,35 @@ class Home extends React.Component {
       <div className="links-container">
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/event-optimizer-title'>
+            <Link className="title" to='/event-optimizer'>
               <span className="link-text">Event Optimizer</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/supply-planning-title'>
+            <Link className="title" to='/supply-planning'>
               <span className="link-text">Supply Planning</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/havi-title'>
+            <Link className="title" to='/havi'>
               <span className="link-text">HAVI</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/design-platform-title'>
+            <Link className="title" to='/design-platform'>
               <span className="link-text">Design Platform</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/zensupplies-title'>
+            <Link className="title" to='/zensupplies'>
               <span className="link-text">Zensupplies</span>
             </Link>
           </span>

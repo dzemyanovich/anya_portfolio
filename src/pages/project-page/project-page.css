@@ -1,0 +1,83 @@
+.project-page {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    height: 100%;
+    animation: 2s ease-out 0s 1 slideInFromRight;
+}
+
+.project-page > * {
+    flex: 0 0 auto;
+}
+
+.page-title {
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+    /* TODO: do not use relative positioning and top, left */
+    position: relative;
+    top: 8vh;
+    left: -5vh;
+    font-family: 'Druk Wide Trial', sans-serif;
+    font-size: 130vh;
+    line-height: 100vh;
+}
+
+.project-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    margin-top: 0;
+    width: 100%;
+}
+
+.project-wrapper.fixed {
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    display: none;
+}
+
+.project-wrapper > img {
+    width: 521px;
+}
+
+.project-wrapper .home-link {
+    animation-delay: 0s;
+}
+
+.project-info {
+    max-width: 430px;
+}
+
+.project-title {
+    color: rgba(255, 255, 255, 1);
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-family: Montserrat;
+    font-size: 14px;
+}
+
+.project-description {
+    font-style: normal;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.project-page.content-view .project-wrapper.fixed {
+    display: flex;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        margin-left: 2000px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
