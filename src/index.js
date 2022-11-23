@@ -25,7 +25,7 @@ root.render(
       <Routes>
         <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='event-optimizer-title' element={<PageTitle title="Event Optimizer" pathname="/event-optimizer" />} />
+            <Route path='event-optimizer-title' element={<PageTitle title="Event" pathname="/event-optimizer" />} />
             <Route path='event-optimizer' element={<EventOptimizer />} />
             <Route path='supply-planning-title' element={<PageTitle title="Supply Planning" pathname="/supply-planning" />} />
             <Route path='supply-planning' element={<SupplyPlanning />} />
