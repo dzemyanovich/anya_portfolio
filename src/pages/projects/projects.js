@@ -16,10 +16,10 @@ function scrollRight(event) {
   const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
       ? event.deltaY
       : event.deltaX;
-  const linksContainer = document.getElementsByClassName('links-container')[0];
+  const linksContainer = document.querySelector('.links-container');
   const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
   linksContainer.scrollLeft += move * proportion;
-  document.getElementsByClassName('projects')[0].scrollTop += move;
+  document.querySelector('.projects').scrollTop += move;
 }
 
 class Home extends React.Component {
