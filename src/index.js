@@ -27,7 +27,7 @@ root.render(
             <Route index element={<Home />} />
             <Route path='projects' element={<Projects />} />
             <Route path='projects/event-optimizer' element={<ProjectPage title="Event" content={<EventOptimizer />} />} />
-            <Route path='projects/supply-planning' element={<ProjectPage title="Supply Planning" content={<SupplyPlanning />} />} />
+            <Route path='projects/supply-planning' element={<ProjectPage title="Supply Planning" content={<SupplyPlanning />} className='supply-planning' />} />
             <Route path='projects/havi' element={<ProjectPage title="Havi" content={<Havi />} />} />
             <Route path='projects/design-platform' element={<ProjectPage title="Design Platform" content={<DesignPlatform />} />} />
             <Route path='projects/zensupplies' element={<ProjectPage title="Zensupplies" content={<ZenSupplies />} />} />

@@ -74,7 +74,7 @@ class ProjectPage extends React.Component {
 
     render () {
         return (
-            <div className="project-page">
+            <div className={`project-page ${this.props.className ? this.props.className : ''}`}>
                 <div className="page-title">{this.props.title}</div>
                 <div className="project-gap"></div>
                 {this.props.content}
@@ -86,6 +86,7 @@ class ProjectPage extends React.Component {
 ProjectPage.propTypes = {  
     title: PropTypes.string.isRequired,
     content: PropTypes.element.isRequired,
+    className: PropTypes.string
 };
 
 export default ProjectPage;
