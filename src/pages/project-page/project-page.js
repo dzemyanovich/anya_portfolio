@@ -69,6 +69,7 @@ class ProjectPage extends React.Component {
         return (
             <div className="project-page">
                 <div className="page-title">{this.props.title}</div>
+                <div className="project-gap"></div>
                 {this.props.content}
             </div>
         );
