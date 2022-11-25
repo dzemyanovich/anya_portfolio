@@ -11,6 +11,8 @@ import designPlatform from '../../images/design-platform.png';
 import './projects.css';
 
 // TODO: optimize for touch devices
+// TODO: wait until animation rendering is completed
+// TODO: add handler for screen resizing so that I can change resolution on the go and everything works
 function scrollRight(event) {
   event.preventDefault();
   event.stopPropagation();

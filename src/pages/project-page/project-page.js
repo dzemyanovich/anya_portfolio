@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './project-page.css';
 
 // TODO: optimize for touch devices
+// TODO: wait until animation rendering is completed
+// TODO: add handler for screen resizing so that I can change resolution on the go and everything works
 function scrollDown(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -34,6 +36,8 @@ function scrollDown(event) {
 }
 
 // TODO: optimize for touch devices
+// TODO: wait until animation rendering is completed
+// TODO: add handler for screen resizing so that I can change resolution on the go and everything works
 function scrollRight(event) {
     event.preventDefault();
     event.stopPropagation();
