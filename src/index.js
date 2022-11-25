@@ -25,12 +25,12 @@ root.render(
       <Routes>
         <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='event-optimizer' element={<ProjectPage title="Event" content={<EventOptimizer />} />} />
-            <Route path='supply-planning' element={<ProjectPage title="Supply Planning" content={<SupplyPlanning />} />} />
-            <Route path='havi' element={<ProjectPage title="Havi" content={<Havi />} />} />
-            <Route path='design-platform' element={<ProjectPage title="Design Platform" content={<DesignPlatform />} />} />
-            <Route path='zensupplies' element={<ProjectPage title="Zensupplies" content={<ZenSupplies />} />} />
             <Route path='projects' element={<Projects />} />
+            <Route path='projects/event-optimizer' element={<ProjectPage title="Event" content={<EventOptimizer />} />} />
+            <Route path='projects/supply-planning' element={<ProjectPage title="Supply Planning" content={<SupplyPlanning />} />} />
+            <Route path='projects/havi' element={<ProjectPage title="Havi" content={<Havi />} />} />
+            <Route path='projects/design-platform' element={<ProjectPage title="Design Platform" content={<DesignPlatform />} />} />
+            <Route path='projects/zensupplies' element={<ProjectPage title="Zensupplies" content={<ZenSupplies />} />} />
             <Route path='about' element={<About />} />
             <Route path='contact' element={<Contact />} />
             <Route path='*' element={<NoPage />} />
