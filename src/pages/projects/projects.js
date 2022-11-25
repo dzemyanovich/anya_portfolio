@@ -18,8 +18,8 @@ function scrollRight(event) {
       : event.deltaX;
   const linksContainer = document.querySelector('.links-container');
   const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
-  linksContainer.scrollLeft += move * proportion;
   document.querySelector('.projects').scrollTop += move;
+  linksContainer.scrollLeft = document.querySelector('.projects').scrollTop * proportion;
 }
 
 class Home extends React.Component {
