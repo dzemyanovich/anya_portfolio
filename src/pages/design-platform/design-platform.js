@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 
+// TODO: optimizer size of each image
 import image from '../../images/design-platform.png';
 import background from '../../images/event-optimizer-background.png';
 

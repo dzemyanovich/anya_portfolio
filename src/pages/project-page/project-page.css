@@ -14,10 +14,11 @@
     white-space: nowrap;
     text-transform: uppercase;
     text-align: center;
-    /* TODO: do not use relative positioning and top, left */
+    /* TODO: do not use relative positioning and top, left in this case */
     position: relative;
     top: 8vh;
     left: -5vh;
+    /* TODO: use correct font */
     font-family: 'Druk Wide Trial', sans-serif;
     font-size: 130vh;
     line-height: 100vh;

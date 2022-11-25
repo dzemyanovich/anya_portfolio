@@ -10,6 +10,7 @@ import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
 import './projects.css';
 
+// TODO: optimize for touch devices
 function scrollRight(event) {
   event.preventDefault();
   event.stopPropagation();

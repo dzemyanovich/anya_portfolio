@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './project-page.css';
 
+// TODO: optimize for touch devices
 function scrollDown(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -32,6 +33,7 @@ function scrollDown(event) {
     }
 }
 
+// TODO: optimize for touch devices
 function scrollRight(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -48,6 +50,7 @@ function scrollRight(event) {
         window.removeEventListener('wheel', scrollRight, { passive:false });
         window.addEventListener('wheel', scrollDown, { passive:false });
 
+        // TODO: do not use document.querySelector anywhere
         document.querySelector('.project-page').classList.add('content-view');
     }
 }
