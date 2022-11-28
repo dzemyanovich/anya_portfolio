@@ -17,14 +17,13 @@
     /* TODO: use correct font */
     font-family: 'Druk Wide Trial', sans-serif;
     font-size: 129vh;
-    /* TODO: after reloading page several times, line-height changes and as result text "bounces" */
-    line-height: 115vh;
+    line-height: 100vh;
     position: relative;
     margin-left: -5vh;
+    margin-top: 8vh;
 }
 
 .supply-planning .page-title {
-    line-height: 116vh;
     margin-left: -2vh;
 }
 
@@ -35,6 +34,17 @@
     background: black;
     margin-top: 0;
     width: 100%;
+}
+
+.project-wrapper:not(.fixed) {
+    /* todo: get rid of the hack described below */
+    /* hack: need to apply margin-left and margin-top because of .page-title */
+    margin-left: 5vh;
+    margin-top: -8vh;
+}
+
+.supply-planning .project-wrapper:not(.fixed) {
+    margin-left: 2vh;
 }
 
 .project-wrapper.fixed {
