@@ -12,6 +12,7 @@ class ProjectPage extends React.Component {
         this.state = {
             isContentView: false,
         };
+        this.projectPageRef = null;
     }
 
     // TODO: optimize for touch devices
@@ -23,7 +24,7 @@ class ProjectPage extends React.Component {
         const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
             ? event.deltaY
             : event.deltaX;
-        const target = document.querySelector('.project-page');
+        const target = this.projectPageRef;
         target.scrollLeft += move;
 
         // For some reason when "inspect element" panel is closed, the biggest value of "target.offsetWidth + target.scrollLeft"
@@ -46,6 +47,7 @@ class ProjectPage extends React.Component {
         event.preventDefault();
         event.stopPropagation();
 
+        // TODO: do not use document.querySelector
         const projectWrapper = document.querySelector('.project-wrapper.fixed');
         const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
         const offsetHeight = projectWrapper.offsetHeight;
@@ -87,7 +89,8 @@ class ProjectPage extends React.Component {
 
     render () {
         return (
-            <div className={`project-page ${this.state.isContentView ? 'content-view' : ''} ${this.props.className ? this.props.className : ''}`}>
+            <div className={`project-page ${this.state.isContentView ? 'content-view' : ''} ${this.props.className ? this.props.className : ''}`}
+                ref={el => this.projectPageRef = el}>
                 <div className="page-title">{this.props.title}</div>
                 <div className="project-gap"></div>
                 {this.props.content}

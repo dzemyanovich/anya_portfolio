@@ -10,37 +10,47 @@ import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
 import './projects.css';
 
-// TODO: optimize for touch devices
-// TODO: wait until animation rendering is completed
-// TODO: add handler for screen resizing so that I can change resolution on the go and everything works
-function scrollRight(event) {
-  event.preventDefault();
-  event.stopPropagation();
-  const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
-      ? event.deltaY
-      : event.deltaX;
-  const linksContainer = document.querySelector('.links-container');
-  const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
-  document.querySelector('.projects').scrollTop += move;
-  linksContainer.scrollLeft = document.querySelector('.projects').scrollTop * proportion;
-}
-
 class Home extends React.Component {
-  componentDidMount() {
-      // hack: sometimes content of the page is not centered
-      window.scrollTo(0, 0);
+  constructor(props) {
+    super(props);
 
-      window.addEventListener('wheel', scrollRight, { passive:false });
+    this.scrollRight = this.scrollRight.bind(this);
+    this.linksContainerRef = null;
+    this.projectsRef = null;
+  }
+
+  // TODO: optimize for touch devices
+  // TODO: wait until animation rendering is completed
+  // TODO: add handler for screen resizing so that I can change resolution on the go and everything works
+  scrollRight(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
+        ? event.deltaY
+        : event.deltaX;
+    const linksContainer = this.linksContainerRef;
+    const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
+    const projects = this.projectsRef;
+
+    projects.scrollTop += move;
+    linksContainer.scrollLeft = projects.scrollTop * proportion;
+  }
+
+  componentDidMount() {
+    // hack: sometimes content of the page is not centered
+    window.scrollTo(0, 0);
+
+    window.addEventListener('wheel', scrollRight, { passive:false });
   }
 
   componentWillUnmount() {
-      window.removeEventListener('wheel', scrollRight, { passive:false });
+    window.removeEventListener('wheel', scrollRight, { passive:false });
   }
 
   render () {
     return <div>
       <HomeLink />
-      <div className="links-container">
+      <div className="links-container" ref={el => this.linksContainerRef = el}>
         <div className="project-link-container">
           <span className="project-link">
             <Link className="title" to='/projects/event-optimizer'>
@@ -77,7 +87,7 @@ class Home extends React.Component {
           </span>
         </div>
       </div>
-      <div className="projects">
+      <div className="projects" ref={el => this.projectsRef = el}>
         <div className="image-container">
           <img src={burger} alt="burger" />
         </div>

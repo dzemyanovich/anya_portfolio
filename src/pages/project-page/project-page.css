@@ -37,7 +37,7 @@
 }
 
 .project-wrapper:not(.fixed) {
-    /* todo: get rid of the hack described below */
+    /* TODO: get rid of the hack described below */
     /* hack: need to apply margin-left and margin-top because of .page-title */
     margin-left: 5vh;
     margin-top: -8vh;
