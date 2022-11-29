@@ -9,11 +9,11 @@ import Projects from './pages/projects/projects';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
 import ProjectPage from './pages/project-page/project-page';
-import EventOptimizer from './pages/event-optimizer/event-optimizer';
-import SupplyPlanning from './pages/supply-planning/supply-planning';
-import Havi from './pages/havi/havi';
-import DesignPlatform from './pages/design-platform/design-platform';
-import ZenSupplies from './pages/zensupplies/zensupplies';
+import { EventOptimizerHeader, EventOptimizerContent } from './pages/event-optimizer/event-optimizer';
+import { SupplyPlanningHeader, SupplyPlanningContent } from './pages/supply-planning/supply-planning';
+import { HaviHeader, HaviContent } from './pages/havi/havi';
+import { DesignPlatformHeader, DesignPlatformContent } from './pages/design-platform/design-platform';
+import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
 
 import './app.css';
 
@@ -27,14 +27,40 @@ root.render(
         <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path='projects' element={<Projects />} />
-            <Route path='projects/event-optimizer' element={<ProjectPage title="Event" content={<EventOptimizer />} />} />
-            <Route path='projects/supply-planning' element={<ProjectPage title="Supply Planning" content={<SupplyPlanning />} className='supply-planning' />} />
-            <Route path='projects/havi' element={<ProjectPage title="Havi" content={<Havi />} />} />
-            <Route path='projects/design-platform' element={<ProjectPage title="Design Platform" content={<DesignPlatform />} />} />
-            <Route path='projects/zensupplies' element={<ProjectPage title="Zensupplies" content={<ZenSupplies />} />} />
-            <Route path='about' element={<About />} />
-            <Route path='contact' element={<Contact />} />
-            <Route path='*' element={<NoPage />} />
+            <Route path='projects/event-optimizer' element={<ProjectPage
+              title="Event Optimizer"
+              header={<EventOptimizerHeader />}
+              content={<EventOptimizerContent />}
+              className="event-optimizer" />}
+            />
+            <Route path='projects/supply-planning' element={<ProjectPage
+              title="Supply Planning"
+              header={<SupplyPlanningHeader />}
+              content={<SupplyPlanningContent />}
+              className="supply-planning" />}
+            />
+            <Route path='projects/havi' element={<ProjectPage
+              title="Havi"
+              header={<HaviHeader />}
+              content={<HaviContent />}
+              className="havi" />}
+            />
+            <Route path='projects/design-platform' element={<ProjectPage
+              title="Design Platform"
+              header={<DesignPlatformHeader />}
+              content={<DesignPlatformContent />}
+              className="design-platform" />}
+            />
+            <Route path='projects/zensupplies' element={<ProjectPage
+              title="Zensupplies"
+              header={<ZensuppliesHeader />}
+              content={<ZensuppliesContent />}
+              className="Zensupplies" />}
+            />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            {/* TODO: do we really need no page? */}
+            <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </HashRouter>

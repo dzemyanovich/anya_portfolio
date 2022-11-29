@@ -1,9 +1,0 @@
-.event-optimizer-background {
-    width: 100%;
-    position: fixed;
-    display: none;
-}
-
-.project-page.content-view .event-optimizer-background {
-    display: block;
-}

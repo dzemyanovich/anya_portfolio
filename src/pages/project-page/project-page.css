@@ -14,7 +14,6 @@
     white-space: nowrap;
     text-transform: uppercase;
     text-align: center;
-    /* TODO: use correct font */
     font-family: 'Druk Wide Trial', sans-serif;
     font-size: 129vh;
     line-height: 100vh;
@@ -37,6 +36,7 @@
 }
 
 .project-wrapper:not(.fixed) {
+    /* TODO: title changes its top left position after page is reloded */
     /* TODO: get rid of the hack described below */
     /* hack: need to apply margin-left and margin-top because of .page-title */
     margin-left: 5vh;

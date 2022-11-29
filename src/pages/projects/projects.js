@@ -40,11 +40,11 @@ class Home extends React.Component {
     // hack: sometimes content of the page is not centered
     window.scrollTo(0, 0);
 
-    window.addEventListener('wheel', scrollRight, { passive:false });
+    window.addEventListener('wheel', this.scrollRight, { passive:false });
   }
 
   componentWillUnmount() {
-    window.removeEventListener('wheel', scrollRight, { passive:false });
+    window.removeEventListener('wheel', this.scrollRight, { passive:false });
   }
 
   render () {

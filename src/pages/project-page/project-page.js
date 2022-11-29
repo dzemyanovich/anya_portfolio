@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import HomeLink from '../../components/home-link/home-link';
+
 import './project-page.css';
 
 class ProjectPage extends React.Component {
@@ -13,6 +15,7 @@ class ProjectPage extends React.Component {
             isContentView: false,
         };
         this.projectPageRef = null;
+        this.projectWrapperRef = null;
     }
 
     // TODO: optimize for touch devices
@@ -47,8 +50,7 @@ class ProjectPage extends React.Component {
         event.preventDefault();
         event.stopPropagation();
 
-        // TODO: do not use document.querySelector
-        const projectWrapper = document.querySelector('.project-wrapper.fixed');
+        const projectWrapper = this.projectWrapperRef;
         const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
         const offsetHeight = projectWrapper.offsetHeight;
 
@@ -89,10 +91,17 @@ class ProjectPage extends React.Component {
 
     render () {
         return (
-            <div className={`project-page ${this.state.isContentView ? 'content-view' : ''} ${this.props.className ? this.props.className : ''}`}
+            <div className={`project-page ${this.state.isContentView ? 'content-view' : ''} ${this.props.className}`}
                 ref={el => this.projectPageRef = el}>
                 <div className="page-title">{this.props.title}</div>
                 <div className="project-gap"></div>
+                <div className="project-wrapper">
+                    {this.props.header}
+                </div>
+                <div className="project-wrapper fixed" ref={el => this.projectWrapperRef = el}>
+                    <HomeLink />
+                    {this.props.header}
+                </div>
                 {this.props.content}
             </div>
         );
@@ -101,8 +110,9 @@ class ProjectPage extends React.Component {
 
 ProjectPage.propTypes = {  
     title: PropTypes.string.isRequired,
+    header: PropTypes.element.isRequired,
     content: PropTypes.element.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string.isRequired,
 };
 
 export default ProjectPage;

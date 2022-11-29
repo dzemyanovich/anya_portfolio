@@ -4,7 +4,7 @@
 @import url('https://fonts.cdnfonts.com/css/montserrat');
 @import url('https://fonts.cdnfonts.com/css/druk-trial');
 
-/* TODO: add responsive web design: table, mobile */
+/* TODO: add responsive web design: tablet, mobile */
 body {
     background-color: black; 
     color: white;
@@ -35,3 +35,13 @@ body {
     color: rgba(255, 255, 255, 1);
 }
 
+/* TODO: unique background for each project page */
+.event-optimizer-background {
+    width: 100%;
+    position: fixed;
+    display: none;
+}
+
+.project-page.content-view .event-optimizer-background {
+    display: block;
+}

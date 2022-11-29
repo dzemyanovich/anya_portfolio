@@ -10,6 +10,7 @@
     "dev": "webpack-dev-server --mode=development",
     "prod": "webpack-dev-server --mode=production",
     "build": "webpack --mode=production",
+    "build-dev": "webpack --mode=development",
     "deploy": "aws s3 sync dist/ s3://anna-pivunova --acl public-read"
   },
   "dependencies": {
