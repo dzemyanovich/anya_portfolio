@@ -20,7 +20,6 @@ class Home extends React.Component {
   }
 
   // TODO: optimize for touch devices
-  // TODO: add handler for screen resizing so that I can change resolution on the go and everything works
   scrollRight(event) {
     event.preventDefault();
     event.stopPropagation();
