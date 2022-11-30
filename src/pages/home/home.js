@@ -12,7 +12,7 @@ const Home = () => {
       <img className="pivunova-brand-content" src={pivunovaBrand} width="150px" alt="pivunova brand" />
     </div>
     <div className="designer-title-wrapper title">
-      <span className="designer-title">UX/UI Designer</span>
+      <span className="designer-title">Lead Designer</span>
     </div>
     <HomeLink />
     <Link className="page-link projects-link" to='/projects'>Projects</Link>

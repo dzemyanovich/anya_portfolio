@@ -19,7 +19,6 @@ class ProjectPage extends React.Component {
     }
 
     // TODO: optimize for touch devices
-    // TODO: wait until animation rendering is completed
     // TODO: add handler for screen resizing so that I can change resolution on the go and everything works
     scrollRight(event) {
         event.preventDefault();
@@ -44,7 +43,6 @@ class ProjectPage extends React.Component {
     }
 
     // TODO: optimize for touch devices
-    // TODO: wait until animation rendering is completed
     // TODO: add handler for screen resizing so that I can change resolution on the go and everything works
     scrollDown(event) {
         event.preventDefault();
@@ -81,7 +79,10 @@ class ProjectPage extends React.Component {
         // hack: sometimes content of the page is not centered
         window.scrollTo(0, 0);
 
-        window.addEventListener('wheel', this.scrollRight, { passive:false });
+        // wait 2 seconds until animation finishes rendering
+        setTimeout(() => {
+            window.addEventListener('wheel', this.scrollRight, { passive:false });
+        }, 2000);
     }
 
     componentWillUnmount() {

@@ -20,7 +20,6 @@ class Home extends React.Component {
   }
 
   // TODO: optimize for touch devices
-  // TODO: wait until animation rendering is completed
   // TODO: add handler for screen resizing so that I can change resolution on the go and everything works
   scrollRight(event) {
     event.preventDefault();
@@ -40,7 +39,10 @@ class Home extends React.Component {
     // hack: sometimes content of the page is not centered
     window.scrollTo(0, 0);
 
-    window.addEventListener('wheel', this.scrollRight, { passive:false });
+    // wait 5 sec until animaiton rendering is finished
+    setTimeout(() => {
+      window.addEventListener('wheel', this.scrollRight, { passive:false });
+    }, 5000);
   }
 
   componentWillUnmount() {
@@ -48,40 +50,40 @@ class Home extends React.Component {
   }
 
   render () {
-    return <div>
+    return <div className="projects-page">
       <HomeLink />
       <div className="links-container" ref={el => this.linksContainerRef = el}>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/projects/event-optimizer'>
+            <Link className="title" to="/projects/event-optimizer">
               <span className="link-text">Event Optimizer</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/projects/supply-planning'>
+            <Link className="title" to="/projects/supply-planning">
               <span className="link-text">Supply Planning</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/projects/havi'>
+            <Link className="title" to="/projects/havi">
               <span className="link-text">HAVI</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/projects/design-platform'>
+            <Link className="title" to="/projects/design-platform">
               <span className="link-text">Design Platform</span>
             </Link>
           </span>
         </div>
         <div className="project-link-container">
           <span className="project-link">
-            <Link className="title" to='/projects/zensupplies'>
+            <Link className="title" to="/projects/zensupplies">
               <span className="link-text">Zensupplies</span>
             </Link>
           </span>
