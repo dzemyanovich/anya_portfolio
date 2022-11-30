@@ -6,56 +6,45 @@
 }
 
 .image-container {
-    display: block;
-
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
-}
 
-.image-container img {
-    max-width: 600px;
-    animation: 2s ease-out 3s 1 fadeIn;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    0% {
+    img {
+        max-width: 600px;
+        animation: 2s ease-out 3s 1 fadeIn;
+        animation-fill-mode: forwards;
         opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }
 
 .links-container {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 100%;
     position: fixed;
-    margin: 0;
-    padding: 0;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 100%;
     z-index: 1;
 }
 
 .project-link-container {
     height: 100%;
+    width: 100%;
     text-decoration: none;
     display: inline-block;
-    width: 100%;
     text-align: center;
-}
 
-.project-link-container a {
-    text-decoration: none;
-    overflow: hidden;
+    a {
+        text-decoration: none;
+        overflow: hidden;
+    }
 }
 
 .project-link {
@@ -70,13 +59,4 @@
     bottom: -30px;
     animation: 2s ease-out 1s 1 slideIn;
     animation-fill-mode: forwards;
-}
-
-@keyframes slideIn {
-    0% {
-        bottom: -30px;
-    }
-    100% {
-        bottom: 0;
-    }
 }

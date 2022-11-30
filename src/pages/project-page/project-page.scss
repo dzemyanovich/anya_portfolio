@@ -1,13 +1,25 @@
+$page-title-margin-left: -5vh;
+$page-title-margin-top: 8vh;
+
+@keyframes slideInFromRight {
+    0% {
+        margin-left: 2000px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
 .project-page {
     overflow-y: hidden;
     overflow-x: scroll;
     display: flex;
     height: 100%;
     animation: 2s ease-out 0s 1 slideInFromRight;
-}
 
-.project-page > * {
-    flex: 0 0 auto;
+    > * {
+        flex: 0 0 auto;
+    }
 }
 
 .page-title {
@@ -18,12 +30,8 @@
     font-size: 129vh;
     line-height: 100vh;
     position: relative;
-    margin-left: -5vh;
-    margin-top: 8vh;
-}
-
-.supply-planning .page-title {
-    margin-left: -2vh;
+    margin-left: $page-title-margin-left;
+    margin-top: $page-title-margin-top;
 }
 
 .project-wrapper {
@@ -33,33 +41,39 @@
     background: black;
     margin-top: 0;
     width: 100%;
+
+    &:not(.fixed) {
+        /* TODO: title changes its top left position after page is reloded */
+        /* TODO: get rid of the hack described below */
+        /* hack: need to apply margin-left and margin-top because of .page-title */
+        margin-left: -$page-title-margin-left;
+        margin-top: -$page-title-margin-top;
+    }
+
+    &.fixed {
+        position: fixed;
+        z-index: 1;
+        height: 100%;
+        display: none;
+    }
+
+    > img {
+        width: 521px;
+    }
+
+    .home-link {
+        animation-delay: 0s;
+    }
 }
 
-.project-wrapper:not(.fixed) {
-    /* TODO: title changes its top left position after page is reloded */
-    /* TODO: get rid of the hack described below */
-    /* hack: need to apply margin-left and margin-top because of .page-title */
-    margin-left: 5vh;
-    margin-top: -8vh;
-}
+.supply-planning {
+    .page-title {
+        margin-left: -2vh;
+    }
 
-.supply-planning .project-wrapper:not(.fixed) {
-    margin-left: 2vh;
-}
-
-.project-wrapper.fixed {
-    position: fixed;
-    z-index: 1;
-    height: 100%;
-    display: none;
-}
-
-.project-wrapper > img {
-    width: 521px;
-}
-
-.project-wrapper .home-link {
-    animation-delay: 0s;
+    .project-wrapper:not(.fixed) {
+        margin-left: 2vh;
+    }
 }
 
 .project-info {
@@ -86,15 +100,6 @@
 
 .project-page.content-view .project-wrapper.fixed {
     display: flex;
-}
-
-@keyframes slideInFromRight {
-    0% {
-        margin-left: 2000px;
-    }
-    100% {
-        margin-left: 0;
-    }
 }
 
 .project-gap {
