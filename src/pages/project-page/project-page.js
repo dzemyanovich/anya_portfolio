@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 
-import './project-page.css';
+import './project-page.scss';
 
 class ProjectPage extends React.Component {
     constructor(props) {

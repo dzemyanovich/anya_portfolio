@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Outlet, HashRouter, Routes, Route } from 'react-router-dom';
 
-import Layout from './layout';
 import Home from './pages/home/home';
 import NoPage from './pages/noPage';
 import Projects from './pages/projects/projects';
@@ -15,16 +14,18 @@ import { HaviHeader, HaviContent } from './pages/havi/havi';
 import { DesignPlatformHeader, DesignPlatformContent } from './pages/design-platform/design-platform';
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
 
-import './app.css';
+import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// TODO: add linting
+// TODO: add at least 80% unit tests coverage
 root.render(
   <React.StrictMode>
     {/* TODO: consider switching back to BrowswerRouter */}
     <HashRouter>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Outlet />}>
             <Route index element={<Home />} />
             <Route path='projects' element={<Projects />} />
             <Route path='projects/event-optimizer' element={<ProjectPage

@@ -19,6 +19,7 @@ export function EventOptimizerHeader() {
     ];
 }
 
+// TODO: add more content
 export function EventOptimizerContent() {
     return [
         <img key="page-content-background" className="event-optimizer-background" src={background} alt="page-content-background" />,

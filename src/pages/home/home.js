@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import HomeLink from '../../components/home-link/home-link';
+
 import pivunovaBrand from '../../images/pivunova-brand.png';
-import './home.css';
+import './home.scss';
 
 const Home = () => {
   return <div>

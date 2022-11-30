@@ -8,7 +8,7 @@ import havi from '../../images/havi.png';
 import burger from '../../images/burger.png';
 import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
-import './projects.css';
+import './projects.scss';
 
 class Home extends React.Component {
   constructor(props) {
