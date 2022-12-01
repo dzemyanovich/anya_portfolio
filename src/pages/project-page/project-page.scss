@@ -1,8 +1,5 @@
 @import '../../styles/shared.scss';
 
-$page-title-margin-left: -5vh;
-$page-title-margin-top: 8vh;
-
 @keyframes slideInFromRight {
     0% {
         margin-left: 2000px;
@@ -32,8 +29,8 @@ $page-title-margin-top: 8vh;
     font-size: 129vh;
     line-height: 100vh;
     position: relative;
-    margin-left: $page-title-margin-left;
-    margin-top: $page-title-margin-top;
+    left: -5vh;
+    top: 8vh;
 }
 
 .project-wrapper {
@@ -41,16 +38,7 @@ $page-title-margin-top: 8vh;
     justify-content: center;
     align-items: center;
     background: black;
-    margin-top: 0;
     width: 100%;
-
-    &:not(.fixed) {
-        /* TODO: title changes its top left position after page is reloded */
-        /* TODO: get rid of the hack described below */
-        /* hack: need to apply margin-left and margin-top because of .page-title */
-        margin-left: -$page-title-margin-left;
-        margin-top: -$page-title-margin-top;
-    }
 
     &.fixed {
         position: fixed;
@@ -68,14 +56,8 @@ $page-title-margin-top: 8vh;
     }
 }
 
-.supply-planning {
-    .page-title {
-        margin-left: -2vh;
-    }
-
-    .project-wrapper:not(.fixed) {
-        margin-left: 2vh;
-    }
+.supply-planning .page-title {
+    left: -2vh;
 }
 
 .project-info {
