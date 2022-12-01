@@ -17,7 +17,6 @@ import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// TODO: add more rules for stylelint -> scss
 // TODO: add at least 80% unit tests coverage
 root.render(
   <React.StrictMode>

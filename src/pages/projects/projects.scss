@@ -1,66 +1,66 @@
 .projects-page .home-link {
-    animation-delay: 4s;
+  animation-delay: 4s;
 }
 
 .projects {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
+  height: 100%;
+  overflow-y: scroll;
+  position: fixed;
+  width: 100%;
 }
 
 .image-container {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 
-    img {
-        max-width: 600px;
-        animation: 2s ease-out 3s 1 fadeIn;
-        animation-fill-mode: forwards;
-        opacity: 0;
-    }
+  img {
+    animation: 2s ease-out 3s 1 fade-in;
+    animation-fill-mode: forwards;
+    max-width: 600px;
+    opacity: 0;
+  }
 }
 
 .links-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 100%;
-    z-index: 1;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .project-link-container {
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
 
-    a {
-        text-decoration: none;
-        overflow: hidden;
-    }
+  a {
+    overflow: hidden;
+    text-decoration: none;
+  }
 }
 
 .project-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 }
 
 .link-text {
-    position: relative;
-    bottom: -30px;
-    animation: 2s ease-out 1s 1 slideIn;
-    animation-fill-mode: forwards;
+  animation: 2s ease-out 1s 1 slide-in;
+  animation-fill-mode: forwards;
+  bottom: -30px;
+  position: relative;
 }

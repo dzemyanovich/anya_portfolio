@@ -13,7 +13,8 @@
     "build-dev": "webpack --mode=development",
     "deploy": "yarn build && aws s3 sync dist/ s3://anna-pivunova --acl public-read",
     "lint": "eslint src/**/*.jsx",
-    "stylelint": "stylelint src/**/*.scss"
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint-fix": "stylelint \"**/*.scss\" --fix"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -43,6 +44,7 @@
     "style-loader": "^3.3.1",
     "stylelint": "^14.15.0",
     "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-scss": "^4.3.0",
     "webpack": "^5.75.0",

@@ -1,87 +1,91 @@
-@import '../../styles/shared.scss';
+@import '../../styles/shared';
 
-@keyframes slideInFromRight {
-    0% {
-        margin-left: 2000px;
-    }
-    100% {
-        margin-left: 0;
-    }
+@keyframes slide-in-from-right {
+  0% {
+    margin-left: 2000px;
+  }
+
+  100% {
+    margin-left: 0;
+  }
 }
 
 .project-page {
-    overflow-y: hidden;
-    overflow-x: scroll;
-    display: flex;
-    height: 100%;
-    animation: 2s ease-out 0s 1 slideInFromRight;
+  animation: 2s ease-out 0s 1 slide-in-from-right;
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
 
-    > * {
-        flex: 0 0 auto;
-    }
+  >* {
+    flex: 0 0 auto;
+  }
 }
 
 .page-title {
-    @include druk-normal-400;
-    white-space: nowrap;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 129vh;
-    line-height: 100vh;
-    position: relative;
-    left: -5vh;
-    top: 8vh;
+  @include druk-normal-400;
+
+  font-size: 129vh;
+  left: -5vh;
+  line-height: 100vh;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  top: 8vh;
+  white-space: nowrap;
 }
 
 .project-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: black;
-    width: 100%;
+  align-items: center;
+  background: rgb(0 0 0);
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
-    &.fixed {
-        position: fixed;
-        z-index: 1;
-        height: 100%;
-        display: none;
-    }
+  &.fixed {
+    display: none;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+  }
 
-    > img {
-        width: 521px;
-    }
+  >img {
+    width: 521px;
+  }
 
-    .home-link {
-        animation-delay: 0s;
-    }
+  .home-link {
+    animation-delay: 0s;
+  }
 }
 
 .supply-planning .page-title {
-    left: -2vh;
+  left: -2vh;
 }
 
 .project-info {
-    max-width: 430px;
+  max-width: 430px;
 }
 
 .project-title {
-    @include mnontserrat-normal-700;
-    color: rgba(255, 255, 255, 1);
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    font-size: 14px;
+  @include mnontserrat-normal-700;
+
+  color: rgba(255 255 255 / 100%);
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
 }
 
 .project-description {
-    @include mnontserrat-normal-400;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+  @include mnontserrat-normal-400;
+
+  color: rgba(255 255 255 / 80%);
+  font-size: 14px;
 }
 
 .project-page.content-view .project-wrapper.fixed {
-    display: flex;
+  display: flex;
 }
 
 .project-gap {
-    width: 70%;
+  width: 70%;
 }
