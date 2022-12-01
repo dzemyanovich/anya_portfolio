@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { Outlet, HashRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/home/home';
-import NoPage from './pages/noPage';
 import Projects from './pages/projects/projects';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
@@ -27,6 +26,7 @@ root.render(
       <Routes>
         <Route path='/' element={<Outlet />}>
             <Route index element={<Home />} />
+            <Route path="*" element={<Home />} />
             <Route path='projects' element={<Projects />} />
             <Route path='projects/event-optimizer' element={<ProjectPage
               title="Event Optimizer"
@@ -60,8 +60,6 @@ root.render(
             />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
-            {/* TODO: do we really need no page? */}
-            <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </HashRouter>
