@@ -1,2 +1,26 @@
 $link-margin: 40px;
 $link-delay-animation: 5s;
+
+@mixin druk-normal-400 {
+    font-family: 'Druk Wide Trial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin druk-normal-700 {
+    font-family: 'Druk Wide Trial', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@mixin mnontserrat-normal-400 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin mnontserrat-normal-700 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+}

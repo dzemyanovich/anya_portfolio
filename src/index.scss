@@ -1,9 +1,9 @@
-/* TODO: do not use import, store font files inside the project */
 /* TODO: test the whole app in different browsers (Chrome, Safari, Firefix, Edge, Opera) and OS (macOS, Windows) */
-@import url('https://fonts.cdnfonts.com/css/montserrat');
-@import url('https://fonts.cdnfonts.com/css/druk-trial');
+@import './styles/shared.scss';
 
-$font-family: 'Druk Wide Trial', sans-serif;
+// originally:
+// @import url('https://fonts.cdnfonts.com/css/montserrat');
+// @import url('https://fonts.cdnfonts.com/css/druk-trial');
 
 @keyframes fadeIn {
     0% {
@@ -32,17 +32,17 @@ body {
 }
 
 .title {
+    @include druk-normal-700;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 1);
     font-style: normal;
     letter-spacing: 2px;
     font-size: 25px;
-    font-family: $font-family;
     font-weight: 700;
 }
 
 .page-link {
-    font-family: $font-family;
+    @include druk-normal-400;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     letter-spacing: 2px;

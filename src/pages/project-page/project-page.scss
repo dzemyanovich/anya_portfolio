@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 $page-title-margin-left: -5vh;
 $page-title-margin-top: 8vh;
 
@@ -23,10 +25,10 @@ $page-title-margin-top: 8vh;
 }
 
 .page-title {
+    @include druk-normal-400;
     white-space: nowrap;
     text-transform: uppercase;
     text-align: center;
-    font-family: 'Druk Wide Trial', sans-serif;
     font-size: 129vh;
     line-height: 100vh;
     position: relative;
@@ -81,19 +83,15 @@ $page-title-margin-top: 8vh;
 }
 
 .project-title {
+    @include mnontserrat-normal-700;
     color: rgba(255, 255, 255, 1);
-    font-style: normal;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.7px;
-    font-family: Montserrat;
     font-size: 14px;
 }
 
 .project-description {
-    font-style: normal;
-    font-family: Montserrat;
-    font-weight: 400;
+    @include mnontserrat-normal-400;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
 }
