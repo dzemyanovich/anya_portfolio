@@ -40,9 +40,5 @@ module.exports = {
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html'
     })
-  ],
-  performance: {
-    // TODO: fix all performance warnings
-    hints: false
-  }
+  ]
 };
