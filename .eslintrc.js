@@ -19,6 +19,10 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "object-curly-newline": "off",
+        "react/jsx-wrap-multilines": "off",
+        "max-len": ["error", { "code": 120 }],
+        "arrow-parens": "off"
     },
     "settings": {
         "react": {

@@ -10,4 +10,8 @@
     animation: 2s ease-out $link-delay-animation 1 fadeIn;
     animation-fill-mode: forwards;
     opacity: 0;
+
+    img {
+        width: 24px;
+    }
 }

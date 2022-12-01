@@ -12,10 +12,11 @@
     "build": "webpack --mode=production",
     "build-dev": "webpack --mode=development",
     "deploy": "yarn build && aws s3 sync dist/ s3://anna-pivunova --acl public-read",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.jsx",
     "stylelint": "stylelint src/**/*.scss"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.4"
@@ -37,7 +38,6 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.2",
     "path": "^0.12.7",
-    "prop-types": "^15.8.1",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",

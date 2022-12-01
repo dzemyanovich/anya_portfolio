@@ -7,7 +7,7 @@ import './home-link.scss';
 function HomeLink() {
   return (
     <Link className="page-link home-link" to="/">
-      <img src={pivunova} alt="home link" width="24px" />
+      <img src={pivunova} alt="" />
     </Link>
   );
 }
