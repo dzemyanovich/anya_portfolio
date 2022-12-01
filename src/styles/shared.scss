@@ -14,13 +14,13 @@ $link-delay-animation: 5s;
 }
 
 @mixin mnontserrat-normal-400 {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 400;
 }
 
 @mixin mnontserrat-normal-700 {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 700;
 }
