@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Outlet, HashRouter, Routes, Route } from 'react-router-dom';
+import Favicon from 'react-favicon';
 
 import Home from './pages/home/home';
 import Projects from './pages/projects/projects';
@@ -14,12 +15,14 @@ import { DesignPlatformHeader, DesignPlatformContent } from './pages/design-plat
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
 
 import './index.scss';
+import favicon from './images/smile.svg';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // TODO: add at least 80% unit tests coverage
 root.render(
   <React.StrictMode>
+    <Favicon url={favicon} />
     {/* TODO: consider switching back to BrowswerRouter */}
     <HashRouter>
       <Routes>
