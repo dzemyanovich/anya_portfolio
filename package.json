@@ -6,6 +6,7 @@
   "author": "Aliaksei Dzemyanovich <aliaksei.dzemyanovich@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "webpack-dev-server": "webpack-dev-server",
     "dev": "webpack-dev-server --mode=development",
     "prod": "webpack-dev-server --mode=production",
@@ -29,6 +30,7 @@
     "eslint-plugin-react": "^7.31.11",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.2",
     "path": "^0.12.7",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.4.3",
