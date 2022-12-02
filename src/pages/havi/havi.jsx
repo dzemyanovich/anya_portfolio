@@ -22,5 +22,92 @@ export function HaviHeader() {
 export function HaviContent() {
   return [
     <img src={background} alt="" key="page-content-background" className="event-optimizer-background" />,
+    <div key="some-page-content">
+      <h1>Some title</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 2</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 3</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 4</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 5</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 6</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 7</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 8</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 9</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+    </div>,
+    <img src={background} alt="" key="page-content-background-2" className="event-optimizer-background" />,
+    <div key="some-page-content-2">
+      <h1>Some title</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 2</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+      <br />
+      <h1>Some title 3</h1>
+      Event Optimizer is an information management platform for QSR industry dedicated to collect,
+      visually track and analyze key data points of McDonald&apos;s & Subway based on data science
+      (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
+      forecasting. The tool is fully customizable to meet the specific needs of a department and company
+      and F...
+    </div>,
   ];
 }

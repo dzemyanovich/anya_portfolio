@@ -21,12 +21,10 @@
   }
 }
 
-/* TODO: add responsive web design: tablet, mobile */
 body {
   background-color: rgb(0 0 0);
   color: rgb(255 255 255);
   margin: 0;
-  overflow: hidden;
 }
 
 .title {
@@ -51,15 +49,4 @@ body {
     border-bottom: 1px solid rgba(255 255 255 / 100%);
     color: rgba(255 255 255 / 100%);
   }
-}
-
-/* TODO: unique background for each project page */
-.event-optimizer-background {
-  display: none;
-  position: fixed;
-  width: 100%;
-}
-
-.project-page.content-view .event-optimizer-background {
-  display: block;
 }

@@ -13,6 +13,7 @@ class ProjectPage extends React.Component {
     this.scrollRight = this.scrollRight.bind(this);
     this.state = {
       isContentView: false,
+      isHomeLinkVisible: true,
     };
     this.projectPageRef = null;
     this.projectWrapperRef = null;
@@ -58,8 +59,18 @@ class ProjectPage extends React.Component {
 
   // TODO: optimize for touch devices
   scrollDown(event) {
-    event.preventDefault();
-    event.stopPropagation();
+    // do nothing in case page content is being scrolled
+    if (document.querySelector('html').scrollTop !== 0) {
+      this.setState({
+        isHomeLinkVisible: false,
+      });
+
+      return;
+    }
+
+    this.setState({
+      isHomeLinkVisible: true,
+    });
 
     const projectWrapper = this.projectWrapperRef;
     const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
@@ -71,26 +82,29 @@ class ProjectPage extends React.Component {
 
     let newMarginTop = null;
     if ((move > 0 && Math.abs(marginTop) < offsetHeight) || (move < 0 && marginTop < 0)) {
+      event.preventDefault();
+      event.stopPropagation();
+
       newMarginTop = marginTop - move;
       if (newMarginTop > 0) {
         newMarginTop = 0;
       }
       projectWrapper.style.marginTop = `${newMarginTop}px`;
-    }
 
-    if (newMarginTop === 0) {
-      window.removeEventListener('wheel', this.scrollDown, { passive: false });
-      window.addEventListener('wheel', this.scrollRight, { passive: false });
-
-      this.setState({
-        isContentView: false,
-      });
+      if (newMarginTop === 0) {
+        window.removeEventListener('wheel', this.scrollDown, { passive: false });
+        window.addEventListener('wheel', this.scrollRight, { passive: false });
+  
+        this.setState({
+          isContentView: false,
+        });
+      }
     }
   }
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isContentView } = this.state;
+    const { isContentView, isHomeLinkVisible } = this.state;
 
     return (
       <div
@@ -101,10 +115,12 @@ class ProjectPage extends React.Component {
         <div className="project-gap" />
         <div className="project-wrapper">{header}</div>
         <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
-          <HomeLink />
+          {isHomeLinkVisible && <HomeLink />}
           {header}
         </div>
-        {content}
+        <div className="content-wrapper">
+          {content}
+        </div>
       </div>
     );
   }
