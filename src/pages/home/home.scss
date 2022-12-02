@@ -20,6 +20,7 @@
 .designer-title-wrapper {
   margin-top: 15px;
   overflow-y: hidden;
+  text-align: center;
 }
 
 .designer-title {
@@ -27,6 +28,7 @@
   animation-fill-mode: forwards;
   bottom: -30px;
   position: relative;
+  white-space: nowrap;
 }
 
 .about-link,

@@ -1,5 +1,7 @@
 @import '../../styles/shared';
 
+$project-info-margin: 50px;
+
 @keyframes slide-in-from-right {
   0% {
     margin-left: 2000px;
@@ -49,20 +51,24 @@
     z-index: 1;
   }
 
-  >img {
-    width: 521px;
-  }
-
   .home-link {
     animation-delay: 0s;
   }
 }
 
-.supply-planning .page-title {
-  left: -2vh;
+.project-image {
+  max-width: 521px;
+}
+
+.supply-planning,
+.zensupplies {
+  .page-title {
+    left: -2vh;
+  }
 }
 
 .project-info {
+  margin-right: $project-info-margin;
   max-width: 430px;
 }
 
@@ -88,4 +94,21 @@
 
 .project-gap {
   width: 70%;
+}
+
+@media screen and (max-width: 900px) {
+  .project-wrapper {
+    flex-direction: column;
+  }
+
+  .project-info {
+    margin-left: $project-info-margin;
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .project-image {
+    max-width: 400px;
+  }
 }

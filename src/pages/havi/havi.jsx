@@ -5,7 +5,7 @@ import background from '../../images/event-optimizer-background.png';
 
 export function HaviHeader() {
   return [
-    <img src={image} alt="" key="project-image" />,
+    <img src={image} alt="" className="project-image" key="project-image" />,
     <div className="project-info" key="project-info">
       <h3 className="project-title">About project</h3>
       <div className="project-description">

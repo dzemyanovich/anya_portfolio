@@ -10,7 +10,7 @@ import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
 import './projects.scss';
 
-class Home extends React.Component {
+class Projects extends React.Component {
   constructor(props) {
     super(props);
 
@@ -111,4 +111,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Projects;
