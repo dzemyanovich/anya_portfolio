@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import HomeLink from '../../components/home-link/home-link';
+import loader from '../../components/loader/loader';
 
 import supplyPlanning from '../../images/supply-planning.png';
 import havi from '../../images/havi.png';
@@ -14,39 +15,133 @@ class Projects extends React.Component {
   constructor(props) {
     super(props);
 
-    this.scrollRight = this.scrollRight.bind(this);
+    // this.scrollRight = this.scrollRight.bind(this);
+    // this.getTouches = this.getTouches.bind(this);
+    // this.handleTouchStart = this.handleTouchStart.bind(this);
+    // this.handleTouchMove = this.handleTouchMove.bind(this);
+    // this.touchMove = this.touchMove.bind(this);
+    // this.scroll = this.scroll.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+ 
     this.linksContainerRef = null;
-    this.projectsRef = null;
+    // this.projectsRef = null;
+
+    // this.state = {
+    //   xDown: null,
+    //   yDown: null,
+    // }
   }
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
 
     // wait 5 sec until animaiton rendering is finished
+    loader.start();
     setTimeout(() => {
-      window.addEventListener('wheel', this.scrollRight, { passive: false });
+      window.addEventListener('scroll', this.handleScroll);
+      loader.end();
     }, 5000);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('wheel', this.scrollRight, { passive: false });
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
-  // TODO: optimize for touch devices
-  scrollRight(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
-      ? event.deltaY
-      : event.deltaX;
+  handleScroll() {
     const linksContainer = this.linksContainerRef;
     const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
-    const projects = this.projectsRef;
 
-    projects.scrollTop += move;
-    linksContainer.scrollLeft = projects.scrollTop * proportion;
+    linksContainer.scrollLeft = window.scrollY * proportion;
   }
+
+  // getTouches(evt) {
+  //   return evt.touches || // browser API
+  //     evt.originalEvent.touches; // jQuery
+  // }
+
+  // handleTouchStart(evt) {
+  //   const firstTouch = this.getTouches(evt)[0];
+  //   this.setState({
+  //     xDown: firstTouch.clientX,
+  //     yDown: firstTouch.clientY,
+  //   });
+  // }
+
+  // handleTouchMove(evt) {
+  //   // evt.preventDefault();
+  //   const { xDown, yDown } = this.state;
+
+  //   if (!xDown || !yDown) {
+  //     return;
+  //   }
+
+  //   var xUp = evt.touches[0].clientX;
+  //   var yUp = evt.touches[0].clientY;
+
+  //   var xDiff = xDown - xUp;
+  //   var yDiff = yDown - yUp;
+
+  //   if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+  //     if (xDiff > 0) {
+  //       this.scroll(xDiff);
+  //       console.log('right swipe', xDiff);
+  //     } else {
+  //       this.scroll(xDiff);
+  //       console.log('left swipe', xDiff);
+  //     }
+  //   } else {
+  //     if (yDiff > 0) {
+  //       this.scroll(yDiff);
+  //       console.log('down swipe', yDiff);
+  //     } else {
+  //       this.scroll(yDiff);
+  //       console.log('up swipe', yDiff);
+  //     }
+  //   }
+  //   /* reset values */
+  //   this.setState({
+  //     xDown: null,
+  //     yDown: null,
+  //   });
+  // }
+
+  // scroll(move) {
+  //   const linksContainer = this.linksContainerRef;
+  //   const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
+  //   const projects = this.projectsRef;
+
+  //   projects.scrollTop += move;
+  //   linksContainer.scrollLeft = projects.scrollTop * proportion;
+  // }
+
+  // scrollRight(event) {
+  //   event.preventDefault();
+  //   event.stopPropagation();
+  //   const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
+  //     ? event.deltaY
+  //     : event.deltaX;
+
+  //   this.scroll(move);
+  // }
+
+  // touchMove(evt) {
+  //   const { xDown, yDown } = this.state;
+
+  //   var xUp = evt.touches[0].clientX;
+  //   var yUp = evt.touches[0].clientY;
+
+  //   var xDiff = xDown - xUp;
+  //   var yDiff = yDown - yUp;
+
+  //   const e = document.createEvent('TouchEvent');
+  //   // e.touches = [{ pageX: xDiff, pageY: yDiff }];
+
+  //   const e1 = cloneEvent(evt);
+  //   this.projectsRef.dispatchEvent(e1);
+  // }
 
   render() {
     return (
@@ -89,7 +184,7 @@ class Projects extends React.Component {
             </span>
           </div>
         </div>
-        <div className="projects" ref={el => { this.projectsRef = el; }}>
+        <div className="projects">
           <div className="image-container">
             <img src={burger} alt="" />
           </div>
