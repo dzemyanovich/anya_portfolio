@@ -19,7 +19,6 @@ import favicon from './images/smile.svg';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// TODO: add at least 80% unit tests coverage
 root.render(
   <HashRouter>
     <Favicon url={favicon} />
