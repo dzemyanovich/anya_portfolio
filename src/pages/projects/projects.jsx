@@ -15,21 +15,9 @@ class Projects extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.scrollRight = this.scrollRight.bind(this);
-    // this.getTouches = this.getTouches.bind(this);
-    // this.handleTouchStart = this.handleTouchStart.bind(this);
-    // this.handleTouchMove = this.handleTouchMove.bind(this);
-    // this.touchMove = this.touchMove.bind(this);
-    // this.scroll = this.scroll.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
- 
     this.linksContainerRef = null;
-    // this.projectsRef = null;
 
-    // this.state = {
-    //   xDown: null,
-    //   yDown: null,
-    // }
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -56,92 +44,6 @@ class Projects extends React.Component {
 
     linksContainer.scrollLeft = window.scrollY * proportion;
   }
-
-  // getTouches(evt) {
-  //   return evt.touches || // browser API
-  //     evt.originalEvent.touches; // jQuery
-  // }
-
-  // handleTouchStart(evt) {
-  //   const firstTouch = this.getTouches(evt)[0];
-  //   this.setState({
-  //     xDown: firstTouch.clientX,
-  //     yDown: firstTouch.clientY,
-  //   });
-  // }
-
-  // handleTouchMove(evt) {
-  //   // evt.preventDefault();
-  //   const { xDown, yDown } = this.state;
-
-  //   if (!xDown || !yDown) {
-  //     return;
-  //   }
-
-  //   var xUp = evt.touches[0].clientX;
-  //   var yUp = evt.touches[0].clientY;
-
-  //   var xDiff = xDown - xUp;
-  //   var yDiff = yDown - yUp;
-
-  //   if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-  //     if (xDiff > 0) {
-  //       this.scroll(xDiff);
-  //       console.log('right swipe', xDiff);
-  //     } else {
-  //       this.scroll(xDiff);
-  //       console.log('left swipe', xDiff);
-  //     }
-  //   } else {
-  //     if (yDiff > 0) {
-  //       this.scroll(yDiff);
-  //       console.log('down swipe', yDiff);
-  //     } else {
-  //       this.scroll(yDiff);
-  //       console.log('up swipe', yDiff);
-  //     }
-  //   }
-  //   /* reset values */
-  //   this.setState({
-  //     xDown: null,
-  //     yDown: null,
-  //   });
-  // }
-
-  // scroll(move) {
-  //   const linksContainer = this.linksContainerRef;
-  //   const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
-  //   const projects = this.projectsRef;
-
-  //   projects.scrollTop += move;
-  //   linksContainer.scrollLeft = projects.scrollTop * proportion;
-  // }
-
-  // scrollRight(event) {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
-  //     ? event.deltaY
-  //     : event.deltaX;
-
-  //   this.scroll(move);
-  // }
-
-  // touchMove(evt) {
-  //   const { xDown, yDown } = this.state;
-
-  //   var xUp = evt.touches[0].clientX;
-  //   var yUp = evt.touches[0].clientY;
-
-  //   var xDiff = xDown - xUp;
-  //   var yDiff = yDown - yUp;
-
-  //   const e = document.createEvent('TouchEvent');
-  //   // e.touches = [{ pageX: xDiff, pageY: yDiff }];
-
-  //   const e1 = cloneEvent(evt);
-  //   this.projectsRef.dispatchEvent(e1);
-  // }
 
   render() {
     return (
