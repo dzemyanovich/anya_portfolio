@@ -12,7 +12,7 @@
     "build": "webpack --mode=production",
     "build-dev": "webpack --mode=development",
     "deploy": "yarn build && aws s3 sync dist/ s3://anna-pivunova --acl public-read",
-    "lint": "eslint **/*.jsx",
+    "lint": "eslint src/**/*.jsx",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix"
   },

@@ -17,7 +17,6 @@ class ProjectPage extends React.Component {
     this.magicNumber = 0.5;
     this.projectPageRef = null;
     this.projectWrapperRef = null;
-    this.contentWrapperRef = null;
 
     // TODO: show <HomeLink /> in case it is not content view and scrollRight is maximum
     // TODO: add "swipe down" and "swipe right" arrows
@@ -168,13 +167,15 @@ class ProjectPage extends React.Component {
             {header}
           </div>
         )}
-        <div className="content-wrapper" ref={el => { this.contentWrapperRef = el; }}>
+        <div className="content-wrapper">
           {isTouchDevice && isHomeLinkVisible && <HomeLink />}
           {isTouchDevice && (
             <div
               className="project-wrapper"
               ref={el => { this.projectWrapperRef = el; }}
-            >{header}</div>
+            >
+              {header}
+            </div>
           )}
           {content}
         </div>
