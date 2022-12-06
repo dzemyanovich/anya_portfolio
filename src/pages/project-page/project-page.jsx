@@ -15,12 +15,12 @@ class ProjectPage extends React.Component {
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
     this.MAGIC_NUMBER = 0.5;
+    // visible margin for home line
     this.HOME_LINK_MARGIN = 100;
 
     this.projectPageRef = null;
     this.projectWrapperRef = null;
 
-    // TODO: add "swipe down" and "swipe right" arrows
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
     this.scrollUpDown = this.scrollUpDown.bind(this);
@@ -178,10 +178,7 @@ class ProjectPage extends React.Component {
         )}
         <div className="content-wrapper">
           {isTouchDevice && (
-            <div
-              className="project-wrapper"
-              ref={el => { this.projectWrapperRef = el; }}
-            >
+            <div className="project-wrapper" ref={el => { this.projectWrapperRef = el; }}>
               {header}
             </div>
           )}

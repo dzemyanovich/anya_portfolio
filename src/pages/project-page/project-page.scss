@@ -98,7 +98,7 @@ $project-info-margin: 50px;
   position: absolute;
 
   .project-wrapper {
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 
@@ -115,6 +115,11 @@ $project-info-margin: 50px;
 }
 
 @media screen and (max-width: 900px) {
+  .home-link {
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
   .project-wrapper {
     flex-direction: column;
   }
@@ -128,5 +133,11 @@ $project-info-margin: 50px;
 @media screen and (max-width: 500px) {
   .project-image {
     max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .project-image {
+    max-width: 350px;
   }
 }
