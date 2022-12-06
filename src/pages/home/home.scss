@@ -1,5 +1,8 @@
 @import '../../styles/shared';
 
+$desktop-link-margin: 40px;
+$tablet-link-margin: 15px;
+
 .pivunova-brand,
 .designer-title-wrapper {
   left: 50%;
@@ -40,8 +43,8 @@
 }
 
 .about-link {
-  margin-right: $link-margin;
-  margin-top: $link-margin;
+  margin-right: $desktop-link-margin;
+  margin-top: $desktop-link-margin;
   position: fixed;
   right: 0;
   top: 0;
@@ -49,8 +52,8 @@
 
 .contact-link {
   bottom: 0;
-  margin-bottom: $link-margin;
-  margin-right: $link-margin;
+  margin-bottom: $desktop-link-margin;
+  margin-right: $desktop-link-margin;
   position: fixed;
   right: 0;
 }
@@ -58,7 +61,34 @@
 .projects-link {
   bottom: 0;
   left: 0;
-  margin-bottom: $link-margin;
-  margin-left: $link-margin;
+  margin-bottom: $desktop-link-margin;
+  margin-left: $desktop-link-margin;
   position: fixed;
+}
+
+.home-link {
+  margin-left: $desktop-link-margin;
+  margin-top: $desktop-link-margin;
+}
+
+@media screen and (max-width: $tablet-width) {
+  .about-link {
+    margin-right: $tablet-link-margin;
+    margin-top: $tablet-link-margin;
+  }
+
+  .contact-link {
+    margin-bottom: $tablet-link-margin;
+    margin-right: $tablet-link-margin;
+  }
+
+  .projects-link {
+    margin-bottom: $tablet-link-margin;
+    margin-left: $tablet-link-margin;
+  }
+
+  .home-link {
+    margin-left: $tablet-link-margin;
+    margin-top: $tablet-link-margin;
+  }
 }

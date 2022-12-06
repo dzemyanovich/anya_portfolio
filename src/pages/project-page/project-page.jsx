@@ -5,6 +5,8 @@ import HomeLink from '../../components/home-link/home-link';
 import loader from '../../components/loader/loader';
 
 import './project-page.scss';
+import swipeLeft from '../../images/swipe-left.svg';
+import swipeDown from '../../images/swipe-down.svg';
 
 const isTouchDevice = 'ontouchstart' in window;
 
@@ -15,13 +17,12 @@ class ProjectPage extends React.Component {
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
     this.MAGIC_NUMBER = 0.5;
-    // visible margin for home line
-    this.HOME_LINK_MARGIN = 100;
+    // visible margin for home line and swipe tip
+    this.VISIBLE_MARGIN = 100;
 
     this.projectPageRef = null;
     this.projectWrapperRef = null;
 
-    // TODO: add tips "swipe down", "swipe left"
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
     this.scrollUpDown = this.scrollUpDown.bind(this);
@@ -63,8 +64,10 @@ class ProjectPage extends React.Component {
     const { projectPageRef } = this;
     const { scrollLeft, offsetWidth, scrollWidth } = projectPageRef;
 
+    const visible = scrollLeft + offsetWidth + this.VISIBLE_MARGIN >= scrollWidth;
     this.setState({
-      isHomeLinkVisible: scrollLeft + offsetWidth + this.HOME_LINK_MARGIN >= scrollWidth,
+      isHomeLinkVisible: visible,
+      isSwipeTipVisible: visible,
     });
 
     if (scrollLeft + offsetWidth + this.MAGIC_NUMBER >= scrollWidth) {
@@ -80,6 +83,7 @@ class ProjectPage extends React.Component {
   swipeUpDown() {
     this.setState({
       isHomeLinkVisible: window.scrollY < this.projectWrapperRef.offsetHeight,
+      isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
     });
 
     if (window.scrollY === 0) {
@@ -102,7 +106,7 @@ class ProjectPage extends React.Component {
     target.scrollLeft += move;
 
     this.setState({
-      isHomeLinkVisible: target.offsetWidth + target.scrollLeft + this.HOME_LINK_MARGIN >= target.scrollWidth,
+      isHomeLinkVisible: target.offsetWidth + target.scrollLeft + this.VISIBLE_MARGIN >= target.scrollWidth,
     });
 
     if (target.offsetWidth + target.scrollLeft + this.MAGIC_NUMBER >= target.scrollWidth) {
@@ -111,6 +115,7 @@ class ProjectPage extends React.Component {
 
       this.setState({
         isContentView: true,
+        isSwipeTipVisible: false,
       });
     }
   }
@@ -161,7 +166,7 @@ class ProjectPage extends React.Component {
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isContentView, isHomeLinkVisible } = this.state;
+    const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
 
     return (
       <div
@@ -172,6 +177,13 @@ class ProjectPage extends React.Component {
         <div className="project-gap" />
         <div className="project-wrapper">{header}</div>
         {isHomeLinkVisible && <HomeLink />}
+        {isTouchDevice && isSwipeTipVisible && (
+          <div className="swipe-tip">
+            {isContentView
+              ? <img src={swipeDown} alt="" />
+              : <img src={swipeLeft} alt="" />}
+          </div>
+        )}
         {!isTouchDevice && (
           <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
             {header}

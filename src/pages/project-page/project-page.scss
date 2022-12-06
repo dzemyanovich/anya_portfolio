@@ -114,12 +114,20 @@ $project-info-margin: 50px;
   width: 100%;
 }
 
-@media screen and (max-width: 900px) {
-  .home-link {
-    margin-left: 15px;
-    margin-top: 15px;
-  }
+.swipe-tip {
+  animation: 2s ease-out 0s 1 fade-in;
+  position: fixed;
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  z-index: 1;
 
+  img {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
   .project-wrapper {
     flex-direction: column;
   }
