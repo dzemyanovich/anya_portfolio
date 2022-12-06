@@ -22,6 +22,10 @@ $project-info-margin: 50px;
   >* {
     flex: 0 0 auto;
   }
+
+  .home-link {
+    animation-delay: 0s;
+  }
 }
 
 .page-title {
@@ -49,10 +53,6 @@ $project-info-margin: 50px;
     height: 100%;
     position: fixed;
     z-index: 1;
-  }
-
-  .home-link {
-    animation-delay: 0s;
   }
 }
 
@@ -99,10 +99,6 @@ $project-info-margin: 50px;
 
   .project-wrapper {
     height: 100vh;
-  }
-
-  .home-link {
-    animation-delay: 0s;
   }
 }
 

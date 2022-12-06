@@ -14,20 +14,21 @@ class ProjectPage extends React.Component {
 
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
-    this.magicNumber = 0.5;
+    this.MAGIC_NUMBER = 0.5;
+    this.HOME_LINK_MARGIN = 100;
+
     this.projectPageRef = null;
     this.projectWrapperRef = null;
 
-    // TODO: show <HomeLink /> in case it is not content view and scrollRight is maximum
     // TODO: add "swipe down" and "swipe right" arrows
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
-    this.scrollDown = this.scrollDown.bind(this);
-    this.scrollRight = this.scrollRight.bind(this);
+    this.scrollUpDown = this.scrollUpDown.bind(this);
+    this.scrollLeftRight = this.scrollLeftRight.bind(this);
 
     this.state = {
       isContentView: false,
-      isHomeLinkVisible: true,
+      isHomeLinkVisible: false,
     };
   }
 
@@ -41,7 +42,7 @@ class ProjectPage extends React.Component {
       if (isTouchDevice) {
         this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {
-        window.addEventListener('wheel', this.scrollRight, { passive: false });
+        window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
       loader.end();
     }, 2000);
@@ -52,8 +53,8 @@ class ProjectPage extends React.Component {
       this.projectPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);
     } else {
-      window.removeEventListener('wheel', this.scrollRight, { passive: false });
-      window.removeEventListener('wheel', this.scrollDown, { passive: false });
+      window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
+      window.removeEventListener('wheel', this.scrollUpDown, { passive: false });
     }
   }
 
@@ -61,7 +62,11 @@ class ProjectPage extends React.Component {
     const { projectPageRef } = this;
     const { scrollLeft, offsetWidth, scrollWidth } = projectPageRef;
 
-    if (scrollLeft + offsetWidth + this.magicNumber >= scrollWidth) {
+    this.setState({
+      isHomeLinkVisible: scrollLeft + offsetWidth + this.HOME_LINK_MARGIN >= scrollWidth,
+    });
+
+    if (scrollLeft + offsetWidth + this.MAGIC_NUMBER >= scrollWidth) {
       projectPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.addEventListener('scroll', this.swipeUpDown);
 
@@ -86,7 +91,7 @@ class ProjectPage extends React.Component {
     }
   }
 
-  scrollRight(event) {
+  scrollLeftRight(event) {
     event.preventDefault();
     event.stopPropagation();
     const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
@@ -95,9 +100,13 @@ class ProjectPage extends React.Component {
     const target = this.projectPageRef;
     target.scrollLeft += move;
 
-    if (target.offsetWidth + target.scrollLeft + this.magicNumber >= target.scrollWidth) {
-      window.removeEventListener('wheel', this.scrollRight, { passive: false });
-      window.addEventListener('wheel', this.scrollDown, { passive: false });
+    this.setState({
+      isHomeLinkVisible: target.offsetWidth + target.scrollLeft + this.HOME_LINK_MARGIN >= target.scrollWidth,
+    });
+
+    if (target.offsetWidth + target.scrollLeft + this.MAGIC_NUMBER >= target.scrollWidth) {
+      window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
+      window.addEventListener('wheel', this.scrollUpDown, { passive: false });
 
       this.setState({
         isContentView: true,
@@ -105,7 +114,7 @@ class ProjectPage extends React.Component {
     }
   }
 
-  scrollDown(event) {
+  scrollUpDown(event) {
     // do nothing in case page content is being scrolled
     if (document.querySelector('html').scrollTop !== 0) {
       this.setState({
@@ -139,8 +148,8 @@ class ProjectPage extends React.Component {
       projectWrapper.style.marginTop = `${newMarginTop}px`;
 
       if (newMarginTop === 0) {
-        window.removeEventListener('wheel', this.scrollDown, { passive: false });
-        window.addEventListener('wheel', this.scrollRight, { passive: false });
+        window.removeEventListener('wheel', this.scrollUpDown, { passive: false });
+        window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
 
         this.setState({
           isContentView: false,
@@ -161,14 +170,13 @@ class ProjectPage extends React.Component {
         <div className="page-title">{title}</div>
         <div className="project-gap" />
         <div className="project-wrapper">{header}</div>
+        {isHomeLinkVisible && <HomeLink />}
         {!isTouchDevice && (
           <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
-            {isHomeLinkVisible && <HomeLink />}
             {header}
           </div>
         )}
         <div className="content-wrapper">
-          {isTouchDevice && isHomeLinkVisible && <HomeLink />}
           {isTouchDevice && (
             <div
               className="project-wrapper"
