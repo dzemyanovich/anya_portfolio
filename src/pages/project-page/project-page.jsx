@@ -21,6 +21,7 @@ class ProjectPage extends React.Component {
     this.projectPageRef = null;
     this.projectWrapperRef = null;
 
+    // TODO: add tips "swipe down", "swipe left"
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
     this.scrollUpDown = this.scrollUpDown.bind(this);
