@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import CustomLink from '../../components/custom-link/custom-link';
 import HomeLink from '../../components/home-link/home-link';
 import loader from '../../components/loader/loader';
 
@@ -52,37 +52,37 @@ class Projects extends React.Component {
         <div className="links-container" ref={el => { this.linksContainerRef = el; }}>
           <div className="project-link-container">
             <span className="project-link">
-              <Link className="title" to="/projects/event-optimizer">
+              <CustomLink className="title" to="/projects/event-optimizer">
                 <span className="link-text">Event Optimizer</span>
-              </Link>
+              </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <Link className="title" to="/projects/supply-planning">
+              <CustomLink className="title" to="/projects/supply-planning">
                 <span className="link-text">Supply Planning</span>
-              </Link>
+              </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <Link className="title" to="/projects/havi">
+              <CustomLink className="title" to="/projects/havi">
                 <span className="link-text">HAVI</span>
-              </Link>
+              </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <Link className="title" to="/projects/design-platform">
+              <CustomLink className="title" to="/projects/design-platform">
                 <span className="link-text">Design Platform</span>
-              </Link>
+              </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <Link className="title" to="/projects/zensupplies">
+              <CustomLink className="title" to="/projects/zensupplies">
                 <span className="link-text">Zensupplies</span>
-              </Link>
+              </CustomLink>
             </span>
           </div>
         </div>

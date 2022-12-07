@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import CustomLink from '../custom-link/custom-link';
 
 import pivunova from '../../images/pivunova.svg';
 import './home-link.scss';
 
 function HomeLink() {
   return (
-    <Link className="page-link home-link" to="/">
+    <CustomLink className="page-link home-link no-underline" to="/">
       <img src={pivunova} alt="" />
-    </Link>
+    </CustomLink>
   );
 }
 

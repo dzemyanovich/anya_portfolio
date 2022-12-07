@@ -43,19 +43,19 @@ $tablet-link-margin: 15px;
 }
 
 .about-link {
-  margin-right: $desktop-link-margin;
-  margin-top: $desktop-link-margin;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
-
-.contact-link {
   bottom: 0;
   margin-bottom: $desktop-link-margin;
   margin-right: $desktop-link-margin;
   position: fixed;
   right: 0;
+}
+
+.contact-link {
+  margin-right: $desktop-link-margin;
+  margin-top: $desktop-link-margin;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .projects-link {
