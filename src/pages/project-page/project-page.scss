@@ -1,3 +1,5 @@
+// TODO: scrolling for project page content in Windows browsers work very unstable,
+// especially when "Inspect Element" panel is open
 @import '../../styles/shared';
 
 $project-info-margin: 50px;
@@ -41,9 +43,7 @@ $project-info-margin: 50px;
   white-space: nowrap;
  
   &.windows {
-    font-size: 123vh;
-    line-height: 96vh;
-    top: -10vh;
+    top: -11vh;
   }
 }
 

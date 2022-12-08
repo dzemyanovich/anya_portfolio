@@ -22,7 +22,8 @@ module.exports = {
     "object-curly-newline": "off",
     "react/jsx-wrap-multilines": "off",
     "max-len": ["error", { "code": 120 }],
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "react": {

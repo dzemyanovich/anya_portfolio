@@ -1,6 +1,10 @@
 // TODO: fix website in Windows Firefox
-// TODO: Windows scrollbar is ugly (both Chrome and Edge)
 @import './styles/shared';
+
+// do not show ugly scrollbar for Windows browsers
+.no-scrollbar ::-webkit-scrollbar {
+  display: none;
+}
 
 @keyframes fade-in {
   0% {

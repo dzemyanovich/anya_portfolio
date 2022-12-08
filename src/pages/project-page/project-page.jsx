@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import isWindows from '../../utils/utils';
+import { isWindows } from '../../utils/utils';
 
 import './project-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
