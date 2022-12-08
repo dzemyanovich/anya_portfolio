@@ -73,13 +73,13 @@ $tablet-link-margin: 15px;
 
 @media screen and (max-width: $tablet-width) {
   .about-link {
+    margin-bottom: $tablet-link-margin;
     margin-right: $tablet-link-margin;
-    margin-top: $tablet-link-margin;
   }
 
   .contact-link {
-    margin-bottom: $tablet-link-margin;
     margin-right: $tablet-link-margin;
+    margin-top: $tablet-link-margin;
   }
 
   .projects-link {
