@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
+import isWindows from '../../utils/utils';
 
 import './project-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
@@ -180,7 +181,7 @@ class ProjectPage extends React.Component {
         className={`project-page ${isContentView ? 'content-view' : ''} ${className}`}
         ref={el => { this.projectPageRef = el; }}
       >
-        <div className="page-title">{title}</div>
+        <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
         <div className="project-gap" />
         <div className="project-wrapper">{header}</div>
         {isHomeLinkVisible && <HomeLink />}

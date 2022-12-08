@@ -39,6 +39,12 @@ $project-info-margin: 50px;
   text-transform: uppercase;
   top: 8vh;
   white-space: nowrap;
+ 
+  &.windows {
+    font-size: 123vh;
+    line-height: 96vh;
+    top: -10vh;
+  }
 }
 
 .project-wrapper {
