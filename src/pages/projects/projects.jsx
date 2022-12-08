@@ -2,7 +2,7 @@ import React from 'react';
 
 import CustomLink from '../../components/custom-link/custom-link';
 import HomeLink from '../../components/home-link/home-link';
-import loader from '../../components/loader/loader';
+import noScroll from '../../utils/no-scroll';
 
 import supplyPlanning from '../../images/supply-planning.png';
 import havi from '../../images/havi.png';
@@ -27,10 +27,10 @@ class Projects extends React.Component {
     }, 100);
 
     // wait 5 sec until animaiton rendering is finished
-    loader.start();
+    noScroll.start();
     setTimeout(() => {
       window.addEventListener('scroll', this.handleScroll);
-      loader.end();
+      noScroll.end();
     }, 5000);
   }
 

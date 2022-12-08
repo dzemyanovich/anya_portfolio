@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
-import loader from '../../components/loader/loader';
+import noScroll from '../../utils/no-scroll';
 
 import './project-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
@@ -31,6 +31,7 @@ class ProjectPage extends React.Component {
     this.state = {
       isContentView: false,
       isHomeLinkVisible: false,
+      isSwipeTipVisible: false,
     };
   }
 
@@ -39,14 +40,14 @@ class ProjectPage extends React.Component {
     window.scrollTo(0, 0);
 
     // wait 2 seconds until animation finishes rendering
-    loader.start();
+    noScroll.start();
     setTimeout(() => {
       if (isTouchDevice) {
         this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
-      loader.end();
+      noScroll.end();
     }, 2000);
   }
 
@@ -99,10 +100,12 @@ class ProjectPage extends React.Component {
   scrollLeftRight(event) {
     event.preventDefault();
     event.stopPropagation();
+
     const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
       ? event.deltaY
       : event.deltaX;
     const target = this.projectPageRef;
+
     target.scrollLeft += move;
 
     this.setState({
@@ -115,14 +118,22 @@ class ProjectPage extends React.Component {
 
       this.setState({
         isContentView: true,
-        isSwipeTipVisible: false,
       });
     }
   }
 
   scrollUpDown(event) {
+    const projectWrapper = this.projectWrapperRef;
+    const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
+    const { offsetHeight } = projectWrapper;
+
     // do nothing in case page content is being scrolled
     if (document.querySelector('html').scrollTop !== 0) {
+      // ensure that upper panel is not visible (sometimes it happens)
+      if (Math.abs(projectWrapper.style.marginTop) < offsetHeight) {
+        projectWrapper.style.marginTop = `${-offsetHeight}px`;
+      }
+
       this.setState({
         isHomeLinkVisible: false,
       });
@@ -133,10 +144,6 @@ class ProjectPage extends React.Component {
     this.setState({
       isHomeLinkVisible: true,
     });
-
-    const projectWrapper = this.projectWrapperRef;
-    const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
-    const { offsetHeight } = projectWrapper;
 
     const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
       ? event.deltaY
