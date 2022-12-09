@@ -131,7 +131,7 @@ class ProjectPage extends React.Component {
     // do nothing in case page content is being scrolled
     if (document.querySelector('html').scrollTop !== 0) {
       // ensure that upper panel is not visible (sometimes it happens)
-      if (Math.abs(projectWrapper.style.marginTop) < offsetHeight) {
+      if (Math.abs(marginTop) < offsetHeight) {
         projectWrapper.style.marginTop = `${-offsetHeight}px`;
       }
 
