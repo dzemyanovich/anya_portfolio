@@ -8,7 +8,7 @@ import './home-link.scss';
 function HomeLink() {
   return (
     <CustomLink className="page-link home-link no-underline" to="/">
-      <img src={pivunova} alt="" />
+      <img src={pivunova} className="brand-logo" alt="" />
     </CustomLink>
   );
 }

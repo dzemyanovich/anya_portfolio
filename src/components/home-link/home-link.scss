@@ -8,8 +8,14 @@
   position: fixed;
   top: 0;
   z-index: 10;
+}
 
-  img {
+.brand-logo {
+  width: 33px;
+}
+
+@media screen and (max-width: $laptop-width) {
+  .brand-logo {
     width: 24px;
   }
 }

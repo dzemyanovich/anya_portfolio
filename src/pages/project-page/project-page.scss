@@ -131,7 +131,7 @@ $project-info-margin: 50px;
   }
 }
 
-@media screen and (max-width: $tablet-width) {
+@media screen and (max-width: $laptop-width) {
   .project-wrapper {
     flex-direction: column;
   }
@@ -142,13 +142,13 @@ $project-info-margin: 50px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: $tablet-width) {
   .project-image {
     max-width: 400px;
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: $mobile-width) {
   .project-image {
     max-width: 350px;
   }

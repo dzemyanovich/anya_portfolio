@@ -71,7 +71,7 @@ $tablet-link-margin: 15px;
   margin-top: $desktop-link-margin;
 }
 
-@media screen and (max-width: $tablet-width) {
+@media screen and (max-width: $laptop-width) {
   .about-link {
     margin-bottom: $tablet-link-margin;
     margin-right: $tablet-link-margin;
