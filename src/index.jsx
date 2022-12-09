@@ -15,7 +15,7 @@ import { DesignPlatformHeader, DesignPlatformContent } from './pages/design-plat
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
 
 import './index.scss';
-import favicon from './images/smile.svg';
+import favicon from './images/favicon.svg';
 
 import './fonts/Montserrat-Regular.woff';
 import './fonts/Montserrat-Bold.woff';
