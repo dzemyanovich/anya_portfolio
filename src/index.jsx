@@ -17,6 +17,11 @@ import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensu
 import './index.scss';
 import favicon from './images/smile.svg';
 
+import './fonts/Montserrat-Regular.woff';
+import './fonts/Montserrat-Bold.woff';
+import './fonts/DrukWide-Medium-Trial.woff';
+import './fonts/DrukWide-Bold-Trial.woff';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

@@ -1,5 +1,7 @@
-// TODO: fix website in Windows Firefox
+// TODO: hide scrollbar in Firefox
 @import './styles/shared';
+// fonts should be imported exactly in ths file, otherwise fonts cannot be found
+@import './styles/fonts';
 
 // do not show ugly scrollbar for Windows browsers
 .no-scrollbar ::-webkit-scrollbar {
