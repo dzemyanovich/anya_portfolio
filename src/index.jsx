@@ -25,9 +25,10 @@ import './fonts/DrukWide-Bold-Trial.woff';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
+  // cannot use BrowserRouter because website is hosted in Amazon S3
+  // more info - https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
   <HashRouter>
     <Favicon url={favicon} />
-    {/* TODO: consider switching back to BrowswerRouter */}
     <Routes>
       <Route path="/" element={<Outlet />}>
         <Route index element={<Home />} />
