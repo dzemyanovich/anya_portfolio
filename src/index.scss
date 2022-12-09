@@ -2,16 +2,6 @@
 // fonts should be imported exactly in ths file, otherwise fonts cannot be found
 @import './styles/fonts';
 
-.no-scrollbar {
-  // do not show ugly scrollbar for Windows Firefox
-  scrollbar-width: none;
-
-  // do not show ugly scrollbar for Windows Chrome and Edge
-  ::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -39,6 +29,16 @@ body {
 
   &.no-scroll {
     overflow: hidden;
+  }
+}
+
+.no-scrollbar {
+  // do not show ugly scrollbar for Windows Firefox
+  scrollbar-width: none;
+
+  // do not show ugly scrollbar for Windows Chrome and Edge
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 

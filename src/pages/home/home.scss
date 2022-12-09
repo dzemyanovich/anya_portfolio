@@ -1,6 +1,7 @@
 @import '../../styles/shared';
 
-$desktop-link-margin: 40px;
+$desktop-left-right-margin: 58px;
+$desktop-top-bottom-margin: 50px;
 $tablet-link-margin: 15px;
 
 .pivunova-brand,
@@ -44,15 +45,15 @@ $tablet-link-margin: 15px;
 
 .about-link {
   bottom: 0;
-  margin-bottom: $desktop-link-margin;
-  margin-right: $desktop-link-margin;
+  margin-bottom: $desktop-top-bottom-margin;
+  margin-right: $desktop-left-right-margin;
   position: fixed;
   right: 0;
 }
 
 .contact-link {
-  margin-right: $desktop-link-margin;
-  margin-top: $desktop-link-margin;
+  margin-right: $desktop-left-right-margin;
+  margin-top: $desktop-top-bottom-margin;
   position: fixed;
   right: 0;
   top: 0;
@@ -61,14 +62,14 @@ $tablet-link-margin: 15px;
 .projects-link {
   bottom: 0;
   left: 0;
-  margin-bottom: $desktop-link-margin;
-  margin-left: $desktop-link-margin;
+  margin-bottom: $desktop-top-bottom-margin;
+  margin-left: $desktop-left-right-margin;
   position: fixed;
 }
 
 .home-link {
-  margin-left: $desktop-link-margin;
-  margin-top: $desktop-link-margin;
+  margin-left: $desktop-left-right-margin;
+  margin-top: $desktop-top-bottom-margin;
 }
 
 @media screen and (max-width: $laptop-width) {
