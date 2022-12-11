@@ -22,6 +22,17 @@
   }
 }
 
+// do not show ugly scrollbar for Windows Chrome, Windows Edge,
+// macOS web browsers when mouse is attached (not touchpad)
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  // do not show ugly scrollbar for Windows Firefox
+  scrollbar-width: none;
+}
+
 body {
   background-color: rgb(0 0 0);
   color: rgb(255 255 255);
@@ -29,16 +40,6 @@ body {
 
   &.no-scroll {
     overflow: hidden;
-  }
-}
-
-.no-scrollbar {
-  // do not show ugly scrollbar for Windows Firefox
-  scrollbar-width: none;
-
-  // do not show ugly scrollbar for Windows Chrome and Edge
-  ::-webkit-scrollbar {
-    display: none;
   }
 }
 
