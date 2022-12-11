@@ -1,5 +1,9 @@
 node_modules/
 dist/
+.terraform/
 
 yarn-error.log
 .DS_Store
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
