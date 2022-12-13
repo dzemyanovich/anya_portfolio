@@ -38,12 +38,12 @@ resource "aws_s3_bucket_ownership_controls" "prod_bucket_ownnership" {
   }
 }
 
-resource "aws_s3_object" "prod_dist" {
-  for_each     = fileset("../dist/", "*")
+resource "aws_s3_object" "dist_prod" {
+  for_each     = fileset("../dist_prod/", "*")
   bucket       = aws_s3_bucket.prod_bucket.id
   key          = each.value
-  source       = "../dist/${each.value}"
-  etag         = filemd5("../dist/${each.value}")
+  source       = "../dist_prod/${each.value}"
+  etag         = filemd5("../dist_prod/${each.value}")
   content_type  = lookup(local.mime_types, regex("\\.(?P<extension>[A-Za-z0-9]+)$", each.value).extension, "application/octet-stream")
 }
 
@@ -87,11 +87,11 @@ resource "aws_s3_bucket_ownership_controls" "preprod_bucket_ownnership" {
   }
 }
 
-resource "aws_s3_object" "preprod_dist" {
-  for_each     = fileset("../dist/", "*")
+resource "aws_s3_object" "dist_preprod" {
+  for_each     = fileset("../dist_preprod/", "*")
   bucket       = aws_s3_bucket.preprod_bucket.id
   key          = each.value
-  source       = "../dist/${each.value}"
-  etag         = filemd5("../dist/${each.value}")
+  source       = "../dist_preprod/${each.value}"
+  etag         = filemd5("../dist_preprod/${each.value}")
   content_type  = lookup(local.mime_types, regex("\\.(?P<extension>[A-Za-z0-9]+)$", each.value).extension, "application/octet-stream")
 }

@@ -1,5 +1,7 @@
 node_modules/
-dist/
+dist_dev/
+dist_preprod/
+dist_prod/
 .terraform/
 
 yarn-error.log
