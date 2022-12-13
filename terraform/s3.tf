@@ -1,14 +1,24 @@
-# TODO: use aws_s3_bucket_website_configuration
 resource "aws_s3_bucket" "prod_bucket" {
   bucket = "${var.bucket_name}"
-  policy = templatefile("templates/s3-policy.json", { bucket = "${var.bucket_name}" })
+ 
+  tags = var.common_tags
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+resource "aws_s3_bucket_website_configuration" "website_configuration" {
+  bucket = aws_s3_bucket.prod_bucket.bucket
+
+  index_document {
+    suffix = "index.html"
   }
 
-  tags = var.common_tags
+  error_document {
+    key = "index.html"
+  }
+}
+
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.prod_bucket.id
+  policy = templatefile("templates/s3-policy.json", { bucket = "${var.bucket_name}" })
 }
 
 resource "aws_s3_bucket_acl" "prod_bucket_acl" {
