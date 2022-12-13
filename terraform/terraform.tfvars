@@ -1,5 +1,3 @@
-bucket_name = "anna-pivunova-new2"
+prod_bucket_name = "anna-pivunova-new2"
 
-common_tags = {
-  Environment = "prod"
-}
+preprod_bucket_name = "preprod1-anna-pivunova-me"
