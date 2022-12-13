@@ -11,7 +11,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    // allowedHosts: 'all'
+    allowedHosts: 'all'
   },
   module: {
     rules: [
