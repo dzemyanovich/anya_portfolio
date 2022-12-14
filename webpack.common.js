@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+// TODO: delete this temp line
 module.exports = {
   context: __dirname,
   entry: './src/index.jsx',
