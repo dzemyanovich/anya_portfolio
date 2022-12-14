@@ -8,10 +8,10 @@ module.exports = {
     filename: 'main.js',
     publicPath: '/',
   },
-  // devServer: {
-  //   historyApiFallback: true,
-  //   allowedHosts: 'all',
-  // },
+  devServer: {
+    // historyApiFallback: true,
+    allowedHosts: 'all',
+  },
   module: {
     rules: [
       {
