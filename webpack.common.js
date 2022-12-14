@@ -9,7 +9,7 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
-    // historyApiFallback: true,
+    historyApiFallback: true,
     allowedHosts: 'all',
   },
   module: {
