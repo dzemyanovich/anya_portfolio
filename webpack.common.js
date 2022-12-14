@@ -11,7 +11,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: 'all',
-    port: 443,
     client: {
       overlay: false,
     }
