@@ -11,6 +11,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: 'all',
+    webSocketServer: false,
   },
   module: {
     rules: [
