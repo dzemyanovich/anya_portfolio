@@ -8,6 +8,7 @@ module.exports = merge(common, {
   devtool: false,
   devServer: {
     hot: false,
+    liveReload: false,
   },
   output: {
     path: path.resolve(__dirname, 'dist_prod'),
