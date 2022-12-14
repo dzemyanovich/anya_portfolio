@@ -11,9 +11,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: 'all',
-    client: {
-      webSocketURL: 'ws://0.0.0.0:8080/ws',
-    },
   },
   module: {
     rules: [
