@@ -8,9 +8,9 @@
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
     "start": "yarn prod",
-    "dev": "webpack-dev-server --mode=development --config webpack.dev.js",
-    "preprod": "webpack-dev-server --mode=production --config webpack.preprod.js",
-    "prod": "webpack-dev-server --mode=production --config webpack.prod.js",
+    "dev": "webpack-dev-server --mode=development --config webpack.dev.js --open",
+    "preprod": "webpack-dev-server --mode=production --config webpack.preprod.js --open",
+    "prod": "webpack-dev-server --mode=production --config webpack.prod.js --open",
     "build": "yarn build-prod",
     "build-dev": "webpack --mode=development --config webpack.dev.js",
     "build-preprod": "webpack --mode=production --config webpack.preprod.js",

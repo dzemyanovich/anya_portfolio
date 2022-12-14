@@ -5,13 +5,15 @@ module.exports = {
   context: __dirname,
   entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     publicPath: '/',
   },
   devServer: {
     historyApiFallback: true,
-    allowedHosts: 'all'
+    allowedHosts: 'all',
+    client: {
+      webSocketURL: 'ws://0.0.0.0:8080/ws',
+    },
   },
   module: {
     rules: [
@@ -39,11 +41,11 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
-      filename: 'index.html'
+      filename: 'index.html',
     })
   ],
   performance: {
     maxEntrypointSize: 358400, // 350 KiB
-    maxAssetSize: 358400 // 350 KiB
+    maxAssetSize: 358400, // 350 KiB
   }
 };
