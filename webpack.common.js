@@ -11,9 +11,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: 'all',
-    client: {
-      overlay: false,
-    }
   },
   module: {
     rules: [
