@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
-    "start": "export WDS_SOCKET_PORT=443 && yarn prod",
+    "start": "yarn prod",
     "dev": "webpack-dev-server --mode=development --config webpack.dev.js --open",
     "preprod": "webpack-dev-server --mode=production --config webpack.preprod.js --open",
     "prod": "webpack-dev-server --mode=production --config webpack.prod.js --open",
@@ -26,6 +26,7 @@
     "stylelint-fix": "stylelint \"**/*.scss\" --fix"
   },
   "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
