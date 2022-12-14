@@ -12,6 +12,9 @@ module.exports = {
     historyApiFallback: true,
     allowedHosts: 'all',
     port: 443,
+    client: {
+      overlay: false,
+    }
   },
   module: {
     rules: [
