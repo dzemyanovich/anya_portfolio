@@ -9,6 +9,7 @@ module.exports = merge(common, {
   devServer: {
     hot: false,
     liveReload: false,
+    webSocketServer: false,
   },
   output: {
     path: path.resolve(__dirname, 'dist_prod'),
