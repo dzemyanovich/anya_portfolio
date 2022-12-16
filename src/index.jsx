@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Outlet, HashRouter, Routes, Route } from 'react-router-dom';
+import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import Favicon from 'react-favicon';
 
 import Home from './pages/home/home';
@@ -26,9 +26,9 @@ import './fonts/DrukWide-Bold-Trial.woff';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  // cannot use BrowserRouter because website is hosted in Amazon S3
+  // BrowserRouter is not recommended to be used for Amazon S3
   // more info - https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
-  <HashRouter>
+  <BrowserRouter>
     <Favicon url={favicon} />
     <Routes>
       <Route path="/" element={<Outlet />}>
@@ -93,5 +93,5 @@ root.render(
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
-  </HashRouter>,
+  </BrowserRouter>,
 );
