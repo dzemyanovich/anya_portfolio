@@ -41,6 +41,7 @@ class Projects extends React.Component {
 
   handleScroll() {
     const linksContainer = this.linksContainerRef;
+    // TODO: sometimes this line fails with "Cannot read properties of null (reading 'clientWidth')"
     const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
 
     linksContainer.scrollLeft = window.scrollY * proportion;
