@@ -8,6 +8,7 @@ import Projects from './pages/projects/projects';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
 import ProjectPage from './pages/project-page/project-page';
+import { AdidasHeader, AdidasContent } from './pages/adidas/adidas';
 import { EventOptimizerHeader, EventOptimizerContent } from './pages/event-optimizer/event-optimizer';
 import { SupplyPlanningHeader, SupplyPlanningContent } from './pages/supply-planning/supply-planning';
 import { HaviHeader, HaviContent } from './pages/havi/havi';
@@ -34,6 +35,15 @@ root.render(
         <Route index element={<Home />} />
         <Route path="*" element={<Home />} />
         <Route path="projects" element={<Projects />} />
+        <Route
+          path="projects/adidas"
+          element={(<ProjectPage
+            title="Adidas"
+            header={<AdidasHeader />}
+            content={<AdidasContent />}
+            className="adidas"
+          />)}
+        />
         <Route
           path="projects/event-optimizer"
           element={(<ProjectPage

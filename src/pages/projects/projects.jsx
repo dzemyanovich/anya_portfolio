@@ -9,6 +9,7 @@ import havi from '../../images/havi.png';
 import burger from '../../images/burger.png';
 import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
+import adidas from '../../images/adidas.jpg';
 import './projects.scss';
 
 class Projects extends React.Component {
@@ -52,6 +53,13 @@ class Projects extends React.Component {
         <div className="links-container" ref={el => { this.linksContainerRef = el; }}>
           <div className="project-link-container">
             <span className="project-link">
+              <CustomLink className="title" to="/projects/adidas">
+                <span className="link-text">Adidas</span>
+              </CustomLink>
+            </span>
+          </div>
+          <div className="project-link-container">
+            <span className="project-link">
               <CustomLink className="title" to="/projects/event-optimizer">
                 <span className="link-text">Event Optimizer</span>
               </CustomLink>
@@ -87,6 +95,9 @@ class Projects extends React.Component {
           </div>
         </div>
         <div className="projects">
+          <div className="image-container">
+            <img src={adidas} alt="" />
+          </div>
           <div className="image-container">
             <img src={burger} alt="" />
           </div>
