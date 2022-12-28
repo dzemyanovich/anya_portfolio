@@ -2,7 +2,8 @@
 
 $desktop-left-right-margin: 58px;
 $desktop-top-bottom-margin: 50px;
-$tablet-link-margin: 15px;
+$laptop-left-right-margin: 15px;
+$laptop-top-bottom-margin: 15px;
 
 .pivunova-brand,
 .designer-title-wrapper {
@@ -74,22 +75,22 @@ $tablet-link-margin: 15px;
 
 @media screen and (max-width: $laptop-width) {
   .about-link {
-    margin-bottom: $tablet-link-margin;
-    margin-right: $tablet-link-margin;
+    margin-bottom: $laptop-top-bottom-margin;
+    margin-right: $laptop-left-right-margin;
   }
 
   .contact-link {
-    margin-right: $tablet-link-margin;
-    margin-top: $tablet-link-margin;
+    margin-right: $laptop-left-right-margin;
+    margin-top: $laptop-top-bottom-margin;
   }
 
   .projects-link {
-    margin-bottom: $tablet-link-margin;
-    margin-left: $tablet-link-margin;
+    margin-bottom: $laptop-top-bottom-margin;
+    margin-left: $laptop-left-right-margin;
   }
 
   .home-link {
-    margin-left: $tablet-link-margin;
-    margin-top: $tablet-link-margin;
+    margin-left: $laptop-left-right-margin;
+    margin-top: $laptop-top-bottom-margin;
   }
 }

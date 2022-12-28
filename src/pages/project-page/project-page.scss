@@ -136,6 +136,10 @@ $project-info-margin: 50px;
 }
 
 @media screen and (max-width: $laptop-width) {
+  .project-image {
+    max-width: 500px;
+  }
+
   .project-wrapper {
     flex-direction: column;
   }

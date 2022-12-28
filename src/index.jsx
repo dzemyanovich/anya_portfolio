@@ -25,6 +25,9 @@ import './fonts/DrukWide-Bold-Trial.woff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// TODO: sometimes I see the following error in inspect element console (both locally and in prod):
+// Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true,
+// but the message channel closed before a response was received
 root.render(
   // BrowserRouter is not recommended to be used for Amazon S3
   // more info - https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
