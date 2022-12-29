@@ -1,5 +1,4 @@
-// TODO: make url configurable depending on env
-const DOMAIN = 'http://localhost:8080';
+const DOMAIN = Cypress.env('domain');
 
 describe('home page', () => {
   beforeEach(() => {

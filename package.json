@@ -24,7 +24,9 @@
     "lint": "eslint src/**/*.jsx src/**/*.js",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
-    "cypress": "cypress open"
+    "cy": "cypress open",
+    "cy-preprod": "cypress open --env domain=\"https://plankton-app-p6xnb.ondigitalocean.app\"",
+    "cy-prod": "cypress open --env domain=\"https://annapivunova.me\""
   },
   "dependencies": {
     "prop-types": "^15.8.1",
