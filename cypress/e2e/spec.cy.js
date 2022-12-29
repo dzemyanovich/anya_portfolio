@@ -1,5 +1,5 @@
 // TODO: make url configurable depending on env
-const DOMAIN = 'http://localhost:8080/';
+const DOMAIN = 'http://localhost:8080';
 
 describe('home page', () => {
   beforeEach(() => {
@@ -18,7 +18,7 @@ describe('home page', () => {
     cy.get('.projects-link').click();
 
     cy.on('url:changed', (newUrl) => {
-      expect(newUrl).to.eq(`${DOMAIN}projects`);
+      expect(newUrl).to.eq(`${DOMAIN}/projects`);
     });
   });
 
@@ -26,7 +26,7 @@ describe('home page', () => {
     cy.get('.contact-link').click();
 
     cy.on('url:changed', (newUrl) => {
-      expect(newUrl).to.eq(`${DOMAIN}contact`);
+      expect(newUrl).to.eq(`${DOMAIN}/contact`);
     });
   });
 
@@ -34,14 +34,14 @@ describe('home page', () => {
     cy.get('.about-link').click();
  
     cy.on('url:changed', (newUrl) => {
-      expect(newUrl).to.eq(`${DOMAIN}about`);
+      expect(newUrl).to.eq(`${DOMAIN}/about`);
     });
   });
 });
 
 describe('projects page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}projects`);
+    cy.visit(`${DOMAIN}/projects`);
   });
 
   it('check projects page', () => {
@@ -53,14 +53,24 @@ describe('projects page', () => {
     cy.get('.home-link').click();
 
     cy.on('url:changed', (newUrl) => {
-      expect(newUrl).to.eq(DOMAIN);
+      expect(newUrl).to.eq(`${DOMAIN}/`);
+    });
+  });
+
+  it('click on each project link', () => {
+    cy.get('.project-link [role=link]').each((el) => {
+      cy.visit(`${DOMAIN}${el.attr('href')}`);
+
+      cy.get('.page-title').contains(el.text(), { matchCase: false });
+
+      cy.go('back');
     });
   });
 });
 
 describe('about page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}about`);
+    cy.visit(`${DOMAIN}/about`);
   });
 
   it('check about page', () => {
@@ -70,7 +80,7 @@ describe('about page', () => {
 
 describe('contact page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}contact`);
+    cy.visit(`${DOMAIN}/contact`);
   });
 
   it('check contact page', () => {
@@ -78,6 +88,6 @@ describe('contact page', () => {
   });
 });
 
-// todo: add visibility checks like:
-// cy.get('.rightclick-action-div').rightclick().should('not.be.visible')
-// cy.get('.rightclick-action-input-hidden').should('be.visible')
+function sleep(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}

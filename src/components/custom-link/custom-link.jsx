@@ -18,6 +18,7 @@ function CustomLink({ to, className, children }) {
       className={`custom-link ${className}`}
       onClick={goTo}
       onKeyDown={goTo}
+      href={to}
     >
       {children}
     </span>
