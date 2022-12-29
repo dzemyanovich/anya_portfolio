@@ -63,6 +63,12 @@ describe('projects page', () => {
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
 
+      // wait until animation is done
+      cy.wait(2000);
+      cy.get('.project-description').should('not.be.visible');
+      cy.get('.project-page').scrollTo('right', { duration: 2000 });
+      cy.get('.project-description').should('be.visible');
+
       cy.go('back');
     });
   });
@@ -87,7 +93,3 @@ describe('contact page', () => {
     cy.contains('contact', { matchCase: false });
   });
 });
-
-function sleep(milliseconds) {
-  return new Promise((resolve) => setTimeout(resolve, milliseconds));
-}
