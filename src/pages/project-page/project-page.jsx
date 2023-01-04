@@ -23,6 +23,7 @@ class ProjectPage extends React.Component {
 
     this.projectPageRef = null;
     this.projectWrapperRef = null;
+    this.timeoutId = null;
 
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
@@ -42,22 +43,21 @@ class ProjectPage extends React.Component {
 
     // wait 2 seconds until animation finishes rendering
     noScroll.start();
-    setTimeout(() => {
-      // since function is invoked via setTimeout, we need to ensure we are still on project page
-      if (!window.location.pathname.toLowerCase().match('/projects/[a-z0-9_]+')) {
-        return;
-      }
-
+    this.timeoutId = setTimeout(() => {
       if (isTouchDevice) {
         this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
+
       noScroll.end();
     }, 2000);
   }
 
   componentWillUnmount() {
+    clearTimeout(this.timeoutId);
+    noScroll.end();
+
     if (isTouchDevice) {
       this.projectPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);

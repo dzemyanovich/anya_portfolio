@@ -17,6 +17,7 @@ class Projects extends React.Component {
     super(props);
 
     this.linksContainerRef = null;
+    this.timeoutId = null;
 
     this.handleScroll = this.handleScroll.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -39,19 +40,22 @@ class Projects extends React.Component {
 
     // wait 5 sec until animaiton rendering is finished
     noScroll.start();
-    setTimeout(() => {
+    this.timeoutId = setTimeout(() => {
       window.addEventListener('scroll', this.handleScroll);
+
       noScroll.end();
     }, 5000);
   }
 
   componentWillUnmount() {
+    clearTimeout(this.timeoutId);
+    noScroll.end();
+
     window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
     const linksContainer = this.linksContainerRef;
-    // todo: sometimes this line fails with "Cannot read properties of null (reading 'clientWidth')"
     const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
 
     linksContainer.scrollLeft = window.scrollY * proportion;
