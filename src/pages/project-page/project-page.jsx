@@ -43,6 +43,11 @@ class ProjectPage extends React.Component {
     // wait 2 seconds until animation finishes rendering
     noScroll.start();
     setTimeout(() => {
+      // since function is invoked via setTimeout, we need to ensure we are still on project page
+      if (!window.location.pathname.toLowerCase().match('/projects/[a-z0-9_]+')) {
+        return;
+      }
+
       if (isTouchDevice) {
         this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {

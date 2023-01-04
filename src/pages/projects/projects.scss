@@ -29,6 +29,12 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  &.hover {
+    opacity: 0.6;
+  }
 
   img {
     animation: 2s ease-out 3s 1 fade-in;
@@ -61,7 +67,12 @@
   animation: 2s ease-out 1s 1 slide-in;
   animation-fill-mode: forwards;
   bottom: -30px;
+  opacity: 0.8;
   position: relative;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: $tablet-width) {

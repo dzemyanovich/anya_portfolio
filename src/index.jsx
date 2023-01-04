@@ -25,7 +25,7 @@ import './fonts/DrukWide-Bold-Trial.woff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// TODO: sometimes I see the following error in inspect element console (both locally and in prod):
+// todo: sometimes I see the following error in inspect element console (both locally and in prod):
 // Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true,
 // but the message channel closed before a response was received
 root.render(

@@ -11,7 +11,12 @@
 }
 
 .brand-logo {
+  opacity: 0.8;
   width: 33px;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: $laptop-width) {
