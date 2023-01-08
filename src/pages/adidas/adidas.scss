@@ -1,0 +1,38 @@
+@import '../../styles/shared';
+
+.adidas-content {
+  // todo: consider moving black background color to shared var
+  background-color: rgb(0 0 0);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+$margin: 40px;
+
+.subproject {
+  @include druk-normal-400;
+
+  width: 600px;
+  height: 500px;
+  background-color: white;
+  opacity: 0.8;
+  margin-left: $margin;
+  margin-top: $margin;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-panel {
+  @include montserrat-normal-700;
+
+  margin-top: $margin;
+  margin-left: $margin;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}

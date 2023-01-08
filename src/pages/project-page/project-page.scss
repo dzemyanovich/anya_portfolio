@@ -81,7 +81,7 @@ $project-info-margin: 50px;
 }
 
 .project-title {
-  @include mnontserrat-normal-700;
+  @include montserrat-normal-700;
 
   color: rgba(255 255 255 / 100%);
   font-size: 14px;
@@ -90,7 +90,7 @@ $project-info-margin: 50px;
 }
 
 .project-description {
-  @include mnontserrat-normal-400;
+  @include montserrat-normal-400;
 
   color: rgba(255 255 255 / 80%);
   font-size: 14px;
@@ -104,6 +104,8 @@ $project-info-margin: 50px;
   background: rgb(0 0 0);
   display: none;
   position: absolute;
+  width: 100%;
+  height: 100%;
 
   .project-wrapper {
     min-height: 100vh;
