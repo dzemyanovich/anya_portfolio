@@ -1,6 +1,6 @@
 @import '../../styles/shared';
 
-$margin: 40px;
+$margin: 60px;
 $project-width: 588px;
 
 input[type='radio'] + label[for] {
@@ -49,6 +49,7 @@ input[type='radio']:checked:after {
 }
 
 .adidas-content {
+  position: relative;
   // todo: consider moving black background color to shared var
   background-color: rgb(0 0 0);
   display: flex;
@@ -65,25 +66,26 @@ input[type='radio']:checked:after {
   height: 600px;
   background-color: white;
   opacity: 0.8;
-  margin-left: $margin;
-  margin-top: $margin;
+  // margin-left: $margin;
+  // margin-top: $margin;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &:nth-child(2n + 3) {
-    position: relative;
-    top: -60px;
+  &:nth-child(odd) {
+    margin-left: $margin;
+    margin-top: $margin;
   }
 }
 
 .filter-panel {
   @include montserrat-normal-700;
 
+  position: absolute;
+  right: $margin;
+  top: 0;
   width: $project-width;
-  margin-top: $margin;
-  margin-left: $margin;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;

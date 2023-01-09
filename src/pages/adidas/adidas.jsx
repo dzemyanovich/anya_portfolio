@@ -100,32 +100,12 @@ export class AdidasContent extends React.Component {
     return (
       <div className="adidas-wrapper">
         <div className="adidas-content">
+          {filterPanel}
           {this.projects
             .filter(project => this.state.currentCategory === this.categories.all || project.category === this.state.currentCategory)
-            .map((project, index, array) => {
-              const result = [];
-              if (index === 1) {
-                result.push(filterPanel);
-              }
-
-              result.push(
+            .map((project, index) =>
                 <div className="subproject" key={`project_${index.toString()}`}>{project.value}</div>
-              );
-
-              if (array.length === 1) {
-                result.push(filterPanel);
-                return result;
-              }
-
-              // todo: make proper keys
-              return result.length === 1
-                ? result
-                : (
-                  <div key={`category_${index.toString()}`}>
-                    {result}
-                  </div>
-                );
-            })}
+            )}
         </div>
       </div>
     );
