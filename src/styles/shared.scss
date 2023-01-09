@@ -3,6 +3,11 @@ $tablet-width: 500px;
 $mobile-width: 400px;
 $link-delay-animation: 5s;
 
+$black: rgb(0 0 0);
+$white: rgba(255 255 255 / 100%);
+$gray: rgb(217 217 217);
+$light-gray: rgba(255 255 255 / 80%);
+
 @mixin druk-normal-400 {
   font-family: 'Druk Wide Trial', sans-serif;
   font-style: normal;

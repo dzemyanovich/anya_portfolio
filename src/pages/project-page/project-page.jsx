@@ -180,6 +180,8 @@ class ProjectPage extends React.Component {
   render() {
     const { title, header, content, className } = this.props;
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
+    const isMultipleProjects = ['/projects/adidas', '/projects/event-optimizer']
+      .includes(location.pathname.toLowerCase());
 
     return (
       <div
@@ -197,17 +199,17 @@ class ProjectPage extends React.Component {
               : <img src={swipeLeft} alt="" />}
           </div>
         )}
-        {/* {!isTouchDevice && (
+        {!isTouchDevice && !isMultipleProjects && (
           <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
             {header}
           </div>
-        )} */}
+        )}
         <div className="content-wrapper">
-          {/* {isTouchDevice && ( */}
+          {(isTouchDevice || isMultipleProjects) && (
             <div className="project-wrapper" ref={el => { this.projectWrapperRef = el; }}>
               {header}
             </div>
-          {/* )} */}
+          )}
           {content}
         </div>
       </div>

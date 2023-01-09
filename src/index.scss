@@ -34,8 +34,8 @@ html {
 }
 
 body {
-  background-color: rgb(0 0 0);
-  color: rgb(255 255 255);
+  background-color: $black;
+  color: $white;
   margin: 0;
 
   &.no-scroll {
@@ -46,7 +46,7 @@ body {
 .title {
   @include druk-normal-700;
 
-  color: rgba(255 255 255 / 100%);
+  color: $white;
   font-size: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -56,18 +56,55 @@ body {
   @include druk-normal-400;
 
   border-bottom: 1px solid transparent;
-  color: rgba(255 255 255 / 80%);
+  color: $light-gray;
   font-size: 15px;
   letter-spacing: 2px;
   padding-bottom: 3px;
   text-decoration: none;
 
   &:hover {
-    border-bottom: 1px solid rgba(255 255 255 / 100%);
-    color: rgba(255 255 255 / 100%);
+    border-bottom: 1px solid $white;
+    color: $white;
   }
 
   &.no-underline:hover {
     border-width: 0;
+  }
+}
+
+input[type="radio"] {
+  cursor: pointer;
+
+  &:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: $black;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid $white;
+  }
+
+  &:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: $gray;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid $gray;
+  }
+
+  +label[for] {
+    cursor: pointer;
+    padding-left: 10px;
   }
 }

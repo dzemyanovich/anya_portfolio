@@ -47,7 +47,7 @@ $project-info-margin: 50px;
 
 .project-wrapper {
   align-items: center;
-  background: rgb(0 0 0);
+  background: $black;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -83,7 +83,7 @@ $project-info-margin: 50px;
 .project-title {
   @include montserrat-normal-700;
 
-  color: rgba(255 255 255 / 100%);
+  color: $white;
   font-size: 14px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
@@ -92,7 +92,7 @@ $project-info-margin: 50px;
 .project-description {
   @include montserrat-normal-400;
 
-  color: rgba(255 255 255 / 80%);
+  color: $light-gray;
   font-size: 14px;
 }
 
@@ -101,7 +101,7 @@ $project-info-margin: 50px;
 }
 
 .content-wrapper {
-  background: rgb(0 0 0);
+  background: $black;
   display: none;
   position: absolute;
   width: 100%;
