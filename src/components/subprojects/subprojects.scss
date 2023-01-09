@@ -38,14 +38,14 @@ $mini-mobile: $tablet-project-width + $margin;
 .subproject {
   @include druk-normal-400;
 
-  width: $desktop-project-width;
-  height: $desktop-project-height;
+  align-items: center;
   background-color: $white;
-  opacity: 0.8;
   color: $black;
   display: flex;
-  align-items: center;
+  height: $desktop-project-height;
   justify-content: center;
+  opacity: 0.8;
+  width: $desktop-project-width;
 
   &:nth-child(odd) {
     margin-left: $margin;
@@ -56,13 +56,13 @@ $mini-mobile: $tablet-project-width + $margin;
 .filter-panel {
   @include montserrat-normal-700;
 
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: $desktop-project-width;
-  text-transform: uppercase;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
+  width: $desktop-project-width;
 }
 
 @media screen and (max-width: $desktop) {
@@ -71,8 +71,8 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 
   .subproject {
-    width: $tablet-project-width;
     height: $tablet-project-height;
+    width: $tablet-project-width;
   }
 
   .filter-panel {
@@ -91,9 +91,9 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 
   .subproject {
-    width: $desktop-project-width;
     height: $desktop-project-height;
     margin: $margin 0 0 0;
+    width: $desktop-project-width;
 
     &:nth-child(odd) {
       margin: $margin 0 0 0;
@@ -107,8 +107,8 @@ $mini-mobile: $tablet-project-width + $margin;
 
 @media screen and (max-width: $mobile) {
   .subproject {
-    width: $tablet-project-width;
     height: $tablet-project-height;
+    width: $tablet-project-width;
   }
 
   .filter-panel {
@@ -122,8 +122,8 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 
   .subproject {
-    width: 100%;
     margin: $mobile-margin 0 0 0;
+    width: 100%;
 
     &:nth-child(odd) {
       margin: $mobile-margin 0 0 0;
@@ -135,8 +135,8 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 
   .filter-panel {
-    width: 100%;
     display: block;
+    width: 100%;
 
     > * {
       display: block;

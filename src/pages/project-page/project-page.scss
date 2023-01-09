@@ -101,9 +101,9 @@
 .content-wrapper {
   background: $black;
   display: none;
+  height: 100%;
   position: absolute;
   width: 100%;
-  height: 100%;
 
   .project-wrapper {
     min-height: 100vh;
