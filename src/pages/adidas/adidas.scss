@@ -1,7 +1,19 @@
 @import '../../styles/shared';
 
 $margin: 60px;
-$project-width: 588px;
+$desktop-project-width: 588px;
+$desktop-project-height: 600px;
+$desktop-content-width: $desktop-project-width * 2 + $margin;
+$desktop: $desktop-content-width + $margin;
+
+$tablet-project-width: 480px;
+$tablet-project-height: 400px;
+$tablet-content-width: $tablet-project-width * 2 + $margin;
+$tablet: $tablet-project-width * 2 + $margin;
+
+$mobile: $desktop-project-width + $margin;
+
+$mini-mobile: $tablet-project-width + $margin;
 
 input[type='radio'] + label[for] {
   padding-left: 10px;
@@ -22,7 +34,7 @@ input[type='radio']:after {
   visibility: visible;
   border: 2px solid white;
   // todo: border color duplication
-  // border-color: transparent;\
+  // border-color: transparent;
 }
 
 input[type='radio']:checked:after {
@@ -56,18 +68,16 @@ input[type='radio']:checked:after {
   height: 100%;
   width: 100%;
   flex-wrap: wrap;
-  max-width: $project-width * 2 + $margin * 2;
+  max-width: $desktop-content-width;
 }
 
 .subproject {
   @include druk-normal-400;
 
-  width: $project-width;
-  height: 600px;
+  width: $desktop-project-width;
+  height: $desktop-project-height;
   background-color: white;
   opacity: 0.8;
-  // margin-left: $margin;
-  // margin-top: $margin;
   color: black;
   display: flex;
   align-items: center;
@@ -83,10 +93,90 @@ input[type='radio']:checked:after {
   @include montserrat-normal-700;
 
   position: absolute;
-  right: $margin;
+  right: 0;
   top: 0;
-  width: $project-width;
+  width: $desktop-project-width;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: $desktop) {
+  .adidas-content {
+    max-width: $tablet-content-width;
+  }
+
+  .subproject {
+    width: $tablet-project-width;
+    height: $tablet-project-height;
+  }
+
+  .filter-panel {
+    width: $tablet-project-width;
+  }
+}
+
+@mixin tablet {
+  .adidas-content {
+    justify-content: center;
+  }
+
+  .filter-panel {
+    position: static;
+  }
+
+  .subproject {
+    width: $desktop-project-width;
+    height: $desktop-project-height;
+  }
+
+  .filter-panel {
+    width: $desktop-project-width;
+  }
+
+  .subproject {
+    margin: $margin 0 0 0;
+
+    &:nth-child(odd) {
+      margin: $margin 0 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  @include tablet;
+}
+
+@media screen and (max-width: $mobile) {
+  .subproject {
+    width: $tablet-project-width;
+    height: $tablet-project-height;
+  }
+
+  .filter-panel {
+    width: $tablet-project-width;
+  }
+}
+
+@media screen and (max-width: $mini-mobile) {
+  .adidas-content {
+    margin: 0 30px;
+  }
+
+  .subproject {
+    width: 100%;
+  }
+
+  .filter-panel {
+    width: 100%;
+    display: block;
+
+    > * {
+      display: block;
+
+      &:nth-child(n + 2) {
+        margin-top: 20px;
+      }
+    }
+  }
 }
