@@ -57,5 +57,5 @@ export function AdidasContent() {
     },
   ];
 
-  return <Subprojects categories={categories} projects={projects} />
+  return <Subprojects categories={categories} projects={projects} />;
 }

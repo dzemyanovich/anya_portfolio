@@ -140,6 +140,7 @@ class ProjectPage extends React.Component {
         projectWrapper.style.marginTop = `${-offsetHeight}px`;
       }
 
+      // todo: for pages like adidas, home link should be invisible sooner
       this.setState({
         isHomeLinkVisible: false,
       });
@@ -181,7 +182,7 @@ class ProjectPage extends React.Component {
     const { title, header, content, className } = this.props;
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
     const isMultipleProjects = ['/projects/adidas', '/projects/event-optimizer']
-      .includes(location.pathname.toLowerCase());
+      .includes(window.location.pathname.toLowerCase());
 
     return (
       <div

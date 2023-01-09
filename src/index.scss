@@ -72,10 +72,10 @@ body {
   }
 }
 
-input[type="radio"] {
+input[type='radio'] {
   cursor: pointer;
 
-  &:after {
+  &::after {
     width: 15px;
     height: 15px;
     border-radius: 15px;
@@ -89,7 +89,7 @@ input[type="radio"] {
     border: 2px solid $white;
   }
 
-  &:checked:after {
+  &:checked::after {
     width: 15px;
     height: 15px;
     border-radius: 15px;

@@ -1,18 +1,23 @@
 @import '../../styles/shared';
 
+// desktop
 $margin: 60px;
 $desktop-project-width: 588px;
 $desktop-project-height: 600px;
 $desktop-content-width: $desktop-project-width * 2 + $margin;
 $desktop: $desktop-content-width + $margin;
 
+// tablet
 $tablet-project-width: 480px;
 $tablet-project-height: 400px;
 $tablet-content-width: $tablet-project-width * 2 + $margin;
 $tablet: $tablet-project-width * 2 + $margin;
 
+// mobile
 $mobile: $desktop-project-width + $margin;
+$mobile-margin: calc($margin / 2);
 
+// mini-mobile
 $mini-mobile: $tablet-project-width + $margin;
 
 .subprojects-wrapper {
@@ -82,18 +87,12 @@ $mini-mobile: $tablet-project-width + $margin;
 
   .filter-panel {
     position: static;
+    width: $desktop-project-width;
   }
 
   .subproject {
     width: $desktop-project-width;
     height: $desktop-project-height;
-  }
-
-  .filter-panel {
-    width: $desktop-project-width;
-  }
-
-  .subproject {
     margin: $margin 0 0 0;
 
     &:nth-child(odd) {
@@ -121,8 +120,6 @@ $mini-mobile: $tablet-project-width + $margin;
   .subprojects-content {
     margin: 0 $project-info-margin;
   }
-
-  $mobile-margin: calc($margin / 2);
 
   .subproject {
     width: 100%;

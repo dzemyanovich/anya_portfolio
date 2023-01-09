@@ -26,6 +26,9 @@ export default class Subprojects extends React.Component {
   }
 
   render() {
+    const { currentCategory } = this.state;
+    const { projects } = this.props;
+
     return (
       <div className="subprojects-wrapper">
         <div className="subprojects-content">
@@ -40,7 +43,7 @@ export default class Subprojects extends React.Component {
                     id={key}
                     name="project_category"
                     value={value}
-                    defaultChecked={this.state.currentCategory === value ? 'checked' : false}
+                    defaultChecked={currentCategory === value ? 'checked' : false}
                     onChange={this.applyFilter}
                   />
                   <label htmlFor={key}>{value}</label>
@@ -48,12 +51,10 @@ export default class Subprojects extends React.Component {
               );
             })}
           </div>
-          {this.props.projects
-            .filter(project => this.state.currentCategory === this.categories.all
-              || project.category === this.state.currentCategory)
-            .map((project, index) =>
+          {projects.filter(project => currentCategory === this.categories.all || project.category === currentCategory)
+            .map((project, index) => (
               <div className="subproject" key={`subproject_${index.toString()}`}>{project.value}</div>
-            )}
+            ))}
         </div>
       </div>
     );
@@ -61,6 +62,9 @@ export default class Subprojects extends React.Component {
 }
 
 Subprojects.propTypes = {
-  categories: PropTypes.object.isRequired,
-  projects: PropTypes.array.isRequired,
+  categories: PropTypes.objectOf(PropTypes.string).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    category: PropTypes.string,
+  })).isRequired,
 };
