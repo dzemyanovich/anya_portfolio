@@ -119,21 +119,21 @@ $mini-mobile: $tablet-project-width + $margin;
 
 @media screen and (max-width: $mini-mobile) {
   .subprojects-content {
-    margin: 0 50px;
+    margin: 0 $project-info-margin;
   }
 
-  $new-margin: 30px;
+  $mobile-margin: calc($margin / 2);
 
   .subproject {
     width: 100%;
-    margin: $new-margin 0 0 0;
+    margin: $mobile-margin 0 0 0;
 
     &:nth-child(odd) {
-      margin: $new-margin 0 0 0;
+      margin: $mobile-margin 0 0 0;
     }
 
     &:last-child {
-      margin-bottom: $new-margin;
+      margin-bottom: $mobile-margin;
     }
   }
 

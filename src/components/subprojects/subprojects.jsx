@@ -1,47 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './subprojects.scss';
 
-export class Subprojects extends React.Component {
+export default class Subprojects extends React.Component {
   constructor(props) {
     super(props);
 
     this.categories = {
       all: 'All',
-      designLeadership: 'Design Leadership',
-      productDesign: 'Product Design',
+      ...props.categories,
     };
-
-    this.projects = [
-      {
-        value: 'project #1',
-        category: this.categories.designLeadership,
-      },
-      {
-        value: 'project #2',
-        category: this.categories.productDesign,
-      },
-      {
-        value: 'project #3',
-        category: this.categories.productDesign,
-      },
-      {
-        value: 'project #4',
-        category: null,
-      },
-      {
-        value: 'project #5',
-        category: this.categories.productDesign,
-      },
-      {
-        value: 'project #6',
-        category: null,
-      },
-      {
-        value: 'project #7',
-        category: null,
-      },
-    ];
 
     this.applyFilter = this.applyFilter.bind(this);
 
@@ -79,7 +48,7 @@ export class Subprojects extends React.Component {
               );
             })}
           </div>
-          {this.projects
+          {this.props.projects
             .filter(project => this.state.currentCategory === this.categories.all
               || project.category === this.state.currentCategory)
             .map((project, index) =>
@@ -90,3 +59,8 @@ export class Subprojects extends React.Component {
     );
   }
 }
+
+Subprojects.propTypes = {
+  categories: PropTypes.object.isRequired,
+  projects: PropTypes.array.isRequired,
+};
