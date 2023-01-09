@@ -1,7 +1,8 @@
 import React from 'react';
 
+import Subprojects from '../../components/subprojects/subprojects';
+
 import image from '../../images/burger.png';
-import background from '../../images/event-optimizer-background.png';
 
 export function EventOptimizerHeader() {
   return [
@@ -20,7 +21,41 @@ export function EventOptimizerHeader() {
 }
 
 export function EventOptimizerContent() {
-  return [
-    <img src={background} alt="" key="page-content-background" className="event-optimizer-background" />,
+  const categories = {
+    designLeadership: 'Design Leadership',
+    productDesign: 'Product Design',
+  };
+
+  const projects = [
+    {
+      value: 'project #1',
+      category: categories.designLeadership,
+    },
+    {
+      value: 'project #2',
+      category: categories.productDesign,
+    },
+    {
+      value: 'project #3',
+      category: categories.productDesign,
+    },
+    {
+      value: 'project #4',
+      category: null,
+    },
+    {
+      value: 'project #5',
+      category: categories.productDesign,
+    },
+    {
+      value: 'project #6',
+      category: null,
+    },
+    {
+      value: 'project #7',
+      category: null,
+    },
   ];
+
+  return <Subprojects categories={categories} projects={projects} />;
 }
