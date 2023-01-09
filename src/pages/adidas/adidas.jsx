@@ -40,7 +40,7 @@ export class AdidasContent extends React.Component {
       },
       {
         value: 'project #3',
-        category: this.categories.designLeadership,
+        category: this.categories.productDesign,
       },
       {
         value: 'project #4',
@@ -51,7 +51,11 @@ export class AdidasContent extends React.Component {
         category: this.categories.productDesign,
       },
       {
-        value: 'project #5',
+        value: 'project #6',
+        category: null,
+      },
+      {
+        value: 'project #7',
         category: null,
       },
     ];
@@ -70,42 +74,58 @@ export class AdidasContent extends React.Component {
   }
 
   render() {
-    return (
-      <div className="adidas-content">
-        <div>
-          {this.projects.map((project, index) => {
-            if ((this.state.currentCategory === this.categories.all || project.category === this.state.currentCategory)
-              && index % 2 === 0) {
-              return <div className="subproject" key={`category_${index.toString()}`}>{project.value}</div>
-            }
-          })}
-        </div>
-        <div>
-          <div className="filter-panel">
-            {Object.keys(this.categories).map((key) => {
-              const value = this.categories[key];
+    // todo: do we really need this key?
+    const filterPanel = (
+      <div className="filter-panel" key="filter-panel">
+        {Object.keys(this.categories).map((key) => {
+          const value = this.categories[key];
 
-              return (
-                <span key={key}>
-                  <input
-                    type="radio"
-                    id={key}
-                    name="project_category"
-                    value={value}
-                    defaultChecked={this.state.currentCategory === value ? 'checked' : false}
-                    onChange={this.applyFilter}
-                  />
-                  <label htmlFor={key}>{value}</label>
-                </span>
+          return (
+            <span key={key}>
+              <input
+                type="radio"
+                id={key}
+                name="project_category"
+                value={value}
+                defaultChecked={this.state.currentCategory === value ? 'checked' : false}
+                onChange={this.applyFilter}
+              />
+              <label htmlFor={key}>{value}</label>
+            </span>
+          );
+        })}
+      </div>
+    );
+
+    return (
+      <div className="adidas-wrapper">
+        <div className="adidas-content">
+          {this.projects
+            .filter(project => this.state.currentCategory === this.categories.all || project.category === this.state.currentCategory)
+            .map((project, index, array) => {
+              const result = [];
+              if (index === 1) {
+                result.push(filterPanel);
+              }
+
+              result.push(
+                <div className="subproject" key={`project_${index.toString()}`}>{project.value}</div>
               );
+
+              if (array.length === 1) {
+                result.push(filterPanel);
+                return result;
+              }
+
+              // todo: make proper keys
+              return result.length === 1
+                ? result
+                : (
+                  <div key={`category_${index.toString()}`}>
+                    {result}
+                  </div>
+                );
             })}
-          </div>
-          {this.projects.map((project, index) => {
-            if ((this.state.currentCategory === this.categories.all || project.category === this.state.currentCategory)
-              && index % 2 !== 0) {
-              return <div className="subproject" key={`category_${index.toString()}`}>{project.value}</div>
-            }
-          })}
         </div>
       </div>
     );

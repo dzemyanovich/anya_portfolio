@@ -197,17 +197,17 @@ class ProjectPage extends React.Component {
               : <img src={swipeLeft} alt="" />}
           </div>
         )}
-        {!isTouchDevice && (
+        {/* {!isTouchDevice && (
           <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
             {header}
           </div>
-        )}
+        )} */}
         <div className="content-wrapper">
-          {isTouchDevice && (
+          {/* {isTouchDevice && ( */}
             <div className="project-wrapper" ref={el => { this.projectWrapperRef = el; }}>
               {header}
             </div>
-          )}
+          {/* )} */}
           {content}
         </div>
       </div>

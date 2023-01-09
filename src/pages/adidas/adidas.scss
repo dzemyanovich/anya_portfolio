@@ -1,5 +1,13 @@
 @import '../../styles/shared';
 
+$margin: 40px;
+$project-width: 600px;
+
+.adidas-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .adidas-content {
   // todo: consider moving black background color to shared var
   background-color: rgb(0 0 0);
@@ -7,10 +15,8 @@
   height: 100%;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: center
+  max-width: $project-width * 2 + $margin * 2;
 }
-
-$margin: 40px;
 
 .subproject {
   @include druk-normal-400;
@@ -25,11 +31,17 @@ $margin: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:nth-child(2n + 3) {
+    position: relative;
+    top: -60px;
+  }
 }
 
 .filter-panel {
   @include montserrat-normal-700;
 
+  width: $project-width;
   margin-top: $margin;
   margin-left: $margin;
   text-transform: uppercase;
