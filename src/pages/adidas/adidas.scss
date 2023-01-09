@@ -160,11 +160,22 @@ input[type='radio']:checked:after {
 
 @media screen and (max-width: $mini-mobile) {
   .adidas-content {
-    margin: 0 30px;
+    margin: 0 50px;
   }
+
+  $new-margin: 30px;
 
   .subproject {
     width: 100%;
+    margin: $new-margin 0 0 0;
+
+    &:nth-child(odd) {
+      margin: $new-margin 0 0 0;
+    }
+
+    &:last-child {
+      margin-bottom: $new-margin;
+    }
   }
 
   .filter-panel {
