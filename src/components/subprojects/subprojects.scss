@@ -30,6 +30,7 @@ $mini-mobile: $tablet-project-width + $margin;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  margin-bottom: 20px;
   max-width: $desktop-content-width;
   position: relative;
   width: 100%;
@@ -80,12 +81,13 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 }
 
-@mixin tablet {
+@media screen and (max-width: $tablet) {
   .subprojects-content {
     justify-content: center;
   }
 
   .filter-panel {
+    margin-top: $margin;
     position: static;
     width: $desktop-project-width;
   }
@@ -99,10 +101,6 @@ $mini-mobile: $tablet-project-width + $margin;
       margin: $margin 0 0 0;
     }
   }
-}
-
-@media screen and (max-width: $tablet) {
-  @include tablet;
 }
 
 @media screen and (max-width: $mobile) {
@@ -127,10 +125,6 @@ $mini-mobile: $tablet-project-width + $margin;
 
     &:nth-child(odd) {
       margin: $mobile-margin 0 0 0;
-    }
-
-    &:last-child {
-      margin-bottom: $mobile-margin;
     }
   }
 
