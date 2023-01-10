@@ -56,11 +56,14 @@ $mini-mobile: $tablet-project-width + $margin;
 }
 
 .filter-panel {
-  @include montserrat-normal-700;
+  @include matrice-normal-700;
 
   color: $gray;
   display: flex;
+  font-size: 10px;
   justify-content: space-between;
+  letter-spacing: 2.07px;
+  line-height: 10px;
   position: absolute;
   right: 0;
   text-transform: uppercase;
@@ -134,7 +137,7 @@ $mini-mobile: $tablet-project-width + $margin;
     display: block;
     width: 100%;
 
-    > * {
+    >* {
       display: block;
 
       &:nth-child(n + 2) {

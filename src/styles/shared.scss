@@ -33,3 +33,9 @@ $light-gray: rgba(255 255 255 / 80%);
   font-style: normal;
   font-weight: 700;
 }
+
+@mixin matrice-normal-700 {
+  font-family: Matrice, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
