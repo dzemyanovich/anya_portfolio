@@ -53,7 +53,13 @@ export default class Subprojects extends React.Component {
           </div>
           {projects.filter(project => currentCategory === this.categories.all || project.category === currentCategory)
             .map((project, index) => (
-              <div className="subproject" key={`subproject_${index.toString()}`}>{project.value}</div>
+              <div className="subproject" key={`subproject_${index.toString()}`}>
+                <div className="subproject-image" />
+                <div className="subproject-description">
+                  <div>{project.value}</div>
+                  <div>{project.year}</div>
+                </div>
+              </div>
             ))}
         </div>
       </div>
@@ -66,5 +72,6 @@ Subprojects.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string.isRequired,
     category: PropTypes.string,
+    year: PropTypes.number.isRequired,
   })).isRequired,
 };

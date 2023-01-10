@@ -30,30 +30,37 @@ export function AdidasContent() {
     {
       value: 'project #1',
       category: categories.designLeadership,
+      year: 2022,
     },
     {
       value: 'project #2',
       category: categories.productDesign,
+      year: 2023,
     },
     {
       value: 'project #3',
       category: categories.productDesign,
+      year: 2021,
     },
     {
       value: 'project #4',
       category: null,
+      year: 2020,
     },
     {
       value: 'project #5',
       category: categories.productDesign,
+      year: 2022,
     },
     {
       value: 'project #6',
       category: null,
+      year: 2022,
     },
     {
       value: 'project #7',
       category: null,
+      year: 2022,
     },
   ];
 

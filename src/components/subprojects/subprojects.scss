@@ -11,7 +11,7 @@ $desktop: $desktop-content-width + $margin;
 $tablet-project-width: 480px;
 $tablet-project-height: 400px;
 $tablet-content-width: $tablet-project-width * 2 + $margin;
-$tablet: $tablet-project-width * 2 + $margin;
+$tablet: $tablet-project-width * 2 + $margin * 2;
 
 // mobile
 $mobile: $desktop-project-width + $margin;
@@ -19,6 +19,15 @@ $mobile-margin: calc($margin / 2);
 
 // mini-mobile
 $mini-mobile: $tablet-project-width + $margin;
+
+@mixin matrice-font {
+  @include matrice-normal-700;
+
+  font-size: 10px;
+  letter-spacing: 2.07px;
+  line-height: 10px;
+  text-transform: uppercase;
+}
 
 .subprojects-wrapper {
   display: flex;
@@ -38,8 +47,15 @@ $mini-mobile: $tablet-project-width + $margin;
 }
 
 .subproject {
-  @include druk-normal-400;
+  @include matrice-font;
 
+  &:nth-child(odd) {
+    margin-left: $margin;
+    margin-top: $margin;
+  }
+}
+
+.subproject-image {
   align-items: center;
   background-color: $white;
   color: $black;
@@ -48,25 +64,24 @@ $mini-mobile: $tablet-project-width + $margin;
   justify-content: center;
   opacity: 0.8;
   width: $desktop-project-width;
+}
 
-  &:nth-child(odd) {
-    margin-left: $margin;
-    margin-top: $margin;
-  }
+.subproject-description {
+  border-bottom: 1px solid $gray;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  padding-top: 44px;
 }
 
 .filter-panel {
-  @include matrice-normal-700;
+  @include matrice-font;
 
   color: $gray;
   display: flex;
-  font-size: 10px;
   justify-content: space-between;
-  letter-spacing: 2.07px;
-  line-height: 10px;
   position: absolute;
   right: 0;
-  text-transform: uppercase;
   top: 0;
   width: $desktop-project-width;
 }
@@ -76,7 +91,7 @@ $mini-mobile: $tablet-project-width + $margin;
     max-width: $tablet-content-width;
   }
 
-  .subproject {
+  .subproject-image {
     height: $tablet-project-height;
     width: $tablet-project-width;
   }
@@ -97,19 +112,19 @@ $mini-mobile: $tablet-project-width + $margin;
     width: $desktop-project-width;
   }
 
-  .subproject {
+  .subproject:nth-child(odd) {
+    margin: 0;
+  }
+
+  .subproject-image {
     height: $desktop-project-height;
     margin: $margin 0 0 0;
     width: $desktop-project-width;
-
-    &:nth-child(odd) {
-      margin: $margin 0 0 0;
-    }
   }
 }
 
 @media screen and (max-width: $mobile) {
-  .subproject {
+  .subproject-image {
     height: $tablet-project-height;
     width: $tablet-project-width;
   }
@@ -131,6 +146,10 @@ $mini-mobile: $tablet-project-width + $margin;
     &:nth-child(odd) {
       margin: $mobile-margin 0 0 0;
     }
+  }
+
+  .subproject-image {
+    width: 100%;
   }
 
   .filter-panel {
