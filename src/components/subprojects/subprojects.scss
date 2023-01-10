@@ -30,7 +30,7 @@ $mini-mobile: $tablet-project-width + $margin;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  margin-bottom: 20px;
+  margin-bottom: $margin;
   max-width: $desktop-content-width;
   position: relative;
   width: 100%;

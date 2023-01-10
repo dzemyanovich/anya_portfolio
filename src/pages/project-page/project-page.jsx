@@ -20,6 +20,8 @@ class ProjectPage extends React.Component {
     this.MAGIC_NUMBER = 0.5;
     // visible margin for home line and swipe tip
     this.VISIBLE_MARGIN = 100;
+    // percentange when home link is still visible related to project wrapper
+    this.HOME_LINK_VISIBLE = 0.7;
 
     this.projectPageRef = null;
     this.projectWrapperRef = null;
@@ -89,7 +91,7 @@ class ProjectPage extends React.Component {
 
   swipeUpDown() {
     this.setState({
-      isHomeLinkVisible: window.scrollY < this.projectWrapperRef.offsetHeight,
+      isHomeLinkVisible: window.scrollY < this.projectWrapperRef.offsetHeight * this.HOME_LINK_VISIBLE,
       isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
     });
 
@@ -133,6 +135,10 @@ class ProjectPage extends React.Component {
     const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
     const { offsetHeight } = projectWrapper;
 
+    this.setState({
+      isHomeLinkVisible: Math.abs(marginTop) < offsetHeight * this.HOME_LINK_VISIBLE,
+    });
+
     // do nothing in case page content is being scrolled
     if (document.querySelector('html').scrollTop !== 0) {
       // ensure that upper panel is not visible (sometimes it happens)
@@ -140,17 +146,13 @@ class ProjectPage extends React.Component {
         projectWrapper.style.marginTop = `${-offsetHeight}px`;
       }
 
-      // todo: for pages like adidas, home link should be invisible sooner
+      // ensure home link is not visible
       this.setState({
         isHomeLinkVisible: false,
       });
 
       return;
     }
-
-    this.setState({
-      isHomeLinkVisible: true,
-    });
 
     const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
       ? event.deltaY
@@ -181,7 +183,7 @@ class ProjectPage extends React.Component {
   render() {
     const { title, header, content, className } = this.props;
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
-    const isMultipleProjects = ['/projects/adidas', '/projects/event-optimizer']
+    const isSubprojects = ['/projects/adidas', '/projects/event-optimizer']
       .includes(window.location.pathname.toLowerCase());
 
     return (
@@ -200,13 +202,13 @@ class ProjectPage extends React.Component {
               : <img src={swipeLeft} alt="" />}
           </div>
         )}
-        {!isTouchDevice && !isMultipleProjects && (
+        {!isTouchDevice && !isSubprojects && (
           <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
             {header}
           </div>
         )}
         <div className="content-wrapper">
-          {(isTouchDevice || isMultipleProjects) && (
+          {(isTouchDevice || isSubprojects) && (
             <div className="project-wrapper" ref={el => { this.projectWrapperRef = el; }}>
               {header}
             </div>
