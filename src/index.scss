@@ -73,38 +73,48 @@ body {
 }
 
 input[type='radio'] {
+  $size: 15px;
+  $border-width: 1px;
+  $checked-color: rgb(222 222 222);
+
   cursor: pointer;
 
   &::after {
     background-color: $black;
-    border: 2px solid $white;
-    border-radius: 15px;
+    border: $border-width solid $gray;
+    border-radius: $size;
     content: '';
     display: inline-block;
-    height: 15px;
+    height: $size;
     left: -1px;
     position: relative;
     top: -2px;
     visibility: visible;
-    width: 15px;
-  }
-
-  &:checked::after {
-    background-color: $gray;
-    border: 2px solid $gray;
-    border-radius: 15px;
-    content: '';
-    display: inline-block;
-    height: 15px;
-    left: -1px;
-    position: relative;
-    top: -2px;
-    visibility: visible;
-    width: 15px;
+    width: $size;
   }
 
   +label[for] {
+    bottom: 1px;
     cursor: pointer;
     padding-left: 10px;
+    position: relative;
+  }
+
+  &:checked+label[for] {
+    color: $checked-color;
+  }
+
+  &:checked::after {
+    background-color: $checked-color;
+    border: $border-width solid $checked-color;
+    border-radius: $size;
+    content: '';
+    display: inline-block;
+    height: $size;
+    left: -1px;
+    position: relative;
+    top: -2px;
+    visibility: visible;
+    width: $size;
   }
 }

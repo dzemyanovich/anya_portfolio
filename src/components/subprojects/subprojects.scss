@@ -32,6 +32,7 @@ $mini-mobile: $tablet-project-width + $margin;
   height: 100%;
   margin-bottom: $margin;
   max-width: $desktop-content-width;
+  min-width: 250px;
   position: relative;
   width: 100%;
 }
@@ -57,6 +58,7 @@ $mini-mobile: $tablet-project-width + $margin;
 .filter-panel {
   @include montserrat-normal-700;
 
+  color: $gray;
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -116,7 +118,7 @@ $mini-mobile: $tablet-project-width + $margin;
 
 @media screen and (max-width: $mini-mobile) {
   .subprojects-content {
-    margin: 0 $project-info-margin;
+    margin: 0 $project-info-margin $mobile-margin $project-info-margin;
   }
 
   .subproject {
