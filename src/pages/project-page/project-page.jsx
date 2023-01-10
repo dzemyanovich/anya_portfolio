@@ -41,7 +41,9 @@ class ProjectPage extends React.Component {
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
 
     // wait 2 seconds until animation finishes rendering
     noScroll.start();
