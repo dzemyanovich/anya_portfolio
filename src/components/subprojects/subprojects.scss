@@ -137,11 +137,18 @@ $mini-mobile: $tablet-project-width + $margin;
     display: block;
     width: 100%;
 
-    >* {
+    .filter-option {
+      $padding: 20px;
+
       display: block;
 
-      &:nth-child(n + 2) {
-        margin-top: 20px;
+      &:not(:last-child) {
+        border-bottom: 1px solid $gray;
+        padding-bottom: $padding;
+      }
+
+      &:not(:first-child) {
+        padding-top: $padding;
       }
     }
   }

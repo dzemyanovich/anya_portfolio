@@ -37,7 +37,7 @@ export default class Subprojects extends React.Component {
               const value = this.categories[key];
 
               return (
-                <span key={key}>
+                <span className="filter-option" key={key}>
                   <input
                     type="radio"
                     id={key}
