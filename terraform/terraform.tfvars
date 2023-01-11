@@ -1,3 +1,3 @@
-prod_bucket_name = "anna-pivunova-new2"
+prod_bucket_name = "annapivunova.me"
 
-preprod_bucket_name = "preprod1-anna-pivunova-me"
+preprod_bucket_name = "preprod.annapivunova.me"
