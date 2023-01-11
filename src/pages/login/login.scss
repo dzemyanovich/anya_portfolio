@@ -1,0 +1,32 @@
+@import '../../styles/shared';
+
+.login-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.password-input {
+  @include montserrat-normal-400;
+
+  background-color: $almost-black;
+  border: 0;
+  border-radius: 1px;
+  color: $white;
+  font-size: 50px;
+  height: 25px;
+  padding: 0 10px 7px;
+  transition: all 0.3s ease 0s;
+  width: 245px;
+
+  &::placeholder {
+    bottom: 8px;
+    font-size: 18px;
+    position: relative;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

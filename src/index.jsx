@@ -4,6 +4,7 @@ import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import Favicon from 'react-favicon';
 
 import Home from './pages/home/home';
+import Login from './pages/login/login';
 import Projects from './pages/projects/projects';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
@@ -22,6 +23,7 @@ import './fonts/Montserrat-Regular.woff';
 import './fonts/Montserrat-Bold.woff';
 import './fonts/DrukWide-Medium-Trial.woff';
 import './fonts/DrukWide-Bold-Trial.woff';
+import './fonts/Matrice-Bold.woff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -37,6 +39,7 @@ root.render(
       <Route path="/" element={<Outlet />}>
         <Route index element={<Home />} />
         <Route path="*" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="projects" element={<Projects />} />
         <Route
           path="projects/adidas"
