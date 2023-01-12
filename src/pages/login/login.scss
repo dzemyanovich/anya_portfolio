@@ -1,10 +1,33 @@
 @import '../../styles/shared';
 
+@keyframes shake {
+  0% {
+    margin-left: 0;
+  }
+
+  25% {
+    margin-left: 0.5rem;
+  }
+
+  75% {
+    margin-left: -0.5rem;
+  }
+
+  100% {
+    margin-left: 0;
+  }
+}
+
 .login-container {
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
+
+  .home-link {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .password-input {
@@ -28,5 +51,9 @@
 
   &:focus {
     outline: 0;
+  }
+
+  &.error {
+    animation: shake 0.2s ease-in-out 0s 2;
   }
 }

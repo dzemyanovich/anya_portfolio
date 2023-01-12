@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import Favicon from 'react-favicon';
 
+import ProtectedRoute from './components/protected-route/protected-route';
+import UnauthenticatedRouteOnly from './components/unauthenticated-route-only/unauthenticated-route-only';
 import Home from './pages/home/home';
 import Login from './pages/login/login';
 import Projects from './pages/projects/projects';
@@ -39,25 +41,40 @@ root.render(
       <Route path="/" element={<Outlet />}>
         <Route index element={<Home />} />
         <Route path="*" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={(
+            <UnauthenticatedRouteOnly>
+              <Login />
+            </UnauthenticatedRouteOnly>
+          )}
+        />
         <Route path="projects" element={<Projects />} />
         <Route
           path="projects/adidas"
-          element={(<ProjectPage
-            title="Adidas"
-            header={<AdidasHeader />}
-            content={<AdidasContent />}
-            className="adidas"
-          />)}
+          element={(
+            <ProtectedRoute>
+              <ProjectPage
+                title="Adidas"
+                header={<AdidasHeader />}
+                content={<AdidasContent />}
+                className="adidas"
+              />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="projects/event-optimizer"
-          element={(<ProjectPage
-            title="Event Optimizer"
-            header={<EventOptimizerHeader />}
-            content={<EventOptimizerContent />}
-            className="event-optimizer"
-          />)}
+          element={(
+            <ProtectedRoute>
+              <ProjectPage
+                title="Event Optimizer"
+                header={<EventOptimizerHeader />}
+                content={<EventOptimizerContent />}
+                className="event-optimizer"
+              />
+            </ProtectedRoute>
+          )}
         />
         <Route
           path="projects/supply-planning"

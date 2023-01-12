@@ -23,7 +23,8 @@ module.exports = {
     "react/jsx-wrap-multilines": "off",
     "max-len": ["error", { "code": 120 }],
     "arrow-parens": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jsx-a11y/no-autofocus": "off"
   },
   "settings": {
     "react": {
