@@ -40,15 +40,12 @@ export default class Login extends React.Component {
       loading: true,
     });
     login(password).then((isPasswordCorrect) => {
-      this.setState({
-        loading: false,
-      });
-
       if (isPasswordCorrect) {
         window.location.href = getUrlParam('returnUrl') || '/projects/adidas';
       } else {
         self.setState({
           error: true,
+          loading: false,
         });
         setTimeout(() => {
           self.setState({
