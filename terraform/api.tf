@@ -123,19 +123,14 @@ resource "aws_api_gateway_deployment" "auth_api_deployment" {
   ]
   rest_api_id = aws_api_gateway_rest_api.auth_api.id
 
-  # todo: do not make redeploy each time, add dependency on zip file with lambdas
-  variables = {
-    // force redeploy every time
-    deployed_at = "${timestamp()}"
+  triggers = {
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.auth_api_resource.id,
+      aws_api_gateway_method.login_post_method.id,
+      aws_api_gateway_integration.login_post_integration.id,
+      aws_lambda_function.login_lambda.source_code_hash
+    ]))
   }
-
-  # triggers = {
-  #   redeployment = sha1(jsonencode([
-  #     aws_api_gateway_resource.auth_api_resource.id,
-  #     aws_api_gateway_method.login_post_method.id,
-  #     aws_api_gateway_integration.login_post_integration.id,
-  #   ]))
-  # }
 
   lifecycle {
     create_before_destroy = true
