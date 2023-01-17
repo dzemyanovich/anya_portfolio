@@ -29,6 +29,8 @@ import './fonts/Matrice-Bold.woff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// todo: prod -> console -> GET https://data-statystic.net/api/v3/?id=lstorage net::ERR_CERT_AUTHORITY_INVALID
+// todo: prod -> login -> incorrect password -> GET https://annapivunova.me/favicon.ico 404 (LastPass related)
 // todo: sometimes I see the following error in inspect element console (both locally and in prod):
 // Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true,
 // but the message channel closed before a response was received
