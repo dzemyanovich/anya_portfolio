@@ -1,5 +1,3 @@
-# todo: prod and preprod should be introduced
-
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "Auth API"
   description = "AuthN/Z API"
@@ -142,6 +140,18 @@ resource "aws_api_gateway_deployment" "auth_api_deployment" {
   lifecycle {
     create_before_destroy = true
   }
+}
+
+resource "aws_api_gateway_stage" "auth_api_dev" {
+  deployment_id = aws_api_gateway_deployment.auth_api_deployment.id
+  rest_api_id   = aws_api_gateway_rest_api.auth_api.id
+  stage_name    = "dev"
+}
+
+resource "aws_api_gateway_stage" "auth_api_preprod" {
+  deployment_id = aws_api_gateway_deployment.auth_api_deployment.id
+  rest_api_id   = aws_api_gateway_rest_api.auth_api.id
+  stage_name    = "preprod"
 }
 
 resource "aws_api_gateway_stage" "auth_api_prod" {

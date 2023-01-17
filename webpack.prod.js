@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const path = require('path');
 
@@ -14,4 +15,9 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, 'dist_prod'),
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.AUTH_API': JSON.stringify('https://lxe4b8taqj.execute-api.eu-central-1.amazonaws.com/prod/auth'),
+    }),
+  ],
 });

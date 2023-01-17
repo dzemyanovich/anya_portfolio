@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -30,7 +31,7 @@ module.exports = {
         test: /\.(png|jpg|j?g|svg|gif|woff)?$/,
         type: 'asset/resource',
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -39,10 +40,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
-    })
+    }),
   ],
   performance: {
     maxEntrypointSize: 358400, // 350 KiB
     maxAssetSize: 358400, // 350 KiB
-  }
+  },
 };
