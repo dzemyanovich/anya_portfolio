@@ -1,3 +1,5 @@
+# todo: prod and preprod should be introduced
+
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "Auth API"
   description = "AuthN/Z API"
@@ -9,6 +11,8 @@ resource "aws_api_gateway_resource" "auth_api_resource" {
   path_part   = "auth"
 }
 
+############## POST ##############
+
 resource "aws_api_gateway_method" "login_post_method" {
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
   resource_id   = aws_api_gateway_resource.auth_api_resource.id
@@ -16,7 +20,7 @@ resource "aws_api_gateway_method" "login_post_method" {
   authorization = "NONE"
 }
 
-resource "aws_api_gateway_integration" "login_integration" {
+resource "aws_api_gateway_integration" "login_post_integration" {
   rest_api_id             = aws_api_gateway_rest_api.auth_api.id
   resource_id             = aws_api_gateway_resource.auth_api_resource.id
   http_method             = aws_api_gateway_method.login_post_method.http_method
@@ -34,27 +38,93 @@ resource "aws_lambda_permission" "apigw_lambda" {
   source_arn = "arn:aws:execute-api:${var.region}:${var.account_id}:${aws_api_gateway_rest_api.auth_api.id}/*/${aws_api_gateway_method.login_post_method.http_method}${aws_api_gateway_resource.auth_api_resource.path}"
 }
 
-resource "aws_api_gateway_method_response" "login_method_response" {
+resource "aws_api_gateway_method_response" "login_post_method_response" {
   rest_api_id = aws_api_gateway_rest_api.auth_api.id
   resource_id = aws_api_gateway_resource.auth_api_resource.id
   http_method = aws_api_gateway_method.login_post_method.http_method
   status_code = "200"
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+  }
 
   response_models = {
     "application/json" = "Empty"
   }
 }
 
-resource "aws_api_gateway_integration_response" "login_integration_response" {
+resource "aws_api_gateway_integration_response" "login_post_integration_response" {
   rest_api_id = aws_api_gateway_rest_api.auth_api.id
   resource_id = aws_api_gateway_resource.auth_api_resource.id
   http_method = aws_api_gateway_method.login_post_method.http_method
-  status_code = aws_api_gateway_method_response.login_method_response.status_code
+  status_code = aws_api_gateway_method_response.login_post_method_response.status_code
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
 }
 
-resource "aws_api_gateway_deployment" "auth_api_deployment" {
+############## OPTIONS (for cors) ##############
+
+resource "aws_api_gateway_method" "login_options_method" {
+  rest_api_id   = aws_api_gateway_rest_api.auth_api.id
+  resource_id   = aws_api_gateway_resource.auth_api_resource.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "login_options_integration" {
+  rest_api_id             = aws_api_gateway_rest_api.auth_api.id
+  resource_id             = aws_api_gateway_resource.auth_api_resource.id
+  http_method             = aws_api_gateway_method.login_options_method.http_method
+  type                    = "MOCK"
+
+  request_templates = {
+    "application/json" = <<EOF
+{"statusCode": 200}
+EOF
+  }
+}
+
+resource "aws_api_gateway_method_response" "login_options_method_response" {
   rest_api_id = aws_api_gateway_rest_api.auth_api.id
-  
+  resource_id = aws_api_gateway_resource.auth_api_resource.id
+  http_method = aws_api_gateway_method.login_options_method.http_method
+  status_code = "200"
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true,
+    "method.response.header.Access-Control-Allow-Methods" = true,
+    "method.response.header.Access-Control-Allow-Origin" = true
+  }
+
+  response_models = {
+    "application/json" = "Empty"
+  }
+}
+
+resource "aws_api_gateway_integration_response" "login_options_integration_response" {
+  rest_api_id = aws_api_gateway_rest_api.auth_api.id
+  resource_id = aws_api_gateway_resource.auth_api_resource.id
+  http_method = aws_api_gateway_method.login_options_method.http_method
+  status_code = aws_api_gateway_method_response.login_options_method_response.status_code
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+    "method.response.header.Access-Control-Allow-Methods" = "'OPTIONS,POST'",
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
+  }
+}
+
+############## deployment ##############
+
+resource "aws_api_gateway_deployment" "auth_api_deployment" {
+  depends_on  = [
+    aws_api_gateway_integration_response.login_post_integration_response,
+    aws_api_gateway_integration_response.login_options_integration_response
+  ]
+  rest_api_id = aws_api_gateway_rest_api.auth_api.id
+
   # todo: do not make redeploy each time, add dependency on zip file with lambdas
   variables = {
     // force redeploy every time
@@ -65,7 +135,7 @@ resource "aws_api_gateway_deployment" "auth_api_deployment" {
   #   redeployment = sha1(jsonencode([
   #     aws_api_gateway_resource.auth_api_resource.id,
   #     aws_api_gateway_method.login_post_method.id,
-  #     aws_api_gateway_integration.login_integration.id,
+  #     aws_api_gateway_integration.login_post_integration.id,
   #   ]))
   # }
 

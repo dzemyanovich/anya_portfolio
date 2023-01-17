@@ -3,11 +3,13 @@ const isAuthenticatedValue = localStorage.getItem(TOKEN_VAR);
 
 export function login(password) {
   return new Promise((resolve) => {
+    // todo: enable cors only from specific urls (preprod, prod, etc.)
     // todo: enable cors for infra created via terraform
-    // const url = 'https://lxe4b8taqj.execute-api.eu-central-1.amazonaws.com/prod/auth';
     // todo: store url in config
-    const url = 'https://7b1gputb22.execute-api.eu-central-1.amazonaws.com/prod/my_api_resource';
+    const url = 'https://lxe4b8taqj.execute-api.eu-central-1.amazonaws.com/prod/auth';
+    // const url = 'https://7b1gputb22.execute-api.eu-central-1.amazonaws.com/prod/my_api_resource';
 
+    // todo: create wrapper func for fetch
     fetch(url, {
       method: 'POST',
       headers: {
