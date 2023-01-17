@@ -4,6 +4,7 @@ const path = require('path');
 
 const common = require('./webpack.common.js');
 
+// todo: "yarn prod" results in taking webpack.preprod.js config (have no idea why)
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
