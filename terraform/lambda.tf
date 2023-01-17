@@ -22,7 +22,7 @@ resource "aws_lambda_function" "login_lambda" {
   filename      = "lambda.zip"
   function_name = "login"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "index.handler"
+  handler       = "login.handler"
 
   source_code_hash = filebase64sha256("lambda.zip")
 
