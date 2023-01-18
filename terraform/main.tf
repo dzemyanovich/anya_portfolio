@@ -1,3 +1,4 @@
+// todo: re-create admin user so that account id is changed
 terraform {
   required_providers {
     aws = {
@@ -10,7 +11,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "${var.region}"
+  region = "${var.aws_region}"
 }
 
 locals {

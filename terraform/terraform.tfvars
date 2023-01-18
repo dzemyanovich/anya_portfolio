@@ -1,5 +1,5 @@
-region = "eu-central-1"
+# set value
+secrets_storage_name = ""
 
-preprod_bucket_name = "preprod.annapivunova.me"
-
-prod_bucket_name = "annapivunova.me"
+# set value
+secrets_storage_value = ""

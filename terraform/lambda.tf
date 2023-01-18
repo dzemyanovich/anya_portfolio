@@ -18,6 +18,11 @@ resource "aws_iam_role" "iam_for_lambda" {
 EOF
 }
 
+resource "aws_iam_role_policy_attachment" "lambda_access_secrets" {
+  role       = aws_iam_role.iam_for_lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+}
+
 resource "aws_lambda_function" "login_lambda" {
   filename      = "lambda.zip"
   function_name = "login"
@@ -26,5 +31,11 @@ resource "aws_lambda_function" "login_lambda" {
 
   source_code_hash = filebase64sha256("lambda.zip")
 
-  runtime = "nodejs16.x"
+  runtime = "nodejs18.x"
+
+  environment {
+    variables = {
+      SECRETS_STORAGE_NAME = "${var.secrets_storage_name}"
+    }
+  }
 }
