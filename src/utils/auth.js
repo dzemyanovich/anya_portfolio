@@ -5,12 +5,11 @@ const isAuthenticatedValue = localStorage.getItem(TOKEN_VAR);
 
 export function login(password) {
   return new Promise((resolve) => {
-    post(process.env.AUTH_API, {
+    post(`${process.env.AUTH_API}/login`, {
       password,
     }).then((data) => {
       if (data.isCorrectPassword) {
-        // todo: get token from auth service
-        localStorage.setItem(TOKEN_VAR, 'some_token_will_be_here');
+        localStorage.setItem(TOKEN_VAR, data.token);
         resolve(true);
       } else {
         resolve(false);

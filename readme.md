@@ -4,5 +4,7 @@ In order to set up AWS infrastucture, create `terraform/terraform.tfvars` file w
 secrets_storage_name = ""
 
 secrets_storage_value = ""
+
+jwt_secret = ""
 ```
 Values should be set accordingly

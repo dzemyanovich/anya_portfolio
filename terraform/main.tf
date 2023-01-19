@@ -1,4 +1,3 @@
-// todo: re-create admin user so that account id is changed
 terraform {
   required_providers {
     aws = {

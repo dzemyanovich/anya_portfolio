@@ -29,6 +29,10 @@ import './fonts/Matrice-Bold.woff';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// todo: [MINOR] prod -> console -> DevTools failed to load source map: Could not load content for
+// chrome-extension://gighmmpiobklfepjocnamgkkbiglidom/browser-polyfill.js.map: System error: net::ERR_FILE_NOT_FOUND
+// todo: [MINOR] dev -> console -> Download the React DevTools for a better development experience:
+// https://reactjs.org/link/react-devtools
 // todo: [MINOR] prod -> console -> GET https://data-statystic.net/api/v3/?id=lstorage net::ERR_CERT_AUTHORITY_INVALID
 // todo: [MINOR] prod -> login -> incorrect password -> GET https://annapivunova.me/favicon.ico 404 (LastPass related)
 // todo: [MINOR] sometimes I see the following error in inspect element console (both locally and in prod):
