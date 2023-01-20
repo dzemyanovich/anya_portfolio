@@ -10,24 +10,24 @@ export default class UnauthenticatedRouteOnly extends React.Component {
 
     this.state = {
       isValidToken: null,
+      isLoading: true,
     };
   }
 
   async componentDidMount() {
-    // todo: validation happens each time user enters page
     const isValidToken = await validateToken();
 
     this.setState({
       isValidToken,
+      isLoading: false,
     });
   }
 
   render() {
-    const { isValidToken } = this.state;
+    const { isLoading, isValidToken } = this.state;
     const { children } = this.props;
 
-    // todo: think about more elegant way
-    if (isValidToken === null) {
+    if (isLoading) {
       return null;
     }
 
