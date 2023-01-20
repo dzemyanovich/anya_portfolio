@@ -1,42 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 
 import { validateToken } from '../../utils/auth';
 
-export default class UnauthenticatedRouteOnly extends React.Component {
-  constructor(props) {
-    super(props);
+export default function UnauthenticatedRouteOnly({ children }) {
+  const [isValidToken, initValidToken] = useState(null);
+  const [isLoading, initLoading] = useState(true);
 
-    this.state = {
-      isValidToken: null,
-      isLoading: true,
-    };
-  }
-
-  async componentDidMount() {
-    const isValidToken = await validateToken();
-
-    this.setState({
-      isValidToken,
-      isLoading: false,
-    });
-  }
-
-  render() {
-    const { isLoading, isValidToken } = this.state;
-    const { children } = this.props;
-
-    if (isLoading) {
-      return null;
+  useEffect(() => {
+    async function validateTokenWrapper() {
+      const isValidTokenValue = await validateToken();
+      initValidToken(isValidTokenValue);
+      initLoading(false);
     }
 
-    if (isValidToken) {
-      return <Navigate to="/" replace />;
-    }
+    validateTokenWrapper();
+  }, []);
 
-    return children;
+  if (isLoading) {
+    return null;
   }
+
+  if (isValidToken) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 }
 
 UnauthenticatedRouteOnly.propTypes = {

@@ -22,7 +22,6 @@ export function login(password) {
   });
 }
 
-// todo: use react hooks
 export function validateToken() {
   return new Promise((resolve) => {
     if (tokenValidated) {
