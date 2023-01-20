@@ -2,7 +2,7 @@ import jwt from 'jwt-simple';
 
 export const handler = async (event) => {
   return {
-    isTokenValid: validateJwt(event.token),
+    isValidToken: validateJwt(event.token),
   };
 };
 

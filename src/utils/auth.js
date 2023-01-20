@@ -1,7 +1,6 @@
 import { post } from './rest';
 
 const TOKEN_VAR = 'token';
-const isAuthenticatedValue = localStorage.getItem(TOKEN_VAR);
 
 export function login(password) {
   return new Promise((resolve) => {
@@ -18,7 +17,18 @@ export function login(password) {
   });
 }
 
-// todo: call to API should be made to check if token is correct one
-export function isAuthenticated() {
-  return isAuthenticatedValue;
+export function validateToken() {
+  return new Promise((resolve) => {
+    const token = localStorage.getItem(TOKEN_VAR);
+    if (!token) {
+      resolve(false);
+      return;
+    }
+
+    post(`${process.env.AUTH_API}/validate-token`, {
+      token,
+    }).then((data) => {
+      resolve(data.isValidToken);
+    });
+  });
 }
