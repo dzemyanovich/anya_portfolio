@@ -31,22 +31,21 @@
 }
 
 .password-input {
-  @include montserrat-normal-400;
+  // need to use this font so that password bullet points look good both on desktop and mobile
+  @include helvetica-neue-light;
 
   background-color: $almost-black;
   border: 0;
   border-radius: 1px;
   color: $white;
-  font-size: 50px;
+  font-size: 18px;
   height: 25px;
-  padding: 0 10px 7px;
+  padding: 7px 10px;
   transition: all 0.3s ease 0s;
   width: 245px;
 
   &::placeholder {
-    bottom: 8px;
-    font-size: 18px;
-    position: relative;
+    @include montserrat-normal-400;
   }
 
   &:focus {

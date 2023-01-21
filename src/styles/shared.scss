@@ -40,3 +40,7 @@ $light-gray: rgba(255 255 255 / 80%);
   font-style: normal;
   font-weight: 700;
 }
+
+@mixin helvetica-neue-light {
+  font-family: HelveticaNeue-Light, sans-serif;
+}
