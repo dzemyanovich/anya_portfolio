@@ -7,7 +7,7 @@ import ProtectedRoute from './components/protected-route/protected-route';
 import UnauthenticatedRouteOnly from './components/unauthenticated-route-only/unauthenticated-route-only';
 import Home from './pages/home/home';
 import Login from './pages/login/login';
-import Projects from './pages/projects/projects';
+import Products from './pages/products/products';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
 import ProjectPage from './pages/project-page/project-page';
@@ -55,11 +55,10 @@ root.render(
             </UnauthenticatedRouteOnly>
           )}
         />
-        {/* todo: rename to /products */}
-        <Route path="projects" element={<Projects />} />
+        <Route path="products" element={<Products />} />
         {/* todo: introduce dynamic route /products/{company_id}/{product_id} */}
         <Route
-          path="projects/adidas"
+          path="products/adidas"
           element={(
             <ProtectedRoute>
               <ProjectPage
@@ -72,7 +71,7 @@ root.render(
           )}
         />
         <Route
-          path="projects/event-optimizer"
+          path="products/event-optimizer"
           element={(
             <ProtectedRoute>
               <ProjectPage
@@ -85,7 +84,7 @@ root.render(
           )}
         />
         <Route
-          path="projects/supply-planning"
+          path="products/supply-planning"
           element={(<ProjectPage
             title="Supply Planning"
             header={<SupplyPlanningHeader />}
@@ -94,7 +93,7 @@ root.render(
           />)}
         />
         <Route
-          path="projects/havi"
+          path="products/havi"
           element={(<ProjectPage
             title="Havi"
             header={<HaviHeader />}
@@ -104,7 +103,7 @@ root.render(
         />
         {/* todo: rename to "epam systems" */}
         <Route
-          path="projects/design-platform"
+          path="products/design-platform"
           element={(<ProjectPage
             title="Design Platform"
             header={<DesignPlatformHeader />}
@@ -113,7 +112,7 @@ root.render(
           />)}
         />
         <Route
-          path="projects/zensupplies"
+          path="products/zensupplies"
           element={(<ProjectPage
             title="Zensupplies"
             header={<ZensuppliesHeader />}

@@ -38,7 +38,7 @@ $laptop-top-bottom-margin: 15px;
 
 .about-link,
 .contact-link,
-.projects-link {
+.products-link {
   animation: 2s ease-out $link-delay-animation 1 fade-in;
   animation-fill-mode: forwards;
   opacity: 0;
@@ -60,7 +60,7 @@ $laptop-top-bottom-margin: 15px;
   top: 0;
 }
 
-.projects-link {
+.products-link {
   bottom: 0;
   left: 0;
   margin-bottom: $desktop-top-bottom-margin;
@@ -84,7 +84,7 @@ $laptop-top-bottom-margin: 15px;
     margin-top: $laptop-top-bottom-margin;
   }
 
-  .projects-link {
+  .products-link {
     margin-bottom: $laptop-top-bottom-margin;
     margin-left: $laptop-left-right-margin;
   }

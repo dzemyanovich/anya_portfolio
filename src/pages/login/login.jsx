@@ -41,7 +41,7 @@ export default class Login extends React.Component {
     });
     login(password).then((isPasswordCorrect) => {
       if (isPasswordCorrect) {
-        window.location.href = getUrlParam('returnUrl') || '/projects/adidas';
+        window.location.href = getUrlParam('returnUrl') || '/products/adidas';
       } else {
         self.setState({
           error: true,

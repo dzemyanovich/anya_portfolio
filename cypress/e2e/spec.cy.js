@@ -13,11 +13,11 @@ describe('home page', () => {
     cy.get('.pivunova-brand').should('have.length', 1);
   });
 
-  it('click on projects link', () => {
-    cy.get('.projects-link').click();
+  it('click on products link', () => {
+    cy.get('.products-link').click();
 
     cy.on('url:changed', (newUrl) => {
-      expect(newUrl).to.eq(`${DOMAIN}/projects`);
+      expect(newUrl).to.eq(`${DOMAIN}/products`);
     });
   });
 
@@ -38,9 +38,10 @@ describe('home page', () => {
   });
 });
 
-describe('projects page', () => {
+describe('products page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}/projects`);
+    // todo: sign in for protected pages
+    cy.visit(`${DOMAIN}/products`);
   });
 
   it('check projects page', () => {

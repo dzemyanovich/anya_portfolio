@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './custom-link.scss';
 
-function CustomLink({ to, className, children }) {
+export default function CustomLink({ to, className, children }) {
   const navigate = useNavigate();
 
   function goTo() {
@@ -37,5 +37,3 @@ CustomLink.propTypes = {
 CustomLink.defaultProps = {
   className: '',
 };
-
-export default CustomLink;

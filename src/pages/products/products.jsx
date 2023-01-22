@@ -10,9 +10,9 @@ import burger from '../../images/burger.png';
 import zensupplies from '../../images/zensupplies.png';
 import designPlatform from '../../images/design-platform.png';
 import adidas from '../../images/adidas.jpg';
-import './projects.scss';
+import './products.scss';
 
-class Projects extends React.Component {
+export default class Products extends React.Component {
   constructor(props) {
     super(props);
 
@@ -110,42 +110,42 @@ class Projects extends React.Component {
         <div className="links-container" ref={el => { this.linksContainerRef = el; }}>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/adidas">
+              <CustomLink className="title" to="/products/adidas">
                 {this.projectLink('Adidas')}
               </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/event-optimizer">
+              <CustomLink className="title" to="/products/event-optimizer">
                 {this.projectLink('Event Optimizer')}
               </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/supply-planning">
+              <CustomLink className="title" to="/products/supply-planning">
                 {this.projectLink('Supply Planning')}
               </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/havi">
+              <CustomLink className="title" to="/products/havi">
                 {this.projectLink('HAVI')}
               </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/design-platform">
+              <CustomLink className="title" to="/products/design-platform">
                 {this.projectLink('Design Platform')}
               </CustomLink>
             </span>
           </div>
           <div className="project-link-container">
             <span className="project-link">
-              <CustomLink className="title" to="/projects/zensupplies">
+              <CustomLink className="title" to="/products/zensupplies">
                 {this.projectLink('Zensupplies')}
               </CustomLink>
             </span>
@@ -165,5 +165,3 @@ class Projects extends React.Component {
     );
   }
 }
-
-export default Projects;

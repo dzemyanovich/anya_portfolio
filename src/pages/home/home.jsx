@@ -6,7 +6,7 @@ import CustomLink from '../../components/custom-link/custom-link';
 import pivunovaBrand from '../../images/pivunova-brand.png';
 import './home.scss';
 
-function Home() {
+export default function Home() {
   return (
     <div>
       <div className="pivunova-brand">
@@ -16,11 +16,9 @@ function Home() {
         <span className="designer-title">Lead Designer</span>
       </div>
       <HomeLink />
-      <CustomLink className="page-link projects-link" to="/projects">Projects</CustomLink>
+      <CustomLink className="page-link products-link" to="/products">Products</CustomLink>
       <CustomLink className="page-link contact-link" to="/contact">Contact</CustomLink>
       <CustomLink className="page-link about-link" to="/about">About</CustomLink>
     </div>
   );
 }
-
-export default Home;

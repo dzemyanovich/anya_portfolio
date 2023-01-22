@@ -11,7 +11,7 @@ import swipeDown from '../../images/swipe-down.svg';
 
 const isTouchDevice = 'ontouchstart' in window;
 
-class ProjectPage extends React.Component {
+export default class ProjectPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -185,7 +185,7 @@ class ProjectPage extends React.Component {
   render() {
     const { title, header, content, className } = this.props;
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
-    const isSubprojects = ['/projects/adidas', '/projects/event-optimizer']
+    const isSubprojects = ['/products/adidas', '/products/event-optimizer']
       .includes(window.location.pathname.toLowerCase());
 
     return (
@@ -228,5 +228,3 @@ ProjectPage.propTypes = {
   content: PropTypes.element.isRequired,
   className: PropTypes.string.isRequired,
 };
-
-export default ProjectPage;
