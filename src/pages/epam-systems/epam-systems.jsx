@@ -1,9 +1,9 @@
 import React from 'react';
 
-import image from '../../images/design-platform.png';
+import image from '../../images/old-computer.png';
 import background from '../../images/event-optimizer-background.png';
 
-export function DesignPlatformHeader() {
+export function EpamSystemsHeader() {
   return [
     <img src={image} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
@@ -19,7 +19,7 @@ export function DesignPlatformHeader() {
   ];
 }
 
-export function DesignPlatformContent() {
+export function EpamSystemsContent() {
   return [
     <img src={background} alt="" key="page-content-background" className="event-optimizer-background" />,
   ];

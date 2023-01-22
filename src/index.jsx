@@ -15,7 +15,7 @@ import { AdidasHeader, AdidasContent } from './pages/adidas/adidas';
 import { EventOptimizerHeader, EventOptimizerContent } from './pages/event-optimizer/event-optimizer';
 import { SupplyPlanningHeader, SupplyPlanningContent } from './pages/supply-planning/supply-planning';
 import { HaviHeader, HaviContent } from './pages/havi/havi';
-import { DesignPlatformHeader, DesignPlatformContent } from './pages/design-platform/design-platform';
+import { EpamSystemsHeader, EpamSystemsContent } from './pages/epam-systems/epam-systems';
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
 
 import './index.scss';
@@ -101,14 +101,13 @@ root.render(
             className="havi"
           />)}
         />
-        {/* todo: rename to "epam systems" */}
         <Route
-          path="products/design-platform"
+          path="products/epam-systems"
           element={(<CompanyPage
-            title="Design Platform"
-            header={<DesignPlatformHeader />}
-            content={<DesignPlatformContent />}
-            className="design-platform"
+            title="EPAM Systems"
+            header={<EpamSystemsHeader />}
+            content={<EpamSystemsContent />}
+            className="epam-systems"
           />)}
         />
         <Route

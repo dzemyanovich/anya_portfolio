@@ -8,7 +8,7 @@ import supplyPlanning from '../../images/supply-planning.png';
 import havi from '../../images/havi.png';
 import burger from '../../images/burger.png';
 import zensupplies from '../../images/zensupplies.png';
-import designPlatform from '../../images/design-platform.png';
+import oldComputer from '../../images/old-computer.png';
 import adidas from '../../images/adidas.jpg';
 import './products.scss';
 
@@ -138,8 +138,8 @@ export default class Products extends React.Component {
           </div>
           <div className="company-link-container">
             <span className="company-link">
-              <CustomLink className="title" to="/products/design-platform">
-                {this.companyLink('Design Platform')}
+              <CustomLink className="title" to="/products/epam-systems">
+                {this.companyLink('EPAM Systems')}
               </CustomLink>
             </span>
           </div>
@@ -152,7 +152,7 @@ export default class Products extends React.Component {
           </div>
         </div>
         <div className="company-logos">
-          {[adidas, burger, supplyPlanning, havi, designPlatform, zensupplies].map((image, index) => (
+          {[adidas, burger, supplyPlanning, havi, oldComputer, zensupplies].map((image, index) => (
             <div
               className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
               key={`image-container-${index.toString()}`}
