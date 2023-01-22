@@ -3,6 +3,7 @@ import React from 'react';
 import CustomLink from '../../components/custom-link/custom-link';
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
+import { resetScroll } from '../../utils/utils';
 
 import adidasShoe from '../../images/adidas-shoe.jpg';
 import burger from '../../images/burger.png';
@@ -34,7 +35,7 @@ export default class Products extends React.Component {
     setTimeout(() => {
       self.allCompanyLinksRef.scrollLeft = 0;
 
-      window.scrollTo(0, 0);
+      resetScroll();
     }, 500);
 
     // wait 5 sec until animaiton rendering is finished

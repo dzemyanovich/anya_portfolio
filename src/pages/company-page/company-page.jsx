@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import { isWindows } from '../../utils/utils';
+import { isWindows, resetScroll } from '../../utils/utils';
 
 import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
@@ -41,9 +41,9 @@ export default class CompanyPage extends React.Component {
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+    setTimeout(resetScroll, 100);
+    // need to invoke twice because sometimes content is not loaded after 100 ms
+    setTimeout(resetScroll, 500);
 
     // wait 2 seconds until animation finishes rendering
     noScroll.start();
