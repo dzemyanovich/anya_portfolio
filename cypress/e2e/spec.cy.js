@@ -44,9 +44,9 @@ describe('products page', () => {
     cy.visit(`${DOMAIN}/products`);
   });
 
-  it('check projects page', () => {
-    cy.get('.projects-page').should('have.length', 1);
-    cy.get('.links-container').should('have.length', 1);
+  it('check products page', () => {
+    cy.get('.products-page').should('have.length', 1);
+    cy.get('.all-company-links').should('have.length', 1);
   });
 
   it('click on home link', () => {
@@ -57,8 +57,8 @@ describe('products page', () => {
     });
   });
 
-  it('click on each project link', () => {
-    cy.get('.project-link [role=link]').each((el) => {
+  it('click on each company link', () => {
+    cy.get('.company-link [role=link]').each((el) => {
       cy.visit(`${DOMAIN}${el.attr('href')}`);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });

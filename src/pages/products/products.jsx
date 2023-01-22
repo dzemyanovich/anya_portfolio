@@ -16,7 +16,7 @@ export default class Products extends React.Component {
   constructor(props) {
     super(props);
 
-    this.linksContainerRef = null;
+    this.allCompanyLinksRef = null;
     this.timeoutId = null;
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -33,7 +33,7 @@ export default class Products extends React.Component {
 
     // hack: sometimes content of the page is not centered
     setTimeout(() => {
-      self.linksContainerRef.scrollLeft = 0;
+      self.allCompanyLinksRef.scrollLeft = 0;
 
       window.scrollTo(0, 0);
     }, 500);
@@ -55,10 +55,10 @@ export default class Products extends React.Component {
   }
 
   handleScroll() {
-    const linksContainer = this.linksContainerRef;
-    const proportion = linksContainer.clientWidth / linksContainer.clientHeight;
+    const { clientWidth, clientHeight } = this.allCompanyLinksRef;
+    const proportion = clientWidth / clientHeight;
 
-    linksContainer.scrollLeft = window.scrollY * proportion;
+    this.allCompanyLinksRef.scrollLeft = window.scrollY * proportion;
   }
 
   onMouseEnter(event) {
@@ -89,7 +89,7 @@ export default class Products extends React.Component {
     });
   }
 
-  projectLink(text) {
+  companyLink(text) {
     return (
       <span
         className="link-text"
@@ -105,53 +105,53 @@ export default class Products extends React.Component {
     const { activePageIndex } = this.state;
 
     return (
-      <div className="projects-page">
+      <div className="products-page">
         <HomeLink />
-        <div className="links-container" ref={el => { this.linksContainerRef = el; }}>
-          <div className="project-link-container">
-            <span className="project-link">
+        <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/adidas">
-                {this.projectLink('Adidas')}
+                {this.companyLink('Adidas')}
               </CustomLink>
             </span>
           </div>
-          <div className="project-link-container">
-            <span className="project-link">
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/event-optimizer">
-                {this.projectLink('Event Optimizer')}
+                {this.companyLink('Event Optimizer')}
               </CustomLink>
             </span>
           </div>
-          <div className="project-link-container">
-            <span className="project-link">
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/supply-planning">
-                {this.projectLink('Supply Planning')}
+                {this.companyLink('Supply Planning')}
               </CustomLink>
             </span>
           </div>
-          <div className="project-link-container">
-            <span className="project-link">
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/havi">
-                {this.projectLink('HAVI')}
+                {this.companyLink('HAVI')}
               </CustomLink>
             </span>
           </div>
-          <div className="project-link-container">
-            <span className="project-link">
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/design-platform">
-                {this.projectLink('Design Platform')}
+                {this.companyLink('Design Platform')}
               </CustomLink>
             </span>
           </div>
-          <div className="project-link-container">
-            <span className="project-link">
+          <div className="company-link-container">
+            <span className="company-link">
               <CustomLink className="title" to="/products/zensupplies">
-                {this.projectLink('Zensupplies')}
+                {this.companyLink('Zensupplies')}
               </CustomLink>
             </span>
           </div>
         </div>
-        <div className="projects">
+        <div className="company-logos">
           {[adidas, burger, supplyPlanning, havi, designPlatform, zensupplies].map((image, index) => (
             <div
               className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
