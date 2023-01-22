@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './subprojects.scss';
+import './many-products.scss';
 
-export default class Subprojects extends React.Component {
+export default class ManyProducts extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,11 +27,11 @@ export default class Subprojects extends React.Component {
 
   render() {
     const { currentCategory } = this.state;
-    const { projects } = this.props;
+    const { products } = this.props;
 
     return (
-      <div className="subprojects-wrapper">
-        <div className="subprojects-content">
+      <div className="many-products-wrapper">
+        <div className="many-products-content">
           <div className="filter-panel">
             {Object.keys(this.categories).map((key) => {
               const value = this.categories[key];
@@ -41,7 +41,7 @@ export default class Subprojects extends React.Component {
                   <input
                     type="radio"
                     id={key}
-                    name="project_category"
+                    name="product_category"
                     value={value}
                     defaultChecked={currentCategory === value ? 'checked' : false}
                     onChange={this.applyFilter}
@@ -51,13 +51,13 @@ export default class Subprojects extends React.Component {
               );
             })}
           </div>
-          {projects.filter(project => currentCategory === this.categories.all || project.category === currentCategory)
-            .map((project, index) => (
-              <div className="subproject" key={`subproject_${index.toString()}`}>
-                <div className="subproject-image" />
-                <div className="subproject-description">
-                  <div>{project.value}</div>
-                  <div>{project.year}</div>
+          {products.filter(product => currentCategory === this.categories.all || product.category === currentCategory)
+            .map((product, index) => (
+              <div className="product-item" key={`product_item_${index.toString()}`}>
+                <div className="product-item-image" />
+                <div className="product-item-description">
+                  <div>{product.name}</div>
+                  <div>{product.year}</div>
                 </div>
               </div>
             ))}
@@ -67,10 +67,10 @@ export default class Subprojects extends React.Component {
   }
 }
 
-Subprojects.propTypes = {
+ManyProducts.propTypes = {
   categories: PropTypes.objectOf(PropTypes.string).isRequired,
-  projects: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
     category: PropTypes.string,
     year: PropTypes.number.isRequired,
   })).isRequired,

@@ -2,23 +2,23 @@
 
 // desktop
 $margin: 60px;
-$desktop-project-width: 588px;
-$desktop-project-height: 600px;
-$desktop-content-width: $desktop-project-width * 2 + $margin;
+$desktop-product-item-width: 588px;
+$desktop-product-item-height: 600px;
+$desktop-content-width: $desktop-product-item-width * 2 + $margin;
 $desktop: $desktop-content-width + $margin;
 
 // tablet
-$tablet-project-width: 480px;
-$tablet-project-height: 400px;
-$tablet-content-width: $tablet-project-width * 2 + $margin;
-$tablet: $tablet-project-width * 2 + $margin * 2;
+$tablet-product-item-width: 480px;
+$tablet-product-item-height: 400px;
+$tablet-content-width: $tablet-product-item-width * 2 + $margin;
+$tablet: $tablet-product-item-width * 2 + $margin * 2;
 
 // mobile
-$mobile: $desktop-project-width + $margin;
+$mobile: $desktop-product-item-width + $margin;
 $mobile-margin: calc($margin / 2);
 
 // mini-mobile
-$mini-mobile: $tablet-project-width + $margin;
+$mini-mobile: $tablet-product-item-width + $margin;
 
 @mixin matrice-font {
   @include matrice-normal-700;
@@ -29,12 +29,12 @@ $mini-mobile: $tablet-project-width + $margin;
   text-transform: uppercase;
 }
 
-.subprojects-wrapper {
+.many-products-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.subprojects-content {
+.many-products-content {
   background-color: $black;
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +46,7 @@ $mini-mobile: $tablet-project-width + $margin;
   width: 100%;
 }
 
-.subproject {
+.product-item {
   @include matrice-font;
 
   &:nth-child(odd) {
@@ -55,18 +55,18 @@ $mini-mobile: $tablet-project-width + $margin;
   }
 }
 
-.subproject-image {
+.product-item-image {
   align-items: center;
   background-color: $white;
   color: $black;
   display: flex;
-  height: $desktop-project-height;
+  height: $desktop-product-item-height;
   justify-content: center;
   opacity: 0.8;
-  width: $desktop-project-width;
+  width: $desktop-product-item-width;
 }
 
-.subproject-description {
+.product-item-description {
   border-bottom: 1px solid $gray;
   display: flex;
   justify-content: space-between;
@@ -83,63 +83,63 @@ $mini-mobile: $tablet-project-width + $margin;
   position: absolute;
   right: 0;
   top: 0;
-  width: $desktop-project-width;
+  width: $desktop-product-item-width;
 }
 
 @media screen and (max-width: $desktop) {
-  .subprojects-content {
+  .many-products-content {
     max-width: $tablet-content-width;
   }
 
-  .subproject-image {
-    height: $tablet-project-height;
-    width: $tablet-project-width;
+  .product-item-image {
+    height: $tablet-product-item-height;
+    width: $tablet-product-item-width;
   }
 
   .filter-panel {
-    width: $tablet-project-width;
+    width: $tablet-product-item-width;
   }
 }
 
 @media screen and (max-width: $tablet) {
-  .subprojects-content {
+  .many-products-content {
     justify-content: center;
   }
 
   .filter-panel {
     margin-top: $margin;
     position: static;
-    width: $desktop-project-width;
+    width: $desktop-product-item-width;
   }
 
-  .subproject:nth-child(odd) {
+  .product-item:nth-child(odd) {
     margin: 0;
   }
 
-  .subproject-image {
-    height: $desktop-project-height;
+  .product-item-image {
+    height: $desktop-product-item-height;
     margin: $margin 0 0 0;
-    width: $desktop-project-width;
+    width: $desktop-product-item-width;
   }
 }
 
 @media screen and (max-width: $mobile) {
-  .subproject-image {
-    height: $tablet-project-height;
-    width: $tablet-project-width;
+  .product-item-image {
+    height: $tablet-product-item-height;
+    width: $tablet-product-item-width;
   }
 
   .filter-panel {
-    width: $tablet-project-width;
+    width: $tablet-product-item-width;
   }
 }
 
 @media screen and (max-width: $mini-mobile) {
-  .subprojects-content {
+  .many-products-content {
     margin: 0 $company-info-margin $mobile-margin $company-info-margin;
   }
 
-  .subproject {
+  .product-item {
     margin: $mobile-margin 0 0 0;
     width: 100%;
 
@@ -148,7 +148,7 @@ $mini-mobile: $tablet-project-width + $margin;
     }
   }
 
-  .subproject-image {
+  .product-item-image {
     width: 100%;
   }
 

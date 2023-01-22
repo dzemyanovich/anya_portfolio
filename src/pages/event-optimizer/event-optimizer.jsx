@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Subprojects from '../../components/subprojects/subprojects';
+import ManyProducts from '../../components/many-products/many-products';
 
 import image from '../../images/burger.png';
 
@@ -26,43 +26,43 @@ export function EventOptimizerContent() {
     productDesign: 'Product Design',
   };
 
-  const projects = [
+  const products = [
     {
-      value: 'project #1',
+      name: 'product #1',
       category: categories.designLeadership,
       year: 2022,
     },
     {
-      value: 'project #2',
+      name: 'product #2',
       category: categories.productDesign,
       year: 2023,
     },
     {
-      value: 'project #3',
+      name: 'product #3',
       category: categories.productDesign,
       year: 2021,
     },
     {
-      value: 'project #4',
+      name: 'product #4',
       category: null,
       year: 2020,
     },
     {
-      value: 'project #5',
+      name: 'product #5',
       category: categories.productDesign,
       year: 2022,
     },
     {
-      value: 'project #6',
+      name: 'product #6',
       category: null,
       year: 2022,
     },
     {
-      value: 'project #7',
+      name: 'product #7',
       category: null,
       year: 2022,
     },
   ];
 
-  return <Subprojects categories={categories} projects={projects} />;
+  return <ManyProducts categories={categories} products={products} />;
 }
