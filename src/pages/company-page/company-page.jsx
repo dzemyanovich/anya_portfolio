@@ -20,11 +20,11 @@ export default class CompanyPage extends React.Component {
     this.MAGIC_NUMBER = 0.5;
     // visible margin for home line and swipe tip
     this.VISIBLE_MARGIN = 100;
-    // percentange when home link is still visible related to project wrapper
+    // percentange when home link is still visible related to company header
     this.HOME_LINK_VISIBLE = 0.7;
 
     this.companyPageRef = null;
-    this.projectWrapperRef = null;
+    this.companyHeaderRef = null;
     this.timeoutId = null;
 
     this.swipeLeftRight = this.swipeLeftRight.bind(this);
@@ -92,7 +92,7 @@ export default class CompanyPage extends React.Component {
 
   swipeUpDown() {
     this.setState({
-      isHomeLinkVisible: window.scrollY < this.projectWrapperRef.offsetHeight * this.HOME_LINK_VISIBLE,
+      isHomeLinkVisible: window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE,
       isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
     });
 
@@ -133,19 +133,18 @@ export default class CompanyPage extends React.Component {
   }
 
   scrollUpDown(event) {
-    const projectWrapper = this.projectWrapperRef;
-    const marginTop = parseInt(projectWrapper.style.marginTop, 10) || 0;
-    const { offsetHeight } = projectWrapper;
+    const { companyHeaderRef } = this;
+    const marginTop = parseInt(companyHeaderRef.style.marginTop, 10) || 0;
 
     this.setState({
-      isHomeLinkVisible: Math.abs(marginTop) < offsetHeight * this.HOME_LINK_VISIBLE,
+      isHomeLinkVisible: Math.abs(marginTop) < companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE,
     });
 
     // do nothing in case page content is being scrolled
     if (document.querySelector('html').scrollTop !== 0) {
       // ensure that upper panel is not visible (sometimes it happens)
-      if (Math.abs(marginTop) < offsetHeight) {
-        projectWrapper.style.marginTop = `${-offsetHeight}px`;
+      if (Math.abs(marginTop) < companyHeaderRef.offsetHeight) {
+        companyHeaderRef.style.marginTop = `${-companyHeaderRef.offsetHeight}px`;
       }
 
       // ensure home link is not visible
@@ -161,7 +160,7 @@ export default class CompanyPage extends React.Component {
       : event.deltaX;
 
     let newMarginTop = null;
-    if ((move > 0 && Math.abs(marginTop) < offsetHeight) || (move < 0 && marginTop < 0)) {
+    if ((move > 0 && Math.abs(marginTop) < companyHeaderRef.offsetHeight) || (move < 0 && marginTop < 0)) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -169,7 +168,7 @@ export default class CompanyPage extends React.Component {
       if (newMarginTop > 0) {
         newMarginTop = 0;
       }
-      projectWrapper.style.marginTop = `${newMarginTop}px`;
+      companyHeaderRef.style.marginTop = `${newMarginTop}px`;
 
       if (newMarginTop === 0) {
         window.removeEventListener('wheel', this.scrollUpDown, { passive: false });
@@ -185,8 +184,10 @@ export default class CompanyPage extends React.Component {
   render() {
     const { title, header, content, className } = this.props;
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
-    const isSubprojects = ['/products/adidas', '/products/event-optimizer']
-      .includes(window.location.pathname.toLowerCase());
+    const hasManyProducts = [
+      '/products/adidas',
+      '/products/event-optimizer',
+    ].includes(window.location.pathname.toLowerCase());
 
     return (
       <div
@@ -194,8 +195,8 @@ export default class CompanyPage extends React.Component {
         ref={el => { this.companyPageRef = el; }}
       >
         <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
-        <div className="project-gap" />
-        <div className="project-wrapper">{header}</div>
+        <div className="gap" />
+        <div className="company-header">{header}</div>
         {isHomeLinkVisible && <HomeLink />}
         {isTouchDevice && isSwipeTipVisible && (
           <div className="swipe-tip">
@@ -204,14 +205,14 @@ export default class CompanyPage extends React.Component {
               : <img src={swipeLeft} alt="" />}
           </div>
         )}
-        {!isTouchDevice && !isSubprojects && (
-          <div className="project-wrapper fixed" ref={el => { this.projectWrapperRef = el; }}>
+        {!isTouchDevice && !hasManyProducts && (
+          <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
             {header}
           </div>
         )}
         <div className="content-wrapper">
-          {(isTouchDevice || isSubprojects) && (
-            <div className="project-wrapper" ref={el => { this.projectWrapperRef = el; }}>
+          {(isTouchDevice || hasManyProducts) && (
+            <div className="company-header" ref={el => { this.companyHeaderRef = el; }}>
               {header}
             </div>
           )}

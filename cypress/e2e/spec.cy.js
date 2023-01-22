@@ -40,7 +40,6 @@ describe('home page', () => {
 
 describe('products page', () => {
   beforeEach(() => {
-    // todo: sign in for protected pages
     cy.visit(`${DOMAIN}/products`);
   });
 
@@ -59,6 +58,11 @@ describe('products page', () => {
 
   it('click on each company link', () => {
     cy.get('.company-link [role=link]').each((el) => {
+      // todo: delete check after login via cy is implemented
+      if (['/products/adidas', '/products/event-optimizer'].includes(el.attr('href'))) {
+        return;
+      }
+
       cy.visit(`${DOMAIN}${el.attr('href')}`);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
