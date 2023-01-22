@@ -59,7 +59,7 @@ describe('products page', () => {
   it('click on each company link', () => {
     cy.get('.company-link [role=link]').each((el) => {
       // todo: delete check after login via cy is implemented
-      if (['/products/adidas', '/products/event-optimizer'].includes(el.attr('href'))) {
+      if (['/products/adidas', '/products/mcdonalds'].includes(el.attr('href'))) {
         return;
       }
 

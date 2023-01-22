@@ -2,7 +2,7 @@ import React from 'react';
 
 import ManyProducts from '../../components/many-products/many-products';
 
-import image from '../../images/adidas.jpg';
+import image from '../../images/adidas-shoe.jpg';
 
 export function AdidasHeader() {
   return [
@@ -10,11 +10,11 @@ export function AdidasHeader() {
     <div className="company-info" key="company-info">
       <h3 className="company-title">About company</h3>
       <div className="company-description">
-        Event Optimizer is an information management platform for QSR industry dedicated to collect,
-        visually track and analyze key data points of McDonald&apos;s & Subway based on data science
-        (marketing / stock / sales / results of previous promotions / risks, etc.) for automated intelligent
-        forecasting. The tool is fully customizable to meet the specific needs of a department and company
-        and F...
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
+        augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
+        placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
+        sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
+        sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
       </div>
     </div>,
   ];

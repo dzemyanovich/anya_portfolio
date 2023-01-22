@@ -12,8 +12,7 @@ import Contact from './pages/contact/contact';
 import About from './pages/about/about';
 import CompanyPage from './pages/company-page/company-page';
 import { AdidasHeader, AdidasContent } from './pages/adidas/adidas';
-import { EventOptimizerHeader, EventOptimizerContent } from './pages/event-optimizer/event-optimizer';
-import { SupplyPlanningHeader, SupplyPlanningContent } from './pages/supply-planning/supply-planning';
+import { McdonaldsHeader, McdonaldsContent } from './pages/mcdonalds/mcdonalds';
 import { HaviHeader, HaviContent } from './pages/havi/havi';
 import { EpamSystemsHeader, EpamSystemsContent } from './pages/epam-systems/epam-systems';
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
@@ -71,26 +70,17 @@ root.render(
           )}
         />
         <Route
-          path="products/event-optimizer"
+          path="products/mcdonalds"
           element={(
             <ProtectedRoute>
               <CompanyPage
-                title="Event Optimizer"
-                header={<EventOptimizerHeader />}
-                content={<EventOptimizerContent />}
-                className="event-optimizer"
+                title="McDonald's"
+                header={<McdonaldsHeader />}
+                content={<McdonaldsContent />}
+                className="mcdonalds"
               />
             </ProtectedRoute>
           )}
-        />
-        <Route
-          path="products/supply-planning"
-          element={(<CompanyPage
-            title="Supply Planning"
-            header={<SupplyPlanningHeader />}
-            content={<SupplyPlanningContent />}
-            className="supply-planning"
-          />)}
         />
         <Route
           path="products/havi"

@@ -186,7 +186,7 @@ export default class CompanyPage extends React.Component {
     const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
     const hasManyProducts = [
       '/products/adidas',
-      '/products/event-optimizer',
+      '/products/mcdonalds',
     ].includes(window.location.pathname.toLowerCase());
 
     return (

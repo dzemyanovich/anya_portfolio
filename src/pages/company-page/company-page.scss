@@ -62,11 +62,10 @@
   max-width: 521px;
 }
 
-.supply-planning,
-.zensupplies {
-  .page-title {
-    left: -2vh;
-  }
+// custom left value for title starting with letter "Z" (Zensupplies)
+// also applicable to names starting with letter "S"
+.zensupplies .page-title {
+  left: -2vh;
 }
 
 .adidas .page-title {
