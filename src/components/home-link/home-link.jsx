@@ -2,7 +2,7 @@ import React from 'react';
 
 import CustomLink from '../custom-link/custom-link';
 
-import pivunova from '../../images/pivunova.svg';
+import pivunova from '../../images/pivunova-home-link.svg';
 import './home-link.scss';
 
 export default function HomeLink() {
