@@ -55,7 +55,9 @@ root.render(
             </UnauthenticatedRouteOnly>
           )}
         />
+        {/* todo: rename to /products */}
         <Route path="projects" element={<Projects />} />
+        {/* todo: introduce dynamic route /products/{company_id}/{product_id} */}
         <Route
           path="projects/adidas"
           element={(
@@ -100,6 +102,7 @@ root.render(
             className="havi"
           />)}
         />
+        {/* todo: rename to "epam systems" */}
         <Route
           path="projects/design-platform"
           element={(<ProjectPage
