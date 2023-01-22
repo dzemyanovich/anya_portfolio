@@ -5,13 +5,13 @@ import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
 import { isWindows } from '../../utils/utils';
 
-import './project-page.scss';
+import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
 import swipeDown from '../../images/swipe-down.svg';
 
 const isTouchDevice = 'ontouchstart' in window;
 
-export default class ProjectPage extends React.Component {
+export default class CompanyPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class ProjectPage extends React.Component {
     // percentange when home link is still visible related to project wrapper
     this.HOME_LINK_VISIBLE = 0.7;
 
-    this.projectPageRef = null;
+    this.companyPageRef = null;
     this.projectWrapperRef = null;
     this.timeoutId = null;
 
@@ -49,7 +49,7 @@ export default class ProjectPage extends React.Component {
     noScroll.start();
     this.timeoutId = setTimeout(() => {
       if (isTouchDevice) {
-        this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
+        this.companyPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
@@ -63,7 +63,7 @@ export default class ProjectPage extends React.Component {
     noScroll.end();
 
     if (isTouchDevice) {
-      this.projectPageRef.removeEventListener('scroll', this.swipeLeftRight);
+      this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);
     } else {
       window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
@@ -72,17 +72,16 @@ export default class ProjectPage extends React.Component {
   }
 
   swipeLeftRight() {
-    const { projectPageRef } = this;
-    const { scrollLeft, offsetWidth, scrollWidth } = projectPageRef;
-
+    const { scrollLeft, offsetWidth, scrollWidth } = this.companyPageRef;
     const visible = scrollLeft + offsetWidth + this.VISIBLE_MARGIN >= scrollWidth;
+
     this.setState({
       isHomeLinkVisible: visible,
       isSwipeTipVisible: visible,
     });
 
     if (scrollLeft + offsetWidth + this.MAGIC_NUMBER >= scrollWidth) {
-      projectPageRef.removeEventListener('scroll', this.swipeLeftRight);
+      this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.addEventListener('scroll', this.swipeUpDown);
 
       this.setState({
@@ -99,7 +98,7 @@ export default class ProjectPage extends React.Component {
 
     if (window.scrollY === 0) {
       document.removeEventListener('scroll', this.swipeUpDown);
-      this.projectPageRef.addEventListener('scroll', this.swipeLeftRight);
+      this.companyPageRef.addEventListener('scroll', this.swipeLeftRight);
 
       this.setState({
         isContentView: false,
@@ -114,15 +113,16 @@ export default class ProjectPage extends React.Component {
     const move = Math.abs(event.deltaY) > Math.abs(event.deltaX)
       ? event.deltaY
       : event.deltaX;
-    const target = this.projectPageRef;
+    const { companyPageRef } = this;
 
-    target.scrollLeft += move;
+    companyPageRef.scrollLeft += move;
 
     this.setState({
-      isHomeLinkVisible: target.offsetWidth + target.scrollLeft + this.VISIBLE_MARGIN >= target.scrollWidth,
+      isHomeLinkVisible: companyPageRef.offsetWidth + companyPageRef.scrollLeft
+        + this.VISIBLE_MARGIN >= companyPageRef.COMMENT_NODEscrollWidth,
     });
 
-    if (target.offsetWidth + target.scrollLeft + this.MAGIC_NUMBER >= target.scrollWidth) {
+    if (companyPageRef.offsetWidth + companyPageRef.scrollLeft + this.MAGIC_NUMBER >= companyPageRef.scrollWidth) {
       window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
       window.addEventListener('wheel', this.scrollUpDown, { passive: false });
 
@@ -190,8 +190,8 @@ export default class ProjectPage extends React.Component {
 
     return (
       <div
-        className={`project-page ${isContentView ? 'content-view' : ''} ${className}`}
-        ref={el => { this.projectPageRef = el; }}
+        className={`company-page ${isContentView ? 'content-view' : ''} ${className}`}
+        ref={el => { this.companyPageRef = el; }}
       >
         <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
         <div className="project-gap" />
@@ -222,7 +222,7 @@ export default class ProjectPage extends React.Component {
   }
 }
 
-ProjectPage.propTypes = {
+CompanyPage.propTypes = {
   title: PropTypes.string.isRequired,
   header: PropTypes.element.isRequired,
   content: PropTypes.element.isRequired,

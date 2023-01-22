@@ -10,7 +10,7 @@
   }
 }
 
-.project-page {
+.company-page {
   animation: 2s ease-out 0s 1 slide-in-from-right;
   display: flex;
   height: 100%;
@@ -110,11 +110,11 @@
   }
 }
 
-.project-page.content-view .content-wrapper {
+.company-page.content-view .content-wrapper {
   display: block;
 }
 
-.project-page.content-view .project-wrapper.fixed {
+.company-page.content-view .project-wrapper.fixed {
   display: flex;
 }
 

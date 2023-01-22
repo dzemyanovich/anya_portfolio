@@ -10,7 +10,7 @@ import Login from './pages/login/login';
 import Products from './pages/products/products';
 import Contact from './pages/contact/contact';
 import About from './pages/about/about';
-import ProjectPage from './pages/project-page/project-page';
+import CompanyPage from './pages/company-page/company-page';
 import { AdidasHeader, AdidasContent } from './pages/adidas/adidas';
 import { EventOptimizerHeader, EventOptimizerContent } from './pages/event-optimizer/event-optimizer';
 import { SupplyPlanningHeader, SupplyPlanningContent } from './pages/supply-planning/supply-planning';
@@ -61,7 +61,7 @@ root.render(
           path="products/adidas"
           element={(
             <ProtectedRoute>
-              <ProjectPage
+              <CompanyPage
                 title="Adidas"
                 header={<AdidasHeader />}
                 content={<AdidasContent />}
@@ -74,7 +74,7 @@ root.render(
           path="products/event-optimizer"
           element={(
             <ProtectedRoute>
-              <ProjectPage
+              <CompanyPage
                 title="Event Optimizer"
                 header={<EventOptimizerHeader />}
                 content={<EventOptimizerContent />}
@@ -85,7 +85,7 @@ root.render(
         />
         <Route
           path="products/supply-planning"
-          element={(<ProjectPage
+          element={(<CompanyPage
             title="Supply Planning"
             header={<SupplyPlanningHeader />}
             content={<SupplyPlanningContent />}
@@ -94,7 +94,7 @@ root.render(
         />
         <Route
           path="products/havi"
-          element={(<ProjectPage
+          element={(<CompanyPage
             title="Havi"
             header={<HaviHeader />}
             content={<HaviContent />}
@@ -104,7 +104,7 @@ root.render(
         {/* todo: rename to "epam systems" */}
         <Route
           path="products/design-platform"
-          element={(<ProjectPage
+          element={(<CompanyPage
             title="Design Platform"
             header={<DesignPlatformHeader />}
             content={<DesignPlatformContent />}
@@ -113,7 +113,7 @@ root.render(
         />
         <Route
           path="products/zensupplies"
-          element={(<ProjectPage
+          element={(<CompanyPage
             title="Zensupplies"
             header={<ZensuppliesHeader />}
             content={<ZensuppliesContent />}
