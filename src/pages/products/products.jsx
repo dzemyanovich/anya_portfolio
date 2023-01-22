@@ -102,54 +102,55 @@ export default class Products extends React.Component {
 
   render() {
     const { activePageIndex } = this.state;
+    const companies = [
+      {
+        name: 'Adidas',
+        link: '/products/adidas',
+        image: adidasShoe,
+      },
+      {
+        name: "McDonald's",
+        link: '/products/mcdonalds',
+        image: burger,
+      },
+      {
+        name: 'HAVI',
+        link: '/products/havi',
+        image: havi,
+      },
+      {
+        name: 'EPAM Systems',
+        link: '/products/epam-systems',
+        image: oldComputer,
+      },
+      {
+        name: 'Zensupplies',
+        link: '/products/zensupplies',
+        image: zensupplies,
+      },
+    ];
 
     return (
       <div className="products-page">
         <HomeLink />
         <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
-          <div className="company-link-container">
-            <span className="company-link">
-              <CustomLink className="title" to="/products/adidas">
-                {this.companyLink('Adidas')}
-              </CustomLink>
-            </span>
-          </div>
-          <div className="company-link-container">
-            <span className="company-link">
-              <CustomLink className="title" to="/products/mcdonalds">
-                {this.companyLink("McDonald's")}
-              </CustomLink>
-            </span>
-          </div>
-          <div className="company-link-container">
-            <span className="company-link">
-              <CustomLink className="title" to="/products/havi">
-                {this.companyLink('HAVI')}
-              </CustomLink>
-            </span>
-          </div>
-          <div className="company-link-container">
-            <span className="company-link">
-              <CustomLink className="title" to="/products/epam-systems">
-                {this.companyLink('EPAM Systems')}
-              </CustomLink>
-            </span>
-          </div>
-          <div className="company-link-container">
-            <span className="company-link">
-              <CustomLink className="title" to="/products/zensupplies">
-                {this.companyLink('Zensupplies')}
-              </CustomLink>
-            </span>
-          </div>
+          {companies.map((company, index) => (
+            <div className="company-link-container" key={`company-link-${index.toString()}`}>
+              <span className="company-link">
+                <CustomLink className="title" to={company.link}>
+                  {this.companyLink(company.name)}
+                </CustomLink>
+              </span>
+            </div>
+          ))}
         </div>
         <div className="company-logos">
-          {[adidasShoe, burger, havi, oldComputer, zensupplies].map((image, index) => (
+          {companies.map((company, index) => (
             <div
               className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
               key={`image-container-${index.toString()}`}
             >
-              <img src={image} alt="" />
+              <img src={company.image} alt="" />
             </div>
           ))}
         </div>
