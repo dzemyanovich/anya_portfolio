@@ -5,10 +5,10 @@ import background from '../../images/event-optimizer-background.png';
 
 export function SupplyPlanningHeader() {
   return [
-    <img src={image} alt="" className="project-image" key="project-image" />,
-    <div className="project-info" key="project-info">
-      <h3 className="project-title">About project</h3>
-      <div className="project-description">
+    <img src={image} alt="" className="company-image" key="company-image" />,
+    <div className="company-info" key="company-info">
+      <h3 className="company-title">About company</h3>
+      <div className="company-description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
         augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
         placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor

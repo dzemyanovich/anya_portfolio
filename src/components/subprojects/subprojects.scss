@@ -136,7 +136,7 @@ $mini-mobile: $tablet-project-width + $margin;
 
 @media screen and (max-width: $mini-mobile) {
   .subprojects-content {
-    margin: 0 $project-info-margin $mobile-margin $project-info-margin;
+    margin: 0 $company-info-margin $mobile-margin $company-info-margin;
   }
 
   .subproject {

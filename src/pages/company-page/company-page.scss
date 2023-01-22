@@ -58,7 +58,7 @@
   }
 }
 
-.project-image {
+.company-image {
   max-width: 521px;
 }
 
@@ -73,12 +73,12 @@
   left: 4vh;
 }
 
-.project-info {
-  margin-right: $project-info-margin;
+.company-info {
+  margin-right: $company-info-margin;
   max-width: 430px;
 }
 
-.project-title {
+.company-title {
   @include montserrat-normal-700;
 
   color: $white;
@@ -87,7 +87,7 @@
   text-transform: uppercase;
 }
 
-.project-description {
+.company-description {
   @include montserrat-normal-400;
 
   color: $light-gray;
@@ -136,7 +136,7 @@
 }
 
 @media screen and (max-width: $laptop-width) {
-  .project-image {
+  .company-image {
     max-width: 500px;
   }
 
@@ -144,20 +144,20 @@
     flex-direction: column;
   }
 
-  .project-info {
-    margin-left: $project-info-margin;
+  .company-info {
+    margin-left: $company-info-margin;
     max-width: none;
   }
 }
 
 @media screen and (max-width: $tablet-width) {
-  .project-image {
+  .company-image {
     max-width: 400px;
   }
 }
 
 @media screen and (max-width: $mobile-width) {
-  .project-image {
+  .company-image {
     max-width: 350px;
   }
 }
