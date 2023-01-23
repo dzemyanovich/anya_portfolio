@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Outlet, BrowserRouter, Routes, Route, useParams, Navigate } from 'react-router-dom';
 import Favicon from 'react-favicon';
 
 import ProtectedRoute from './components/protected-route/protected-route';
@@ -55,63 +55,68 @@ root.render(
           )}
         />
         <Route path="products" element={<Products />} />
-        {/* todo: introduce dynamic route /products/{company_id}/{product_id} */}
-        <Route
-          path="products/adidas"
-          element={(
-            <ProtectedRoute>
-              <CompanyPage
-                title="Adidas"
-                header={<AdidasHeader />}
-                content={<AdidasContent />}
-                className="adidas"
-              />
-            </ProtectedRoute>
-          )}
-        />
-        <Route
-          path="products/mcdonalds"
-          element={(
-            <ProtectedRoute>
-              <CompanyPage
-                title="McDonald's"
-                header={<McdonaldsHeader />}
-                content={<McdonaldsContent />}
-                className="mcdonalds"
-              />
-            </ProtectedRoute>
-          )}
-        />
-        <Route
-          path="products/havi"
-          element={(<CompanyPage
-            title="Havi"
-            header={<HaviHeader />}
-            content={<HaviContent />}
-            className="havi"
-          />)}
-        />
-        <Route
-          path="products/epam-systems"
-          element={(<CompanyPage
-            title="EPAM Systems"
-            header={<EpamSystemsHeader />}
-            content={<EpamSystemsContent />}
-            className="epam-systems"
-          />)}
-        />
-        <Route
-          path="products/zensupplies"
-          element={(<CompanyPage
-            title="Zensupplies"
-            header={<ZensuppliesHeader />}
-            content={<ZensuppliesContent />}
-            className="zensupplies"
-          />)}
-        />
+        <Route path="products/:companyId" element={<SelectCompanyPage />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
   </BrowserRouter>,
 );
+
+function SelectCompanyPage() {
+  const { companyId } = useParams();
+
+  switch (companyId) {
+    case 'adidas':
+      return (
+        <ProtectedRoute>
+          <CompanyPage
+            title="Adidas"
+            header={<AdidasHeader />}
+            content={<AdidasContent />}
+            className="adidas"
+          />
+        </ProtectedRoute>
+      );
+    case 'mcdonalds':
+      return (
+        <ProtectedRoute>
+          <CompanyPage
+            title="McDonald's"
+            header={<McdonaldsHeader />}
+            content={<McdonaldsContent />}
+            className="mcdonalds"
+          />
+        </ProtectedRoute>
+      );
+    case 'havi':
+      return (
+        <CompanyPage
+          title="HAVI"
+          header={<HaviHeader />}
+          content={<HaviContent />}
+          className="havi"
+        />
+      );
+    case 'epam-systems':
+      return (
+        <CompanyPage
+          title="EPAM Systems"
+          header={<EpamSystemsHeader />}
+          content={<EpamSystemsContent />}
+          className="epam-systems"
+        />
+      );
+    case 'zensupplies':
+      return (
+        <CompanyPage
+          title="Zensupplies"
+          header={<ZensuppliesHeader />}
+          content={<ZensuppliesContent />}
+          className="zensupplies"
+        />
+      );
+    default:
+      return <Navigate to="/" replace />;
+  }
+}
