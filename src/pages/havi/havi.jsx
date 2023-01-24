@@ -48,13 +48,11 @@ export function HaviContent() {
               <ul>
                 <li>Established & supported digital style guide & standards</li>
                 <li>
-                  60+ screens were carefully redesigned & crafted to provide improvements to the user experience.
-                  Design enhancements positively impacted the following KPIs:
-                  {/* <ul>
-                  <li>Increase in conversation rate 28%</li>
-                  <li>Impovement in bounce rate 29%</li>
-                </ul> */}
+                  60+ screens were carefully redesigned & crafted to provide improvements to the user
+                  experience. Design enhancements positively impacted the following KPIs:
                 </li>
+                <li className="more-indent">Increase in conversation rate 28%</li>
+                <li className="more-indent">Impovement in bounce rate 29%</li>
               </ul>
             </div>
           </div>
