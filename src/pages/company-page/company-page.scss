@@ -37,7 +37,7 @@
   text-transform: uppercase;
   top: 8vh;
   white-space: nowrap;
- 
+
   &.windows {
     top: -11vh;
   }
@@ -77,20 +77,54 @@
   max-width: 430px;
 }
 
-.company-title {
+.product-title {
+  @include montserrat-normal-400;
+
+  color: $white;
+  font-size: 40px;
+  margin: 50px 0;
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.paragraph-title {
   @include montserrat-normal-700;
 
   color: $white;
   font-size: 14px;
   letter-spacing: 0.7px;
+  padding: 20px 0;
   text-transform: uppercase;
 }
 
-.company-description {
+.paragraph-description {
   @include montserrat-normal-400;
 
   color: $light-gray;
   font-size: 14px;
+  line-height: 21px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex; // required to indent all the content related to bullet points
+  }
+
+  li::before {
+    content: '•';
+    font-size: 12pt;
+    padding: 0 5px;
+  }
+
+  li:not(:last-child) {
+    padding-bottom: 15px;
+  }
 }
 
 .gap {

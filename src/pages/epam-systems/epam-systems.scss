@@ -1,28 +1,29 @@
-$sections-gap: 100px;
-
-.epam-logo {
-  $margin-left-right: 50px;
-
-  margin: 200px $margin-left-right;
-  width: calc(100% - $margin-left-right * 2);
+.upper-image {
+  width: 100%;
 }
 
 .about-container {
   display: flex;
 }
 
-.about-container,
-.results-container {
-  margin-bottom: $sections-gap;
+.about {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  .paragraph {
+    width: 500px;
+  }
+}
+
+.upper-image,
+.about-container {
+  margin-bottom: 100px;
 }
 
 .about-image {
   width: 50%;
-}
-
-// todo: use common class with similar cases on other pages
-.paragraph-title {
-  text-transform: uppercase;
 }
 
 .results-container {
@@ -38,8 +39,4 @@ $sections-gap: 100px;
 .results,
 .results-image {
   width: 1000px;
-}
-
-.bottom-image {
-  width: 100%;
 }

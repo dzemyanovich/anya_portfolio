@@ -1,26 +1,25 @@
 import React from 'react';
 
 import image from '../../images/old-computer.png';
-// todo: use another image
-import epamLogo from '../../images/epam-logo.png';
-import aboutImage from '../../images/design-portfolio-hints.jpg';
+// todo: use original image but not screenshot
+import aboutImage from '../../images/design-portfolio-hints.png';
 // todo: use original image but not screenshot
 import resultsImage from '../../images/design-portfolio-code.png';
-// todo: image's quality is too low
-import bottomImage from '../../images/design-portfolio-components.jpg';
+// todo: use original image but not screenshot
+import upperImage from '../../images/design-portfolio-components.jpeg';
 import './epam-systems.scss';
 
 export function EpamSystemsHeader() {
   return [
     <img src={image} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
-      <h3 className="company-title">About company</h3>
-      <div className="company-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-        augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-        placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-        sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-        sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
+      <div className="paragraph-title">About company</div>
+      <div className="paragraph-description">
+        EPAM Systems is a leading global product development, digital platform engineering, and top digital
+        and product design agency. EPAM&apos;s global teams serve customers in more than 35 countries across North
+        America, Europe, Asia, and Australia. EPAM was one of only four technology companies to appear on
+        Forbes 25 Fastest Growing Public Tech Companies list every year of publication since 2013 and ranked
+        as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020.
       </div>
     </div>,
   ];
@@ -29,26 +28,26 @@ export function EpamSystemsHeader() {
 export function EpamSystemsContent() {
   return (
     <div>
-      <img src={epamLogo} alt="" className="epam-logo" />
+      <img src={upperImage} alt="" className="upper-image" />
       <div className="about-container">
-        <div>
-          <div>
-            <div>Design Platform</div>
+        <div className="about">
+          <div className="paragraph">
+            <div className="product-title">Design Platform</div>
             <div className="paragraph-title">
               About project
             </div>
-            <div>
-              Digital Platform is EPAM&apos;s internal ecosystem, making work and life of employees easier and efficient.
-              Currently, the EPAM product ecosystem has more than 150 projects. Supporting such a huge number of
-              products seems like an overwhelming task, requiring a huge amount of resources, because each of them
-              is unique and must still be perceived as part of one ecosystem. Design Platform is aimed at achieving
-              this goal. This initiative is not represented only by a system of components, but by a series of
-              measures to change the outlook and the revolution in the organization of work.
+            <div className="paragraph-description">
+              Digital Platform is EPAM&apos;s internal ecosystem, making work and life of employees easier and
+              efficient. Currently, the EPAM product ecosystem has more than 150 projects. Supporting such a huge
+              number of products seems like an overwhelming task, requiring a huge amount of resources, because
+              each of them is unique and must still be perceived as part of one ecosystem. Design Platform is
+              aimed at achieving this goal. This initiative is not represented only by a system of components,
+              but by a series of measures to change the outlook and the revolution in the organization of work.
             </div>
           </div>
-          <div>
+          <div className="paragraph">
             <div className="paragraph-title">Challenges</div>
-            <div>
+            <div className="paragraph-description">
               <ul>
                 <li>Lack of consistency between products & various design libraries inside EPAM</li>
                 <li>More than 20 stakeholders</li>
@@ -61,7 +60,7 @@ export function EpamSystemsContent() {
       <div className="results-container">
         <div className="results">
           <div className="paragraph-title">Results</div>
-          <div>
+          <div className="paragraph-description">
             <ul>
               <li>
                 Based on competitive benchmarking of popular design systems, upgraded simple UI kit and React
@@ -85,7 +84,6 @@ export function EpamSystemsContent() {
         </div>
         <img src={resultsImage} alt="" className="results-image" />
       </div>
-      <img src={bottomImage} alt="" className="bottom-image" />
     </div>
   );
 }

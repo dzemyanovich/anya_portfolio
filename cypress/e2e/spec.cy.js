@@ -69,9 +69,9 @@ describe('products page', () => {
 
       // wait until animation is done
       cy.wait(2000);
-      cy.get('.company-description').should('not.be.visible');
+      cy.get('.company-info').should('not.be.visible');
       cy.get('.company-page').scrollTo('right', { duration: 2000 });
-      cy.get('.company-description').should('be.visible');
+      cy.get('.company-info').should('be.visible');
 
       cy.go('back');
     });

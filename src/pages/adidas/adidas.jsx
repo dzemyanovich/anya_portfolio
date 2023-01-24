@@ -8,8 +8,8 @@ export function AdidasHeader() {
   return [
     <img src={image} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
-      <h3 className="company-title">About company</h3>
-      <div className="company-description">
+      <div className="paragraph-title">About company</div>
+      <div className="paragraph-description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
         augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
         placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
