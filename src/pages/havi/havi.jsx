@@ -1,7 +1,9 @@
 import React from 'react';
 
 import image from '../../images/havi.png';
-import background from '../../images/event-optimizer-background.png';
+import haviSupplyPlanning from '../../images/havi-supply-planning.jpeg';
+import haviLandingPage from '../../images/havi-landing-page.jpeg';
+import './havi.scss';
 
 export function HaviHeader() {
   return [
@@ -9,105 +11,56 @@ export function HaviHeader() {
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
       <div className="paragraph-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-        augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-        placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-        sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-        sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
+        HAVI is a global, privately owned company focused on innovating, optimizing and managing the supply
+        chains of leading brands.
       </div>
     </div>,
   ];
 }
 
 export function HaviContent() {
-  return [
-    <img src={background} alt="" key="page-content-background" className="event-optimizer-background" />,
-    <div key="some-page-content">
-      <h1>Some title</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 2</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 3</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 4</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 5</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 6</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 7</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 8</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 9</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-    </div>,
-    <img src={background} alt="" key="page-content-background-2" className="event-optimizer-background" />,
-    <div key="some-page-content-2">
-      <h1>Some title</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 2</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-      <br />
-      <h1>Some title 3</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-      augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-      placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-      sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-      sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
-    </div>,
-  ];
+  return (
+    <div>
+      <img src={haviSupplyPlanning} alt="" className="havi-upper-image" />
+      <div className="havi-about-container">
+        <div className="havi-about">
+          <div className="paragraph">
+            <div className="product-title">HAVI</div>
+            <div className="paragraph-title">About project</div>
+            <div className="paragraph-description">
+              The HAVI Group is a global company focused on innovating, optimizing and managing the supply chains of
+              leading brands: McDonalds, Coca-Cola, Shell, ect. The Company offers supply chain analytics and
+              logistics, packaging, freight management, warehousing and distribution, recycling, and waste solutions.
+            </div>
+          </div>
+          <div className="paragraph">
+            <div className="paragraph-title">Challenges</div>
+            <div className="paragraph-description">
+              <ul>
+                <li>No single source of truth (digital style guide and standards)</li>
+                <li>Lack of consistency in the existing solution</li>
+              </ul>
+            </div>
+          </div>
+          <div className="paragraph">
+            <div className="paragraph-title">Results</div>
+            <div className="paragraph-description">
+              <ul>
+                <li>Established & supported digital style guide & standards</li>
+                <li>
+                  60+ screens were carefully redesigned & crafted to provide improvements to the user experience.
+                  Design enhancements positively impacted the following KPIs:
+                  {/* <ul>
+                  <li>Increase in conversation rate 28%</li>
+                  <li>Impovement in bounce rate 29%</li>
+                </ul> */}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <img src={haviLandingPage} alt="" className="about-image" />
+      </div>
+    </div>
+  );
 }
