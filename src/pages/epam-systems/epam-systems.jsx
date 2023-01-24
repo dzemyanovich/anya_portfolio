@@ -1,6 +1,6 @@
 import React from 'react';
 
-import image from '../../images/old-computer.png';
+import oldComputer from '../../images/old-computer.png';
 // todo: use original image but not screenshot
 import aboutImage from '../../images/design-portfolio-hints.png';
 // todo: use original image but not screenshot
@@ -11,7 +11,7 @@ import './epam-systems.scss';
 
 export function EpamSystemsHeader() {
   return [
-    <img src={image} alt="" className="company-image" key="company-image" />,
+    <img src={oldComputer} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
       <div className="paragraph-description">
@@ -34,7 +34,7 @@ export function EpamSystemsContent() {
           <div className="paragraph">
             <div className="product-title">Design Platform</div>
             <div className="paragraph-title">
-              About project
+              About product
             </div>
             <div className="paragraph-description">
               Digital Platform is EPAM&apos;s internal ecosystem, making work and life of employees easier and
