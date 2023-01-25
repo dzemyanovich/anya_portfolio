@@ -9,7 +9,7 @@ import adidasShoe from '../../images/adidas-shoe.jpg';
 import burger from '../../images/burger.png';
 import haviLogo from '../../images/havi-logo.png';
 import oldComputer from '../../images/old-computer.png';
-import zensupplies from '../../images/zensupplies.png';
+import tooth from '../../images/tooth.png';
 import './products.scss';
 
 export default class Products extends React.Component {
@@ -127,7 +127,7 @@ export default class Products extends React.Component {
       {
         name: 'Zensupplies',
         link: '/products/zensupplies',
-        image: zensupplies,
+        image: tooth,
       },
     ];
 

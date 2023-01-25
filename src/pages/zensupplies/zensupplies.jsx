@@ -1,14 +1,14 @@
 import React from 'react';
 
-import zensupplies from '../../images/zensupplies.png';
-import zensuppliesMobile from '../../images/zensupplies-mobile.jpeg';
-import zensuppliesTablet from '../../images/zensupplies-tablet.jpeg';
-import zensuppliesDesktop from '../../images/zensupplies-desktop.jpeg';
+import tooth from '../../images/tooth.png';
+import zensuppliesMobileImage from '../../images/zensupplies-mobile.jpeg';
+import zensuppliesTabletImage from '../../images/zensupplies-tablet.jpeg';
+import zensuppliesDesktopImage from '../../images/zensupplies-desktop.jpeg';
 import './zensupplies.scss';
 
 export function ZensuppliesHeader() {
   return [
-    <img src={zensupplies} alt="" className="company-image" key="company-image" />,
+    <img src={tooth} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
       <div className="paragraph-description">
@@ -22,15 +22,13 @@ export function ZensuppliesHeader() {
 
 export function ZensuppliesContent() {
   return (
-    <div>
-      <div className="zensupplies-about-container">
-        <img src={zensuppliesMobile} alt="" className="zensupplies-mobile-image" />
-        <div className="zensupplies-about">
+    <div className="zensupplies-product">
+      <div className="section-container">
+        <img src={zensuppliesMobileImage} alt="" className="section-image zensupplies-mobile-image" />
+        <div className="section zensupplies-about">
           <div className="paragraph">
             <div className="product-title">ZenSupplies</div>
-            <div className="paragraph-title">
-              About product
-            </div>
+            <div className="paragraph-title">About product</div>
             <div className="paragraph-description">
               ZenSupplies is an industry-disrupting innovative software for inventory management, budget and cost
               analysis, as well as distributor price comparison, used by 500+ dental practices across the USA.
@@ -38,11 +36,8 @@ export function ZensuppliesContent() {
           </div>
         </div>
       </div>
-      <div className="zensupplies-content-container">
-        <div className="zensupplies-tablet-image-container">
-          <img src={zensuppliesTablet} alt="" className="zensupplies-tablet-image" />
-        </div>
-        <div className="zensupplies-content">
+      <div className="section-container">
+        <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Responsibilities</div>
             <div className="paragraph-description">
@@ -73,9 +68,13 @@ export function ZensuppliesContent() {
             </div>
           </div>
         </div>
+        <div className="section-image zensupplies-tablet-image-container">
+          <img src={zensuppliesTabletImage} alt="" className="zensupplies-tablet-image" />
+        </div>
       </div>
-      <div className="zensupplies-results-container">
-        <div className="zensupplies-results">
+      <div className="section-container">
+        <img src={zensuppliesDesktopImage} alt="" className="section-image" />
+        <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Results</div>
             <div className="paragraph-description">
@@ -87,7 +86,6 @@ export function ZensuppliesContent() {
             </div>
           </div>
         </div>
-        <img src={zensuppliesDesktop} alt="" className="zensupplies-desktop-image" />
       </div>
     </div>
   );

@@ -1,16 +1,5 @@
-// todo: merge styles with epam systems and havi pages
-
-.zensupplies-about-container,
-.zensupplies-content-container {
-  margin-bottom: 200px;
-}
-
-.zensupplies-about-container {
-  display: flex;
-
-  .zensupplies-mobile-image {
-    width: 70%;
-  }
+.section-container .zensupplies-mobile-image {
+  width: 70%;
 }
 
 .zensupplies-about {
@@ -24,41 +13,19 @@
   }
 }
 
-.zensupplies-content-container {
+.zensupplies-tablet-image-container {
+  align-content: center;
   display: flex;
-
-  // todo: change name
-  .zensupplies-tablet-image-container {
-    align-content: center;
-    display: flex;
-    justify-content: center;
-  }
-
-  .zensupplies-tablet-image-container,
-  .zensupplies-content {
-    width: 50%;
-  }
-
-  .zensupplies-tablet-image {
-    width: 400px;
-  }
+  justify-content: center;
 }
 
-.zensupplies-content .paragraph {
-  width: 600px;
+.zensupplies-tablet-image {
+  width: 400px;
 }
 
-.zensupplies-results {
-  margin-bottom: 100px;
-}
-
-.zensupplies-results-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  .zensupplies-results,
-  .zensupplies-desktop-image {
-    width: 1000px;
+.zensupplies-product {
+  .transition-image,
+  .section-container:not(:last-child) {
+    padding-bottom: 200px;
   }
 }
