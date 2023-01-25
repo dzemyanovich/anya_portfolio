@@ -13,7 +13,6 @@ $gray-light: rgba(255 255 255 / 87%);
 $gray-lighter: rgba(255 255 255 / 75%);
 $radio-button-checked: rgb(222 222 222);
 
-// todo: font-weight and font-style are duplicated (here and in fonts.scss file)
 @mixin druk-normal-400 {
   font-family: 'Druk Wide Trial', sans-serif;
   font-style: normal;

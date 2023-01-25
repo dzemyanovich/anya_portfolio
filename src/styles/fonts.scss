@@ -41,6 +41,6 @@
   font-family: 'akira expanded';
   font-style: normal;
   font-weight: 700;
-  // todo: uploaded font does not work
+  // todo: uploaded font does not work (maybe because of otf file extension)
   src: local('Akira Expanded'), url('./fonts/Akira-Expanded.otf') format('otf');
 }
