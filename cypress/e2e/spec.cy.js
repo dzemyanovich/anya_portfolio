@@ -84,7 +84,8 @@ describe('about page', () => {
   });
 
   it('check about page', () => {
-    cy.contains('about', { matchCase: false });
+    cy.contains('Anna Pivunova', { matchCase: false });
+    cy.contains('Lead Designer', { matchCase: false });
   });
 });
 
@@ -94,6 +95,6 @@ describe('contact page', () => {
   });
 
   it('check contact page', () => {
-    cy.contains('contact', { matchCase: false });
+    cy.contains('Content will be added here...', { matchCase: false });
   });
 });
