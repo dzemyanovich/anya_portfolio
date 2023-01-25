@@ -26,6 +26,7 @@ import './fonts/Montserrat-Bold.woff';
 import './fonts/DrukWide-Medium-Trial.woff';
 import './fonts/DrukWide-Bold-Trial.woff';
 import './fonts/Matrice-Bold.woff';
+import './fonts/Akira-Expanded.otf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
