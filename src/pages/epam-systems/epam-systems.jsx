@@ -10,7 +10,7 @@ export function EpamSystemsHeader() {
     <img src={oldComputer} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
-      <div className="paragraph-description">
+      <div className="paragraph-content">
         EPAM Systems is a leading global product development, digital platform engineering, and top digital
         and product design agency. EPAM&apos;s global teams serve customers in more than 35 countries across North
         America, Europe, Asia, and Australia. EPAM was one of only four technology companies to appear on
@@ -32,7 +32,7 @@ export function EpamSystemsContent() {
             <div className="paragraph-title">
               About product
             </div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               Digital Platform is EPAM&apos;s internal ecosystem, making work and life of employees easier and
               efficient. Currently, the EPAM product ecosystem has more than 150 projects. Supporting such a huge
               number of products seems like an overwhelming task, requiring a huge amount of resources, because
@@ -43,7 +43,7 @@ export function EpamSystemsContent() {
           </div>
           <div className="paragraph">
             <div className="paragraph-title">Challenges</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               <ul>
                 <li>Lack of consistency between products & various design libraries inside EPAM</li>
                 <li>More than 20 stakeholders</li>
@@ -58,7 +58,7 @@ export function EpamSystemsContent() {
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Results</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               <ul>
                 <li>
                   Based on competitive benchmarking of popular design systems, upgraded simple UI kit and React

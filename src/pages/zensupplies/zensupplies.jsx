@@ -11,7 +11,7 @@ export function ZensuppliesHeader() {
     <img src={tooth} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
-      <div className="paragraph-description">
+      <div className="paragraph-content">
         ZenSupplies is an innovative inventory management software for dental professionals, designed to help
         organize and radically simplify a dental practice&apos;s processes, so you can spend less time managing
         your inventory, and more time managing your practice.
@@ -29,7 +29,7 @@ export function ZensuppliesContent() {
           <div className="paragraph">
             <div className="product-title">ZenSupplies</div>
             <div className="paragraph-title">About product</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               ZenSupplies is an industry-disrupting innovative software for inventory management, budget and cost
               analysis, as well as distributor price comparison, used by 500+ dental practices across the USA.
             </div>
@@ -40,7 +40,7 @@ export function ZensuppliesContent() {
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Responsibilities</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               As a key designer, I was responsible for the whole design process from kick- off meetings with
               stakeholder and user interviews up to the final design implementation, presentation and quality
               control.
@@ -48,7 +48,7 @@ export function ZensuppliesContent() {
           </div>
           <div className="paragraph">
             <div className="paragraph-title">Challenges</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               <ul>
                 <li>No single source of truth (digital style guide and standards)</li>
                 <li>Lack of consistency across existing solutions and platforms</li>
@@ -58,7 +58,7 @@ export function ZensuppliesContent() {
           </div>
           <div className="paragraph">
             <div className="paragraph-title">My role</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               I was involved in the design process when MVP had already been created and approved by the customer,
               so the key objective was to extend functionality by adding new product features based on user
               interviews and analytics for both web and iOS applications. I integrated design expertise effectively
@@ -77,7 +77,7 @@ export function ZensuppliesContent() {
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Results</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               Established & supported digital style guide and standards based on the component approach. Initiated
               and successfully proposed re-design of the main product due to the results of UX/UI audit & user
               interviews. Design improvements had a positive impact on the following KPIs: increase in organic

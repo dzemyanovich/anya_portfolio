@@ -20,6 +20,7 @@ import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensu
 import './index.scss';
 import favicon from './images/favicon.svg';
 
+// todo: do we really need these imports since we have import in css files?
 import './fonts/Montserrat-Regular.woff';
 import './fonts/Montserrat-Bold.woff';
 import './fonts/DrukWide-Medium-Trial.woff';

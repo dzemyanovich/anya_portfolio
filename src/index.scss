@@ -117,3 +117,52 @@ input[type='radio'] {
     width: $size;
   }
 }
+
+.paragraph:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.paragraph-title {
+  @include matrice-normal-700;
+
+  color: $gray-light;
+  font-size: 14px;
+  letter-spacing: 2.1px;
+  padding: 20px 0;
+  text-transform: uppercase;
+}
+
+.paragraph-content {
+  $li-padding: 15px;
+
+  @include montserrat-normal-400;
+
+  color: $gray-lighter;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: justify;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex; // required to indent all the content related to bullet points
+  }
+
+  li::before {
+    content: '•';
+    font-size: 12pt;
+    padding: 0 5px;
+  }
+
+  li:not(:last-child) {
+    padding-bottom: $li-padding;
+  }
+
+  .inner-list {
+    padding-top: $li-padding;
+  }
+}

@@ -10,7 +10,7 @@ export function HaviHeader() {
     <img src={haviLogo} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
-      <div className="paragraph-description">
+      <div className="paragraph-content">
         HAVI is a global, privately owned company focused on innovating, optimizing and managing the supply
         chains of leading brands.
       </div>
@@ -27,7 +27,7 @@ export function HaviContent() {
           <div className="paragraph">
             <div className="product-title havi-product-title">HAVI</div>
             <div className="paragraph-title">About project</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               The HAVI Group is a global company focused on innovating, optimizing and managing the supply chains of
               leading brands: McDonalds, Coca-Cola, Shell, ect. The Company offers supply chain analytics and
               logistics, packaging, freight management, warehousing and distribution, recycling, and waste solutions.
@@ -35,7 +35,7 @@ export function HaviContent() {
           </div>
           <div className="paragraph">
             <div className="paragraph-title">Challenges</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               <ul>
                 <li>No single source of truth (digital style guide and standards)</li>
                 <li>Lack of consistency in the existing solution</li>
@@ -44,7 +44,7 @@ export function HaviContent() {
           </div>
           <div className="paragraph">
             <div className="paragraph-title">Results</div>
-            <div className="paragraph-description">
+            <div className="paragraph-content">
               <ul>
                 <li>Established & supported digital style guide & standards</li>
                 <li>

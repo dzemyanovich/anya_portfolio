@@ -2,14 +2,14 @@ import React from 'react';
 
 import ManyProducts from '../../components/many-products/many-products';
 
-import image from '../../images/adidas-shoe.jpg';
+import adidasShoe from '../../images/adidas-shoe.jpg';
 
 export function AdidasHeader() {
   return [
-    <img src={image} alt="" className="company-image" key="company-image" />,
+    <img src={adidasShoe} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
-      <div className="paragraph-description">
+      <div className="paragraph-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
         augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
         placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
