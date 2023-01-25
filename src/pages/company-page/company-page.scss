@@ -83,6 +83,7 @@
   color: $white;
   font-size: 40px;
   margin: 50px 0;
+  text-transform: uppercase;
 }
 
 .paragraph:not(:last-child) {
@@ -90,11 +91,11 @@
 }
 
 .paragraph-title {
-  @include montserrat-normal-700;
+  @include matrice-normal-700;
 
-  color: $white;
+  color: $gray-light;
   font-size: 14px;
-  letter-spacing: 0.7px;
+  letter-spacing: 2.1px;
   padding: 20px 0;
   text-transform: uppercase;
 }
@@ -104,7 +105,7 @@
 
   @include montserrat-normal-400;
 
-  color: $light-gray;
+  color: $gray-lighter;
   font-size: 14px;
   line-height: 21px;
   text-align: justify;

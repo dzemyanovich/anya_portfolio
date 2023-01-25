@@ -9,7 +9,9 @@ $black: rgb(0 0 0);
 $almost-black: rgb(25 25 25);
 $white: rgba(255 255 255 / 100%);
 $gray: rgba(128 128 128);
-$light-gray: rgba(255 255 255 / 80%);
+$gray-light: rgba(255 255 255 / 87%);
+$gray-lighter: rgba(255 255 255 / 75%);
+$radio-button-checked: rgb(222 222 222);
 
 @mixin druk-normal-400 {
   font-family: 'Druk Wide Trial', sans-serif;

@@ -56,7 +56,7 @@ body {
   @include druk-normal-400;
 
   border-bottom: 1px solid transparent;
-  color: $light-gray;
+  color: $gray-lighter;
   font-size: 15px;
   letter-spacing: 2px;
   padding-bottom: 3px;
@@ -75,7 +75,6 @@ body {
 input[type='radio'] {
   $size: 16px;
   $border-width: 1px;
-  $checked-color: rgb(222 222 222);
 
   cursor: pointer;
 
@@ -101,12 +100,12 @@ input[type='radio'] {
   }
 
   &:checked+label[for] {
-    color: $checked-color;
+    color: $radio-button-checked;
   }
 
   &:checked::after {
-    background-color: $checked-color;
-    border: $border-width solid $checked-color;
+    background-color: $radio-button-checked;
+    border: $border-width solid $radio-button-checked;
     border-radius: $size;
     content: '';
     display: inline-block;
