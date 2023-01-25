@@ -1,13 +1,13 @@
 import React from 'react';
 
-import image from '../../images/havi.png';
-import haviSupplyPlanning from '../../images/havi-supply-planning.jpeg';
+import haviLogo from '../../images/havi-logo.png';
+import transitionImage from '../../images/havi-supply-planning.jpeg';
 import haviLandingPage from '../../images/havi-landing-page.jpeg';
 import './havi.scss';
 
 export function HaviHeader() {
   return [
-    <img src={image} alt="" className="company-image" key="company-image" />,
+    <img src={haviLogo} alt="" className="company-image" key="company-image" />,
     <div className="company-info" key="company-info">
       <div className="paragraph-title">About company</div>
       <div className="paragraph-description">
@@ -21,11 +21,11 @@ export function HaviHeader() {
 export function HaviContent() {
   return (
     <div>
-      <img src={haviSupplyPlanning} alt="" className="havi-upper-image" />
-      <div className="havi-about-container">
-        <div className="havi-about">
+      <img src={transitionImage} alt="" className="transition-image" />
+      <div className="section-container">
+        <div className="section">
           <div className="paragraph">
-            <div className="product-title">HAVI</div>
+            <div className="product-title havi-product-title">HAVI</div>
             <div className="paragraph-title">About project</div>
             <div className="paragraph-description">
               The HAVI Group is a global company focused on innovating, optimizing and managing the supply chains of
@@ -57,7 +57,7 @@ export function HaviContent() {
             </div>
           </div>
         </div>
-        <img src={haviLandingPage} alt="" className="about-image" />
+        <img src={haviLandingPage} alt="" className="section-image" />
       </div>
     </div>
   );

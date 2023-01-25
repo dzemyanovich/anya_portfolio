@@ -1,13 +1,9 @@
 import React from 'react';
 
 import oldComputer from '../../images/old-computer.png';
-// todo: use original image but not screenshot
 import aboutImage from '../../images/design-portfolio-hints.png';
-// todo: use original image but not screenshot
 import resultsImage from '../../images/design-portfolio-code.png';
-// todo: use original image but not screenshot
-import upperImage from '../../images/design-portfolio-components.jpeg';
-import './epam-systems.scss';
+import transitionImage from '../../images/design-portfolio-components.jpeg';
 
 export function EpamSystemsHeader() {
   return [
@@ -28,9 +24,9 @@ export function EpamSystemsHeader() {
 export function EpamSystemsContent() {
   return (
     <div>
-      <img src={upperImage} alt="" className="upper-image" />
-      <div className="about-container">
-        <div className="about">
+      <img src={transitionImage} alt="" className="transition-image" />
+      <div className="section-container">
+        <div className="section">
           <div className="paragraph">
             <div className="product-title">Design Platform</div>
             <div className="paragraph-title">
@@ -55,34 +51,36 @@ export function EpamSystemsContent() {
             </div>
           </div>
         </div>
-        <img src={aboutImage} alt="" className="about-image" />
+        <img src={aboutImage} alt="" className="section-image" />
       </div>
-      <div className="results-container">
-        <div className="results">
-          <div className="paragraph-title">Results</div>
-          <div className="paragraph-description">
-            <ul>
-              <li>
-                Based on competitive benchmarking of popular design systems, upgraded simple UI kit and React
-                framework into a scalable design system with guidelines & component editor, consistent & complied
-                with EPAM branding. That allows designers and developers to create a user interface 4X faster &
-                reduce the costs of the design & development on the streams.
-              </li>
-              <li>
-                Process enhancement based on DesignOps practice helped significantly reduce effort and optimize the
-                design team with more than 13 active products from 13 to 3 designers
-              </li>
-              <li>
-                Safe & easy on-boarding/rotation process: newcomers dive into the project&apos;s
-                UX/UI ecosystem 7X faster
-              </li>
-              <li>
-                Double-development dropped to zero due to a single source of truth
-              </li>
-            </ul>
+      <div className="section-container">
+        <img src={resultsImage} alt="" className="section-image" />
+        <div className="section">
+          <div className="paragraph">
+            <div className="paragraph-title">Results</div>
+            <div className="paragraph-description">
+              <ul>
+                <li>
+                  Based on competitive benchmarking of popular design systems, upgraded simple UI kit and React
+                  framework into a scalable design system with guidelines & component editor, consistent & complied
+                  with EPAM branding. That allows designers and developers to create a user interface 4X faster &
+                  reduce the costs of the design & development on the streams.
+                </li>
+                <li>
+                  Process enhancement based on DesignOps practice helped significantly reduce effort and optimize the
+                  design team with more than 13 active products from 13 to 3 designers
+                </li>
+                <li>
+                  Safe & easy on-boarding/rotation process: newcomers dive into the project&apos;s
+                  UX/UI ecosystem 7X faster
+                </li>
+                <li>
+                  Double-development dropped to zero due to a single source of truth
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <img src={resultsImage} alt="" className="results-image" />
       </div>
     </div>
   );

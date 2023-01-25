@@ -7,7 +7,7 @@ import { resetScroll } from '../../utils/utils';
 
 import adidasShoe from '../../images/adidas-shoe.jpg';
 import burger from '../../images/burger.png';
-import havi from '../../images/havi.png';
+import haviLogo from '../../images/havi-logo.png';
 import oldComputer from '../../images/old-computer.png';
 import zensupplies from '../../images/zensupplies.png';
 import './products.scss';
@@ -117,7 +117,7 @@ export default class Products extends React.Component {
       {
         name: 'HAVI',
         link: '/products/havi',
-        image: havi,
+        image: haviLogo,
       },
       {
         name: 'EPAM Systems',

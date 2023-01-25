@@ -169,6 +169,39 @@
   }
 }
 
+// ####### START product page ######
+
+.transition-image {
+  width: 100%;
+}
+
+.section-container {
+  display: flex;
+
+  .section,
+  .section-image {
+    width: 50%;
+  }
+}
+
+.section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .paragraph {
+    width: 500px;
+  }
+}
+
+.transition-image,
+.section-container {
+  padding-bottom: 100px;
+}
+
+// ####### END product page ######
+
 @media screen and (max-width: $laptop-width) {
   .company-image {
     max-width: 500px;
