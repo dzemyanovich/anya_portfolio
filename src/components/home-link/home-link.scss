@@ -1,8 +1,7 @@
 @import '../../styles/shared';
 
 .home-link {
-  animation: 2s ease-out $link-delay-animation 1 fade-in;
-  animation-fill-mode: forwards;
+  animation: 2s ease-out $link-delay-animation 1 fade-in forwards;
   left: 0;
   opacity: 0;
   position: fixed;

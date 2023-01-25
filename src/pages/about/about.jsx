@@ -9,7 +9,11 @@ export default function About() {
   return (
     <div className="about-container">
       <HomeLink />
-      <img src={aboutImage} alt="" className="about-image" />
+      <div className="about-image-container">
+        <img src={aboutImage} alt="" className="about-image" />
+        <div className="about-name title">Anna Pivunova</div>
+        <div className="about-title title">Lead Designer</div>
+      </div>
       <div className="about-content">
         <div className="paragraph">
           <div className="paragraph-title">About me</div>

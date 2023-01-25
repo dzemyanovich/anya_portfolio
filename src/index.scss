@@ -12,6 +12,16 @@
   }
 }
 
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes slide-in {
   0% {
     bottom: -30px;
@@ -50,6 +60,7 @@ body {
   font-size: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .page-link {

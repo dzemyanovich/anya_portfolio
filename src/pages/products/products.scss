@@ -37,8 +37,7 @@
   }
 
   img {
-    animation: 2s ease-out 3s 1 fade-in;
-    animation-fill-mode: forwards;
+    animation: 2s ease-out 3s 1 fade-in forwards;
     max-width: 600px;
     opacity: 0;
   }
@@ -64,8 +63,7 @@
 }
 
 .link-text {
-  animation: 2s ease-out 1s 1 slide-in;
-  animation-fill-mode: forwards;
+  animation: 2s ease-out 1s 1 slide-in forwards;
   bottom: -30px;
   opacity: 0.8;
   position: relative;
