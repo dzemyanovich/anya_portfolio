@@ -58,33 +58,33 @@ $title-fade-out: -250px;
 }
 
 .about-image {
-  animation: 2s ease-out 1s 1 fade-in forwards, 1s ease-out 3s 1 move-left forwards;
+  animation: 1s ease-out 3s 1 move-left forwards;
   margin-right: $image-margin;
   position: relative;
   right: $image-right;
-  opacity: 0;
 }
 
 .about-image-container {
+  animation: 2s ease-out 1s 1 fade-in forwards;
+  opacity: 0;
   position: relative;
 }
 
 .about-name,
 .about-title {
   position: absolute;
-  opacity: 0;
 }
 
 .about-name {
-  animation: 2s ease-out 1s 1 fade-in forwards, 1s ease-out 3s 1 move-up forwards, 1s ease-out 3s 1 fade-out forwards;
-  top: 0;
+  animation: 1s ease-out 3s 1 move-up forwards, 1s ease-out 3s 1 fade-out forwards;
   left: -$image-right;
-  margin-top: $title-margin;
   margin-left: -256px;
+  margin-top: $title-margin;
+  top: 0;
 }
 
 .about-title {
-  animation: 2s ease-out 1s 1 fade-in forwards, 1s ease-out 3s 1 move-down forwards, 1s ease-out 3s 1 fade-out forwards;
+  animation: 1s ease-out 3s 1 move-down forwards, 1s ease-out 3s 1 fade-out forwards;
   bottom: 0;
   left: -$image-right + $image-width;
   margin-bottom: $title-margin;
