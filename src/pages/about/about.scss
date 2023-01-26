@@ -4,6 +4,7 @@ $image-width: 350px;
 $image-margin: 90px;
 $image-right: -($image-margin + calc($image-width / 2));
 $title-margin: 52px;
+$container-mobile-padding: 50px;
 
 // animations
 $container-appear-delay: 1s;
@@ -28,15 +29,11 @@ $content-appear-duration: 1s;
   display: flex;
   height: 100vh;
   justify-content: center;
-
-  .home-link {
-    animation-delay: 3s;
-  }
 }
 
 .about-image,
 .about-content {
-  width: $image-width;
+  max-width: $image-width;
 }
 
 .about-content {
@@ -75,4 +72,51 @@ $content-appear-duration: 1s;
   left: -$image-right + $image-width;
   margin-bottom: $title-margin;
   margin-left: -76px;
+}
+
+@media screen and (max-width: $big-laptop-width) {
+  .about-container {
+    animation: $container-appear-duration ease-out $container-appear-delay 1 fade-in forwards;
+    flex-direction: column;
+    height: auto;
+    opacity: 0;
+    padding: $container-mobile-padding 0;
+
+    .home-link {
+      animation-delay: 0s;
+    }
+  }
+
+  .about-image-container {
+    animation: 0;
+    opacity: 1;
+    padding-bottom: 40px;
+  }
+
+  .about-image {
+    animation: none;
+    margin-right: 0;
+    position: static;
+  }
+
+  .about-content {
+    animation: none;
+    opacity: 1;
+  }
+
+  .about-name,
+  .about-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+  .about-container {
+    padding: $container-mobile-padding;
+  }
+
+  .about-image,
+  .about-content {
+    width: 100%;
+  }
 }

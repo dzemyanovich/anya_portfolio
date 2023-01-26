@@ -7,7 +7,6 @@ import './about.scss';
 
 export default function About() {
   return (
-    // todo: for some reason content is scrollable
     <div className="about-container">
       <HomeLink />
       <div className="about-image-container">
