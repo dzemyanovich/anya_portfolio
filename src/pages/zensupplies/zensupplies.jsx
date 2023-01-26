@@ -24,7 +24,9 @@ export function ZensuppliesContent() {
   return (
     <div className="zensupplies-product">
       <div className="section-container">
-        <img src={zensuppliesMobileImage} alt="" className="section-image zensupplies-mobile-image" />
+        <div className="section-image-container">
+          <img src={zensuppliesMobileImage} alt="" className="section-image zensupplies-mobile-image" />
+        </div>
         <div className="section zensupplies-about">
           <div className="paragraph">
             <div className="product-title">ZenSupplies</div>
@@ -68,12 +70,14 @@ export function ZensuppliesContent() {
             </div>
           </div>
         </div>
-        <div className="section-image zensupplies-tablet-image-container">
-          <img src={zensuppliesTabletImage} alt="" className="zensupplies-tablet-image" />
+        <div className="section-image-container">
+          <img src={zensuppliesTabletImage} alt="" className="section-image zensupplies-tablet-image" />
         </div>
       </div>
       <div className="section-container">
-        <img src={zensuppliesDesktopImage} alt="" className="section-image" />
+        <div className="section-image-container">
+          <img src={zensuppliesDesktopImage} alt="" className="section-image" />
+        </div>
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Results</div>

@@ -62,7 +62,9 @@ export function HaviContent() {
             </div>
           </div>
         </div>
-        <img src={haviLandingPage} alt="" className="section-image" />
+        <div className="section-image-container">
+          <img src={haviLandingPage} alt="" className="section-image" />
+        </div>
       </div>
     </div>
   );

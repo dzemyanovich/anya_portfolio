@@ -51,10 +51,14 @@ export function EpamSystemsContent() {
             </div>
           </div>
         </div>
-        <img src={aboutImage} alt="" className="section-image" />
+        <div className="section-image-container">
+          <img src={aboutImage} alt="" className="section-image" />
+        </div>
       </div>
       <div className="section-container">
-        <img src={resultsImage} alt="" className="section-image" />
+        <div className="section-image-container">
+          <img src={resultsImage} alt="" className="section-image" />
+        </div>
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Results</div>
