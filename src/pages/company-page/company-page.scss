@@ -1,8 +1,5 @@
 @import '../../styles/shared';
 
-$section-padding: 100px;
-$section-padding-mini: calc($section-padding / 2);
-
 @keyframes slide-in-from-right {
   0% {
     margin-left: 2000px;
@@ -211,21 +208,19 @@ $section-padding-mini: calc($section-padding / 2);
   .company-image {
     max-width: 400px;
   }
-}
 
-@media screen and (max-width: $mobile-width) {
-  .company-image {
-    max-width: 350px;
-  }
-}
-
-@media screen and (max-width: $tablet-width) {
-  .section-container .section {
+  .section {
     padding-bottom: $section-padding-mini;
   }
 
   .transition-image,
   .section-container {
     padding-bottom: $section-padding-mini;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .company-image {
+    max-width: 350px;
   }
 }
