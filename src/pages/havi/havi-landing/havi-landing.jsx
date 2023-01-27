@@ -5,6 +5,7 @@ import { resetScroll } from '../../../utils/utils';
 import haviLandingPage from '../../../images/havi-landing-page.jpeg';
 
 export function HaviLanding() {
+  // todo: make wrapper for all product pages: HaviLanding, SupplyPlanning, etc.
   useEffect(resetScroll);
 
   return (

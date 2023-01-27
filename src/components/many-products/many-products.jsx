@@ -56,6 +56,7 @@ export default class ManyProducts extends React.Component {
           {products.filter(product => currentCategory === this.categories.all || product.category === currentCategory)
             .map((product, index) => (
               <div className="product-item" key={`product_item_${index.toString()}`}>
+                {/* todo: need to click twice when using mobile (e.g. iPhone) - have no idea why */}
                 <CustomLink to={product.path}>
                   <div className="product-image-container">
                     {product.imageSrc && <img src={product.imageSrc} alt="" className="product-image" />}
