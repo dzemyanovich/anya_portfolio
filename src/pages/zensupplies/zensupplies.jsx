@@ -22,7 +22,7 @@ export function ZensuppliesHeader() {
 
 export function ZensuppliesContent() {
   return (
-    <div className="zensupplies-product">
+    <div className="zensupplies-product company-single-product">
       <div className="section-container">
         <div className="section-image-container">
           <img src={zensuppliesMobileImage} alt="" className="section-image zensupplies-about-image" />

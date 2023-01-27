@@ -149,6 +149,7 @@
 
 .section-container {
   display: flex;
+  padding-bottom: $section-padding;
 }
 
 .section,
@@ -163,11 +164,6 @@
 .section-image-container {
   align-items: center;
   display: flex;
-}
-
-.transition-image,
-.section-container {
-  padding-bottom: $section-padding;
 }
 
 // ####### END product page ######
@@ -202,6 +198,10 @@
   .section {
     padding-bottom: $section-padding;
   }
+
+  .company-single-product .section-container:nth-child(1) {
+    padding-top: $section-padding;
+  }
 }
 
 @media screen and (max-width: $tablet-width) {
@@ -213,9 +213,12 @@
     padding-bottom: $section-padding-mini;
   }
 
-  .transition-image,
   .section-container {
     padding-bottom: $section-padding-mini;
+  }
+
+  .company-single-product .section-container:nth-child(1) {
+    padding-top: $section-padding-mini;
   }
 }
 

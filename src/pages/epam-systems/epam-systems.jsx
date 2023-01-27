@@ -23,8 +23,10 @@ export function EpamSystemsHeader() {
 
 export function EpamSystemsContent() {
   return (
-    <div>
-      <img src={transitionImage} alt="" className="transition-image" />
+    <div className="company-single-product">
+      <div className="section-container">
+        <img src={transitionImage} alt="" className="transition-image" />
+      </div>
       <div className="section-container">
         <div className="section">
           <div className="paragraph">

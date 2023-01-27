@@ -46,6 +46,7 @@ export default class CompanyPage extends React.Component {
     setTimeout(resetScroll, 500);
 
     // wait 2 seconds until animation finishes rendering
+    // todo: additionaly set 'no-scroll' class to .company-page so that company name is not scrollable
     noScroll.start();
     this.timeoutId = setTimeout(() => {
       if (isTouchDevice) {

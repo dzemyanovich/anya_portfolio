@@ -47,10 +47,10 @@ body {
   background-color: $black;
   color: $white;
   margin: 0;
+}
 
-  &.no-scroll {
-    overflow: hidden;
-  }
+.no-scroll {
+  overflow: hidden;
 }
 
 .title {
