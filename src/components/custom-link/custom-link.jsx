@@ -12,7 +12,7 @@ export default function CustomLink({ to, className, children }) {
   }
 
   return (
-    <span
+    <div
       role="link"
       tabIndex={0}
       className={`custom-link ${className}`}
@@ -21,7 +21,7 @@ export default function CustomLink({ to, className, children }) {
       href={to}
     >
       {children}
-    </span>
+    </div>
   );
 }
 

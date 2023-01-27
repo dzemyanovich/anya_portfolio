@@ -57,8 +57,8 @@ export default class ManyProducts extends React.Component {
             .map((product, index) => (
               <div className="product-item" key={`product_item_${index.toString()}`}>
                 <CustomLink to={product.path}>
-                  <div className="product-item-image">
-                    {product.imageSrc && <img src={product.imageSrc} alt="" />}
+                  <div className="product-image-container">
+                    {product.imageSrc && <img src={product.imageSrc} alt="" className="product-image" />}
                   </div>
                 </CustomLink>
                 <div className="product-item-description">

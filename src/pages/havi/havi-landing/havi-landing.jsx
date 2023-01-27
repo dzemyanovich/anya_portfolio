@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { resetScroll } from '../../../utils/utils';
 
 import haviLandingPage from '../../../images/havi-landing-page.jpeg';
 
 export function HaviLanding() {
+  useEffect(resetScroll);
+
   return (
     <div className="product-page">
       <div className="section-container">

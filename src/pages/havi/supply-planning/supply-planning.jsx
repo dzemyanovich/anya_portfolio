@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { resetScroll } from '../../../utils/utils';
 
 import supplyPlanningTablet from '../../../images/supply-planning-tablet.jpeg';
 import supplyPlanningDesktop from '../../../images/supply-planning-desktop.jpeg';
 
 export function SupplyPlanning() {
+  useEffect(resetScroll);
+
   return (
     <div className="product-page">
       <div className="section-container">

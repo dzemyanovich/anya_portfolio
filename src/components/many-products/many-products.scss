@@ -1,5 +1,7 @@
 @import '../../styles/shared';
 
+$product-image-padding: 30px;
+
 // desktop
 $margin: 60px;
 $desktop-product-item-width: 588px;
@@ -55,7 +57,7 @@ $mini-mobile: $tablet-product-item-width + $margin;
   }
 }
 
-.product-item-image {
+.product-image-container {
   align-items: center;
   background-color: $white;
   color: $black;
@@ -64,6 +66,12 @@ $mini-mobile: $tablet-product-item-width + $margin;
   justify-content: center;
   opacity: 0.8;
   width: $desktop-product-item-width;
+
+  .product-image {
+    max-height: $desktop-product-item-height;
+    max-width: $desktop-product-item-width;
+    padding: $product-image-padding;
+  }
 }
 
 .product-item-description {
@@ -91,9 +99,14 @@ $mini-mobile: $tablet-product-item-width + $margin;
     max-width: $tablet-content-width;
   }
 
-  .product-item-image {
+  .product-image-container {
     height: $tablet-product-item-height;
     width: $tablet-product-item-width;
+
+    .product-image {
+      max-height: $tablet-product-item-height;
+      max-width: $tablet-product-item-width;
+    }
   }
 
   .filter-panel {
@@ -116,17 +129,27 @@ $mini-mobile: $tablet-product-item-width + $margin;
     margin: 0;
   }
 
-  .product-item-image {
+  .product-image-container {
     height: $desktop-product-item-height;
     margin: $margin 0 0 0;
     width: $desktop-product-item-width;
+
+    .product-image {
+      max-height: $desktop-product-item-height;
+      max-width: $desktop-product-item-width;
+    }
   }
 }
 
 @media screen and (max-width: $mobile) {
-  .product-item-image {
+  .product-image-container {
     height: $tablet-product-item-height;
     width: $tablet-product-item-width;
+
+    .product-image {
+      max-height: $tablet-product-item-height;
+      max-width: $tablet-product-item-width;
+    }
   }
 
   .filter-panel {
@@ -148,8 +171,12 @@ $mini-mobile: $tablet-product-item-width + $margin;
     }
   }
 
-  .product-item-image {
+  .product-image-container {
     width: 100%;
+
+    .product-image {
+      width: calc(100% - $product-image-padding * 2);
+    }
   }
 
   .filter-panel {
