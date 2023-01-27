@@ -187,6 +187,7 @@ export default class CompanyPage extends React.Component {
     const hasManyProducts = [
       '/products/adidas',
       '/products/mcdonalds',
+      '/products/havi',
     ].includes(window.location.pathname.toLowerCase());
 
     return (

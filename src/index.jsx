@@ -16,6 +16,8 @@ import { McdonaldsHeader, McdonaldsContent } from './pages/mcdonalds/mcdonalds';
 import { HaviHeader, HaviContent } from './pages/havi/havi';
 import { EpamSystemsHeader, EpamSystemsContent } from './pages/epam-systems/epam-systems';
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
+import { HaviLanding } from './pages/havi/havi-landing/havi-landing';
+import { SupplyPlanning } from './pages/havi/supply-planning/supply-planning';
 
 import './index.scss';
 import favicon from './images/favicon.svg';
@@ -58,6 +60,7 @@ root.render(
         />
         <Route path="products" element={<Products />} />
         <Route path="products/:companyId" element={<SelectCompanyPage />} />
+        <Route path="products/:companyId/:productId" element={<SelectProductPage />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
@@ -118,6 +121,32 @@ function SelectCompanyPage() {
           className="zensupplies"
         />
       );
+    default:
+      return <Navigate to="/" replace />;
+  }
+}
+
+function SelectProductPage() {
+  const { companyId, productId } = useParams();
+
+  switch (companyId) {
+    case 'havi':
+      switch (productId) {
+        case 'landing':
+          return (
+            <ProtectedRoute>
+              <HaviLanding />
+            </ProtectedRoute>
+          );
+        case 'supply-planning':
+          return (
+            <ProtectedRoute>
+              <SupplyPlanning />
+            </ProtectedRoute>
+          );
+        default:
+          return <Navigate to="/" replace />;
+      }
     default:
       return <Navigate to="/" replace />;
   }

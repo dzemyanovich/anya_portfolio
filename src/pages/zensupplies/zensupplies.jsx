@@ -29,7 +29,6 @@ export function ZensuppliesContent() {
         </div>
         <div className="section zensupplies-about">
           <div className="paragraph">
-            <div className="product-title">ZenSupplies</div>
             <div className="paragraph-title">About product</div>
             <div className="paragraph-content">
               ZenSupplies is an industry-disrupting innovative software for inventory management, budget and cost

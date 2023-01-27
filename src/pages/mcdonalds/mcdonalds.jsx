@@ -28,39 +28,18 @@ export function McdonaldsContent() {
 
   const products = [
     {
-      name: 'product #1',
+      name: 'Event Optimizer',
+      path: '/products/mcdonalds/event-optimizer',
+      imageSrc: null,
       category: categories.designLeadership,
-      year: 2022,
+      year: 2019,
     },
     {
-      name: 'product #2',
+      name: 'Design Leadership',
+      path: '/products/mcdonalds/design-leadership',
+      imageSrc: null,
       category: categories.productDesign,
-      year: 2023,
-    },
-    {
-      name: 'product #3',
-      category: categories.productDesign,
-      year: 2021,
-    },
-    {
-      name: 'product #4',
-      category: null,
       year: 2020,
-    },
-    {
-      name: 'product #5',
-      category: categories.productDesign,
-      year: 2022,
-    },
-    {
-      name: 'product #6',
-      category: null,
-      year: 2022,
-    },
-    {
-      name: 'product #7',
-      category: null,
-      year: 2022,
     },
   ];
 

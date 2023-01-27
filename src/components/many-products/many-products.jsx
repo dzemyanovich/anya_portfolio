@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CustomLink from '../custom-link/custom-link';
+
 import './many-products.scss';
 
 export default class ManyProducts extends React.Component {
@@ -54,9 +56,15 @@ export default class ManyProducts extends React.Component {
           {products.filter(product => currentCategory === this.categories.all || product.category === currentCategory)
             .map((product, index) => (
               <div className="product-item" key={`product_item_${index.toString()}`}>
-                <div className="product-item-image" />
+                <CustomLink to={product.path}>
+                  <div className="product-item-image">
+                    {product.imageSrc && <img src={product.imageSrc} alt="" />}
+                  </div>
+                </CustomLink>
                 <div className="product-item-description">
-                  <div>{product.name}</div>
+                  <CustomLink to={product.path}>
+                    <div>{product.name}</div>
+                  </CustomLink>
                   <div>{product.year}</div>
                 </div>
               </div>
@@ -71,6 +79,8 @@ ManyProducts.propTypes = {
   categories: PropTypes.objectOf(PropTypes.string).isRequired,
   products: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    imageSrc: PropTypes.string,
     category: PropTypes.string,
     year: PropTypes.number.isRequired,
   })).isRequired,
