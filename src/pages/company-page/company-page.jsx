@@ -41,6 +41,7 @@ export default class CompanyPage extends React.Component {
     }
 
     this.state = {
+      isLoading: true,
       isMobile,
       isContentView: isMobile,
       isHomeLinkVisible: isMobile,
@@ -55,7 +56,6 @@ export default class CompanyPage extends React.Component {
     setTimeout(resetScroll, 500);
 
     // wait 2 seconds until animation finishes rendering
-    // todo: additionaly set 'no-scroll' class to .company-page so that company name is not scrollable
     noScroll.start();
     this.timeoutId = setTimeout(() => {
       if (isTouchDevice) {
@@ -64,6 +64,9 @@ export default class CompanyPage extends React.Component {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
 
+      this.setState({
+        isLoading: false,
+      });
       noScroll.end();
     }, 2000);
   }
@@ -205,7 +208,7 @@ export default class CompanyPage extends React.Component {
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isMobile, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
+    const { isLoading, isMobile, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
     const hasManyProducts = [
       '/products/adidas',
       '/products/mcdonalds',
@@ -214,7 +217,12 @@ export default class CompanyPage extends React.Component {
 
     return (
       <div
-        className={`company-page ${isContentView ? 'content-view' : ''} ${isMobile ? 'mobile' : ''} ${className}`}
+        className={`
+          company-page
+          ${isContentView ? 'content-view' : ''}
+          ${isMobile ? 'mobile' : ''}
+          ${isLoading ? 'no-scroll' : ''}
+          ${className}`}
         ref={el => { this.companyPageRef = el; }}
       >
         <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
