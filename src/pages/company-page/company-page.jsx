@@ -15,6 +15,8 @@ export default class CompanyPage extends React.Component {
   constructor(props) {
     super(props);
 
+    const MOBILE_MAX_WIDTH = 600;
+
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
     this.MAGIC_NUMBER = 0.5;
@@ -32,9 +34,16 @@ export default class CompanyPage extends React.Component {
     this.scrollUpDown = this.scrollUpDown.bind(this);
     this.scrollLeftRight = this.scrollLeftRight.bind(this);
 
+    const isMobile = window.screen.width <= MOBILE_MAX_WIDTH;
+
+    if (isMobile) {
+      document.addEventListener('scroll', this.swipeUpDown);
+    }
+
     this.state = {
-      isContentView: false,
-      isHomeLinkVisible: false,
+      isMobile,
+      isContentView: isMobile,
+      isHomeLinkVisible: isMobile,
       isSwipeTipVisible: false,
     };
   }
@@ -92,6 +101,18 @@ export default class CompanyPage extends React.Component {
   }
 
   swipeUpDown() {
+    const { isMobile } = this.state;
+
+    const isHomeLinkVisible = window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE;
+
+    if (isMobile) {
+      this.setState({
+        isHomeLinkVisible,
+      });
+
+      return;
+    }
+
     this.setState({
       isHomeLinkVisible: window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE,
       isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
@@ -184,7 +205,7 @@ export default class CompanyPage extends React.Component {
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
+    const { isMobile, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
     const hasManyProducts = [
       '/products/adidas',
       '/products/mcdonalds',
@@ -193,7 +214,7 @@ export default class CompanyPage extends React.Component {
 
     return (
       <div
-        className={`company-page ${isContentView ? 'content-view' : ''} ${className}`}
+        className={`company-page ${isContentView ? 'content-view' : ''} ${isMobile ? 'mobile' : ''} ${className}`}
         ref={el => { this.companyPageRef = el; }}
       >
         <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
