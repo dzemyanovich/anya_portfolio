@@ -241,7 +241,6 @@ export default class CompanyPage extends React.Component {
             {header}
           </div>
         )}
-        {/* todo: content is not visible on mobile devices */}
         <div className="content-wrapper">
           {(isTouchDevice || hasManyProducts) && (
             <div className="company-header" ref={el => { this.companyHeaderRef = el; }}>

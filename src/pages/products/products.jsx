@@ -133,6 +133,7 @@ export default class Products extends React.Component {
 
     return (
       <div className="products-page">
+        {/* todo: mobile (e.g. iPhone) -> blinking: link appears, dissapears, then again appears */}
         <HomeLink />
         <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
           {companies.map((company, index) => (
