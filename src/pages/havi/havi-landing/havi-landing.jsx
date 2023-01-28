@@ -6,6 +6,7 @@ import haviLandingPage from '../../../images/havi-landing-page.jpeg';
 
 export function HaviLanding() {
   // todo: make wrapper for all product pages: HaviLanding, SupplyPlanning, etc.
+  // todo: wrapper component should have home link
   useEffect(resetScroll);
 
   return (
