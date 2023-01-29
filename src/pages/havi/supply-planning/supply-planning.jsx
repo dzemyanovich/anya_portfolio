@@ -5,7 +5,7 @@ import supplyPlanningDesktop from '../../../images/supply-planning-desktop.jpeg'
 
 export function SupplyPlanning() {
   return [
-    <div className="section-container" key="first-section">
+    <div className="section-container" key="section-1">
       <div className="section">
         <div className="paragraph">
           <div className="product-title">Supply Planning</div>
@@ -37,7 +37,7 @@ export function SupplyPlanning() {
         <img src={supplyPlanningTablet} alt="" className="section-image" />
       </div>
     </div>,
-    <div className="section-container" key="second-section">
+    <div className="section-container" key="section-2">
       <div className="section-image-container">
         <img src={supplyPlanningDesktop} alt="" className="section-image" />
       </div>

@@ -2,10 +2,14 @@ import React from 'react';
 
 import designLeadershipAbout from '../../../images/design-leadership-about.jpeg';
 import designLeadershipProcess from '../../../images/design-leadership-process.jpeg';
+import designLeadershipButtons from '../../../images/design-leadership-buttons.jpeg';
+import designLeadershipResults from '../../../images/design-leadership-results.jpeg';
+import designLeadershipSubway from '../../../images/design-leadership-subway.jpeg';
+import designLeadershipMcdonalds from '../../../images/design-leadership-mcdonalds.jpeg';
 
 export function DesignLeadership() {
   return [
-    <div className="section-container" key="first-section">
+    <div className="section-container" key="section-1">
       <div className="section">
         <div className="paragraph">
           <div className="product-title">Design Process</div>
@@ -42,8 +46,62 @@ export function DesignLeadership() {
         <img src={designLeadershipAbout} alt="" className="section-image" />
       </div>
     </div>,
-    <div className="section-container" key="second-section">
+    <div className="section-container" key="section-2">
       <img src={designLeadershipProcess} alt="" className="transition-image" />
+    </div>,
+    <div className="section-container" key="section-3">
+      <img src={designLeadershipButtons} alt="" className="transition-image" />
+    </div>,
+    <div className="section-container" key="section-4">
+      <div className="section">
+        <div className="paragraph">
+          <div className="paragraph-title">UX activities</div>
+          <div className="paragraph-content">
+            We validated design decisions iteratively via conducting feedback gathering and usability testing sessions
+            on a regular basis, as well as interviews with end users
+          </div>
+        </div>
+        <div className="paragraph">
+          <div className="paragraph-title">Results</div>
+          <div className="paragraph-content">
+            <ul>
+              <li>
+                Created & justified concepts helped to gain several 500k+ investments and ramped-up the project team
+                from 6 FTEs up to 17, design team from 1 FTE up to 3
+              </li>
+              <li>
+                The average time for the full cycle of promotion set up decreased from 19 up to 7 business days.
+                Result was achieved via the development of a single event repository, providing real-time
+                collaboration for HAVI & McDonald&apos;s, Subway, automating manual processes
+              </li>
+              <li>
+                As lead designer of 3 FTEs, increased customer satisfaction score of web application from 7.2 to 8.8
+                via conducting series of usability testing sessions with 10+ end users involved
+              </li>
+              <li>
+                A single application for promotions management is implemented. Third-party tools not used anymore.
+                As a result costs have significantly decreased
+              </li>
+              <li>
+                Created future vision and roadmap for 1,5 years and monitored its successful execution during
+                2 releases
+              </li>
+              <li>
+                Percentage of failed promotions decreased from 30% to 13%
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="section-image-container">
+        <img src={designLeadershipResults} alt="" className="section-image" />
+      </div>
+    </div>,
+    <div className="section-container" key="section-5">
+      <img src={designLeadershipSubway} alt="" className="transition-image" />
+    </div>,
+    <div className="section-container" key="section-6">
+      <img src={designLeadershipMcdonalds} alt="" className="transition-image" />
     </div>,
   ];
 }

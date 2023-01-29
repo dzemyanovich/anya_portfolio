@@ -14,11 +14,7 @@
 }
 
 .zensupplies-tablet-image {
-  justify-content: center;
-
-  .section-image {
-    max-width: 400px;
-  }
+  max-width: 400px;
 }
 
 @media screen and (max-width: $desktop-width) {

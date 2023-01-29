@@ -1,0 +1,19 @@
+@import '../../../styles/shared';
+
+.burger-image {
+  max-width: 300px;
+}
+
+.about-dynamic-content {
+  display: none;
+}
+
+@media screen and (max-width: $laptop-width) {
+  .about-dynamic-content {
+    display: block;
+  }
+
+  .about-static-image {
+    display: none;
+  }
+}

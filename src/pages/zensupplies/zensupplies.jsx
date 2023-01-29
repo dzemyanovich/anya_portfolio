@@ -69,8 +69,8 @@ export function ZensuppliesContent() {
             </div>
           </div>
         </div>
-        <div className="section-image-container zensupplies-tablet-image">
-          <img src={zensuppliesTabletImage} alt="" className="section-image" />
+        <div className="section-image-container center-content">
+          <img src={zensuppliesTabletImage} alt="" className="section-image zensupplies-tablet-image" />
         </div>
       </div>
       <div className="section-container">
