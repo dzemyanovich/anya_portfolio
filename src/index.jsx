@@ -16,8 +16,11 @@ import { McdonaldsHeader, McdonaldsContent } from './pages/mcdonalds/mcdonalds';
 import { HaviHeader, HaviContent } from './pages/havi/havi';
 import { EpamSystemsHeader, EpamSystemsContent } from './pages/epam-systems/epam-systems';
 import { ZensuppliesHeader, ZensuppliesContent } from './pages/zensupplies/zensupplies';
+import ProductPage from './components/product-page/product-page';
 import { HaviLanding } from './pages/havi/havi-landing/havi-landing';
 import { SupplyPlanning } from './pages/havi/supply-planning/supply-planning';
+import { EventOptimizer } from './pages/mcdonalds/event-optimizer/event-optimizer';
+import { DesignLeadership } from './pages/mcdonalds/design-leadership/design-leadership';
 
 import './index.scss';
 import favicon from './images/favicon.svg';
@@ -135,13 +138,38 @@ function SelectProductPage() {
         case 'landing':
           return (
             <ProtectedRoute>
-              <HaviLanding />
+              <ProductPage>
+                <HaviLanding />
+              </ProductPage>
             </ProtectedRoute>
           );
         case 'supply-planning':
           return (
             <ProtectedRoute>
-              <SupplyPlanning />
+              <ProductPage>
+                <SupplyPlanning />
+              </ProductPage>
+            </ProtectedRoute>
+          );
+        default:
+          return <Navigate to="/" replace />;
+      }
+    case 'mcdonalds':
+      switch (productId) {
+        case 'event-optimizer':
+          return (
+            <ProtectedRoute>
+              <ProductPage>
+                <EventOptimizer />
+              </ProductPage>
+            </ProtectedRoute>
+          );
+        case 'design-leadership':
+          return (
+            <ProtectedRoute>
+              <ProductPage>
+                <DesignLeadership />
+              </ProductPage>
             </ProtectedRoute>
           );
         default:

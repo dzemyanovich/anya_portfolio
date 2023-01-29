@@ -29,56 +29,64 @@ export function AdidasContent() {
   const products = [
     {
       name: 'Design Ops',
-      path: '/products/adidas/design-ops',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: categories.designLeadership,
       year: 2022,
     },
     {
       name: 'Filters',
-      path: '/products/adidas/filters',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: categories.productDesign,
       year: 2022,
     },
     {
       name: 'Smart Moodboards',
-      path: '/products/adidas/smart-moodboards',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: categories.productDesign,
       year: 2022,
     },
     {
       name: 'CJM',
-      path: '/products/adidas/CJM',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: null,
       year: 2022,
     },
     {
       name: 'Touch Table',
-      path: '/products/adidas/touch-table',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: categories.productDesign,
       year: 2022,
     },
     {
       name: 'Smart Mirror',
-      path: '/products/adidas/smart-mirror',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: null,
       year: 2022,
     },
     {
       name: 'Showroom Nike',
-      path: '/products/adidas/showroom-nike',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: null,
       year: 2022,
     },
     {
       name: 'Design Systems',
-      path: '/products/adidas/design-system',
+      // eslint-disable-next-line max-len
+      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,
       category: null,
       year: 2022,

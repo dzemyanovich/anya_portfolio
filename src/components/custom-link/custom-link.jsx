@@ -8,7 +8,11 @@ export default function CustomLink({ to, className, children }) {
   const navigate = useNavigate();
 
   function goTo() {
-    navigate(to);
+    if (to.startsWith('https://')) {
+      window.open(to);
+    } else {
+      navigate(to);
+    }
   }
 
   return (
