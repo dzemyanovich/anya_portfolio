@@ -3,6 +3,8 @@ import React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import image from '../../images/burger.png';
+import haviLogo from '../../images/havi-logo.png';
+import eventOptimizerBackground from '../../images/event-optimizer-background.png';
 
 export function McdonaldsHeader() {
   return [
@@ -30,14 +32,14 @@ export function McdonaldsContent() {
     {
       name: 'Event Optimizer',
       path: '/products/mcdonalds/event-optimizer',
-      imageSrc: null,
+      imageSrc: haviLogo,
       category: categories.designLeadership,
       year: 2019,
     },
     {
       name: 'Design Leadership',
       path: '/products/mcdonalds/design-leadership',
-      imageSrc: null,
+      imageSrc: eventOptimizerBackground,
       category: categories.productDesign,
       year: 2020,
     },

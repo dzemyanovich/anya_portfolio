@@ -59,12 +59,10 @@ $mini-mobile: $tablet-product-item-width + $margin;
 
 .product-image-container {
   align-items: center;
-  background-color: $white;
   color: $black;
   display: flex;
   height: $desktop-product-item-height;
   justify-content: center;
-  opacity: 0.8;
   width: $desktop-product-item-width;
 
   .product-image {
