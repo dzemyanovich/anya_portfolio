@@ -59,6 +59,7 @@ export default class ManyProducts extends React.Component {
                 <CustomLink to={product.path}>
                   <div className="product-image-container">
                     {product.imageSrc && <img src={product.imageSrc} alt="" className="product-image" />}
+                    {!product.imageSrc && <div className="paragraph-title">No image</div>}
                   </div>
                 </CustomLink>
                 <div className="product-item-description">
