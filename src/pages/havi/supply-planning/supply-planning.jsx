@@ -37,7 +37,7 @@ export function SupplyPlanning() {
         <img src={supplyPlanningTablet} alt="" className="section-image" />
       </div>
     </div>,
-    <div className="section-container" key="section-2">
+    <div className="section-container reverse" key="section-2">
       <div className="section-image-container">
         <img src={supplyPlanningDesktop} alt="" className="section-image" />
       </div>

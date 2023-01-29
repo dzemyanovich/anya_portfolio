@@ -36,14 +36,6 @@
     .section {
       padding-bottom: 0;
     }
-
-    .section-container:nth-child(even) {
-      flex-direction: column-reverse;
-    }
-
-    .section-container:nth-child(odd) {
-      flex-direction: column;
-    }
   }
 }
 

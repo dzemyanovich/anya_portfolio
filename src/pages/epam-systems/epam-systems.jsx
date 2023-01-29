@@ -57,7 +57,7 @@ export function EpamSystemsContent() {
           <img src={aboutImage} alt="" className="section-image" />
         </div>
       </div>
-      <div className="section-container">
+      <div className="section-container reverse">
         <div className="section-image-container">
           <img src={resultsImage} alt="" className="section-image" />
         </div>

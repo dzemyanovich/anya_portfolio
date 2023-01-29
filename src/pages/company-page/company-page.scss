@@ -194,12 +194,14 @@
     max-width: none;
   }
 
-  .section-container:nth-child(even) {
-    flex-direction: column;
-  }
+  .section-container {
+    &:not(.reverse) {
+      flex-direction: column;
+    }
 
-  .section-container:nth-child(odd) {
-    flex-direction: column-reverse;
+    &.reverse {
+      flex-direction: column-reverse;
+    }
   }
 
   .section,

@@ -37,7 +37,7 @@ export function ZensuppliesContent() {
           </div>
         </div>
       </div>
-      <div className="section-container">
+      <div className="section-container reverse">
         <div className="section">
           <div className="paragraph">
             <div className="paragraph-title">Responsibilities</div>
