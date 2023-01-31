@@ -12,6 +12,7 @@ export default function ProductPage({ children }) {
   return (
     <div className="product-page">
       <HomeLink />
+      {/* todo: content appears via fade in with delay however e.g. About page works perfectly */}
       {children}
     </div>
   );
