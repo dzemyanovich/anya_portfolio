@@ -1,10 +1,13 @@
-$desktop-width: 1200px;
-$big-laptop-width: 1050px;
-$laptop-width: 900px;
-$tablet-width: 500px;
-$mobile-width: 400px;
 $link-delay-animation: 5s;
 $company-info-margin: 50px;
+
+// media breakpoints
+$desktop-width: 1200px;
+$big-laptop-width: 1050px; // todo: rename to $max-tablet-width
+$laptop-width: 900px; // todo: rename to $tablet-width
+$big-tablet-width: 600px; // todo: rename to $max-mobile-width
+$tablet-width: 500px; // todo: rename to $mobile-width
+$mobile-width: 400px; // todo: rename to $mini-mobile-width
 
 // colors
 $black: rgb(0 0 0);
@@ -18,6 +21,8 @@ $radio-button-checked: rgb(222 222 222);
 // product section
 $section-padding: 100px;
 $section-padding-mini: calc($section-padding / 2);
+
+// ############## START: Fonts ##############
 
 @mixin druk-normal-400 {
   font-family: 'Druk Wide Trial', sans-serif;
@@ -57,4 +62,11 @@ $section-padding-mini: calc($section-padding / 2);
 
 @mixin helvetica-neue-light {
   font-family: HelveticaNeue-Light, sans-serif;
+}
+
+// ############## END: Fonts ##############
+
+@mixin fast-fade-in {
+  animation: 0.5s ease-out 0s 1 fade-in forwards;
+  opacity: 0;
 }

@@ -10,9 +10,9 @@ export default function About() {
     <div className="about-container">
       <HomeLink />
       <div className="about-image-container">
-        <img src={aboutImage} alt="" className="about-image" />
         <div className="about-name title">Anna Pivunova</div>
         <div className="about-title title">Lead Designer</div>
+        <img src={aboutImage} alt="" className="about-image" />
       </div>
       <div className="about-content">
         <div className="paragraph">

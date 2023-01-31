@@ -58,6 +58,7 @@ $content-appear-duration: 1s;
 .about-title {
   animation: $heading-appear-duration ease-out $heading-appear-delay 1 fade-out forwards;
   position: absolute;
+  z-index: 1;
 }
 
 .about-name {
@@ -76,15 +77,9 @@ $content-appear-duration: 1s;
 
 @media screen and (max-width: $big-laptop-width) {
   .about-container {
-    animation: $container-appear-duration ease-out $container-appear-delay 1 fade-in forwards;
     flex-direction: column;
     height: auto;
-    opacity: 0;
     padding: $container-mobile-padding 0;
-
-    .home-link {
-      animation-delay: 0s;
-    }
   }
 
   .about-image-container {
@@ -107,6 +102,13 @@ $content-appear-duration: 1s;
   .about-name,
   .about-title {
     display: none;
+  }
+}
+
+@media screen and (max-width: $big-tablet-width) {
+  .about-container,
+  .about-container .home-link {
+    @include fast-fade-in;
   }
 }
 

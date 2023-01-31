@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import { isWindows, resetScroll } from '../../utils/utils';
+import { isMobile, isWindows, resetScroll } from '../../utils/utils';
 
 import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
@@ -14,8 +14,6 @@ const isTouchDevice = 'ontouchstart' in window;
 export default class CompanyPage extends React.Component {
   constructor(props) {
     super(props);
-
-    const MOBILE_MAX_WIDTH = 600;
 
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
@@ -34,17 +32,14 @@ export default class CompanyPage extends React.Component {
     this.scrollUpDown = this.scrollUpDown.bind(this);
     this.scrollLeftRight = this.scrollLeftRight.bind(this);
 
-    const isMobile = window.screen.width <= MOBILE_MAX_WIDTH;
-
-    if (isMobile) {
+    if (isMobile()) {
       document.addEventListener('scroll', this.swipeUpDown);
     }
 
     this.state = {
       isLoading: true,
-      isMobile,
-      isContentView: isMobile,
-      isHomeLinkVisible: isMobile,
+      isContentView: isMobile(),
+      isHomeLinkVisible: isMobile(),
       isSwipeTipVisible: false,
     };
   }
@@ -55,7 +50,11 @@ export default class CompanyPage extends React.Component {
     // need to invoke twice because sometimes content is not loaded after 100 ms
     setTimeout(resetScroll, 500);
 
-    // wait 2 seconds until animation finishes rendering
+    // wait 2 or 0.5 seconds until animation finishes rendering
+    const waitTime = isMobile()
+      ? 500
+      : 2000;
+
     noScroll.start();
     this.timeoutId = setTimeout(() => {
       if (isTouchDevice) {
@@ -68,7 +67,7 @@ export default class CompanyPage extends React.Component {
         isLoading: false,
       });
       noScroll.end();
-    }, 2000);
+    }, waitTime);
   }
 
   componentWillUnmount() {
@@ -104,11 +103,9 @@ export default class CompanyPage extends React.Component {
   }
 
   swipeUpDown() {
-    const { isMobile } = this.state;
-
     const isHomeLinkVisible = window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE;
 
-    if (isMobile) {
+    if (isMobile()) {
       this.setState({
         isHomeLinkVisible,
       });
@@ -208,7 +205,7 @@ export default class CompanyPage extends React.Component {
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isLoading, isMobile, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
+    const { isLoading, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
     const hasManyProducts = [
       '/products/adidas',
       '/products/mcdonalds',
@@ -220,7 +217,6 @@ export default class CompanyPage extends React.Component {
         className={`
           company-page
           ${isContentView ? 'content-view' : ''}
-          ${isMobile ? 'mobile' : ''}
           ${isLoading ? 'no-scroll' : ''}
           ${className}`}
         ref={el => { this.companyPageRef = el; }}

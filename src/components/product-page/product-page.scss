@@ -9,3 +9,10 @@
     animation-delay: 0s;
   }
 }
+
+@media screen and (max-width: $big-tablet-width) {
+  .product-page,
+  .product-page .home-link {
+    @include fast-fade-in;
+  }
+}
