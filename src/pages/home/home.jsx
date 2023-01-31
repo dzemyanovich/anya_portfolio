@@ -15,6 +15,7 @@ export default function Home() {
       <div className="designer-title-wrapper title">
         <span className="designer-title">Lead Designer</span>
       </div>
+      {/* todo: home link blinks on mobile (e.g. iPhone 11) */}
       <HomeLink />
       <CustomLink className="page-link products-link" to="/products">Products</CustomLink>
       <CustomLink className="page-link contact-link" to="/contact">Contact</CustomLink>
