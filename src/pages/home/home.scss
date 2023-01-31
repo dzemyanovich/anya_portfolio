@@ -5,20 +5,20 @@ $desktop-top-bottom-margin: 50px;
 $laptop-left-right-margin: 15px;
 $laptop-top-bottom-margin: 15px;
 
+// animation
+$title-animation-delay: 1s;
+$title-animation-duration: 2s;
+$logo-animation-delay: $title-animation-delay + $title-animation-duration;
+$logo-animation-duration: 2s;
+$links-animation-delay: $logo-animation-delay + $logo-animation-duration;
+$links-animation-duration: 2s;
+
 .pivunova-brand,
 .designer-title-wrapper {
   left: 50%;
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.pivunova-brand-content {
-  animation: 2s ease-out 3s 1 fade-in forwards, 2s ease-out 3s 1 slide-in forwards;
-  bottom: -30px;
-  opacity: 0;
-  position: relative;
-  width: 150px;
 }
 
 .designer-title-wrapper {
@@ -28,16 +28,25 @@ $laptop-top-bottom-margin: 15px;
 }
 
 .designer-title {
-  animation: 2s ease-out 1s 1 slide-in forwards;
+  animation: $title-animation-duration ease-out $title-animation-delay 1 slide-in forwards;
   bottom: -30px;
   position: relative;
   white-space: nowrap;
 }
 
+.pivunova-logo {
+  animation: $logo-animation-duration ease-out $logo-animation-delay 1 fade-in forwards, $logo-animation-duration ease-out $logo-animation-delay 1 slide-in forwards;
+  bottom: -30px;
+  opacity: 0;
+  position: relative;
+  width: 150px;
+}
+
 .about-link,
 .contact-link,
-.products-link {
-  animation: 2s ease-out $link-delay-animation 1 fade-in forwards;
+.products-link,
+.home-link {
+  animation: $links-animation-duration ease-out $links-animation-delay 1 fade-in forwards;
   opacity: 0;
 }
 
@@ -89,5 +98,32 @@ $laptop-top-bottom-margin: 15px;
   .home-link {
     margin-left: $laptop-left-right-margin;
     margin-top: $laptop-top-bottom-margin;
+  }
+}
+
+@media screen and (max-width: $max-mobile-width) {
+  $title-animation-delay: 0s;
+  $title-animation-duration: 0.5s;
+  $logo-animation-delay: $title-animation-delay + $title-animation-duration;
+  $logo-animation-duration: 0.5s;
+  $links-animation-delay: 0s;
+  $links-animation-duration: 0.5s;
+
+  .designer-title {
+    animation-delay: $title-animation-delay;
+    animation-duration: $title-animation-duration;
+  }
+
+  .pivunova-logo {
+    animation-delay: $logo-animation-delay;
+    animation-duration: $logo-animation-duration;
+  }
+
+  .about-link,
+  .contact-link,
+  .products-link,
+  .home-link {
+    animation-delay: $links-animation-delay;
+    animation-duration: $links-animation-duration;
   }
 }

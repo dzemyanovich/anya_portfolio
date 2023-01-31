@@ -3,7 +3,7 @@ import React from 'react';
 import CustomLink from '../../components/custom-link/custom-link';
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import { resetScroll } from '../../utils/utils';
+import { resetScroll, isMobile } from '../../utils/utils';
 
 import adidasShoe from '../../images/adidas-shoe.jpg';
 import burger from '../../images/burger.png';
@@ -38,13 +38,17 @@ export default class Products extends React.Component {
       resetScroll();
     }, 500);
 
-    // wait 5 sec until animaiton rendering is finished
+    // wait 5 or 1 seconds until animation finishes rendering
+    const waitTime = isMobile()
+      ? 1000
+      : 5000;
+
     noScroll.start();
     this.timeoutId = setTimeout(() => {
       window.addEventListener('scroll', this.handleScroll);
 
       noScroll.end();
-    }, 5000);
+    }, waitTime);
   }
 
   componentWillUnmount() {
@@ -133,7 +137,6 @@ export default class Products extends React.Component {
 
     return (
       <div className="products-page">
-        {/* todo: mobile (e.g. iPhone) -> blinking: link appears, dissapears, then again appears */}
         <HomeLink />
         <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
           {companies.map((company, index) => (
@@ -152,7 +155,7 @@ export default class Products extends React.Component {
               className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
               key={`image-container-${index.toString()}`}
             >
-              <img src={company.image} alt="" />
+              <img src={company.image} alt="" className="company-logo-item" />
             </div>
           ))}
         </div>

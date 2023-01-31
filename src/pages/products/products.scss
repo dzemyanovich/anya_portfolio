@@ -1,7 +1,12 @@
 @import '../../styles/shared';
 
+$text-animation-delay: 1s;
+$text-animation-duration: 2s;
+$image-animation-delay: $text-animation-delay + $text-animation-duration;
+$image-animation-duration: 2s;
+
 .products-page .home-link {
-  animation-delay: 4s;
+  animation-delay: $image-animation-delay;
 }
 
 .company-logos {
@@ -35,12 +40,12 @@
   &.hover {
     opacity: 0.6;
   }
+}
 
-  img {
-    animation: 2s ease-out 3s 1 fade-in forwards;
-    max-width: 600px;
-    opacity: 0;
-  }
+.company-logo-item {
+  animation: $image-animation-duration ease-out $image-animation-delay 1 fade-in forwards;
+  max-width: 600px;
+  opacity: 0;
 }
 
 .company-link-container {
@@ -63,13 +68,31 @@
 }
 
 .link-text {
-  animation: 2s ease-out 1s 1 slide-in forwards;
+  animation: $text-animation-duration ease-out $text-animation-delay 1 slide-in forwards;
   bottom: -30px;
   opacity: 0.8;
   position: relative;
 
   &:hover {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: $max-mobile-width) {
+  $text-animation-delay: 0s;
+  $text-animation-duration: 0.5s;
+  $image-animation-delay: $text-animation-delay + $text-animation-duration;
+  $image-animation-duration: 0.5s;
+
+  .link-text {
+    animation-delay: $text-animation-delay;
+    animation-duration: $text-animation-duration;
+  }
+
+  .products-page .home-link,
+  .company-logo-item {
+    animation-delay: $image-animation-delay;
+    animation-duration: $image-animation-duration;
   }
 }
 
