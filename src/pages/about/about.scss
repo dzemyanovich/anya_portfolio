@@ -75,7 +75,7 @@ $content-appear-duration: 1s;
   margin-left: -76px;
 }
 
-@media screen and (max-width: $tablet-width) {
+@media screen and (max-width: $max-tablet-width) {
   .about-container {
     flex-direction: column;
     height: auto;
