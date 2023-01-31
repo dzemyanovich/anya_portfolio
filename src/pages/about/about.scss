@@ -75,7 +75,7 @@ $content-appear-duration: 1s;
   margin-left: -76px;
 }
 
-@media screen and (max-width: $big-laptop-width) {
+@media screen and (max-width: $tablet-width) {
   .about-container {
     flex-direction: column;
     height: auto;
@@ -105,14 +105,14 @@ $content-appear-duration: 1s;
   }
 }
 
-@media screen and (max-width: $big-tablet-width) {
+@media screen and (max-width: $max-mobile-width) {
   .about-container,
   .about-container .home-link {
     @include fast-fade-in;
   }
 }
 
-@media screen and (max-width: $tablet-width) {
+@media screen and (max-width: $mobile-width) {
   .about-container {
     padding: $container-mobile-padding;
   }

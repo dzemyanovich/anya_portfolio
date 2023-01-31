@@ -10,7 +10,7 @@
   }
 }
 
-@media screen and (max-width: $big-tablet-width) {
+@media screen and (max-width: $max-mobile-width) {
   .product-page,
   .product-page .home-link {
     @include fast-fade-in;

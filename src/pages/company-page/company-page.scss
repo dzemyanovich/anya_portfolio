@@ -169,7 +169,7 @@
 
 // ####### END product page ######
 
-@media screen and (max-width: $laptop-width) {
+@media screen and (max-width: $tablet-width) {
   .company-image {
     max-width: 500px;
   }
@@ -207,7 +207,7 @@
   }
 }
 
-@media screen and (max-width: $big-tablet-width) {
+@media screen and (max-width: $max-mobile-width) {
   .company-page,
   .company-page .home-link {
     @include fast-fade-in;
@@ -222,7 +222,7 @@
   }
 }
 
-@media screen and (max-width: $tablet-width) {
+@media screen and (max-width: $mobile-width) {
   .company-image {
     max-width: 400px;
   }
@@ -240,7 +240,7 @@
   }
 }
 
-@media screen and (max-width: $mobile-width) {
+@media screen and (max-width: $mini-mobile-width) {
   .company-image {
     max-width: 350px;
   }

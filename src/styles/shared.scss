@@ -3,11 +3,11 @@ $company-info-margin: 50px;
 
 // media breakpoints
 $desktop-width: 1200px;
-$big-laptop-width: 1050px; // todo: rename to $max-tablet-width
-$laptop-width: 900px; // todo: rename to $tablet-width
-$big-tablet-width: 600px; // todo: rename to $max-mobile-width
-$tablet-width: 500px; // todo: rename to $mobile-width
-$mobile-width: 400px; // todo: rename to $mini-mobile-width
+$tablet-width: 1050px;
+$tablet-width: 900px;
+$max-mobile-width: 600px;
+$mobile-width: 500px;
+$mini-mobile-width: 400px;
 
 // colors
 $black: rgb(0 0 0);

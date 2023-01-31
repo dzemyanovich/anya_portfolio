@@ -1,7 +1,7 @@
-const MOBILE_MAX_WIDTH = 600; // must be equal to var $big-tablet-width in scss
+const MAX_MOBILE_WIDTH = 600; // must be equal to var $max-mobile-width in scss
 
 const isWindowsValue = navigator.platform.indexOf('Win') > -1;
-const isMobileValue = window.screen.width <= MOBILE_MAX_WIDTH;
+const isMobileValue = window.screen.width <= MAX_MOBILE_WIDTH;
 
 export function isWindows() {
   return isWindowsValue;

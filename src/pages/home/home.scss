@@ -70,7 +70,7 @@ $laptop-top-bottom-margin: 15px;
   margin-top: $desktop-top-bottom-margin;
 }
 
-@media screen and (max-width: $laptop-width) {
+@media screen and (max-width: $tablet-width) {
   .about-link {
     margin-bottom: $laptop-top-bottom-margin;
     margin-right: $laptop-left-right-margin;
