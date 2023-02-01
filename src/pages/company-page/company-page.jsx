@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import { isMobile, isWindows, resetScroll } from '../../utils/utils';
+import { isMobile, isWindows, resetScroll, isTouchDevice } from '../../utils/utils';
 
 import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
 import swipeDown from '../../images/swipe-down.svg';
-
-const isTouchDevice = 'ontouchstart' in window;
 
 export default class CompanyPage extends React.Component {
   constructor(props) {
@@ -57,7 +55,7 @@ export default class CompanyPage extends React.Component {
 
     noScroll.start();
     this.timeoutId = setTimeout(() => {
-      if (isTouchDevice) {
+      if (isTouchDevice()) {
         this.companyPageRef.addEventListener('scroll', this.swipeLeftRight);
       } else {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
@@ -74,7 +72,7 @@ export default class CompanyPage extends React.Component {
     clearTimeout(this.timeoutId);
     noScroll.end();
 
-    if (isTouchDevice) {
+    if (isTouchDevice()) {
       this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);
     } else {
@@ -225,20 +223,20 @@ export default class CompanyPage extends React.Component {
         <div className="gap" />
         <div className="company-header">{header}</div>
         {isHomeLinkVisible && <HomeLink />}
-        {isTouchDevice && isSwipeTipVisible && (
+        {isTouchDevice() && isSwipeTipVisible && (
           <div className="swipe-tip">
             {isContentView
               ? <img src={swipeDown} alt="" />
               : <img src={swipeLeft} alt="" />}
           </div>
         )}
-        {!isTouchDevice && !hasManyProducts && (
+        {!isTouchDevice() && !hasManyProducts && (
           <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
             {header}
           </div>
         )}
         <div className="content-wrapper">
-          {(isTouchDevice || hasManyProducts) && (
+          {(isTouchDevice() || hasManyProducts) && (
             <div className="company-header" ref={el => { this.companyHeaderRef = el; }}>
               {header}
             </div>

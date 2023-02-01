@@ -16,7 +16,6 @@ import eventOptimizerHavi from '../../../images/event-optimizer-havi.jpeg';
 export function EventOptimizer() {
   return [
     <div className="section-container about-static-image" key="section-0">
-      {/* todo: do not use image to display text */}
       <img src={eventOptimizerAbout} alt="" className="transition-image" />
     </div>,
     <div className="section-container about-dynamic-content" key="section-1">
