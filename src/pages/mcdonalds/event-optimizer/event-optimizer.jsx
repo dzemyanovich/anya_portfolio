@@ -95,7 +95,6 @@ export function EventOptimizer() {
         </div>
         <div className="paragraph">
           <div className="paragraph-title">UX activities</div>
-          {/* todo: fix alignment when there is not enough content for proper center aligning */}
           <div className="paragraph-content">
             Workshops, contextual inquiry (observation & interviews)
           </div>

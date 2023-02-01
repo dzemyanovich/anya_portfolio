@@ -141,9 +141,12 @@
   justify-content: center;
 
   .paragraph {
-    margin-left: 30px;
-    margin-right: 30px;
+    $margin: 30px;
+
+    margin-left: $margin;
+    margin-right: $margin;
     max-width: 500px;
+    width: calc(100% - $margin * 2);
   }
 }
 
