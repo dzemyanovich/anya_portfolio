@@ -78,11 +78,12 @@
 }
 
 .product-title {
-  @include akira-normal-700;
+  @include matrice-normal-700;
 
   color: $white;
-  font-size: 40px;
+  font-size: 35px;
   letter-spacing: 1.2px;
+  line-height: 45px;
   margin: 50px 0;
   text-transform: uppercase;
 }

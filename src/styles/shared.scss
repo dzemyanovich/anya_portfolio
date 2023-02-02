@@ -55,12 +55,6 @@ $section-padding-mini: calc($section-padding / 2);
   font-weight: 700;
 }
 
-@mixin akira-normal-700 {
-  font-family: 'Akira Expanded', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-}
-
 @mixin helvetica-neue-light {
   font-family: HelveticaNeue-Light, sans-serif;
 }

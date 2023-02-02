@@ -36,11 +36,3 @@
   font-weight: 700;
   src: local('Matrice'), url('./fonts/Matrice-Bold.woff') format('woff');
 }
-
-@font-face {
-  font-family: 'akira expanded';
-  font-style: normal;
-  font-weight: 700;
-  // todo: uploaded font does not work (maybe because of otf file extension)
-  src: local('Akira Expanded'), url('./fonts/Akira-Expanded.otf') format('otf');
-}

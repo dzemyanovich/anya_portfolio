@@ -25,14 +25,6 @@ import { DesignLeadership } from './pages/mcdonalds/design-leadership/design-lea
 import './index.scss';
 import favicon from './images/favicon.svg';
 
-// todo: do we really need these imports since we have import in css files?
-import './fonts/Montserrat-Regular.woff';
-import './fonts/Montserrat-Bold.woff';
-import './fonts/DrukWide-Medium-Trial.woff';
-import './fonts/DrukWide-Bold-Trial.woff';
-import './fonts/Matrice-Bold.woff';
-import './fonts/Akira-Expanded.otf';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // todo: [MINOR] prod -> console -> DevTools failed to load source map: Could not load content for
