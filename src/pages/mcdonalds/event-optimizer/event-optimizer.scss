@@ -3,17 +3,3 @@
 .burger-image {
   max-width: 300px;
 }
-
-.about-dynamic-content {
-  display: none;
-}
-
-@media screen and (max-width: $tablet-width) {
-  .about-dynamic-content {
-    display: block;
-  }
-
-  .about-static-image {
-    display: none;
-  }
-}

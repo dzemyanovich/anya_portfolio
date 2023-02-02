@@ -2,7 +2,6 @@ import React from 'react';
 
 import './event-optimizer.scss';
 import haviLogo from '../../../images/havi-logo.png';
-import eventOptimizerAbout from '../../../images/event-optimizer-about.jpeg';
 import eventOptimizerBurger from '../../../images/event-optimizer-burger.jpeg';
 import eventOptimizerMockups from '../../../images/event-optimizer-mockups.jpeg';
 import eventOptimizerTimeline from '../../../images/event-optimizer-timeline.jpeg';
@@ -15,10 +14,10 @@ import eventOptimizerHavi from '../../../images/event-optimizer-havi.jpeg';
 
 export function EventOptimizer() {
   return [
-    <div className="section-container about-static-image" key="section-0">
-      <img src={eventOptimizerAbout} alt="" className="transition-image" />
-    </div>,
-    <div className="section-container about-dynamic-content" key="section-1">
+    <div className="section-container reverse" key="section-1">
+      <div className="section-image-container">
+        <img src={haviLogo} alt="" className="section-image" />
+      </div>
       <div className="section">
         <div className="paragraph">
           <div className="product-title">Event Optimizer</div>
@@ -32,9 +31,6 @@ export function EventOptimizer() {
             senior management & planners and allows to visualize, analyze and compare data for a better decision-making.
           </div>
         </div>
-      </div>
-      <div className="section-image-container">
-        <img src={haviLogo} alt="" className="section-image" />
       </div>
     </div>,
     <div className="section-container" key="section-2">
