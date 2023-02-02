@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
 import { isMobile, isWindows, resetScroll, isTouchDevice } from '../../utils/utils';
+import { HOME_LINK_VISIBLE } from '../../utils/global-vars';
 
 import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
@@ -18,8 +19,6 @@ export default class CompanyPage extends React.Component {
     this.MAGIC_NUMBER = 0.5;
     // visible margin for home line and swipe tip
     this.VISIBLE_MARGIN = 100;
-    // percentange when home link is still visible related to company header
-    this.HOME_LINK_VISIBLE = 0.7;
 
     this.companyPageRef = null;
     this.companyHeaderRef = null;
@@ -101,7 +100,7 @@ export default class CompanyPage extends React.Component {
   }
 
   swipeUpDown() {
-    const isHomeLinkVisible = window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE;
+    const isHomeLinkVisible = window.scrollY < this.companyHeaderRef.offsetHeight * HOME_LINK_VISIBLE;
 
     if (isMobile()) {
       this.setState({
@@ -112,7 +111,7 @@ export default class CompanyPage extends React.Component {
     }
 
     this.setState({
-      isHomeLinkVisible: window.scrollY < this.companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE,
+      isHomeLinkVisible: window.scrollY < this.companyHeaderRef.offsetHeight * HOME_LINK_VISIBLE,
       isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
     });
 
@@ -157,7 +156,7 @@ export default class CompanyPage extends React.Component {
     const marginTop = parseInt(companyHeaderRef.style.marginTop, 10) || 0;
 
     this.setState({
-      isHomeLinkVisible: Math.abs(marginTop) < companyHeaderRef.offsetHeight * this.HOME_LINK_VISIBLE,
+      isHomeLinkVisible: Math.abs(marginTop) < companyHeaderRef.offsetHeight * HOME_LINK_VISIBLE,
     });
 
     // do nothing in case page content is being scrolled

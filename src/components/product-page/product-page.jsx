@@ -1,36 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import HomeLink from '../home-link/home-link';
 import { resetScroll, isTouchDevice } from '../../utils/utils';
+import { HOME_LINK_VISIBLE } from '../../utils/global-vars';
 
 import './product-page.scss';
 
 export default function ProductPage({ children }) {
-  const [homeLinkVisible, setVisibility] = useState(true);
-
   useEffect(resetScroll);
 
-  useEffect(() => {
-    async function setVisibilityWrapper() {
-      const visible = window.scrollY < window.innerHeight;
+  const homeLinkRef = useRef(null);
 
-      // todo: does not work
-      setVisibility(visible || true);
+  useEffect(() => {
+    async function toggleHomeLink() {
+      // class name is hardcoded because it belongs to children elemens
+      // todo: store 0.7 in some global var
+      const visible = window.scrollY < document.querySelector('.section-container').offsetHeight * HOME_LINK_VISIBLE;
+
+      if (visible) {
+        homeLinkRef.current.classList.remove('hide');
+      } else {
+        homeLinkRef.current.classList.add('hide');
+      }
     }
 
     if (isTouchDevice()) {
-      window.addEventListener('scroll', setVisibilityWrapper);
+      window.addEventListener('scroll', toggleHomeLink);
     } else {
-      window.addEventListener('wheel', setVisibilityWrapper, { passive: false });
+      window.addEventListener('wheel', toggleHomeLink, { passive: false });
     }
 
-    setVisibilityWrapper();
+    toggleHomeLink();
+
+    return () => {
+      window.removeEventListener('scroll', toggleHomeLink);
+      window.removeEventListener('wheel', toggleHomeLink, { passive: false });
+    };
   }, []);
 
   return (
     <div className="product-page">
-      {homeLinkVisible && <HomeLink />}
+      <div className="home-link-wrapper" ref={homeLinkRef}>
+        <HomeLink />
+      </div>
       {children}
     </div>
   );

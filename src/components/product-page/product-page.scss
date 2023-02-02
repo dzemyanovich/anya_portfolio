@@ -17,6 +17,10 @@
   }
 }
 
+.home-link-wrapper.hide {
+  display: none;
+}
+
 @media screen and (max-width: $max-desktop-width) {
   .product-page {
     .home-link {

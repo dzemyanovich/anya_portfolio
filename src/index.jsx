@@ -133,27 +133,6 @@ function SelectProductPage() {
   const { companyId, productId } = useParams();
 
   switch (companyId) {
-    case 'havi':
-      switch (productId) {
-        case 'landing':
-          return (
-            <ProtectedRoute>
-              <ProductPage>
-                <HaviLanding />
-              </ProductPage>
-            </ProtectedRoute>
-          );
-        case 'supply-planning':
-          return (
-            <ProtectedRoute>
-              <ProductPage>
-                <SupplyPlanning />
-              </ProductPage>
-            </ProtectedRoute>
-          );
-        default:
-          return <Navigate to="/" replace />;
-      }
     case 'mcdonalds':
       switch (productId) {
         case 'event-optimizer':
@@ -171,6 +150,23 @@ function SelectProductPage() {
                 <DesignLeadership />
               </ProductPage>
             </ProtectedRoute>
+          );
+        default:
+          return <Navigate to="/" replace />;
+      }
+    case 'havi':
+      switch (productId) {
+        case 'landing':
+          return (
+            <ProductPage>
+              <HaviLanding />
+            </ProductPage>
+          );
+        case 'supply-planning':
+          return (
+            <ProductPage>
+              <SupplyPlanning />
+            </ProductPage>
           );
         default:
           return <Navigate to="/" replace />;
