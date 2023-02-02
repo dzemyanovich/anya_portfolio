@@ -15,7 +15,6 @@ export default function ProductPage({ children }) {
   useEffect(() => {
     async function toggleHomeLink() {
       // class name is hardcoded because it belongs to children elemens
-      // todo: store 0.7 in some global var
       const visible = window.scrollY < document.querySelector('.section-container').offsetHeight * HOME_LINK_VISIBLE;
 
       if (visible) {
