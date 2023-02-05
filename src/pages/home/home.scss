@@ -106,8 +106,6 @@ $links-animation-duration: 2s;
   $title-animation-duration: 0.5s;
   $logo-animation-delay: $title-animation-delay + $title-animation-duration;
   $logo-animation-duration: 0.5s;
-  $links-animation-delay: 0s;
-  $links-animation-duration: 0.5s;
 
   .designer-title {
     animation-delay: $title-animation-delay;
@@ -123,7 +121,7 @@ $links-animation-duration: 2s;
   .contact-link,
   .products-link,
   .home-link {
-    animation-delay: $links-animation-delay;
-    animation-duration: $links-animation-duration;
+    animation: none;
+    opacity: 1;
   }
 }
