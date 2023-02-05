@@ -1,4 +1,5 @@
 const DOMAIN = Cypress.env('domain');
+const MASTER_PASSWORD = Cypress.env('master_password');
 
 describe('home page', () => {
   beforeEach(() => {
@@ -75,6 +76,20 @@ describe('products page', () => {
 
       cy.go('back');
     });
+  });
+});
+
+describe.only('adidas', () => {
+  beforeEach(() => {
+    cy.visit(`${DOMAIN}/products/adidas`);
+  });
+
+  it('check about page', () => {
+    cy.get('.password-input')
+      .type(MASTER_PASSWORD)
+      .type('{enter}');
+    cy.wait(2000);
+    cy.get('.page-title').contains('adidas', { matchCase: false });
   });
 });
 

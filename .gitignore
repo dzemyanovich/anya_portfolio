@@ -11,3 +11,4 @@ yarn-error.log
 *.tfstate.backup
 *.zip
 terraform.tfvars
+cypress.env.json

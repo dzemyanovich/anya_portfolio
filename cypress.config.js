@@ -6,4 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+  env: {
+    domain: 'http://localhost:8080',
+  }
 });
