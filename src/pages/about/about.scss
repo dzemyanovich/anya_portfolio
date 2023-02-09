@@ -24,7 +24,7 @@ $content-appear-duration: 1s;
   }
 }
 
-.about-container {
+.about-page {
   align-items: center;
   display: flex;
   height: 100vh;
@@ -76,7 +76,7 @@ $content-appear-duration: 1s;
 }
 
 @media screen and (max-width: $max-tablet-width) {
-  .about-container {
+  .about-page {
     flex-direction: column;
     height: auto;
     padding: $container-mobile-padding 0;
@@ -106,14 +106,17 @@ $content-appear-duration: 1s;
 }
 
 @media screen and (max-width: $max-mobile-width) {
-  .about-container,
-  .about-container .home-link {
+  .about-page {
     @include fast-fade-in;
+  }
+
+  .about-container .home-link {
+    @include no-animation;
   }
 }
 
 @media screen and (max-width: $mobile-width) {
-  .about-container {
+  .about-page {
     padding: $container-mobile-padding;
   }
 
