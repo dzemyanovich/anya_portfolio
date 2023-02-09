@@ -5,7 +5,7 @@ $text-animation-duration: 2s;
 $image-animation-delay: $text-animation-delay + $text-animation-duration;
 $image-animation-duration: 2s;
 
-.products-page .home-link {
+.products-page-container .home-link {
   animation-delay: $image-animation-delay;
 }
 
@@ -89,10 +89,13 @@ $image-animation-duration: 2s;
     animation-duration: $text-animation-duration;
   }
 
-  .products-page .home-link,
   .company-logo-item {
     animation-delay: $image-animation-delay;
     animation-duration: $image-animation-duration;
+  }
+
+  .products-page-container .home-link {
+    @include no-animation;
   }
 }
 

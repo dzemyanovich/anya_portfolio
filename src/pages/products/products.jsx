@@ -136,28 +136,30 @@ export default class Products extends React.Component {
     ];
 
     return (
-      <div className="products-page">
+      <div className="products-page-container">
         <HomeLink />
-        <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
-          {companies.map((company, index) => (
-            <div className="company-link-container" key={`company-link-${index.toString()}`}>
-              <span className="company-link">
-                <CustomLink className="title" to={company.link}>
-                  {this.companyLink(company.name)}
-                </CustomLink>
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="company-logos">
-          {companies.map((company, index) => (
-            <div
-              className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
-              key={`image-container-${index.toString()}`}
-            >
-              <img src={company.image} alt="" className="company-logo-item" />
-            </div>
-          ))}
+        <div className="products-page">
+          <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
+            {companies.map((company, index) => (
+              <div className="company-link-container" key={`company-link-${index.toString()}`}>
+                <span className="company-link">
+                  <CustomLink className="title" to={company.link}>
+                    {this.companyLink(company.name)}
+                  </CustomLink>
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="company-logos">
+            {companies.map((company, index) => (
+              <div
+                className={`image-container ${activePageIndex === index ? 'hover' : ''}`}
+                key={`image-container-${index.toString()}`}
+              >
+                <img src={company.image} alt="" className="company-logo-item" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
