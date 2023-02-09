@@ -20,10 +20,10 @@
   >* {
     flex: 0 0 auto;
   }
+}
 
-  .home-link {
-    animation-delay: 0s;
-  }
+.company-page-container .home-link {
+  animation-delay: 0s;
 }
 
 .page-title {
@@ -211,9 +211,12 @@
 }
 
 @media screen and (max-width: $max-mobile-width) {
-  .company-page,
-  .company-page .home-link {
+  .company-page {
     @include fast-fade-in;
+  }
+
+  .company-page-container .home-link {
+    @include no-animation;
   }
 
   .company-page {

@@ -210,37 +210,39 @@ export default class CompanyPage extends React.Component {
     ].includes(window.location.pathname.toLowerCase());
 
     return (
-      <div
-        className={`
+      <div className="company-page-container">
+        {isHomeLinkVisible && <HomeLink />}
+        <div
+          className={`
           company-page
           ${isContentView ? 'content-view' : ''}
           ${isLoading ? 'no-scroll' : ''}
           ${className}`}
-        ref={el => { this.companyPageRef = el; }}
-      >
-        <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
-        <div className="gap" />
-        <div className="company-header">{header}</div>
-        {isHomeLinkVisible && <HomeLink />}
-        {isTouchDevice() && isSwipeTipVisible && (
-          <div className="swipe-tip">
-            {isContentView
-              ? <img src={swipeDown} alt="" />
-              : <img src={swipeLeft} alt="" />}
-          </div>
-        )}
-        {!isTouchDevice() && !hasManyProducts && (
-          <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
-            {header}
-          </div>
-        )}
-        <div className="content-wrapper">
-          {(isTouchDevice() || hasManyProducts) && (
-            <div className="company-header" ref={el => { this.companyHeaderRef = el; }}>
+          ref={el => { this.companyPageRef = el; }}
+        >
+          <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
+          <div className="gap" />
+          <div className="company-header">{header}</div>
+          {isTouchDevice() && isSwipeTipVisible && (
+            <div className="swipe-tip">
+              {isContentView
+                ? <img src={swipeDown} alt="" />
+                : <img src={swipeLeft} alt="" />}
+            </div>
+          )}
+          {!isTouchDevice() && !hasManyProducts && (
+            <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
               {header}
             </div>
           )}
-          {content}
+          <div className="content-wrapper">
+            {(isTouchDevice() || hasManyProducts) && (
+              <div className="company-header" ref={el => { this.companyHeaderRef = el; }}>
+                {header}
+              </div>
+            )}
+            {content}
+          </div>
         </div>
       </div>
     );
