@@ -8,7 +8,9 @@ export default function Contact() {
   return (
     <div className="contact-container">
       <HomeLink />
-      <i>Content will be added here...</i>
+      <div className="contact-page">
+        <i>Content will be added here...</i>
+      </div>
     </div>
   );
 }

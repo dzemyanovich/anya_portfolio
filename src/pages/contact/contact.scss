@@ -1,10 +1,20 @@
-.contact-container {
+@import '../../styles/shared';
+
+.contact-container .home-link {
+  animation-delay: 0s;
+}
+
+.contact-page {
+  @include fast-fade-in;
+
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
+}
 
-  .home-link {
-    animation-delay: 0s;
+@media screen and (max-width: $max-mobile-width) {
+  .contact-container .home-link {
+    @include no-animation;
   }
 }
