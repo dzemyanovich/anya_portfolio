@@ -211,15 +211,13 @@
 }
 
 @media screen and (max-width: $max-mobile-width) {
-  .company-page {
-    @include fast-fade-in;
-  }
-
   .company-page-container .home-link {
     @include no-animation;
   }
 
   .company-page {
+    @include fast-fade-in;
+
     .page-title,
     .gap,
     >.company-header {
