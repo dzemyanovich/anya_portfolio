@@ -18,16 +18,16 @@
   }
 }
 
-.login-container {
+.login-page {
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
+}
 
-  .home-link {
-    animation: none;
-    opacity: 1;
-  }
+.login-container .home-link {
+  animation: none;
+  opacity: 1;
 }
 
 .password-input {

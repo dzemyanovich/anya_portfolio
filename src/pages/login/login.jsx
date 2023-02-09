@@ -62,17 +62,19 @@ export default class Login extends React.Component {
     return (
       <div className="login-container">
         <HomeLink />
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="password"
-            value={password}
-            readOnly={loading}
-            onChange={this.handleChange}
-            className={`password-input ${error ? 'error' : ''}`}
-            placeholder="password"
-            autoFocus="autofocus"
-          />
-        </form>
+        <div className="login-page">
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="password"
+              value={password}
+              readOnly={loading}
+              onChange={this.handleChange}
+              className={`password-input ${error ? 'error' : ''}`}
+              placeholder="password"
+              autoFocus="autofocus"
+            />
+          </form>
+        </div>
       </div>
     );
   }
