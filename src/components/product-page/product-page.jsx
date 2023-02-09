@@ -39,11 +39,13 @@ export default function ProductPage({ children }) {
   }, []);
 
   return (
-    <div className="product-page">
+    <div className="product-page-container">
       <div className="home-link-wrapper" ref={homeLinkRef}>
         <HomeLink />
       </div>
-      {children}
+      <div className="product-page">
+        {children}
+      </div>
     </div>
   );
 }
