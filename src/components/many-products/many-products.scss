@@ -92,6 +92,28 @@ $mini-mobile: $tablet-product-item-width + $margin;
   width: $desktop-product-item-width;
 }
 
+.filter-option {
+  cursor: pointer;
+  display: flex !important;
+}
+
+.radio-button {
+  border: 0.5px solid $gray;
+  border-radius: 10px;
+  height: 7px;
+  margin-right: 8px;
+  width: 7px;
+}
+
+.filter-option.checked {
+  color: $radio-button-checked;
+
+  .radio-button {
+    background-color: $radio-button-checked;
+    border-color: $radio-button-checked;
+  }
+}
+
 @media screen and (max-width: $desktop) {
   .many-products-content {
     max-width: $tablet-content-width;
@@ -183,8 +205,6 @@ $mini-mobile: $tablet-product-item-width + $margin;
 
     .filter-option {
       $padding: 20px;
-
-      display: block;
 
       &:not(:last-child) {
         border-bottom: 1px solid $gray;

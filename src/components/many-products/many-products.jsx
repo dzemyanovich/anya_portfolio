@@ -21,9 +21,9 @@ export default class ManyProducts extends React.Component {
     };
   }
 
-  applyFilter(element) {
+  applyFilter(value) {
     this.setState({
-      currentCategory: element.target.value,
+      currentCategory: value,
     });
   }
 
@@ -35,21 +35,23 @@ export default class ManyProducts extends React.Component {
       <div className="many-products-wrapper">
         <div className="many-products-content">
           <div className="filter-panel">
-            {Object.keys(this.categories).map((key) => {
+            {Object.keys(this.categories).map((key, index) => {
               const value = this.categories[key];
+              const checked = currentCategory === value;
 
               return (
-                <span className="filter-option" key={key}>
-                  <input
-                    type="radio"
-                    id={key}
-                    name="product_category"
-                    value={value}
-                    defaultChecked={currentCategory === value ? 'checked' : false}
-                    onChange={this.applyFilter}
-                  />
-                  <label htmlFor={key}>{value}</label>
-                </span>
+                <div
+                  className={`filter-option ${checked ? 'checked' : ''}`}
+                  key={key}
+                  onClick={() => this.applyFilter(value)}
+                  role="radio"
+                  tabIndex={index}
+                  aria-checked={checked}
+                  aria-hidden="true"
+                >
+                  <div className="radio-button" />
+                  <div className="radio-label">{value}</div>
+                </div>
               );
             })}
           </div>
