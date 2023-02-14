@@ -1,11 +1,15 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 import './custom-link.scss';
 
-// todo: declare type instead of any
-export default function CustomLink({ to, className, children }: any) {
+type CustomLink = {
+  to: string,
+  className?: string,
+  children: React.ReactNode,
+}
+
+export default function CustomLink({ to, className = '', children }: CustomLink) {
   const navigate = useNavigate();
 
   function goTo() {
@@ -29,16 +33,3 @@ export default function CustomLink({ to, className, children }: any) {
     </div>
   );
 }
-
-CustomLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.string,
-  ]).isRequired,
-};
-
-CustomLink.defaultProps = {
-  className: '',
-};

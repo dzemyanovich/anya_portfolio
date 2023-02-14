@@ -2,13 +2,30 @@ import { post } from './rest';
 
 const TOKEN_VAR = 'token';
 let tokenValidated = false;
-let tokenValidatedResult: any = null;
+let tokenValidatedResult: boolean = null;
 
-export function login(password: any) {
+type LoginRequest = {
+  password: string,
+}
+
+type LoginResponse = {
+  isCorrectPassword: boolean,
+  token: string,
+}
+
+type ValidateTokenRequest = {
+  token: string,
+}
+
+type ValidateTokenResponse = {
+  isValidToken: boolean,
+}
+
+export function login(password: string): Promise<boolean> {
   return new Promise((resolve) => {
-    post(`${process.env.AUTH_API}/login`, {
+    post<LoginRequest, LoginResponse>(`${process.env.AUTH_API}/login`, {
       password,
-    }).then((data: any) => {
+    }).then((data: LoginResponse) => {
       if (data.isCorrectPassword) {
         localStorage.setItem(TOKEN_VAR, data.token);
         tokenValidated = true;
@@ -35,9 +52,9 @@ export function validateToken() {
       return;
     }
 
-    post(`${process.env.AUTH_API}/validate-token`, {
+    post<ValidateTokenRequest, ValidateTokenResponse>(`${process.env.AUTH_API}/validate-token`, {
       token,
-    }).then((data: any) => {
+    }).then((data: ValidateTokenResponse) => {
       tokenValidated = true;
       tokenValidatedResult = data.isValidToken;
 

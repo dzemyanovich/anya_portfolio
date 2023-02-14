@@ -1,14 +1,20 @@
 import * as React from 'react';
-// todo: do we need PropTypes when we have TypeScript?
-// import * as PropTypes from 'prop-types';
 
 import CustomLink from '../custom-link/custom-link';
 
 import './many-products.scss';
 
-// todo: do not use any
-export default class ManyProducts extends React.Component<any, any> {
-  constructor(props: any) { // todo: do not use any type
+type ManyProductsProps = {
+  categories: { [key: string]: string; },
+  products: Product[],
+}
+
+type ManyProductsState = {
+  currentCategory: string,
+}
+
+export default class ManyProducts extends React.Component<ManyProductsProps, ManyProductsState> {
+  constructor(props: ManyProductsProps) {
     super(props);
 
     this.categories = {
@@ -23,10 +29,9 @@ export default class ManyProducts extends React.Component<any, any> {
     };
   }
 
-  categories: any
+  categories: { [key: string]: string; }
 
-  // todo: do not use any
-  applyFilter(value: any) {
+  applyFilter(value: string) {
     this.setState({
       currentCategory: value,
     });
@@ -61,9 +66,8 @@ export default class ManyProducts extends React.Component<any, any> {
               );
             })}
           </div>
-          {/* todo: do not use any type */}
-          {products.filter((product: any) => currentCategory === categories.all || product.category === currentCategory)
-            .map((product: any, index: any) => (
+          {products.filter((product: Product) => currentCategory === categories.all || product.category === currentCategory)
+            .map((product: Product, index: number) => (
               <div className="product-item" key={`product_item_${index.toString()}`}>
                 <CustomLink to={product.path}>
                   <div className="product-image-container">
@@ -84,15 +88,3 @@ export default class ManyProducts extends React.Component<any, any> {
     );
   }
 }
-
-// todo: use typescript instead
-// ManyProducts.propTypes = {
-//   categories: PropTypes.objectOf(PropTypes.string).isRequired,
-//   products: PropTypes.arrayOf(PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     path: PropTypes.string.isRequired,
-//     imageSrc: PropTypes.string,
-//     category: PropTypes.string,
-//     year: PropTypes.number.isRequired,
-//   })).isRequired,
-// };

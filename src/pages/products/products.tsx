@@ -12,8 +12,21 @@ import oldComputer from '../../images/old-computer.png';
 import tooth from '../../images/tooth.png';
 import './products.scss';
 
-export default class Products extends React.Component<any, any> {
-  constructor(props: any) {
+type ProductsProps = {
+}
+
+type ProductsState = {
+  activePageIndex?: number,
+}
+
+type Company = {
+  name: string,
+  link: string,
+  image: string,
+}
+
+export default class Products extends React.Component<ProductsProps, ProductsState> {
+  constructor(props: ProductsProps) {
     super(props);
 
     this.allCompanyLinksRef = null;
@@ -28,8 +41,8 @@ export default class Products extends React.Component<any, any> {
     };
   }
 
-  allCompanyLinksRef: any
-  timeoutId: any
+  allCompanyLinksRef: HTMLDivElement
+  timeoutId: NodeJS.Timeout
 
   componentDidMount() {
     const self = this;
@@ -68,18 +81,19 @@ export default class Products extends React.Component<any, any> {
     this.allCompanyLinksRef.scrollLeft = window.scrollY * proportion;
   }
 
-  onMouseEnter(event: any) {
-    function getClassList(target: any) {
+  onMouseEnter(event: React.MouseEvent<HTMLElement>) {
+    function getClassList(target: HTMLElement) {
       let classList = '';
-      target.classList.forEach((className: any) => {
+      target.classList.forEach((className: string) => {
         classList = classList.concat(`.${className}`);
       });
       return classList;
     }
 
     const self = this;
-    const elementClassList = getClassList(event.target);
-    const parentClassList = getClassList(event.target.parentElement);
+    const htmlElement: HTMLElement = event.target as HTMLElement;
+    const elementClassList = getClassList(htmlElement);
+    const parentClassList = getClassList(htmlElement.parentElement);
 
     document.querySelectorAll(`${parentClassList} ${elementClassList}`).forEach((el, index) => {
       if (el === event.target) {
@@ -96,7 +110,7 @@ export default class Products extends React.Component<any, any> {
     });
   }
 
-  companyLink(text: any) {
+  companyLink(text: string) {
     return (
       <span
         className="link-text"
@@ -110,7 +124,7 @@ export default class Products extends React.Component<any, any> {
 
   render() {
     const { activePageIndex } = this.state;
-    const companies = [
+    const companies: Company[] = [
       {
         name: 'Adidas',
         link: '/products/adidas',
@@ -143,7 +157,7 @@ export default class Products extends React.Component<any, any> {
         <HomeLink />
         <div className="products-page">
           <div className="all-company-links" ref={el => { this.allCompanyLinksRef = el; }}>
-            {companies.map((company, index) => (
+            {companies.map((company: Company, index: number) => (
               <div className="company-link-container" key={`company-link-${index.toString()}`}>
                 <span className="company-link">
                   <CustomLink className="title" to={company.link}>

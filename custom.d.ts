@@ -17,3 +17,11 @@ declare module '*.svg' {
   const content: any;
   export default content;
 }
+
+type Product = {
+  category: string,
+  path: string,
+  imageSrc: string,
+  name: string,
+  year: number,
+}

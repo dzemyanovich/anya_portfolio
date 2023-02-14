@@ -1,4 +1,3 @@
-// todo: is that correct way for TypeScript?
 import * as React from 'react';
 
 import haviLandingPage from '../../../images/havi-landing-page.jpeg';

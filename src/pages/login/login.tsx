@@ -5,13 +5,22 @@ import { login } from '../../utils/auth';
 
 import './login.scss';
 
-function getUrlParam(name: any) {
+function getUrlParam(name: string) {
   const url = new URL(window.location.href);
   return url.searchParams.get(name);
 }
 
-export default class Login extends React.Component<any, any> {
-  constructor(props: any) {
+type LoginProps = {
+}
+
+type LoginState = {
+  password: string,
+  loading: boolean,
+  error: boolean,
+}
+
+export default class Login extends React.Component<LoginProps, LoginState> {
+  constructor(props: LoginProps) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,18 +28,20 @@ export default class Login extends React.Component<any, any> {
 
     this.state = {
       password: '',
+      loading: false,
+      error: false,
     };
   }
 
-  handleChange(event: any) {
+  handleChange(event: React.FormEvent<HTMLInputElement>) {
     this.setState({
-      password: event.target.value,
+      password: event.currentTarget.value,
       loading: false,
       error: false,
     });
   }
 
-  handleSubmit(event: any) {
+  handleSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
 
     const { password } = this.state;
@@ -39,7 +50,7 @@ export default class Login extends React.Component<any, any> {
     this.setState({
       loading: true,
     });
-    login(password).then((isPasswordCorrect) => {
+    login(password).then((isPasswordCorrect: boolean) => {
       if (isPasswordCorrect) {
         window.location.href = getUrlParam('returnUrl') || '/products/adidas';
       } else {

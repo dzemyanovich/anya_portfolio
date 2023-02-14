@@ -27,7 +27,7 @@ export function HaviContent() {
     productDesign: 'Product Design',
   };
 
-  const products = [
+  const products: Product[] = [
     {
       name: 'Supply Planning',
       path: '/products/havi/supply-planning',

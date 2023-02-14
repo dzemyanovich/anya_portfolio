@@ -1,6 +1,4 @@
 import * as React from 'react';
-// todo: use types
-// import * as PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
@@ -11,8 +9,22 @@ import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
 import swipeDown from '../../images/swipe-down.svg';
 
-export default class CompanyPage extends React.Component<any, any> {
-  constructor(props: any) {
+type CompanyPageProps = {
+  title: string,
+  header: JSX.Element,
+  content: JSX.Element,
+  className: string,
+}
+
+type CompanyPageState = {
+  isLoading: boolean,
+  isContentView: boolean,
+  isHomeLinkVisible: boolean,
+  isSwipeTipVisible: boolean,
+}
+
+export default class CompanyPage extends React.Component<CompanyPageProps, CompanyPageState> {
+  constructor(props: CompanyPageProps) {
     super(props);
 
     // need to add 0.5 in case to detect that scroll reached the end.
@@ -42,11 +54,11 @@ export default class CompanyPage extends React.Component<any, any> {
     };
   }
 
-  MAGIC_NUMBER: any
-  VISIBLE_MARGIN: any
-  companyPageRef: any
-  companyHeaderRef: any
-  timeoutId: any
+  MAGIC_NUMBER: number
+  VISIBLE_MARGIN: number
+  companyPageRef: HTMLDivElement
+  companyHeaderRef: HTMLDivElement
+  timeoutId: NodeJS.Timeout
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered
@@ -132,7 +144,7 @@ export default class CompanyPage extends React.Component<any, any> {
     }
   }
 
-  scrollLeftRight(event: any) {
+  scrollLeftRight(event: WheelEvent) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -145,7 +157,7 @@ export default class CompanyPage extends React.Component<any, any> {
 
     this.setState({
       isHomeLinkVisible: companyPageRef.offsetWidth + companyPageRef.scrollLeft
-        + this.VISIBLE_MARGIN >= companyPageRef.COMMENT_NODEscrollWidth,
+        + this.VISIBLE_MARGIN >= companyPageRef.scrollWidth,
     });
 
     if (companyPageRef.offsetWidth + companyPageRef.scrollLeft + this.MAGIC_NUMBER >= companyPageRef.scrollWidth) {
@@ -158,7 +170,7 @@ export default class CompanyPage extends React.Component<any, any> {
     }
   }
 
-  scrollUpDown(event: any) {
+  scrollUpDown(event: WheelEvent) {
     const { companyHeaderRef } = this;
     const marginTop = parseInt(companyHeaderRef.style.marginTop, 10) || 0;
 
@@ -255,10 +267,3 @@ export default class CompanyPage extends React.Component<any, any> {
     );
   }
 }
-
-// CompanyPage.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   header: PropTypes.element.isRequired,
-//   content: PropTypes.element.isRequired,
-//   className: PropTypes.string.isRequired,
-// };

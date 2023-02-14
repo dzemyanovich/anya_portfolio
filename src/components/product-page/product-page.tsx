@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import * as PropTypes from 'prop-types';
 
 import HomeLink from '../home-link/home-link';
 import { resetScroll, isTouchDevice } from '../../utils/utils';
@@ -8,7 +7,11 @@ import { HOME_LINK_VISIBLE } from '../../utils/global-vars';
 
 import './product-page.scss';
 
-export default function ProductPage({ children }: any) {
+type ProductPage = {
+  children: React.ReactNode,
+}
+
+export default function ProductPage({ children }: ProductPage) {
   useEffect(resetScroll);
 
   const homeLinkRef = useRef(null);
@@ -16,7 +19,7 @@ export default function ProductPage({ children }: any) {
   useEffect(() => {
     async function toggleHomeLink() {
       // class name is hardcoded because it belongs to children elemens
-      const sectionContainer: any = document.querySelector('.section-container'); // todo: do not use any
+      const sectionContainer: HTMLElement  = document.querySelector<HTMLElement>('.section-container');
       const visible = window.scrollY < sectionContainer.offsetHeight * HOME_LINK_VISIBLE;
 
       if (visible) {
@@ -51,7 +54,3 @@ export default function ProductPage({ children }: any) {
     </div>
   );
 }
-
-ProductPage.propTypes = {
-  children: PropTypes.element.isRequired,
-};

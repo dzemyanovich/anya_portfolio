@@ -28,8 +28,7 @@ export function AdidasContent() {
     productDesign: 'Product Design',
   };
 
-  // todo: do not use any
-  const products: any = [
+  const products: Product[] = [
     {
       name: 'Design Ops',
       // eslint-disable-next-line max-len

@@ -1,8 +1,8 @@
 export default {
-  start: () => {
+  start: (): void => {
     document.body.classList.add('no-scroll');
   },
-  end: () => {
+  end: (): void => {
     document.body.classList.remove('no-scroll');
   },
 };

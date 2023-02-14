@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import * as PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 
 import { validateToken } from '../../utils/auth';
 
-// todo: do not use any type
-export default function UnauthenticatedRouteOnly({ children }: any) {
+type UnauthenticatedRouteOnly = {
+  children: React.ReactNode,
+}
+
+export default function UnauthenticatedRouteOnly({ children }: UnauthenticatedRouteOnly): JSX.Element {
   const [isValidToken, initValidToken] = useState(null);
   const [isLoading, initLoading] = useState(true);
 
@@ -28,9 +30,5 @@ export default function UnauthenticatedRouteOnly({ children }: any) {
     return <Navigate to="/" replace />;
   }
 
-  return children;
+  return children as JSX.Element;
 }
-
-UnauthenticatedRouteOnly.propTypes = {
-  children: PropTypes.element.isRequired,
-};
