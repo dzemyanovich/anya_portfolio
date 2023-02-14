@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 import './custom-link.scss';
 
-export default function CustomLink({ to, className, children }) {
+// todo: declare type instead of any
+export default function CustomLink({ to, className, children }: any) {
   const navigate = useNavigate();
 
   function goTo() {
@@ -22,7 +23,7 @@ export default function CustomLink({ to, className, children }) {
       className={`custom-link ${className}`}
       onClick={goTo}
       onKeyDown={goTo}
-      href={to}
+      // href={to} // todo: linting might require href attribute to be present
     >
       {children}
     </div>

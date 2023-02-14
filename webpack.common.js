@@ -5,6 +5,7 @@ const path = require('path');
 module.exports = {
   context: __dirname,
   entry: './src/index.jsx',
+  devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
     publicPath: '/',
@@ -18,6 +19,10 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
       },
       {
         test: /\.css$/,
@@ -34,7 +39,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.tsx'],
   },
   plugins: [
     new HtmlWebPackPlugin({

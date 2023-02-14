@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import HomeLink from '../../components/home-link/home-link';
 import CustomLink from '../../components/custom-link/custom-link';

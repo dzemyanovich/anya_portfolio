@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import CustomLink from '../custom-link/custom-link';
 
