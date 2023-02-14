@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import tooth from '../../images/tooth.png';
 import zensuppliesMobileImage from '../../images/zensupplies-mobile.jpeg';
@@ -7,17 +7,19 @@ import zensuppliesDesktopImage from '../../images/zensupplies-desktop.jpeg';
 import './zensupplies.scss';
 
 export function ZensuppliesHeader() {
-  return [
-    <img src={tooth} alt="" className="company-image" key="company-image" />,
-    <div className="company-info" key="company-info">
-      <div className="paragraph-title">About company</div>
-      <div className="paragraph-content">
-        ZenSupplies is an innovative inventory management software for dental professionals, designed to help
-        organize and radically simplify a dental practice&apos;s processes, so you can spend less time managing
-        your inventory, and more time managing your practice.
+  return (
+    <React.Fragment>
+      <img src={tooth} alt="" className="company-image" />
+      <div className="company-info">
+        <div className="paragraph-title">About company</div>
+        <div className="paragraph-content">
+          ZenSupplies is an innovative inventory management software for dental professionals, designed to help
+          organize and radically simplify a dental practice&apos;s processes, so you can spend less time managing
+          your inventory, and more time managing your practice.
+        </div>
       </div>
-    </div>,
-  ];
+    </React.Fragment>
+  );
 }
 
 export function ZensuppliesContent() {

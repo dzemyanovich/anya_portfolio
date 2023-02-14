@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
@@ -39,7 +39,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.tsx'],
+    extensions: ['', '.js', '.jsx', '.tsx', '.ts'],
   },
   plugins: [
     new HtmlWebPackPlugin({

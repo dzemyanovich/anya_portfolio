@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
 import { Outlet, BrowserRouter, Routes, Route, useParams, Navigate } from 'react-router-dom';
 import Favicon from 'react-favicon';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import ManyProducts from '../../components/many-products/many-products';
 
@@ -7,19 +7,21 @@ import haviLogo from '../../images/havi-logo.png';
 import eventOptimizerBackground from '../../images/event-optimizer-background.png';
 
 export function McdonaldsHeader() {
-  return [
-    <img src={image} alt="" className="company-image" key="company-image" />,
-    <div className="company-info" key="company-info">
-      <div className="paragraph-title">About company</div>
-      <div className="paragraph-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-        augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-        placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-        sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-        sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
+  return (
+    <React.Fragment>
+      <img src={image} alt="" className="company-image" />
+      <div className="company-info">
+        <div className="paragraph-title">About company</div>
+        <div className="paragraph-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
+          augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
+          placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
+          sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
+          sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
+        </div>
       </div>
-    </div>,
-  ];
+    </React.Fragment>
+  );
 }
 
 export function McdonaldsContent() {

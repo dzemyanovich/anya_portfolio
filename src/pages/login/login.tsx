@@ -1,17 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 
 import HomeLink from '../../components/home-link/home-link';
 import { login } from '../../utils/auth';
 
 import './login.scss';
 
-function getUrlParam(name) {
+function getUrlParam(name: any) {
   const url = new URL(window.location.href);
   return url.searchParams.get(name);
 }
 
-export default class Login extends React.Component {
-  constructor(props) {
+export default class Login extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +22,7 @@ export default class Login extends React.Component {
     };
   }
 
-  handleChange(event) {
+  handleChange(event: any) {
     this.setState({
       password: event.target.value,
       loading: false,
@@ -30,7 +30,7 @@ export default class Login extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit(event: any) {
     event.preventDefault();
 
     const { password } = this.state;
@@ -71,7 +71,9 @@ export default class Login extends React.Component {
               onChange={this.handleChange}
               className={`password-input ${error ? 'error' : ''}`}
               placeholder="password"
-              autoFocus="autofocus"
+              // todo: ensure that we can use boolena instead of string
+              // autoFocus="autofocus"
+              autoFocus={true}
             />
           </form>
         </div>

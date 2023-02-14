@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import CustomLink from '../../components/custom-link/custom-link';
 import HomeLink from '../../components/home-link/home-link';
@@ -12,8 +12,8 @@ import oldComputer from '../../images/old-computer.png';
 import tooth from '../../images/tooth.png';
 import './products.scss';
 
-export default class Products extends React.Component {
-  constructor(props) {
+export default class Products extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
 
     this.allCompanyLinksRef = null;
@@ -27,6 +27,9 @@ export default class Products extends React.Component {
       activePageIndex: null,
     };
   }
+
+  allCompanyLinksRef: any
+  timeoutId: any
 
   componentDidMount() {
     const self = this;
@@ -65,10 +68,10 @@ export default class Products extends React.Component {
     this.allCompanyLinksRef.scrollLeft = window.scrollY * proportion;
   }
 
-  onMouseEnter(event) {
-    function getClassList(target) {
+  onMouseEnter(event: any) {
+    function getClassList(target: any) {
       let classList = '';
-      target.classList.forEach((className) => {
+      target.classList.forEach((className: any) => {
         classList = classList.concat(`.${className}`);
       });
       return classList;
@@ -93,7 +96,7 @@ export default class Products extends React.Component {
     });
   }
 
-  companyLink(text) {
+  companyLink(text: any) {
     return (
       <span
         className="link-text"

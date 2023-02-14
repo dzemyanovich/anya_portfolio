@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import ManyProducts from '../../components/many-products/many-products';
 
@@ -7,16 +7,18 @@ import haviLandingLogo from '../../images/havi-landing-logo.png';
 import supplyPlanningLogo from '../../images/supply-planning-logo.jpeg';
 
 export function HaviHeader() {
-  return [
-    <img src={haviLogo} alt="" className="company-image" key="company-image" />,
-    <div className="company-info" key="company-info">
-      <div className="paragraph-title">About company</div>
-      <div className="paragraph-content">
-        HAVI is a global, privately owned company focused on innovating, optimizing and managing the supply
-        chains of leading brands.
+  return (
+    <React.Fragment>
+      <img src={haviLogo} alt="" className="company-image" />
+      <div className="company-info">
+        <div className="paragraph-title">About company</div>
+        <div className="paragraph-content">
+          HAVI is a global, privately owned company focused on innovating, optimizing and managing the supply
+          chains of leading brands.
+        </div>
       </div>
-    </div>,
-  ];
+    </React.Fragment>
+  );
 }
 
 export function HaviContent() {

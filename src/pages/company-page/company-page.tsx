@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+// todo: use types
+// import * as PropTypes from 'prop-types';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
@@ -10,8 +11,8 @@ import './company-page.scss';
 import swipeLeft from '../../images/swipe-left.svg';
 import swipeDown from '../../images/swipe-down.svg';
 
-export default class CompanyPage extends React.Component {
-  constructor(props) {
+export default class CompanyPage extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
 
     // need to add 0.5 in case to detect that scroll reached the end.
@@ -40,6 +41,12 @@ export default class CompanyPage extends React.Component {
       isSwipeTipVisible: false,
     };
   }
+
+  MAGIC_NUMBER: any
+  VISIBLE_MARGIN: any
+  companyPageRef: any
+  companyHeaderRef: any
+  timeoutId: any
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered
@@ -75,8 +82,8 @@ export default class CompanyPage extends React.Component {
       this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);
     } else {
-      window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
-      window.removeEventListener('wheel', this.scrollUpDown, { passive: false });
+      window.removeEventListener('wheel', this.scrollLeftRight);
+      window.removeEventListener('wheel', this.scrollUpDown);
     }
   }
 
@@ -125,7 +132,7 @@ export default class CompanyPage extends React.Component {
     }
   }
 
-  scrollLeftRight(event) {
+  scrollLeftRight(event: any) {
     event.preventDefault();
     event.stopPropagation();
 
@@ -142,7 +149,7 @@ export default class CompanyPage extends React.Component {
     });
 
     if (companyPageRef.offsetWidth + companyPageRef.scrollLeft + this.MAGIC_NUMBER >= companyPageRef.scrollWidth) {
-      window.removeEventListener('wheel', this.scrollLeftRight, { passive: false });
+      window.removeEventListener('wheel', this.scrollLeftRight);
       window.addEventListener('wheel', this.scrollUpDown, { passive: false });
 
       this.setState({
@@ -151,7 +158,7 @@ export default class CompanyPage extends React.Component {
     }
   }
 
-  scrollUpDown(event) {
+  scrollUpDown(event: any) {
     const { companyHeaderRef } = this;
     const marginTop = parseInt(companyHeaderRef.style.marginTop, 10) || 0;
 
@@ -190,7 +197,7 @@ export default class CompanyPage extends React.Component {
       companyHeaderRef.style.marginTop = `${newMarginTop}px`;
 
       if (newMarginTop === 0) {
-        window.removeEventListener('wheel', this.scrollUpDown, { passive: false });
+        window.removeEventListener('wheel', this.scrollUpDown);
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
 
         this.setState({
@@ -249,9 +256,9 @@ export default class CompanyPage extends React.Component {
   }
 }
 
-CompanyPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  header: PropTypes.element.isRequired,
-  content: PropTypes.element.isRequired,
-  className: PropTypes.string.isRequired,
-};
+// CompanyPage.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   header: PropTypes.element.isRequired,
+//   content: PropTypes.element.isRequired,
+//   className: PropTypes.string.isRequired,
+// };

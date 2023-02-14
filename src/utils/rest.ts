@@ -1,4 +1,4 @@
-export function post(url, data) {
+export function post(url: any, data: any) {
   return new Promise((resolve) => {
     fetch(url, {
       method: 'POST',

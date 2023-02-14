@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import oldComputer from '../../images/old-computer.png';
 import aboutImage from '../../images/design-portfolio-hints.png';
@@ -6,19 +6,21 @@ import resultsImage from '../../images/design-portfolio-code.png';
 import transitionImage from '../../images/design-portfolio-components.jpeg';
 
 export function EpamSystemsHeader() {
-  return [
-    <img src={oldComputer} alt="" className="company-image" key="company-image" />,
-    <div className="company-info" key="company-info">
-      <div className="paragraph-title">About company</div>
-      <div className="paragraph-content">
-        EPAM Systems is a leading global product development, digital platform engineering, and top digital
-        and product design agency. EPAM&apos;s global teams serve customers in more than 35 countries across North
-        America, Europe, Asia, and Australia. EPAM was one of only four technology companies to appear on
-        Forbes 25 Fastest Growing Public Tech Companies list every year of publication since 2013 and ranked
-        as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020.
+  return (
+    <React.Fragment>
+      <img src={oldComputer} alt="" className="company-image" />
+      <div className="company-info">
+        <div className="paragraph-title">About company</div>
+        <div className="paragraph-content">
+          EPAM Systems is a leading global product development, digital platform engineering, and top digital
+          and product design agency. EPAM&apos;s global teams serve customers in more than 35 countries across North
+          America, Europe, Asia, and Australia. EPAM was one of only four technology companies to appear on
+          Forbes 25 Fastest Growing Public Tech Companies list every year of publication since 2013 and ranked
+          as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020.
+        </div>
       </div>
-    </div>,
-  ];
+    </React.Fragment>
+  );
 }
 
 export function EpamSystemsContent() {

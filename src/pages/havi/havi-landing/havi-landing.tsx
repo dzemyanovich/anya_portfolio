@@ -1,9 +1,10 @@
-import React from 'react';
+// todo: is that correct way for TypeScript?
+import * as React from 'react';
 
 import haviLandingPage from '../../../images/havi-landing-page.jpeg';
 
 export function HaviLanding() {
-  return [
+  return (
     <div className="section-container" key="section-1">
       <div className="section">
         <div className="paragraph">
@@ -47,6 +48,6 @@ export function HaviLanding() {
       <div className="section-image-container">
         <img src={haviLandingPage} alt="" className="section-image" />
       </div>
-    </div>,
-  ];
+    </div>
+  );
 }
