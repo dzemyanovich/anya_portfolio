@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import * as PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 
 import { validateToken } from '../../utils/auth';
 
-export default function UnauthenticatedRouteOnly({ children }) {
+// todo: do not use any type
+export default function UnauthenticatedRouteOnly({ children }: any) {
   const [isValidToken, initValidToken] = useState(null);
   const [isLoading, initLoading] = useState(true);
 
