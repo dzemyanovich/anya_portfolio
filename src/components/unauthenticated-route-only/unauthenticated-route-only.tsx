@@ -6,7 +6,7 @@ import { validateToken } from '../../utils/auth';
 
 type UnauthenticatedRouteOnly = {
   children: React.ReactNode,
-}
+};
 
 export default function UnauthenticatedRouteOnly({ children }: UnauthenticatedRouteOnly): JSX.Element {
   const [isValidToken, initValidToken] = useState(null);

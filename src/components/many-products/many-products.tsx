@@ -7,13 +7,15 @@ import './many-products.scss';
 type ManyProductsProps = {
   categories: { [key: string]: string; },
   products: Product[],
-}
+};
 
 type ManyProductsState = {
   currentCategory: string,
-}
+};
 
 export default class ManyProducts extends React.Component<ManyProductsProps, ManyProductsState> {
+  categories: { [key: string]: string; };
+
   constructor(props: ManyProductsProps) {
     super(props);
 
@@ -28,8 +30,6 @@ export default class ManyProducts extends React.Component<ManyProductsProps, Man
       currentCategory: this.categories.all,
     };
   }
-
-  categories: { [key: string]: string; }
 
   applyFilter(value: string) {
     this.setState({
@@ -66,7 +66,8 @@ export default class ManyProducts extends React.Component<ManyProductsProps, Man
               );
             })}
           </div>
-          {products.filter((product: Product) => currentCategory === categories.all || product.category === currentCategory)
+          {products
+            .filter((product: Product) => currentCategory === categories.all || product.category === currentCategory)
             .map((product: Product, index: number) => (
               <div className="product-item" key={`product_item_${index.toString()}`}>
                 <CustomLink to={product.path}>

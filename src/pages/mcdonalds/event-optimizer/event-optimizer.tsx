@@ -14,7 +14,7 @@ import eventOptimizerHavi from '../../../images/event-optimizer-havi.jpeg';
 
 export function EventOptimizer() {
   return (
-    <React.Fragment>
+    <>
       <div className="section-container reverse">
         <div className="section-image-container">
           <img src={haviLogo} alt="" className="section-image" />
@@ -26,10 +26,11 @@ export function EventOptimizer() {
             <div className="paragraph-content">
               Event Optimizer is an information management platform for the Quick-Service Restaurant (QSR) industry
               dedicated to collect, visually track and analyze key data points of McDonald&apos;s & Subway (stock /
-              sales / results of previous promotions / inventory / risks, etc.) As a result, the tool provides automated
-              intelligent forecasting based on data science. The tool is fully customizable to meet the specific needs
-              of a department and company as well as deliver meaningful insights and actionable analytics for suppliers,
-              senior management & planners and allows to visualize, analyze and compare data for a better decision-making.
+              sales / results of previous promotions / inventory / risks, etc.) As a result, the tool provides
+              automated intelligent forecasting based on data science. The tool is fully customizable to meet the
+              specific needs of a department and company as well as deliver meaningful insights and actionable
+              analytics for suppliers, senior management & planners and allows to visualize, analyze and compare
+              data for a better decision-making.
             </div>
           </div>
         </div>
@@ -105,8 +106,8 @@ export function EventOptimizer() {
           <div className="paragraph">
             <div className="paragraph-title">Kick-off & workshops</div>
             <div className="paragraph-content">
-              During the series of workshops, we aligned all stakeholders by sharing common goals, vision and objectives.
-              Specified measurable success criteria for the project and gathered initial data
+              During the series of workshops, we aligned all stakeholders by sharing common goals, vision and
+              objectives. Specified measurable success criteria for the project and gathered initial data
             </div>
           </div>
           <div className="paragraph">
@@ -177,6 +178,6 @@ export function EventOptimizer() {
       <div className="section-container">
         <img src={eventOptimizerHavi} alt="" className="transition-image" />
       </div>
-    </React.Fragment>
+    </>
   );
 }

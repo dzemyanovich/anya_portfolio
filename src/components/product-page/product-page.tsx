@@ -9,17 +9,17 @@ import './product-page.scss';
 
 type ProductPage = {
   children: React.ReactNode,
-}
+};
 
 export default function ProductPage({ children }: ProductPage) {
   useEffect(resetScroll);
 
-  const homeLinkRef = useRef(null);
+  const homeLinkRef: React.MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   useEffect(() => {
-    async function toggleHomeLink() {
+    function toggleHomeLink() {
       // class name is hardcoded because it belongs to children elemens
-      const sectionContainer: HTMLElement  = document.querySelector<HTMLElement>('.section-container');
+      const sectionContainer: HTMLElement = document.querySelector<HTMLElement>('.section-container');
       const visible = window.scrollY < sectionContainer.offsetHeight * HOME_LINK_VISIBLE;
 
       if (visible) {

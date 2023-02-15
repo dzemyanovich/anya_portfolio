@@ -6,7 +6,7 @@ import { validateToken } from '../../utils/auth';
 
 type ProtectedRoute = {
   children: React.ReactNode,
-}
+};
 
 export default function ProtectedRoute({ children }: ProtectedRoute): JSX.Element {
   const [isValidToken, initValidToken] = useState(null);

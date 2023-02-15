@@ -7,9 +7,9 @@ type CustomLink = {
   to: string,
   className?: string,
   children: React.ReactNode,
-}
+};
 
-export default function CustomLink({ to, className = '', children }: CustomLink) {
+export default function CustomLink({ to, className, children }: CustomLink) {
   const navigate = useNavigate();
 
   function goTo() {
@@ -27,9 +27,13 @@ export default function CustomLink({ to, className = '', children }: CustomLink)
       className={`custom-link ${className}`}
       onClick={goTo}
       onKeyDown={goTo}
-      // href={to} // todo: linting might require href attribute to be present
+      data-href={to}
     >
       {children}
     </div>
   );
 }
+
+CustomLink.defaultProps = {
+  className: '',
+};

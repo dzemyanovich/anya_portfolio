@@ -8,7 +8,7 @@ import supplyPlanningLogo from '../../images/supply-planning-logo.jpeg';
 
 export function HaviHeader() {
   return (
-    <React.Fragment>
+    <>
       <img src={haviLogo} alt="" className="company-image" />
       <div className="company-info">
         <div className="paragraph-title">About company</div>
@@ -17,7 +17,7 @@ export function HaviHeader() {
           chains of leading brands.
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

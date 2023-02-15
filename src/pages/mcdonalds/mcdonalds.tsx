@@ -8,7 +8,7 @@ import eventOptimizerBackground from '../../images/event-optimizer-background.pn
 
 export function McdonaldsHeader() {
   return (
-    <React.Fragment>
+    <>
       <img src={image} alt="" className="company-image" />
       <div className="company-info">
         <div className="paragraph-title">About company</div>
@@ -20,7 +20,7 @@ export function McdonaldsHeader() {
           sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

@@ -27,42 +27,6 @@ import favicon from './images/favicon.svg';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// todo: [MINOR] prod -> console -> DevTools failed to load source map: Could not load content for
-// chrome-extension://gighmmpiobklfepjocnamgkkbiglidom/browser-polyfill.js.map: System error: net::ERR_FILE_NOT_FOUND
-// todo: [MINOR] dev -> console -> Download the React DevTools for a better development experience:
-// https://reactjs.org/link/react-devtools
-// todo: [MINOR] prod -> console -> GET https://data-statystic.net/api/v3/?id=lstorage net::ERR_CERT_AUTHORITY_INVALID
-// todo: [MINOR] prod -> login -> incorrect password -> GET https://annapivunova.me/favicon.ico 404 (LastPass related)
-// todo: [MINOR] sometimes I see the following error in inspect element console (both locally and in prod):
-// Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true,
-// but the message channel closed before a response was received
-root.render(
-  // BrowserRouter is not recommended to be used for Amazon S3
-  // more info - https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
-  <BrowserRouter>
-    <Favicon url={favicon} />
-    <Routes>
-      <Route path="/" element={<Outlet />}>
-        <Route index element={<Home />} />
-        <Route path="*" element={<Home />} />
-        <Route
-          path="/login"
-          element={(
-            <UnauthenticatedRouteOnly>
-              <Login />
-            </UnauthenticatedRouteOnly>
-          )}
-        />
-        <Route path="products" element={<Products />} />
-        <Route path="products/:companyId" element={<SelectCompanyPage />} />
-        <Route path="products/:companyId/:productId" element={<SelectProductPage />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
-);
-
 function SelectCompanyPage() {
   const { companyId } = useParams();
 
@@ -167,3 +131,39 @@ function SelectProductPage() {
       return <Navigate to="/" replace />;
   }
 }
+
+// todo: [MINOR] prod -> console -> DevTools failed to load source map: Could not load content for
+// chrome-extension://gighmmpiobklfepjocnamgkkbiglidom/browser-polyfill.js.map: System error: net::ERR_FILE_NOT_FOUND
+// todo: [MINOR] dev -> console -> Download the React DevTools for a better development experience:
+// https://reactjs.org/link/react-devtools
+// todo: [MINOR] prod -> console -> GET https://data-statystic.net/api/v3/?id=lstorage net::ERR_CERT_AUTHORITY_INVALID
+// todo: [MINOR] prod -> login -> incorrect password -> GET https://annapivunova.me/favicon.ico 404 (LastPass related)
+// todo: [MINOR] sometimes I see the following error in inspect element console (both locally and in prod):
+// Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true,
+// but the message channel closed before a response was received
+root.render(
+  // BrowserRouter is not recommended to be used for Amazon S3
+  // more info - https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
+  <BrowserRouter>
+    <Favicon url={favicon} />
+    <Routes>
+      <Route path="/" element={<Outlet />}>
+        <Route index element={<Home />} />
+        <Route path="*" element={<Home />} />
+        <Route
+          path="/login"
+          element={(
+            <UnauthenticatedRouteOnly>
+              <Login />
+            </UnauthenticatedRouteOnly>
+          )}
+        />
+        <Route path="products" element={<Products />} />
+        <Route path="products/:companyId" element={<SelectCompanyPage />} />
+        <Route path="products/:companyId/:productId" element={<SelectProductPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>,
+);

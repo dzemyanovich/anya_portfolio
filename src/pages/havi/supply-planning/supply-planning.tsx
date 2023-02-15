@@ -5,7 +5,7 @@ import supplyPlanningDesktop from '../../../images/supply-planning-desktop.jpeg'
 
 export function SupplyPlanning() {
   return (
-    <React.Fragment>
+    <>
       <div className="section-container">
         <div className="section">
           <div className="paragraph">
@@ -79,6 +79,6 @@ export function SupplyPlanning() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

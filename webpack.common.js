@@ -17,10 +17,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/, // todo: do we need this loader?
-        use: 'babel-loader',
-      },
-      {
         test: /\.tsx?$/,
         use: 'ts-loader',
       },
@@ -39,7 +35,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.tsx', '.ts'],
+    extensions: ['', '.tsx', '.ts'],
   },
   plugins: [
     new HtmlWebPackPlugin({

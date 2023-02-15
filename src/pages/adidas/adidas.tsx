@@ -6,7 +6,7 @@ import adidasShoe from '../../images/adidas-shoe.jpg';
 
 export function AdidasHeader() {
   return (
-    <React.Fragment>
+    <>
       <img src={adidasShoe} alt="" className="company-image" />
       <div className="company-info">
         <div className="paragraph-title">About company</div>
@@ -18,7 +18,7 @@ export function AdidasHeader() {
           sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

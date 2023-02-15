@@ -9,18 +9,18 @@ import designLeadershipMcdonalds from '../../../images/design-leadership-mcdonal
 
 export function DesignLeadership() {
   return (
-    <React.Fragment>
+    <>
       <div className="section-container">
         <div className="section">
           <div className="paragraph">
             <div className="product-title">Design Process</div>
             <div className="paragraph-title">Customer collaboration</div>
             <div className="paragraph-content">
-              We were able to provide perfect visibility, efficiency and planning based on the team velocity via applying
-              agile to the design team at enterprise scale. I created the predictable and iterative schedule of regular
-              sync-up sessions where the team shares their progress, discusses priorities and justifies the ideas and
-              concepts using collected research data or UX best practices. Each agreement or iteration is properly
-              documented, estimated and converted to action items or tasks.
+              We were able to provide perfect visibility, efficiency and planning based on the team velocity via
+              applying agile to the design team at enterprise scale. I created the predictable and iterative
+              schedule of regular sync-up sessions where the team shares their progress, discusses priorities
+              and justifies the ideas and concepts using collected research data or UX best practices. Each
+              agreement or iteration is properly documented, estimated and converted to action items or tasks.
             </div>
           </div>
           <div className="paragraph">
@@ -104,6 +104,6 @@ export function DesignLeadership() {
       <div className="section-container">
         <img src={designLeadershipMcdonalds} alt="" className="transition-image" />
       </div>
-    </React.Fragment>
+    </>
   );
 }

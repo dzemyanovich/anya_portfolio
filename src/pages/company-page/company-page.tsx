@@ -14,16 +14,22 @@ type CompanyPageProps = {
   header: JSX.Element,
   content: JSX.Element,
   className: string,
-}
+};
 
 type CompanyPageState = {
   isLoading: boolean,
   isContentView: boolean,
   isHomeLinkVisible: boolean,
   isSwipeTipVisible: boolean,
-}
+};
 
 export default class CompanyPage extends React.Component<CompanyPageProps, CompanyPageState> {
+  MAGIC_NUMBER: number;
+  VISIBLE_MARGIN: number;
+  companyPageRef: HTMLDivElement;
+  companyHeaderRef: HTMLDivElement;
+  timeoutId: NodeJS.Timeout;
+
   constructor(props: CompanyPageProps) {
     super(props);
 
@@ -53,12 +59,6 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
       isSwipeTipVisible: false,
     };
   }
-
-  MAGIC_NUMBER: number
-  VISIBLE_MARGIN: number
-  companyPageRef: HTMLDivElement
-  companyHeaderRef: HTMLDivElement
-  timeoutId: NodeJS.Timeout
 
   componentDidMount() {
     // hack: sometimes content of the page is not centered

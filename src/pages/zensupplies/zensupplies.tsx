@@ -8,7 +8,7 @@ import './zensupplies.scss';
 
 export function ZensuppliesHeader() {
   return (
-    <React.Fragment>
+    <>
       <img src={tooth} alt="" className="company-image" />
       <div className="company-info">
         <div className="paragraph-title">About company</div>
@@ -18,7 +18,7 @@ export function ZensuppliesHeader() {
           your inventory, and more time managing your practice.
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

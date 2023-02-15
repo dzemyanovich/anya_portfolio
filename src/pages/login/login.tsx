@@ -11,13 +11,13 @@ function getUrlParam(name: string) {
 }
 
 type LoginProps = {
-}
+};
 
 type LoginState = {
   password: string,
   loading: boolean,
   error: boolean,
-}
+};
 
 export default class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
@@ -82,9 +82,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
               onChange={this.handleChange}
               className={`password-input ${error ? 'error' : ''}`}
               placeholder="password"
-              // todo: ensure that we can use boolena instead of string
-              // autoFocus="autofocus"
-              autoFocus={true}
+              autoFocus
             />
           </form>
         </div>

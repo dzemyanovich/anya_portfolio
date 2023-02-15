@@ -69,7 +69,7 @@ describe('products page', () => {
 
   it('click on each company link', () => {
     cy.get('.company-link [role=link]').each((el) => {
-      cy.visit(`${DOMAIN}${el.attr('href')}`);
+      cy.visit(`${DOMAIN}${el.attr('data-href')}`);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
 

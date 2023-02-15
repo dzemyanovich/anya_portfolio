@@ -8,7 +8,7 @@ export function post<T, Y>(url: string, data: T): Promise<Y> {
       body: JSON.stringify(data),
     }).then((response) => {
       response.text().then((text) => {
-        const responseData = text && JSON.parse(text);
+        const responseData: Y = text && JSON.parse(text);
         resolve(responseData);
       });
     });

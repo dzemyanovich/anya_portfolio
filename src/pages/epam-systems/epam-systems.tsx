@@ -7,7 +7,7 @@ import transitionImage from '../../images/design-portfolio-components.jpeg';
 
 export function EpamSystemsHeader() {
   return (
-    <React.Fragment>
+    <>
       <img src={oldComputer} alt="" className="company-image" />
       <div className="company-info">
         <div className="paragraph-title">About company</div>
@@ -19,7 +19,7 @@ export function EpamSystemsHeader() {
           as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020.
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

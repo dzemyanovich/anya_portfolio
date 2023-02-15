@@ -13,19 +13,22 @@ import tooth from '../../images/tooth.png';
 import './products.scss';
 
 type ProductsProps = {
-}
+};
 
 type ProductsState = {
   activePageIndex?: number,
-}
+};
 
 type Company = {
   name: string,
   link: string,
   image: string,
-}
+};
 
 export default class Products extends React.Component<ProductsProps, ProductsState> {
+  allCompanyLinksRef: HTMLDivElement;
+  timeoutId: NodeJS.Timeout;
+
   constructor(props: ProductsProps) {
     super(props);
 
@@ -40,9 +43,6 @@ export default class Products extends React.Component<ProductsProps, ProductsSta
       activePageIndex: null,
     };
   }
-
-  allCompanyLinksRef: HTMLDivElement
-  timeoutId: NodeJS.Timeout
 
   componentDidMount() {
     const self = this;
