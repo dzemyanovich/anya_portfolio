@@ -3,6 +3,7 @@ dist_dev/
 dist_preprod/
 dist_prod/
 .terraform/
+coverage/
 
 yarn-error.log
 .DS_Store
