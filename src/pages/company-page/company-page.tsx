@@ -197,12 +197,11 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
       ? event.deltaY
       : event.deltaX;
 
-    let newMarginTop = null;
     if ((move > 0 && Math.abs(marginTop) < companyHeaderRef.offsetHeight) || (move < 0 && marginTop < 0)) {
       event.preventDefault();
       event.stopPropagation();
 
-      newMarginTop = marginTop - move;
+      let newMarginTop = marginTop - move;
       if (newMarginTop > 0) {
         newMarginTop = 0;
       }
