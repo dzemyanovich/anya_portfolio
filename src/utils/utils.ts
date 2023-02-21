@@ -1,4 +1,4 @@
-const MAX_MOBILE_WIDTH = 600; // must be equal to var $max-mobile-width in scss
+import { MAX_MOBILE_WIDTH } from './global-vars';
 
 const isWindowsValue: boolean = navigator.platform.indexOf('Win') > -1;
 const isMobileValue: boolean = window.innerWidth <= MAX_MOBILE_WIDTH;

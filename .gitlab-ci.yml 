@@ -1,0 +1,37 @@
+image: node:latest
+
+stages:
+  - build
+  - lint
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - yarn
+    - yarn build-prod
+
+lint:
+  stage: lint
+  script:
+    - yarn lint
+
+stylelint:
+  stage: lint
+  script:
+    - yarn stylelint
+
+test:
+  stage: test
+  script:
+    - yarn test
+
+deploy:
+  stage: deploy
+  script: echo "Define your deployment script!"
+  environment: production
