@@ -1,4 +1,21 @@
+# This file is a template, and might need editing before it works on your project.
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Nodejs.gitlab-ci.yml
+
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
 image: node:latest
+
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: https://docs.gitlab.com/ee/ci/services/index.html
+# services:
+#  - mysql:latest
 
 stages:
   - build
@@ -6,32 +23,46 @@ stages:
   - test
   - deploy
 
+# This folder is cached between builds
+# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
 cache:
   paths:
     - node_modules/
 
-build:
-  stage: build
-  script:
-    - yarn
-    - yarn build-prod
+# build:
+#   stage: build
+#   script:
+#     - yarn
+#     - yarn build-prod
 
-lint:
-  stage: lint
-  script:
-    - yarn lint
+# lint:
+#   stage: lint
+#   script:
+#     - yarn lint
 
-stylelint:
-  stage: lint
-  script:
-    - yarn stylelint
+# stylelint:
+#   stage: lint
+#   script:
+#     - yarn stylelint
 
-test:
-  stage: test
-  script:
-    - yarn test
+# test:
+#   stage: test
+#   script:
+#     - yarn test
 
-deploy:
+pages:
   stage: deploy
-  script: echo "Define your deployment script!"
-  environment: production
+  variables: 
+    PUBLIC_URL: https://aliaksei.dzemyanovich.gitlab.io/anya_portfolio/
+  script:
+  - yarn
+  - yarn build-prod
+  - mv dist_prod public
+ # - yarn run-pages
+ # - mkdir .public
+ # - cp -r * .public
+ # - cp -r dist_prod .public
+ # - mv .public public
+  artifacts:
+    paths:
+    - public

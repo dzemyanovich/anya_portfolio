@@ -25,3 +25,20 @@ type Product = {
   name: string,
   year: number,
 };
+
+type LoginRequest = {
+  password: string,
+};
+
+type LoginResponse = {
+  isCorrectPassword: boolean,
+  token: string,
+};
+
+type ValidateTokenRequest = {
+  token: string,
+};
+
+type ValidateTokenResponse = {
+  isValidToken: boolean,
+};

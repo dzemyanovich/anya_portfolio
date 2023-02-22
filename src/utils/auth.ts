@@ -4,23 +4,6 @@ import { AUTH_TOKEN_VAR } from './global-vars';
 let tokenValidated = false;
 let tokenValidatedResult: boolean = null;
 
-type LoginRequest = {
-  password: string,
-};
-
-type LoginResponse = {
-  isCorrectPassword: boolean,
-  token: string,
-};
-
-type ValidateTokenRequest = {
-  token: string,
-};
-
-type ValidateTokenResponse = {
-  isValidToken: boolean,
-};
-
 export function login(password: string): Promise<boolean> {
   return new Promise((resolve) => {
     post<LoginRequest, LoginResponse>(`${process.env.AUTH_API}/login`, {
