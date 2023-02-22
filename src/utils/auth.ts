@@ -1,6 +1,6 @@
 import { post } from './rest';
+import { AUTH_TOKEN_VAR } from './global-vars';
 
-const TOKEN_VAR = 'token';
 let tokenValidated = false;
 let tokenValidatedResult: boolean = null;
 
@@ -27,7 +27,7 @@ export function login(password: string): Promise<boolean> {
       password,
     }).then((data: LoginResponse) => {
       if (data.isCorrectPassword) {
-        localStorage.setItem(TOKEN_VAR, data.token);
+        localStorage.setItem(AUTH_TOKEN_VAR, data.token);
         tokenValidated = true;
         tokenValidatedResult = true;
 
@@ -46,7 +46,7 @@ export function validateToken() {
       return;
     }
 
-    const token = localStorage.getItem(TOKEN_VAR);
+    const token = localStorage.getItem(AUTH_TOKEN_VAR);
     if (!token) {
       resolve(false);
       return;
