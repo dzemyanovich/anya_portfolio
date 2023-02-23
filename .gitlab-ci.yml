@@ -24,21 +24,18 @@ lint:
   stage: lint
   script:
     - yarn lint
-rules:
   when: manual
 
 stylelint:
   stage: lint
   script:
     - yarn stylelint
-rules:
   when: manual
 
 test:
   stage: test
   script:
     - yarn test-cover
-rules:
   when: manual
 
 deploy:
