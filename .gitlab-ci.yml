@@ -1,4 +1,4 @@
-image: node:latest
+image: hashicorp/terraform:latest
 
 stages:
   - build
