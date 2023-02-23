@@ -22,7 +22,7 @@ export function login(password: string): Promise<boolean> {
   });
 }
 
-export function validateToken() {
+export function validateToken(): Promise<boolean> {
   return new Promise((resolve) => {
     if (tokenValidated) {
       resolve(tokenValidatedResult);

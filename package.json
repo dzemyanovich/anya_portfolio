@@ -28,7 +28,7 @@
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
     "test": "jest --coverage=false",
     "test-cover": "jest --coverage=true",
-    "test-cover-open": "jest --coverage=true && open coverage/lcov-report/index.html",
+    "test-open": "jest --coverage=true && open coverage/lcov-report/index.html",
     "cy": "cypress open",
     "cy-preprod": "cypress open --env domain=\"https://plankton-app-p6xnb.ondigitalocean.app\"",
     "cy-prod": "cypress open --env domain=\"https://annapivunova.me\""
