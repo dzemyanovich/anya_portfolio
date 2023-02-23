@@ -10,40 +10,38 @@ cache:
   paths:
     - node_modules/
 
-# build:
-#   stage: build
-#   script:
-#     - yarn
-#     - yarn build-prod
-
-# lint:
-#   stage: lint
-#   script:
-#     - yarn lint
-
-# stylelint:
-#   stage: lint
-#   script:
-#     - yarn stylelint
-
-# test:
-#   stage: test
-#   script:
-#     - yarn test
-
-pages:
-  stage: deploy
-  variables: 
-    PUBLIC_URL: https://aliaksei.dzemyanovich.gitlab.io/anya_portfolio/
+build:
+  stage: build
   script:
-  - yarn
-  - yarn build-prod
-  - mv dist_prod public
- # - yarn run-pages
- # - mkdir .public
- # - cp -r * .public
- # - cp -r dist_prod .public
- # - mv .public public
+    - yarn
+    - yarn build-prod
   artifacts:
     paths:
-    - public
+    - dist_preprod
+    - dist_prod
+
+lint:
+  stage: lint
+  script:
+    - yarn lint
+rules:
+  when: manual
+
+stylelint:
+  stage: lint
+  script:
+    - yarn stylelint
+rules:
+  when: manual
+
+test:
+  stage: test
+  script:
+    - yarn test-cover
+rules:
+  when: manual
+
+deploy:
+  stage: deploy
+  script:
+  - terraform apply
