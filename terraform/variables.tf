@@ -3,6 +3,11 @@ variable "aws_region" {
   default = "eu-central-1"
 }
 
+variable "dev_bucket_name" {
+  type    = string
+  default = "dev.annapivunova.me"
+}
+
 variable "preprod_bucket_name" {
   type    = string
   default = "preprod.annapivunova.me"
