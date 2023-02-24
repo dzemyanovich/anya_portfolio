@@ -1,4 +1,4 @@
-image: hashicorp/terraform:latest
+image: node:latest
 
 stages:
   - build
@@ -40,5 +40,7 @@ test:
 
 deploy:
   stage: deploy
+  image:
+    name: hashicorp/terraform:light
   script:
   - terraform apply
