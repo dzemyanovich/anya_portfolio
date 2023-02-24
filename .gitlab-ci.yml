@@ -45,6 +45,10 @@ deploy:
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  variables:
+    secrets_storage_name: $secrets_storage_name
+    secrets_storage_value: $secrets_storage_value
+    jwt_secret: $jwt_secret
   script:
   - cd terraform
   - terraform apply
