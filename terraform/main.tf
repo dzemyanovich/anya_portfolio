@@ -1,4 +1,5 @@
 terraform {
+  # todo: delete commented code
   # required_providers {
   #   aws = {
   #     source  = "hashicorp/aws"

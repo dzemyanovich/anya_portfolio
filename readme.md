@@ -9,10 +9,13 @@ jwt_secret = "some_value"
 ```
 
 # GitLab CI/CD setup guide
-Before running pipeline set the following env vars (`TF_VAR_` prefix is required):
+Before running pipeline set the following env vars:
 ```
 | Env var                      | Value        |
 | ---------------------------- | ------------ |
+| AWS_ACCESS_KEY_ID            | "some_value" |
+| AWS_SECRET_ACCESS_KEY        | "some_value" |
+| AWS_DEFAULT_REGION           | "some_value" |
 | TF_VAR_secrets_storage_name  | "some_value" |
 | TF_VAR_secrets_storage_value | "some_value" |
 | TF_VAR_jwt_secret            | "some_value" |

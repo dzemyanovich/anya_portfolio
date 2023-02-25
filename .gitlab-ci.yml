@@ -49,6 +49,9 @@ init:
   script:
   - cd terraform
   - terraform init -migrate-state
+  artifacts:
+    paths:
+    - terraform/.terraform
   when: manual
 
 plan:
