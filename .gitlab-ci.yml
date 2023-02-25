@@ -16,6 +16,7 @@ build:
   stage: build
   script:
     - yarn
+    - yarn build-preprod
     - yarn build-prod
     # - yarn zip # todo: zip cannot be found
   artifacts:
