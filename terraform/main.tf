@@ -1,9 +1,15 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
+  # required_providers {
+  #   aws = {
+  #     source  = "hashicorp/aws"
+  #     version = "~> 4.16"
+  #   }
+  # }
+
+  backend "s3" {
+    bucket = "anya-portfolio-tf-state"
+    key    = "dev/any-portfolio.tfstate"
+    region = "eu-central-1"
   }
 
   required_version = ">= 1.2.0"
