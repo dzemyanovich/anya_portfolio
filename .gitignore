@@ -8,7 +8,7 @@ coverage/
 yarn-error.log
 .DS_Store
 .terraform.lock.hcl
-*.tfstate
+# *.tfstate
 *.tfstate.backup
 *.zip
 terraform.tfvars

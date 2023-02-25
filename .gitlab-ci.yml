@@ -3,7 +3,9 @@ image: node:latest
 stages:
   - build
   - test
-  - deploy
+  - init
+  - plan
+  - apply
 
 cache:
   paths:
@@ -37,8 +39,32 @@ test:
     - yarn test-cover
   when: manual
 
-deploy:
-  stage: deploy
+init:
+  stage: init
+  image:
+    name: hashicorp/terraform:light
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+  - cd terraform
+  - terraform init -migrate-state
+  when: manual
+
+plan:
+  stage: plan
+  image:
+    name: hashicorp/terraform:light
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+  - cd terraform
+  - terraform plan
+  when: manual
+
+apply:
+  stage: apply
   image:
     name: hashicorp/terraform:light
     entrypoint:
@@ -47,3 +73,4 @@ deploy:
   script:
   - cd terraform
   - terraform apply
+  when: manual
