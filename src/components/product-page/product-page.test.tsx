@@ -6,6 +6,11 @@ import Enzyme, { shallow } from 'enzyme';
 
 Enzyme.configure({adapter: new Adapter()});
 
+jest.mock('../../utils/utils', () => ({
+  resetScroll: jest.fn(),
+  isTouchDevice: jest.fn(),
+}));
+
 describe('ProductPage', () => {
   it('returns rendered component', async () => {
     const ProductPage = (await import('./product-page')).default;

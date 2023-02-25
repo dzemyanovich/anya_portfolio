@@ -16,10 +16,12 @@ build:
   script:
     - yarn
     - yarn build-prod
+    - yarn zip
   artifacts:
     paths:
     - dist_preprod
     - dist_prod
+    - terraform/lambda.zip
 
 lint:
   stage: test
@@ -52,6 +54,7 @@ init:
   artifacts:
     paths:
     - terraform/.terraform
+    - terraform/.terraform.lock.hcl
   when: manual
 
 plan:
@@ -62,7 +65,6 @@ plan:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-  - yarn zip
   - cd terraform
   - terraform init -migrate-state
   - terraform plan
