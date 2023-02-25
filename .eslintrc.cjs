@@ -50,5 +50,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['*.test.ts', '*.test.jsx'],
+  ignorePatterns: ['*.test.ts', '*.test.tsx'],
 };
