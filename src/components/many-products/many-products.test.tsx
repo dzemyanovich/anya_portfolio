@@ -36,10 +36,10 @@ describe('ManyProducts', () => {
       <ManyProducts categories={categories} products={products} />
     );
 
-    expect(manyProducts.find('.many-products-content').length).toBe(1);
-    expect(manyProducts.find('.filter-panel').length).toBe(1);
-    expect(manyProducts.find('.product-item').length).toBe(products.length);
-    expect(manyProducts.find('.product-item-description').length).toBe(products.length);
+    expect(manyProducts.find('.many-products-content')).toHaveLength(1);
+    expect(manyProducts.find('.filter-panel')).toHaveLength(1);
+    expect(manyProducts.find('.product-item')).toHaveLength(products.length);
+    expect(manyProducts.find('.product-item-description')).toHaveLength(products.length);
   });
 
   it('simulate clicking', async () => {
@@ -49,8 +49,8 @@ describe('ManyProducts', () => {
       <ManyProducts categories={categories} products={products} />
     );
 
-    expect(manyProducts.find('.product-item').length).toBe(products.length);
-    expect(manyProducts.find('.product-item-description').length).toBe(products.length);
+    expect(manyProducts.find('.product-item')).toHaveLength(products.length);
+    expect(manyProducts.find('.product-item-description')).toHaveLength(products.length);
   
     const filterOption = manyProducts.find('.filter-option:not(.checked)').first();
     const value = filterOption.find('.radio-label').text();
@@ -58,7 +58,7 @@ describe('ManyProducts', () => {
 
     filterOption.simulate('click');
 
-    expect(manyProducts.find('.product-item').length).toBe(visibleProducts.length);
-    expect(manyProducts.find('.product-item-description').length).toBe(visibleProducts.length);
+    expect(manyProducts.find('.product-item')).toHaveLength(visibleProducts.length);
+    expect(manyProducts.find('.product-item-description')).toHaveLength(visibleProducts.length);
   });
 });

@@ -14,6 +14,6 @@ describe('HomeLink', () => {
       <HomeLink />
     );
 
-    expect(customLink.find('.brand-logo').length).toBe(1);
+    expect(customLink.find('.brand-logo')).toHaveLength(1);
   });
 });

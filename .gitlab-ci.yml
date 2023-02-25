@@ -63,8 +63,8 @@ plan:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
+  - terraform init -migrate-state
   - terraform plan
-  when: manual
 
 apply:
   stage: apply
@@ -75,5 +75,6 @@ apply:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
+  - terraform init -migrate-state
   - terraform apply
   when: manual
