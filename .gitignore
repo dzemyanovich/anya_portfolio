@@ -8,8 +8,10 @@ coverage/
 yarn-error.log
 .DS_Store
 .terraform.lock.hcl
+# todo: delete comment
 # *.tfstate
 *.tfstate.backup
-*.zip
+# todo: uncomment
+# *.zip
 terraform.tfvars
 cypress.env.json

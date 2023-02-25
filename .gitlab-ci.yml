@@ -16,12 +16,12 @@ build:
   script:
     - yarn
     - yarn build-prod
-    - yarn zip
+    # - yarn zip # todo: zip cannot be found
   artifacts:
     paths:
     - dist_preprod
     - dist_prod
-    - terraform/lambda.zip
+    # - terraform/lambda.zip
 
 lint:
   stage: test
@@ -55,7 +55,7 @@ init:
     paths:
     - terraform/.terraform
     - terraform/.terraform.lock.hcl
-  when: manual
+  # when: manual
 
 plan:
   stage: plan
@@ -66,7 +66,7 @@ plan:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
-  - terraform init -migrate-state
+  # - terraform init -migrate-state
   - terraform plan
 
 apply:
