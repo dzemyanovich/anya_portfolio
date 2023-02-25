@@ -62,6 +62,7 @@ plan:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
+  - yarn zip
   - cd terraform
   - terraform init -migrate-state
   - terraform plan
