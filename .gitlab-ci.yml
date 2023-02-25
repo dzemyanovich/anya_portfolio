@@ -16,6 +16,7 @@ build:
   script:
     - yarn
     - yarn build-prod
+    - apt-get install zip
     # - yarn zip # todo: zip cannot be found
   artifacts:
     paths:
@@ -55,7 +56,6 @@ init:
     paths:
     - terraform/.terraform
     - terraform/.terraform.lock.hcl
-  # when: manual
 
 plan:
   stage: plan
@@ -66,7 +66,6 @@ plan:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
-  # - terraform init -migrate-state
   - terraform plan
 
 apply:
@@ -78,6 +77,5 @@ apply:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
-  - terraform init -migrate-state
   - terraform apply
   when: manual
