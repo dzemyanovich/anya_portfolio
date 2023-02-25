@@ -2,6 +2,7 @@ image: node:latest
 
 stages:
   - build
+  - zip
   - test
   - init
   - plan
@@ -16,13 +17,18 @@ build:
   script:
     - yarn
     - yarn build-prod
-    - apt-get install zip
     # - yarn zip # todo: zip cannot be found
   artifacts:
     paths:
     - dist_preprod
     - dist_prod
     # - terraform/lambda.zip
+
+zip:
+  stage: zip
+  script:
+    - apt-get install zip unzip
+  when: manual
 
 lint:
   stage: test
