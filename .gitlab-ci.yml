@@ -2,7 +2,6 @@ image: node:latest
 
 stages:
   - build
-  - lint
   - test
   - deploy
 
@@ -21,13 +20,13 @@ build:
     - dist_prod
 
 lint:
-  stage: lint
+  stage: test
   script:
     - yarn lint
   when: manual
 
 stylelint:
-  stage: lint
+  stage: test
   script:
     - yarn stylelint
   when: manual
