@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "anya-portfolio-tf-state"
-    key    = "dev/any-portfolio.tfstate"
+    key    = "anya-portfolio.tfstate"
     region = "eu-central-1"
   }
 
