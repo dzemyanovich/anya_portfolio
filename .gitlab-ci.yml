@@ -74,6 +74,7 @@ plan:
   script:
   - cd terraform
   - terraform plan
+  when: manual
 
 apply:
   stage: apply
@@ -84,5 +85,4 @@ apply:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
   - cd terraform
-  - terraform apply
-  when: manual
+  - terraform apply -auto-approve -lock=false
