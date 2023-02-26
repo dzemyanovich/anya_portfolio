@@ -13,26 +13,19 @@ cache:
 
 build:
   stage: build
-  script:
-    - yarn
-    - yarn build-preprod
-    - yarn build-prod
-  artifacts:
-    paths:
-    - dist_preprod
-    - dist_prod
-
-zip:
-  stage: build
   before_script:
     - apt-get update
     - apt-get install zip
   script:
+    - yarn
+    - yarn build-preprod
+    - yarn build-prod
     - yarn zip
   artifacts:
     paths:
+    - dist_preprod
+    - dist_prod
     - terraform/lambda.zip
-  when: manual
 
 lint:
   stage: test
