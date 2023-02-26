@@ -31,6 +31,7 @@ build:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
+  when: manual
 
 lint:
   stage: test
@@ -58,8 +59,8 @@ init:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-  - cd terraform
-  - terraform init -migrate-state
+    - cd terraform
+    - terraform init -migrate-state
   artifacts:
     paths:
     - terraform/.terraform
@@ -74,8 +75,8 @@ plan:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-  - cd terraform
-  - terraform plan
+    - cd terraform
+    - terraform plan
   when: manual
 
 apply:
@@ -86,15 +87,19 @@ apply:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-  - cd terraform
-  - terraform apply -auto-approve -lock=false
+    - cd terraform
+    - terraform apply -auto-approve -lock=false
   when: manual
 
-e2e-dev:
+e2e-setup:
   image: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
   stage: e2e
   script:
     - yarn # todo: do not run yarn here, re-use 'build' stage
+
+e2e-dev:
+  stage: e2e
+  script:
     - yarn cy-dev
 
 e2e-preprod:
