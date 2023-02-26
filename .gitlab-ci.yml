@@ -23,10 +23,10 @@ build:
     - dist_prod
 
 zip:
-  image: alpine
   stage: build
-  # before_script:
-  #   - apk add --update zip
+  before_script:
+    - apt-get update
+    - apt-get install zip
   script:
     - yarn zip
   artifacts:
