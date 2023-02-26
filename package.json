@@ -27,9 +27,10 @@
     "test": "jest --coverage=false",
     "test-cover": "jest --coverage=true",
     "test-open": "jest --coverage=true && open coverage/lcov-report/index.html",
-    "cy": "cypress open",
-    "cy-preprod": "cypress open --env domain=\"https://plankton-app-p6xnb.ondigitalocean.app\"",
-    "cy-prod": "cypress open --env domain=\"https://annapivunova.me\""
+    "cy": "cypress run --browser chrome",
+    "cy-dev": "cypress run --browser chrome --env domain=\"http://dev.annapivunova.me.s3-website.eu-central-1.amazonaws.com\"",
+    "cy-preprod": "cypress run --browser chrome --env domain=\"http://preprod.annapivunova.me.s3-website.eu-central-1.amazonaws.com\"",
+    "cy-prod": "cypress run --browser chrome --env domain=\"http://annapivunova.me.s3-website.eu-central-1.amazonaws.com\""
   },
   "dependencies": {
     "react": "^18.2.0",

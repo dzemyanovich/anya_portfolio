@@ -4,6 +4,7 @@ dist_preprod/
 dist_prod/
 .terraform/
 coverage/
+cypress/
 
 yarn-error.log
 .DS_Store
