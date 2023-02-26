@@ -6,6 +6,7 @@ stages:
   - init
   - plan
   - apply
+  - e2e-setup
   - e2e
 
 variables:
@@ -93,7 +94,7 @@ apply:
 
 e2e-setup:
   image: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
-  stage: e2e
+  stage: e2e-setup
   script:
     - yarn # todo: do not run yarn here, re-use 'build' stage
 
