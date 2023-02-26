@@ -8,15 +8,13 @@ stages:
   - apply
   - e2e
 
-# todo: uncomment
-# variables:
-#   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+variables:
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
 cache:
   paths:
     - node_modules
-    # todo: uncomment
-    # - cache/Cypress
+    - cache/Cypress
 
 build:
   stage: build
@@ -94,14 +92,10 @@ apply:
   when: manual
 
 e2e-dev:
+  image: cypress/browsers:node12.14.1-chrome85-ff81
   stage: e2e
-  cache:
-    paths:
-      - cache/Cypress
   script:
-    - export CYPRESS_CACHE_FOLDER=../../cache/Cypress
     - yarn
-    - export CYPRESS_CACHE_FOLDER=cache/Cypress
     - yarn cy-dev
 
 e2e-preprod:
