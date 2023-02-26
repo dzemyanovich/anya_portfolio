@@ -62,6 +62,7 @@ init:
     paths:
     - terraform/.terraform
     - terraform/.terraform.lock.hcl
+  when: manual
 
 plan:
   stage: plan
@@ -85,6 +86,7 @@ apply:
   script:
   - cd terraform
   - terraform apply -auto-approve -lock=false
+  when: manual
 
 e2e-dev:
   stage: e2e
@@ -95,8 +97,10 @@ e2e-preprod:
   stage: e2e
   script:
     - yarn cy-preprod
+  when: manual
 
 e2e-prod:
   stage: e2e
   script:
     - yarn cy-prod
+  when: manual
