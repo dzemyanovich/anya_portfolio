@@ -9,8 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('ProductPage', () => {
   beforeEach(() => {
-    // todo: uncomment
-    // jest.resetModules();
+    jest.resetModules();
     window.scrollTo = jest.fn();
     jest.mock('../home-link/home-link', () => () => <div className="section-container">random div</div>);
   });
@@ -32,8 +31,7 @@ describe('ProductPage', () => {
     expect(productPage.find('.product-page').text()).toBe(content);
   });
 
-  // todo: unskip
-  it.skip('react hooks', async () => {
+  it('react hooks', async () => {
     jest.mock('../../utils/utils', () => ({
       resetScroll: jest.fn(),
       isTouchDevice: () => true,
