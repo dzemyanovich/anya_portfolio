@@ -11,6 +11,7 @@ stages:
 cache:
   paths:
     - node_modules/
+    - /root/.cache/Cypress
 
 build:
   stage: build
@@ -24,7 +25,6 @@ build:
     - yarn zip
   artifacts:
     paths:
-    - node_modules
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
