@@ -87,3 +87,4 @@ apply:
   script:
   - cd terraform
   - terraform apply -auto-approve -lock=false
+  when: manual
