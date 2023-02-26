@@ -28,7 +28,6 @@ build:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
-  when: manual
 
 lint:
   stage: test
@@ -90,7 +89,6 @@ apply:
 
 e2e-dev:
   stage: e2e
-  image: cypress/base:16.13.2
   script:
     - yarn cy-dev
 
