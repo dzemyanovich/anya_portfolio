@@ -2,7 +2,6 @@ image: node:latest
 
 stages:
   - build
-  - zip
   - test
   - init
   - plan
@@ -18,19 +17,21 @@ build:
     - yarn
     - yarn build-preprod
     - yarn build-prod
-    # - yarn zip # todo: zip cannot be found
   artifacts:
     paths:
     - dist_preprod
     - dist_prod
-    # - terraform/lambda.zip
 
 zip:
-  stage: zip
-  before_script:
-    - apk add --update zip
+  image: alpine
+  stage: build
+  # before_script:
+  #   - apk add --update zip
   script:
     - yarn zip
+  artifacts:
+    paths:
+    - terraform/lambda.zip
   when: manual
 
 lint:

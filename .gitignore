@@ -8,8 +8,6 @@ coverage/
 yarn-error.log
 .DS_Store
 .terraform.lock.hcl
-# todo: delete comment
-# *.tfstate
 *.tfstate.backup
 # todo: uncomment
 # *.zip
