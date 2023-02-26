@@ -14,12 +14,6 @@ describe('ProductPage', () => {
   });
 
   it('returns rendered component', async () => {
-    // todo: useEffect is not being called
-    jest.mock('../../utils/utils', () => ({
-      resetScroll: jest.fn(),
-      isTouchDevice: () => true,
-    }));
-
     const ProductPage = (await import('./product-page')).default;
 
     const content = 'some content';
@@ -36,9 +30,12 @@ describe('ProductPage', () => {
     expect(productPage.find('.product-page').text()).toBe(content);
   });
 
-  // todo: unskip
-  it.skip('react hooks', async () => {
+  it('react hooks', async () => {
     jest.mock('../home-link/home-link', () => () => <div />);
+    jest.mock('../../utils/utils', () => ({
+      resetScroll: jest.fn(),
+      isTouchDevice: () => true,
+    }));
 
     const ProductPage = (await import('./product-page')).default;
 

@@ -1,8 +1,5 @@
 image: node:latest
 
-variables:
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
-
 stages:
   - build
   - test
@@ -11,9 +8,12 @@ stages:
   - apply
   - e2e
 
+variables:
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
 cache:
   paths:
-    - node_modules/
+    - node_modules
     - cache/Cypress
 
 build:
@@ -91,6 +91,7 @@ apply:
   when: manual
 
 e2e-dev:
+  image: cypress/base:latest
   stage: e2e
   script:
     - yarn cy-dev
