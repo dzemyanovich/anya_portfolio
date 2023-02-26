@@ -17,6 +17,7 @@ cache:
     - cache/Cypress
 
 build:
+  image: cypress/base:latest
   stage: build
   before_script:
     - apt-get update
