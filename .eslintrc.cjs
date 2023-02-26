@@ -30,6 +30,7 @@ module.exports = {
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/lines-between-class-members': 'off',
     '@typescript-eslint/no-redeclare': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/ban-types': [
       'error',
       {
