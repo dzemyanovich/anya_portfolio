@@ -8,16 +8,17 @@ stages:
   - apply
   - e2e
 
-variables:
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+# todo: uncomment
+# variables:
+#   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
 cache:
   paths:
     - node_modules
-    - cache/Cypress
+    # todo: uncomment
+    # - cache/Cypress
 
 build:
-  image: cypress/base:latest
   stage: build
   before_script:
     - apt-get update
@@ -32,6 +33,7 @@ build:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
+  when: manual
 
 lint:
   stage: test
@@ -94,7 +96,13 @@ apply:
 e2e-dev:
   image: cypress/base:latest
   stage: e2e
+  cache:
+    paths:
+      - cache/Cypress
   script:
+    - export CYPRESS_CACHE_FOLDER=../../cache/Cypress
+    - yarn
+    - export CYPRESS_CACHE_FOLDER=cache/Cypress
     - yarn cy-dev
 
 e2e-preprod:
