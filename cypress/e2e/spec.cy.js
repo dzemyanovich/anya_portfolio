@@ -8,9 +8,13 @@ function login(passwrod = MASTER_PASSWORD) {
     .type('{enter}');
 }
 
+function visit(url) {
+  cy.visit(url, { failOnStatusCode: false });
+}
+
 describe('home page', () => {
   beforeEach(() => {
-    cy.visit(DOMAIN);
+    visit(DOMAIN);
   });
 
   it('check home page', () => {
@@ -49,7 +53,7 @@ describe('home page', () => {
 describe('products page', () => {
   beforeEach(() => {
     localStorage.clear();
-    cy.visit(`${LOGIN_URL}?returnUrl=/products`);
+    visit(`${LOGIN_URL}?returnUrl=/products`);
     login();
     cy.wait(2000);
   });
@@ -69,7 +73,7 @@ describe('products page', () => {
 
   it('click on each company link', () => {
     cy.get('.company-link [role=link]').each((el) => {
-      cy.visit(`${DOMAIN}${el.attr('data-href')}`);
+      visit(`${DOMAIN}${el.attr('data-href')}`);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
 
@@ -86,7 +90,7 @@ describe('products page', () => {
 
 describe('about page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}/about`);
+    visit(`${DOMAIN}/about`);
   });
 
   it('check about page', () => {
@@ -99,7 +103,7 @@ describe('about page', () => {
 
 describe('contact page', () => {
   beforeEach(() => {
-    cy.visit(`${DOMAIN}/contact`);
+    visit(`${DOMAIN}/contact`);
   });
 
   it('check contact page', () => {
@@ -112,7 +116,7 @@ describe('login', () => {
 
   beforeEach(() => {
     localStorage.clear();
-    cy.visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
+    visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
   });
 
   it('correct login', () => {
@@ -144,7 +148,7 @@ describe('access to protected routes', () => {
 
   it('cannot access protected route', () => {
     protectedUrls.map((protectedUrl) => {
-      cy.visit(`${DOMAIN}${protectedUrl}`);
+      visit(`${DOMAIN}${protectedUrl}`);
       cy.wait(1000).then(() => {
         cy.url().should('eq', `${LOGIN_URL}?returnUrl=${protectedUrl}`)
       });
@@ -152,11 +156,11 @@ describe('access to protected routes', () => {
   });
 
   it('cannot access login page when authenticatd', () => {
-    cy.visit(LOGIN_URL);
+    visit(LOGIN_URL, { retryOnStatusCodeFailure: true });
     login();
 
     cy.wait(1000).then(() => {
-      cy.visit(LOGIN_URL);
+      visit(LOGIN_URL);
       cy.wait(500).then(() => {
         cy.url().should('not.eq', LOGIN_URL)
       });
