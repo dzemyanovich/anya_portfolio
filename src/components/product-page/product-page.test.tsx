@@ -4,15 +4,16 @@ global.TextEncoder = TextEncoder;
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
 
-Enzyme.configure({adapter: new Adapter()});
-
-jest.mock('../../utils/utils', () => ({
-  resetScroll: jest.fn(),
-  isTouchDevice: jest.fn(),
-}));
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('ProductPage', () => {
   it('returns rendered component', async () => {
+    // todo: useEffect is not being called
+    jest.mock('../../utils/utils', () => ({
+      resetScroll: jest.fn(),
+      isTouchDevice: () => true,
+    }));
+
     const ProductPage = (await import('./product-page')).default;
 
     const content = 'some content';
