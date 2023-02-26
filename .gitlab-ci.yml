@@ -11,6 +11,7 @@ stages:
 
 variables:
   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  CYPRESS_IMAGE: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
 
 cache:
   paths:
@@ -93,23 +94,26 @@ apply:
   when: manual
 
 e2e-setup:
-  image: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
+  image: $CYPRESS_IMAGE
   stage: e2e-setup
   script:
     - yarn # todo: do not run yarn here, re-use 'build' stage
 
 e2e-dev:
+  image: $CYPRESS_IMAGE
   stage: e2e
   script:
     - yarn cy-dev
 
 e2e-preprod:
+  image: $CYPRESS_IMAGE
   stage: e2e
   script:
     - yarn cy-preprod
   when: manual
 
 e2e-prod:
+  image: $CYPRESS_IMAGE
   stage: e2e
   script:
     - yarn cy-prod
