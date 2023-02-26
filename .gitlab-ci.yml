@@ -33,25 +33,25 @@ build:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
-  when: manual
+  # when: manual
 
 lint:
   stage: test
   script:
     - yarn lint
-  when: manual
+  # when: manual
 
 stylelint:
   stage: test
   script:
     - yarn stylelint
-  when: manual
+  # when: manual
 
 test:
   stage: test
   script:
     - yarn test-cover
-  when: manual
+  # when: manual
 
 init:
   stage: init
@@ -67,7 +67,7 @@ init:
     paths:
     - terraform/.terraform
     - terraform/.terraform.lock.hcl
-  when: manual
+  # when: manual
 
 plan:
   stage: plan
@@ -91,7 +91,7 @@ apply:
   script:
     - cd terraform
     - terraform apply -auto-approve -lock=false
-  when: manual
+  # when: manual
 
 e2e-setup:
   image: $CYPRESS_IMAGE
