@@ -24,6 +24,7 @@ build:
     - yarn zip
   artifacts:
     paths:
+    - node_modules
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
