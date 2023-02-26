@@ -11,6 +11,8 @@ describe('ProductPage', () => {
   beforeEach(() => {
     // todo: uncomment
     // jest.resetModules();
+    window.scrollTo = jest.fn();
+    jest.mock('../home-link/home-link', () => () => <div className="section-container">random div</div>);
   });
 
   it('returns rendered component', async () => {
@@ -32,11 +34,12 @@ describe('ProductPage', () => {
 
   // todo: unskip
   it.skip('react hooks', async () => {
-    jest.mock('../home-link/home-link', () => () => <div className="section-container">random div</div>);
     jest.mock('../../utils/utils', () => ({
       resetScroll: jest.fn(),
       isTouchDevice: () => true,
     }));
+ 
+    const windowSpy = jest.spyOn(window, 'addEventListener');
 
     const ProductPage = (await import('./product-page')).default;
 
@@ -45,5 +48,9 @@ describe('ProductPage', () => {
         anything
       </ProductPage>
     );
+
+    expect(windowSpy).toBeCalledTimes(1);
+    const call = windowSpy.mock.calls[0];
+    expect(call[0]).toBe('scroll') ;
   }); 
 });

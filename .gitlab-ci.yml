@@ -94,7 +94,6 @@ apply:
   when: manual
 
 e2e-dev:
-  image: cypress/base:latest
   stage: e2e
   cache:
     paths:
