@@ -27,9 +27,10 @@ build:
 
 zip:
   stage: zip
+  before_script:
+    - apk add --update zip
   script:
-    - apt-get update
-    - apt-get install zip unzip
+    - yarn zip
   when: manual
 
 lint:
@@ -87,4 +88,3 @@ apply:
   script:
   - cd terraform
   - terraform apply -auto-approve -lock=false
-  when: manual

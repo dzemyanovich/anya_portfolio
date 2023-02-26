@@ -39,12 +39,12 @@ resource "aws_s3_bucket_ownership_controls" "dev_bucket_ownnership" {
 }
 
 resource "aws_s3_object" "dist_dev" {
-  # since dev is deployed from local machine it should be as close as possible to preprod/prod
-  for_each     = fileset("../dist_prod/", "*") # todo: do we need both preprod and prod builds?
+  # since dev is deployed from local machine it should be as close as possible to preprod
+  for_each     = fileset("../dist_preprod/", "*")
   bucket       = aws_s3_bucket.dev_bucket.id
   key          = each.value
-  source       = "../dist_prod/${each.value}"
-  etag         = filemd5("../dist_prod/${each.value}")
+  source       = "../dist_preprod/${each.value}"
+  etag         = filemd5("../dist_preprod/${each.value}")
   content_type  = lookup(local.mime_types, regex("\\.(?P<extension>[A-Za-z0-9]+)$", each.value).extension, "application/octet-stream")
 }
 
