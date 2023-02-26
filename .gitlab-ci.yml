@@ -1,5 +1,8 @@
 image: node:latest
 
+variables:
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
 stages:
   - build
   - test
@@ -11,7 +14,6 @@ stages:
 cache:
   paths:
     - node_modules/
-    - .cache/Cypress
     - cache/Cypress
 
 build:
