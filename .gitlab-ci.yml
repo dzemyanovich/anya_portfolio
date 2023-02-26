@@ -11,8 +11,7 @@ stages:
 cache:
   paths:
     - node_modules/
-    - /root/.cache/Cypress
-    - /root/.cache/Cypress/12.1.0/Cypress/Cypress
+    - .cache/Cypress
 
 build:
   stage: build
@@ -29,6 +28,7 @@ build:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
+  when: manual
 
 lint:
   stage: test
@@ -90,6 +90,7 @@ apply:
 
 e2e-dev:
   stage: e2e
+  image: cypress/base:16.13.2
   script:
     - yarn cy-dev
 
