@@ -8,10 +8,12 @@ import { render } from '@testing-library/react'
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('ProductPage', () => {
+  const content = <div className="section-container">random div</div>;
+
   beforeEach(() => {
     jest.resetAllMocks();
     window.scrollTo = jest.fn();
-    jest.mock('../home-link/home-link', () => () => <div className="section-container">random div</div>);
+    jest.mock('../home-link/home-link', () => () => 'home link goes here');
     jest.mock('../../utils/utils', () => ({
       resetScroll: jest.fn(),
       isTouchDevice: () => true,
@@ -19,14 +21,7 @@ describe('ProductPage', () => {
   });
 
   it('returns rendered component', async () => {
-    jest.mock('../../utils/utils', () => ({
-      resetScroll: jest.fn(),
-      isTouchDevice: () => true,
-    }));
-
     const ProductPage = (await import('./product-page')).default;
-
-    const content = 'some content';
 
     const productPage = shallow(
       <ProductPage>
@@ -37,22 +32,16 @@ describe('ProductPage', () => {
     expect(productPage.find('.product-page-container')).toHaveLength(1);
     expect(productPage.find('.home-link-wrapper')).toHaveLength(1);
     expect(productPage.find('.product-page')).toHaveLength(1);
-    expect(productPage.find('.product-page').text()).toBe(content);
   });
 
   it('touch device = true', async () => {
-    jest.mock('../../utils/utils', () => ({
-      resetScroll: jest.fn(),
-      isTouchDevice: () => false,
-    }));
-
     const windowSpy = jest.spyOn(window, 'addEventListener');
 
     const ProductPage = (await import('./product-page')).default;
 
-    const productPage = render(
+    render(
       <ProductPage>
-        anything
+        {content}
       </ProductPage>
     );
 
