@@ -67,7 +67,7 @@ init:
     paths:
     - terraform/.terraform
     - terraform/.terraform.lock.hcl
-  # when: manual
+  when: manual
 
 plan:
   stage: plan
@@ -91,19 +91,21 @@ apply:
   script:
     - cd terraform
     - terraform apply -auto-approve -lock=false
-  # when: manual
+  when: manual
 
 e2e-setup:
   image: $CYPRESS_IMAGE
   stage: e2e-setup
   script:
     - yarn # todo: do not run yarn here, re-use 'build' stage
+  when: manual
 
 e2e-dev:
   image: $CYPRESS_IMAGE
   stage: e2e
   script:
     - yarn cy-dev
+  when: manual
 
 e2e-preprod:
   image: $CYPRESS_IMAGE
