@@ -1,5 +1,6 @@
 # About
 https://annapivunova.me/
+
 **Tech stack**: React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, Node.js, Terraform, Terragrunt, GitLab CI
 
 # AWS setup guide
