@@ -3,6 +3,7 @@ dist_dev/
 dist_preprod/
 dist_prod/
 .terraform/
+.terragrunt-cache/
 coverage/
 cypress/screenshots/
 cypress/videos/
