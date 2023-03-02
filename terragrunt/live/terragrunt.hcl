@@ -1,17 +1,13 @@
 locals {
-  # Parse the file path we're in to read the env name: e.g., env 
-  # will be "dev" in the dev folder, "stage" in the stage folder, 
-  # etc.
-  parsed = regex(".*/live/(?P<env>.*?)/.*", get_terragrunt_dir())
-  env    = local.parsed.env
+  env    = "dev1"
+  region = "eu-central-1"
 }
 
 remote_state {
   backend = "s3"
   config = {
-    # todo: change name to dev.annapivunova.me-remote-state
     bucket = "${local.env}.annapivunova.me-remote-state"
-    region = "eu-central-1"
+    region = "${local.region}"
     key    = "${path_relative_to_include()}/terraform.tfstate"
   }
 
