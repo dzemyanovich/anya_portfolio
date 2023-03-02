@@ -1,8 +1,4 @@
-variable "aws_region" {
-  type    = string
-  default = "eu-central-1"
-}
-
+# todo: this is duplication
 variable "secrets_storage_name" {
   type = string
 }

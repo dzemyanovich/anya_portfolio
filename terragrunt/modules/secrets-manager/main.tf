@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "${var.aws_region}"
-}
-
 resource "aws_secretsmanager_secret" "auth_secrets_manager" {
   name = "${var.secrets_storage_name}"
 }

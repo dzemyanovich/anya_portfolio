@@ -1,10 +1,11 @@
 locals {
   mime_types = jsondecode(file("${path.module}/data/mime.json"))
+  scr_path   = "../../../dist_preprod/"
 }
 
 resource "aws_s3_bucket" "website_bucket" {
   bucket = "${var.website_bucket_name}"
- 
+
   tags = {
     Environment = "${var.env}"
   }
@@ -41,10 +42,10 @@ resource "aws_s3_bucket_ownership_controls" "website_bucket_ownnership" {
 }
 
 resource "aws_s3_object" "source_code" {
-  for_each     = fileset("../../../../dist_preprod/", "*")
+  for_each     = fileset(local.scr_path, "*")
   bucket       = aws_s3_bucket.website_bucket.id
   key          = each.value
-  source       = "../../../../dist_preprod/${each.value}"
-  etag         = filemd5("../../../../dist_preprod/${each.value}")
+  source       = "${local.scr_path}${each.value}"
+  etag         = filemd5("${local.scr_path}${each.value}")
   content_type = lookup(local.mime_types, regex("\\.(?P<extension>[A-Za-z0-9]+)$", each.value).extension, "application/octet-stream")
 }

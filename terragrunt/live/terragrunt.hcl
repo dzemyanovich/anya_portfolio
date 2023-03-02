@@ -1,15 +1,23 @@
 locals {
-  env    = "dev1"
-  region = "eu-central-1"
+  env        = "dev2"
+  aws_region = "eu-central-1"
+}
+
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "skip"
+  contents  = <<EOF
+provider "aws" {
+  region = "${local.aws_region}"
+}
+EOF
 }
 
 remote_state {
   backend = "s3"
   config = {
-    # todo: make renaming
-    # bucket = "${local.env}.annapivunova.me-terragrunt"
-    bucket = "${local.env}.annapivunova.me-remote-state"
-    region = "${local.region}"
+    bucket = "${local.env}.annapivunova.me-terragrunt"
+    region = "${local.aws_region}"
     key    = "${path_relative_to_include()}/terraform.tfstate"
   }
 
