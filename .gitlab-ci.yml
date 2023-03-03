@@ -6,6 +6,7 @@ stages:
   - init
   - plan
   - apply
+  - destroy
   - e2e-setup
   - e2e
 
@@ -160,6 +161,34 @@ apply-prod:
   script:
     - cd terragrunt/live/prod
     - terragrunt run-all apply --terragrunt-non-interactive
+  when: manual
+  only:
+    - master
+
+destroy-preprod:
+  stage: destroy
+  image:
+    name: alpine/terragrunt
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - cd terragrunt/live/preprod
+    - terragrunt run-all destroy --terragrunt-non-interactive
+  when: manual
+  only:
+    - develop
+
+destroy-prod:
+  stage: destroy
+  image:
+    name: alpine/terragrunt
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - cd terragrunt/live/prod
+    - terragrunt run-all destroy --terragrunt-non-interactive
   when: manual
   only:
     - master
