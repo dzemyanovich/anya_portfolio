@@ -1,4 +1,5 @@
 node_modules/
+dist_local/
 dist_dev/
 dist_preprod/
 dist_prod/

@@ -1,5 +1,3 @@
-# todo: introduce separation into dev, preprod and prod envs
-
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "Auth API"
   description = "AuthN/Z API"
