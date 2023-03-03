@@ -1,4 +1,3 @@
-# todo: this is duplication
 variable "secrets_storage_name" {
   type = string
 }

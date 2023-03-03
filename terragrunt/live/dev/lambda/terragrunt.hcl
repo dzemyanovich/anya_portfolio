@@ -11,6 +11,6 @@ locals {
 }
 
 inputs = {
-  secrets_storage_name = "${local.global_vars.env}.annapivunova.me"
-   env                 = "${local.global_vars.env}"
+  secrets_storage_name = local.global_vars.secrets_storage_name
+  env                  = local.global_vars.env
 }

@@ -1,6 +1,7 @@
 locals {
-  env        = "dev2"
-  aws_region = "eu-central-1"
+  env                  = "dev2"
+  aws_region           = "eu-central-1"
+  secrets_storage_name = "${local.env}.annapivunova.me"
 }
 
 generate "provider" {
