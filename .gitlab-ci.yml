@@ -105,8 +105,8 @@ plan-preprod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
     - cd terragrunt/live/preprod
-    - terragrunt run-all plan
-  when: manual
+    - terragrunt run-all plan --terragrunt-non-interactive
+  # when: manual
   only:
     - develop
 
@@ -119,7 +119,7 @@ plan-prod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
     - cd terragrunt/live/prod
-    - terragrunt run-all plan
+    - terragrunt run-all plan --terragrunt-non-interactive
   when: manual
   only:
     - master
