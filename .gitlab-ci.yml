@@ -31,7 +31,8 @@ build-preprod:
     paths:
     - dist_preprod
     - terragrunt/modules/lambda/lambda.zip
-  only: develop
+  only:
+    - develop
 
 build-prod:
   stage: build
@@ -46,7 +47,8 @@ build-prod:
     paths:
     - dist_prod
     - terragrunt/modules/lambda/lambda.zip
-  only: master
+  only:
+    - master
 
 lint:
   stage: test
@@ -105,7 +107,8 @@ plan-preprod:
     - cd terragrunt/live/preprod
     - terragrunt run-all plan
   when: manual
-  only: develop
+  only:
+    - develop
 
 plan-prod:
   stage: plan
@@ -118,7 +121,8 @@ plan-prod:
     - cd terragrunt/live/prod
     - terragrunt run-all plan
   when: manual
-  only: master
+  only:
+    - master
 
 # apply:
 #   stage: apply
@@ -143,7 +147,8 @@ apply-preprod:
     - cd terragrunt/live/preprod
     - terragrunt run-all apply --terragrunt-non-interactive
   when: manual
-  only: develop
+  only:
+    - develop
 
 apply-prod:
   stage: apply
@@ -156,7 +161,8 @@ apply-prod:
     - cd terragrunt/live/prod
     - terragrunt run-all apply --terragrunt-non-interactive
   when: manual
-  only: master
+  only:
+    - master
 
 e2e-setup:
   image: $CYPRESS_IMAGE
