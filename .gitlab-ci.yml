@@ -85,7 +85,7 @@ init:
 plan-preprod:
   stage: plan
   image:
-    name: hashicorp/terragrunt:light # todo: find proper image
+    name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
@@ -96,7 +96,7 @@ plan-preprod:
 plan-prod:
   stage: plan
   image:
-    name: hashicorp/terragrunt:light # todo: find proper image
+    name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
@@ -119,7 +119,7 @@ plan-prod:
 apply-preprod:
   stage: apply
   image:
-    name: hashicorp/terragrunt:light # todo: find proper image
+    name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
@@ -130,7 +130,7 @@ apply-preprod:
 apply-prod:
   stage: apply
   image:
-    name: hashicorp/terragrunt:light # todo: find proper image
+    name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
