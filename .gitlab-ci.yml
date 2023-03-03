@@ -27,31 +27,32 @@ build:
     - yarn
     - yarn build-preprod
     - yarn build-prod
-    - yarn zip
+    - yarn tg-zip
   artifacts:
     paths:
     - dist_preprod
     - dist_prod
     - terraform/lambda.zip
+    - terragrunt/modules/lambda/lambda.zip
   # when: manual
 
 lint:
   stage: test
   script:
     - yarn lint
-  # when: manual
+  when: manual
 
 stylelint:
   stage: test
   script:
     - yarn stylelint
-  # when: manual
+  when: manual
 
 test:
   stage: test
   script:
     - yarn test-cover
-  # when: manual
+  when: manual
 
 init:
   stage: init
@@ -69,28 +70,72 @@ init:
     - terraform/.terraform.lock.hcl
   when: manual
 
-plan:
+# plan:
+#   stage: plan
+#   image:
+#     name: hashicorp/terraform:light
+#     entrypoint:
+#       - '/usr/bin/env'
+#       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+#   script:
+#     - cd terraform
+#     - terraform plan
+#   when: manual
+
+plan-preprod:
   stage: plan
   image:
-    name: hashicorp/terraform:light
+    name: hashicorp/terragrunt:light # todo: find proper image
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - cd terraform
-    - terraform plan
+    - yarn tg-plan-preprod
   when: manual
 
-apply:
-  stage: apply
+plan-prod:
+  stage: plan
   image:
-    name: hashicorp/terraform:light
+    name: hashicorp/terragrunt:light # todo: find proper image
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - cd terraform
-    - terraform apply -auto-approve -lock=false
+    - yarn tg-plan-prod
+  when: manual
+
+# apply:
+#   stage: apply
+#   image:
+#     name: hashicorp/terraform:light
+#     entrypoint:
+#       - '/usr/bin/env'
+#       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+#   script:
+#     - cd terraform
+#     - terraform apply -auto-approve -lock=false
+#   when: manual
+
+apply-preprod:
+  stage: apply
+  image:
+    name: hashicorp/terragrunt:light # todo: find proper image
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - yarn tg-apply-preprod
+  when: manual
+
+apply-prod:
+  stage: apply
+  image:
+    name: hashicorp/terragrunt:light # todo: find proper image
+    entrypoint:
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - yarn tg-apply-prod
   when: manual
 
 e2e-setup:
