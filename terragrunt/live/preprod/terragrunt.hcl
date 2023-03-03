@@ -2,7 +2,7 @@ locals {
   env                  = "preprod1"
   aws_region           = "eu-central-1"
   secrets_storage_name = "${local.env}.annapivunova.me"
-  src_path             = "${get_parent_terragrunt_dir()}/../../dist_preprod/"
+  src_path             = "${get_parent_terragrunt_dir()}/../../../dist_preprod/"
 }
 
 generate "provider" {
