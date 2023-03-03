@@ -18,7 +18,7 @@ cache:
     - node_modules
     - cache/Cypress
 
-build:
+build-preprod:
   stage: build
   before_script:
     - apt-get update
@@ -26,15 +26,27 @@ build:
   script:
     - yarn
     - yarn build-preprod
-    - yarn build-prod
     - yarn tg-zip
   artifacts:
     paths:
     - dist_preprod
-    - dist_prod
-    - terraform/lambda.zip
     - terragrunt/modules/lambda/lambda.zip
-  # when: manual
+  only: develop
+
+build-prod:
+  stage: build
+  before_script:
+    - apt-get update
+    - apt-get install zip
+  script:
+    - yarn
+    - yarn build-prod
+    - yarn tg-zip
+  artifacts:
+    paths:
+    - dist_prod
+    - terragrunt/modules/lambda/lambda.zip
+  only: master
 
 lint:
   stage: test
