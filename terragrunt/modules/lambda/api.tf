@@ -262,7 +262,7 @@ resource "aws_api_gateway_deployment" "auth_api_deployment" {
   }
 }
 
-resource "aws_api_gateway_stage" "auth_api_dev" {
+resource "aws_api_gateway_stage" "auth_api" {
   deployment_id = aws_api_gateway_deployment.auth_api_deployment.id
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
   stage_name    = "${var.env}"
