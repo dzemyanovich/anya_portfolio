@@ -90,8 +90,10 @@ plan-preprod:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - yarn tg-plan-preprod
+    - cd terragrunt/live/preprod
+    - terragrunt run-all plan
   when: manual
+  only: develop
 
 plan-prod:
   stage: plan
@@ -101,8 +103,10 @@ plan-prod:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - yarn tg-plan-prod
+    - cd terragrunt/live/prod
+    - terragrunt run-all plan
   when: manual
+  only: master
 
 # apply:
 #   stage: apply
@@ -124,8 +128,10 @@ apply-preprod:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - yarn tg-apply-preprod
+    - cd terragrunt/live/preprod
+    - terragrunt run-all apply --terragrunt-non-interactive
   when: manual
+  only: develop
 
 apply-prod:
   stage: apply
@@ -135,8 +141,10 @@ apply-prod:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
-    - yarn tg-apply-prod
+    - cd terragrunt/live/prod
+    - terragrunt run-all apply --terragrunt-non-interactive
   when: manual
+  only: master
 
 e2e-setup:
   image: $CYPRESS_IMAGE
