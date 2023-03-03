@@ -13,7 +13,7 @@ module.exports = merge(common, {
     webSocketServer: false,
   },
   output: {
-    path: path.resolve(__dirname, 'dist_preprod'),
+    path: path.resolve(__dirname, 'dist_dev'),
   },
   plugins: [
     new webpack.DefinePlugin({
