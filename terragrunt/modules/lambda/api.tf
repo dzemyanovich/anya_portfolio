@@ -1,6 +1,11 @@
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "${var.env}_auth_api"
   description = "AuthN/Z API"
+
+  depends_on  = [
+    aws_lambda_function.login_lambda,
+    aws_lambda_function.validate_token_lambda
+  ]
 }
 
 resource "aws_api_gateway_resource" "login_api_resource" {
