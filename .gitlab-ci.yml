@@ -61,41 +61,44 @@ test:
   script:
     - yarn test-cover
 
-plan-preprod:
+.plan:
   stage: plan
   image:
     name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  when: manual
+
+plan-preprod:
+  extends:
+    - .plan
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all plan --terragrunt-non-interactive
-  when: manual
   only:
     - develop
 
 plan-prod:
-  stage: plan
-  image:
-    name: alpine/terragrunt
-    entrypoint:
-      - '/usr/bin/env'
-      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  extends:
+    - .plan
   script:
     - cd terragrunt/live/prod
     - terragrunt run-all plan --terragrunt-non-interactive
-  when: manual
   only:
     - master
 
-apply-preprod:
+.apply:
   stage: apply
   image:
     name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+
+apply-preprod:
+  extends:
+    - .apply
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all apply --terragrunt-non-interactive
@@ -103,26 +106,26 @@ apply-preprod:
     - develop
 
 apply-prod:
-  stage: apply
-  image:
-    name: alpine/terragrunt
-    entrypoint:
-      - '/usr/bin/env'
-      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  extends:
+    - .apply
   script:
     - cd terragrunt/live/prod
     - terragrunt run-all apply --terragrunt-non-interactive
-  when: manual
   only:
     - master
 
-destroy-preprod:
+.destroy:
   stage: destroy
   image:
     name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  when: manual
+
+destroy-preprod:
+   extends:
+    - .destroy
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all destroy --terragrunt-non-interactive
@@ -131,12 +134,8 @@ destroy-preprod:
     - develop
 
 destroy-prod:
-  stage: destroy
-  image:
-    name: alpine/terragrunt
-    entrypoint:
-      - '/usr/bin/env'
-      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  extends:
+    - .destroy
   script:
     - cd terragrunt/live/prod
     - terragrunt run-all destroy --terragrunt-non-interactive
@@ -144,22 +143,25 @@ destroy-prod:
   only:
     - master
 
-e2e-preprod:
+.e2e:
   image: $CYPRESS_IMAGE
   stage: e2e
-  script:
+  before_script:
     - yarn
+  when: manual
+
+e2e-preprod:
+  extends:
+    - .e2e
+  script:
     - yarn cy-preprod
-  # when: manual
   only:
     - develop
 
 e2e-prod:
-  image: $CYPRESS_IMAGE
-  stage: e2e
+  extends:
+    - .e2e
   script:
-    - yarn
     - yarn cy-prod
-  # when: manual
   only:
     - master
