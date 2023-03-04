@@ -27,7 +27,7 @@ build-preprod:
   script:
     - yarn
     - yarn build-preprod
-    - yarn tg-zip
+    - yarn zip
   artifacts:
     paths:
     - dist_preprod
@@ -43,7 +43,7 @@ build-prod:
   script:
     - yarn
     - yarn build-prod
-    - yarn tg-zip
+    - yarn zip
   artifacts:
     paths:
     - dist_prod
