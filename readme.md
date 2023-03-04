@@ -21,7 +21,6 @@ Before running pipeline set the following env vars:
 | AWS_ACCESS_KEY_ID            | "some_value" |               |
 | AWS_SECRET_ACCESS_KEY        | "some_value" |               |
 | AWS_DEFAULT_REGION           | "some_value" |               |
-| TF_VAR_secrets_storage_name  | "some_value" |               |
 | TF_VAR_secrets_storage_value | "some_value" | site password |
 | TF_VAR_jwt_secret            | "some_value" |               |
 | CYPRESS_master_password      | "some_value" | site password |
