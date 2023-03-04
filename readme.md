@@ -14,7 +14,6 @@ jwt_secret = "some_value"
 jwt_secret = "some_value"
 ```
 
-
 # GitLab CI/CD setup guide
 Before running pipeline set the following env vars:
 ```
@@ -27,6 +26,8 @@ Before running pipeline set the following env vars:
 | TF_VAR_jwt_secret            | "some_value" |               |
 | CYPRESS_master_password      | "some_value" | site password |
 ```
+
+**!!! IMPORTANT !!!** `TF_VAR_secrets_storage_value` and `TF_VAR_jwt_secret` are shared between **all envs**: dev, preprod, prod
 
 # Cypress setup guide
 Create `cypress.env.json` in root folder:

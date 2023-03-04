@@ -6,7 +6,6 @@ stages:
   - plan
   - apply
   - destroy
-  - e2e-setup
   - e2e
 
 variables:
@@ -18,35 +17,32 @@ cache:
     - node_modules
     - cache/Cypress
 
-build-preprod:
+.build:
   stage: build
   before_script:
     - apt-get update
     - apt-get install zip
-  script:
     - yarn
-    - yarn build-preprod
     - yarn zip
   artifacts:
     paths:
     - dist_preprod
+    - dist_prod
     - terragrunt/modules/lambda/lambda.zip
+
+build-preprod:
+  extends:
+    - .build
+  script:
+    - yarn build-preprod
   only:
     - develop
 
 build-prod:
-  stage: build
-  before_script:
-    - apt-get update
-    - apt-get install zip
+  extends:
+    - .build
   script:
-    - yarn
     - yarn build-prod
-    - yarn zip
-  artifacts:
-    paths:
-    - dist_prod
-    - terragrunt/modules/lambda/lambda.zip
   only:
     - master
 
@@ -54,19 +50,16 @@ lint:
   stage: test
   script:
     - yarn lint
-  when: manual
 
 stylelint:
   stage: test
   script:
     - yarn stylelint
-  when: manual
 
 test:
   stage: test
   script:
     - yarn test-cover
-  when: manual
 
 plan-preprod:
   stage: plan
@@ -106,7 +99,6 @@ apply-preprod:
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all apply --terragrunt-non-interactive
-  # when: manual
   only:
     - develop
 
@@ -152,19 +144,13 @@ destroy-prod:
   only:
     - master
 
-e2e-setup:
-  image: $CYPRESS_IMAGE
-  stage: e2e-setup
-  script:
-    - yarn
-  when: manual
-
 e2e-preprod:
   image: $CYPRESS_IMAGE
   stage: e2e
   script:
+    - yarn
     - yarn cy-preprod
-  when: manual
+  # when: manual
   only:
     - develop
 
@@ -172,7 +158,8 @@ e2e-prod:
   image: $CYPRESS_IMAGE
   stage: e2e
   script:
+    - yarn
     - yarn cy-prod
-  when: manual
+  # when: manual
   only:
     - master
