@@ -107,7 +107,7 @@ plan-preprod:
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all plan --terragrunt-non-interactive
-  # when: manual
+  when: manual
   only:
     - develop
 
@@ -147,7 +147,7 @@ apply-preprod:
   script:
     - cd terragrunt/live/preprod
     - terragrunt run-all apply --terragrunt-non-interactive
-  when: manual
+  # when: manual
   only:
     - develop
 
