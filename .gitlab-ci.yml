@@ -3,7 +3,6 @@ image: node:14.21.1
 stages:
   - build
   - test
-  - init
   - plan
   - apply
   - destroy
@@ -69,34 +68,6 @@ test:
     - yarn test-cover
   when: manual
 
-init:
-  stage: init
-  image:
-    name: hashicorp/terraform:light
-    entrypoint:
-      - '/usr/bin/env'
-      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
-  script:
-    - cd terraform
-    - terraform init -migrate-state
-  artifacts:
-    paths:
-    - terraform/.terraform
-    - terraform/.terraform.lock.hcl
-  when: manual
-
-# plan:
-#   stage: plan
-#   image:
-#     name: hashicorp/terraform:light
-#     entrypoint:
-#       - '/usr/bin/env'
-#       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
-#   script:
-#     - cd terraform
-#     - terraform plan
-#   when: manual
-
 plan-preprod:
   stage: plan
   image:
@@ -124,18 +95,6 @@ plan-prod:
   when: manual
   only:
     - master
-
-# apply:
-#   stage: apply
-#   image:
-#     name: hashicorp/terraform:light
-#     entrypoint:
-#       - '/usr/bin/env'
-#       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
-#   script:
-#     - cd terraform
-#     - terraform apply -auto-approve -lock=false
-#   when: manual
 
 apply-preprod:
   stage: apply
@@ -197,14 +156,7 @@ e2e-setup:
   image: $CYPRESS_IMAGE
   stage: e2e-setup
   script:
-    - yarn # todo: do not run yarn here, re-use 'build' stage
-  when: manual
-
-e2e-dev:
-  image: $CYPRESS_IMAGE
-  stage: e2e
-  script:
-    - yarn cy-dev
+    - yarn
   when: manual
 
 e2e-preprod:
@@ -213,6 +165,8 @@ e2e-preprod:
   script:
     - yarn cy-preprod
   when: manual
+  only:
+    - develop
 
 e2e-prod:
   image: $CYPRESS_IMAGE
@@ -220,3 +174,5 @@ e2e-prod:
   script:
     - yarn cy-prod
   when: manual
+  only:
+    - master
