@@ -68,23 +68,23 @@ test:
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - terragrunt run-all plan --terragrunt-non-interactive
   when: manual
 
 plan-preprod:
   extends:
     - .plan
-  script:
+  before_script:
     - cd terragrunt/live/preprod
-    - terragrunt run-all plan --terragrunt-non-interactive
   only:
     - develop
 
 plan-prod:
   extends:
     - .plan
-  script:
+  before_script:
     - cd terragrunt/live/prod
-    - terragrunt run-all plan --terragrunt-non-interactive
   only:
     - master
 
@@ -94,23 +94,23 @@ plan-prod:
     name: alpine/terragrunt
     entrypoint:
       - '/usr/bin/env'
-      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+  script:
+    - terragrunt run-all apply --terragrunt-non-interactive
 
 apply-preprod:
   extends:
     - .apply
-  script:
+  before_script:
     - cd terragrunt/live/preprod
-    - terragrunt run-all apply --terragrunt-non-interactive
   only:
     - develop
 
 apply-prod:
   extends:
     - .apply
-  script:
+  before_script:
     - cd terragrunt/live/prod
-    - terragrunt run-all apply --terragrunt-non-interactive
   only:
     - master
 
@@ -121,14 +121,15 @@ apply-prod:
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
+  script:
+    - terragrunt run-all destroy --terragrunt-non-interactive
   when: manual
 
 destroy-preprod:
-   extends:
+  extends:
     - .destroy
-  script:
+  before_script:
     - cd terragrunt/live/preprod
-    - terragrunt run-all destroy --terragrunt-non-interactive
   when: manual
   only:
     - develop
@@ -136,9 +137,8 @@ destroy-preprod:
 destroy-prod:
   extends:
     - .destroy
-  script:
+  before_script:
     - cd terragrunt/live/prod
-    - terragrunt run-all destroy --terragrunt-non-interactive
   when: manual
   only:
     - master
