@@ -11,7 +11,7 @@ locals {
 }
 
 inputs = {
-  website_bucket_name = "${local.global_vars.env}.annapivunova.me"
+  website_bucket_name = "annapivunova.me"
   env                 = local.global_vars.env
   src_path            = local.global_vars.src_path
 }
