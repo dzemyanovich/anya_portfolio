@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# todo: uncomment
-# yarn lint && yarn stylelint && yarn test-cover
+yarn lint && yarn stylelint && yarn test-cover

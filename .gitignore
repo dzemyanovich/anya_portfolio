@@ -11,9 +11,7 @@ cypress/videos/
 
 yarn-error.log
 .DS_Store
-# todo: should I put *.tfstate in gitignore?
 .terraform.lock.hcl
-*.tfstate.backup
 *.zip
 terraform.tfvars
 cypress.env.json
