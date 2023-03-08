@@ -1,3 +1,4 @@
+# todo: api is modified after each deploy, however it should be redeployed only in case of any changes
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "${var.env}_auth_api"
   description = "AuthN/Z API"

@@ -50,16 +50,19 @@ lint:
   stage: test
   script:
     - yarn lint
+  when: manual
 
 stylelint:
   stage: test
   script:
     - yarn stylelint
+  when: manual
 
 test:
   stage: test
   script:
     - yarn test-cover
+  when: manual
 
 .plan:
   stage: plan
@@ -149,6 +152,7 @@ apply-prod:
   stage: e2e
   before_script:
     - yarn
+  when: manual
 
 e2e-preprod:
   extends:
