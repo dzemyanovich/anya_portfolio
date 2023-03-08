@@ -27,7 +27,7 @@
     "cy": "cypress run --browser chrome",
     "cy-dev": "cypress run --browser chrome --env domain=\"http://dev4.annapivunova.me.s3-website.eu-central-1.amazonaws.com\"",
     "cy-preprod": "cypress run --browser chrome --env domain=\"http://preprod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com\"",
-    "cy-prod": "cypress run --browser chrome --env domain=\"http://prod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com\""
+    "cy-prod": "cypress run --browser chrome --env domain=\"http://annapivunova.me.s3-website.eu-central-1.amazonaws.com\""
   },
   "dependencies": {
     "react": "^18.2.0",
