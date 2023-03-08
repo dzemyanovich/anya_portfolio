@@ -149,7 +149,6 @@ apply-prod:
   stage: e2e
   before_script:
     - yarn
-  when: manual
 
 e2e-preprod:
   extends:
