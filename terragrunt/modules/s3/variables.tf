@@ -9,3 +9,8 @@ variable "src_path" {
 variable "env" {
   type = string
 }
+
+variable "is_prod_env" {
+  type    = bool
+  default = false
+}

@@ -14,4 +14,5 @@ inputs = {
   website_bucket_name = "annapivunova.me"
   env                 = local.global_vars.env
   src_path            = local.global_vars.src_path
+  is_prod_env         = true
 }
