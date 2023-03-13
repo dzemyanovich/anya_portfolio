@@ -46,23 +46,27 @@ build-prod:
   only:
     - master
 
-lint:
+.test:
   stage: test
+  # when: manual
+
+lint:
+  extends:
+    - .test
   script:
     - yarn lint
-  when: manual
 
 stylelint:
-  stage: test
+  extends:
+    - .test
   script:
     - yarn stylelint
-  when: manual
 
-test:
-  stage: test
+unit:
+  extends:
+    - .test
   script:
     - yarn test-cover
-  when: manual
 
 .plan:
   stage: plan
@@ -73,7 +77,7 @@ test:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
   script:
     - terragrunt run-all plan --terragrunt-non-interactive
-  # when: manual
+  when: manual
 
 plan-preprod:
   extends:
@@ -100,7 +104,7 @@ plan-prod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   script:
     - terragrunt run-all apply --terragrunt-non-interactive
-  when: manual
+  # when: manual
 
 apply-preprod:
   extends:
@@ -153,7 +157,7 @@ apply-prod:
   stage: e2e
   before_script:
     - yarn
-  when: manual
+  # when: manual
 
 e2e-preprod:
   extends:
