@@ -3,11 +3,17 @@ import { TextEncoder } from 'util';
 global.TextEncoder = TextEncoder;
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('UnauthenticatedRouteOnly', () => {
+  beforeEach(() => {
+    jest.mock('../../utils/auth', () => ({
+      validateToken: () => Promise.resolve(false),
+    }));
+  });
+
   it('returns nothing because isLoading = true', async () => {
     const UnauthenticatedRouteOnly = (await import('./unauthenticated-route-only')).default;
 
@@ -20,20 +26,15 @@ describe('UnauthenticatedRouteOnly', () => {
     expect(unauthenticatedRouteOnly.text()).toBe('');
   });
 
-  // todo: unskip
-  it.skip('renders component', async () => {
-    jest.mock('../../utils/auth', () => ({
-      validateToken: () => Promise.resolve(true),
-    }));
-
+  it('react hooks', async () => {
     const UnauthenticatedRouteOnly = (await import('./unauthenticated-route-only')).default;
 
-    const unauthenticatedRouteOnly = render(
-      <UnauthenticatedRouteOnly>
-        anything
-      </UnauthenticatedRouteOnly>
-    );
-
-    // todo: add expect
+    await act(async () => {
+      await render(
+        <UnauthenticatedRouteOnly>
+          anything
+        </UnauthenticatedRouteOnly>
+      );
+    });
   });
 });

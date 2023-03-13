@@ -4,7 +4,7 @@ import haviLandingPage from '../../../images/havi-landing-page.jpeg';
 
 export function HaviLanding() {
   return (
-    <div className="section-container" key="section-1">
+    <div className="section-container">
       <div className="section">
         <div className="paragraph">
           <div className="product-title">HAVI</div>

@@ -3,11 +3,17 @@ import { TextEncoder } from 'util';
 global.TextEncoder = TextEncoder;
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('ProtectedRoute', () => {
+  beforeEach(() => {
+    jest.mock('../../utils/auth', () => ({
+      validateToken: () => Promise.resolve(true),
+    }));
+  });
+
   it('returns nothing because isLoading = true', async () => {
     const ProtectedRoute = (await import('./protected-route')).default;
 
@@ -20,20 +26,15 @@ describe('ProtectedRoute', () => {
     expect(protectedRoute.text()).toBe('');
   });
 
-  // todo: unskip
-  it.skip('renders component', async () => {
-    jest.mock('../../utils/auth', () => ({
-      validateToken: () => Promise.resolve(true),
-    }));
-
+  it('react hooks', async () => {
     const ProtectedRoute = (await import('./protected-route')).default;
 
-    const protectedRoute = render(
-      <ProtectedRoute>
-        anything
-      </ProtectedRoute>
-    );
-
-    // todo: add expect
+    await act(async () => {
+      await render(
+        <ProtectedRoute>
+          anything
+        </ProtectedRoute>
+      );
+    });
   });
 });
