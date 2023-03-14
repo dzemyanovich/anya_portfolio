@@ -20,7 +20,10 @@ export default {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: [ "src/**/*.{ts,tsx}" ],
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!src/index.tsx",
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -43,11 +46,11 @@ export default {
 
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: {
-    global: { // todo: set everything to 80
-      statements: 52,
-      branches: 20,
-      functions: 58,
-      lines: 52,
+    global: {
+      statements: 70,
+      branches: 50,
+      functions: 70,
+      lines: 70,
     },
   },
 
