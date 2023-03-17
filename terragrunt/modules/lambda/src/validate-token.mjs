@@ -10,11 +10,9 @@ function validateJwt(token) {
   let payload = null;
   try {
     payload = jwt.decode(token, process.env.JWT_SECRET);
-  } catch (e) {
-    if (error.errorMessage == 'Signature verification failed') {
-      return false;
-    }
-    throw e;
+  } catch (error) {
+    console.error(error.errorMessage);
+    return false;
   }
   const millisecondsPassed = Date.now() - payload.created;
   const jwtExpireMilliseconds = process.env.JWT_EXPIRE_DAYS * 1000 * 60 * 60 * 24;
