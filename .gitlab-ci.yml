@@ -6,6 +6,7 @@ stages:
   - plan
   - apply
   - destroy
+  - e2e-setup
   - e2e
 
 variables:
@@ -48,7 +49,7 @@ build-prod:
 
 .test:
   stage: test
-  # when: manual
+  when: manual
 
 lint:
   extends:
@@ -152,12 +153,32 @@ apply-prod:
 #   only:
 #     - master
 
+e2e-setup:
+  image: $CYPRESS_IMAGE
+  stage: e2e-setup
+  script:
+    - yarn
+
 .e2e:
   image: $CYPRESS_IMAGE
   stage: e2e
-  before_script:
-    - yarn
-  # when: manual
+  when: manual
+
+integration-preprod:
+  extends:
+    - .e2e
+  script:
+    - yarn integration-preprod
+  only:
+    - develop
+
+integration-prod:
+  extends:
+    - .e2e
+  script:
+    - yarn integration-prod
+  only:
+    - master
 
 e2e-preprod:
   extends:
