@@ -30,6 +30,7 @@ cache:
     - dist_preprod
     - dist_prod
     - terragrunt/modules/lambda/lambda.zip
+  when: manual
 
 build-preprod:
   extends:
@@ -105,7 +106,7 @@ plan-prod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   script:
     - terragrunt run-all apply --terragrunt-non-interactive
-  # when: manual
+  when: manual
 
 apply-preprod:
   extends:
@@ -164,22 +165,6 @@ e2e-setup:
   stage: e2e
   when: manual
 
-integration-preprod:
-  extends:
-    - .e2e
-  script:
-    - yarn integration-preprod
-  only:
-    - develop
-
-integration-prod:
-  extends:
-    - .e2e
-  script:
-    - yarn integration-prod
-  only:
-    - master
-
 e2e-preprod:
   extends:
     - .e2e
@@ -193,5 +178,21 @@ e2e-prod:
     - .e2e
   script:
     - yarn cy-prod
+  only:
+    - master
+
+integration-preprod:
+  extends:
+    - .e2e
+  script:
+    - yarn integration-preprod
+  only:
+    - develop
+
+integration-prod:
+  extends:
+    - .e2e
+  script:
+    - yarn integration-prod
   only:
     - master
