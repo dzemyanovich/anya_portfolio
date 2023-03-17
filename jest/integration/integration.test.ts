@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// todo: secretely set master_pasword
 const { AUTH_API, MASTER_PASSWORD } = process.env;
 const LOGIN_URL = `${AUTH_API}/login`;
 const VALIDATE_TOKEN_URL = `${AUTH_API}/validate-token`;
