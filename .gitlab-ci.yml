@@ -159,6 +159,7 @@ e2e-setup:
   stage: e2e-setup
   script:
     - yarn
+  when: manual
 
 .e2e:
   image: $CYPRESS_IMAGE
