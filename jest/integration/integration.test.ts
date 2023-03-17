@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-// todo: set auth_api for each env dynamically
 // todo: secretely set master_pasword
-// dev https://0wanj4yiyc.execute-api.eu-central-1.amazonaws.com/dev4
-// preprod https://qcgnmbwhui.execute-api.eu-central-1.amazonaws.com/preprod1
-// prod https://0kqyjube0g.execute-api.eu-central-1.amazonaws.com/prod1
 const { AUTH_API, MASTER_PASSWORD } = process.env;
 const LOGIN_URL = `${AUTH_API}/login`;
 const VALIDATE_TOKEN_URL = `${AUTH_API}/validate-token`;
