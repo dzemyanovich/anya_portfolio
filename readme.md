@@ -37,3 +37,9 @@ Create `cypress.env.json` in root folder:
   "master_password": "some_value"
 }
 ```
+
+# Jest integration tests setup guide
+Create file `jest/integration/setup.common.ts`:
+```
+process.env.MASTER_PASSWORD = 'some_value';
+```

@@ -15,3 +15,4 @@ yarn-error.log
 *.zip
 terraform.tfvars
 cypress.env.json
+jest/integration/setup.common.ts
