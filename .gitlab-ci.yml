@@ -106,7 +106,7 @@ plan-prod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   script:
     - terragrunt run-all apply --terragrunt-non-interactive
-  # when: manual
+  when: manual
 
 apply-preprod:
   extends:

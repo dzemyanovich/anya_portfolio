@@ -3,7 +3,22 @@ locals {
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "${var.website_bucket_name}"
+  bucket = var.website_bucket_name
+
+  tags = {
+    Environment = "${var.env}"
+  }
+
+  website {
+    redirect_all_requests_to = var.website_bucket_name
+  }
+}
+
+resource "aws_s3_bucket" "subdomain_bucket" {
+  # create bucket "www.annapivunova.me" only for prod env
+  count = "${var.is_prod_env ? 1 : 0}"
+
+  bucket = "www.${var.website_bucket_name}"
 
   tags = {
     Environment = "${var.env}"
