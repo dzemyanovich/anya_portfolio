@@ -22,7 +22,6 @@ resource "aws_s3_bucket" "subdomain_bucket" {
 
   website {
     redirect_all_requests_to = var.website_bucket_name
-    # redirect_all_requests_to = aws_s3_bucket_website_configuration.website_configuration.website_endpoint
   }
 }
 
