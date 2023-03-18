@@ -8,10 +8,6 @@ resource "aws_s3_bucket" "website_bucket" {
   tags = {
     Environment = "${var.env}"
   }
-
-  website {
-    redirect_all_requests_to = var.website_bucket_name
-  }
 }
 
 resource "aws_s3_bucket" "subdomain_bucket" {
@@ -22,6 +18,10 @@ resource "aws_s3_bucket" "subdomain_bucket" {
 
   tags = {
     Environment = "${var.env}"
+  }
+
+  website {
+    redirect_all_requests_to = var.website_bucket_name
   }
 }
 
