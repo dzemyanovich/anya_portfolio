@@ -50,7 +50,7 @@ build-prod:
 
 .test:
   stage: test
-  when: manual
+  # when: manual
 
 lint:
   extends:
@@ -106,7 +106,7 @@ plan-prod:
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   script:
     - terragrunt run-all apply --terragrunt-non-interactive
-  when: manual
+  # when: manual
 
 apply-preprod:
   extends:
@@ -159,12 +159,12 @@ e2e-setup:
   stage: e2e-setup
   script:
     - yarn
-  when: manual
+  # when: manual
 
 .e2e:
   image: $CYPRESS_IMAGE
   stage: e2e
-  when: manual
+  # when: manual
 
 e2e-preprod:
   extends:
