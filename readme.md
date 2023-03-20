@@ -1,7 +1,7 @@
 # About
 https://annapivunova.me/
 
-**Tech stack**: React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, Node.js, Terraform, Terragrunt, GitLab CI
+**Tech stack**: React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, AWS Certificate Manager (ACM), Node.js, Terraform, Terragrunt, GitLab CI
 
 # AWS setup guide
 In order to set up AWS infrastucture **locally**:
