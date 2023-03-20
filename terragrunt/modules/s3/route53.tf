@@ -55,5 +55,5 @@ resource "aws_route53_record" "ssl_certificate_dns" {
 resource "aws_acm_certificate_validation" "ssl_certificate_validate" {
   count                   = "${var.is_prod_env ? 1 : 0}"
   certificate_arn         = aws_acm_certificate.ssl_certificate[0].arn
-  validation_record_fqdns = aws_route53_record.ssl_certificate_dns[0].*.fqdn
+  validation_record_fqdns = aws_route53_record.ssl_certificate_dns.*.fqdn
 }
