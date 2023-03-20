@@ -49,7 +49,7 @@ build-prod:
 
 .test:
   stage: test
-  when: manual
+  # when: manual
 
 lint:
   extends:
@@ -158,12 +158,12 @@ e2e-setup:
   stage: e2e-setup
   script:
     - yarn
-  when: manual
+  # when: manual
 
 .e2e:
   image: $CYPRESS_IMAGE
   stage: e2e
-  when: manual
+  # when: manual
 
 e2e-preprod:
   extends:
