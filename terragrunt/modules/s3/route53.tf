@@ -32,6 +32,7 @@ resource "aws_route53_record" "www_s3_record" {
 }
 
 resource "aws_acm_certificate" "ssl_certificate" {
+  count                     = "${var.is_prod_env ? 1 : 0}"
   domain_name               = var.website_bucket_name
   subject_alternative_names = [ "www.${var.website_bucket_name}", "*.${var.website_bucket_name}" ]
   validation_method         = "DNS"
