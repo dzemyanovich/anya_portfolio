@@ -24,11 +24,11 @@ resource "aws_iam_role_policy_attachment" "lambda_access_secrets" {
 }
 
 resource "aws_lambda_function" "login_lambda" {
-  filename          = "lambda.zip"
+  filename          = data.archive_file.lambda_zip.output_path
   function_name     = "${var.env}-login"
   role              = aws_iam_role.iam_for_lambda.arn
   handler           = "login.handler"
-  source_code_hash  = filebase64sha256("lambda.zip") # required to detect changes in lambda
+  source_code_hash  = data.archive_file.lambda_zip.output_base64sha256
   runtime           = "nodejs18.x"
 
   environment {
@@ -41,10 +41,10 @@ resource "aws_lambda_function" "login_lambda" {
 }
 
 resource "aws_lambda_function" "validate_token_lambda" {
-  filename          = "lambda.zip"
+  filename          = data.archive_file.lambda_zip.output_path
   function_name     = "${var.env}-validate-token"
   role              = aws_iam_role.iam_for_lambda.arn
-  source_code_hash  = filebase64sha256("lambda.zip") # required to detect changes in lambda
+  source_code_hash  = data.archive_file.lambda_zip.output_base64sha256
   handler           = "validate-token.handler"
   runtime           = "nodejs18.x"
 

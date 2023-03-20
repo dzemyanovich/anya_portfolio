@@ -1,4 +1,3 @@
-# todo: api is modified after each deploy, however it should be redeployed only in case of any changes
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "${var.env}_auth_api"
   description = "AuthN/Z API"
@@ -235,7 +234,7 @@ resource "aws_api_gateway_integration_response" "validate_token_options_integrat
 
 resource "aws_api_gateway_deployment" "auth_api_deployment" {
   variables = {
-    source_code_hash = "${filebase64sha256("lambda.zip")}"
+    source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   }
 
   depends_on  = [
