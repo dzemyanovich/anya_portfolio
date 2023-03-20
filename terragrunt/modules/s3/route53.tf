@@ -30,3 +30,13 @@ resource "aws_route53_record" "www_s3_record" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_acm_certificate" "ssl_certificate" {
+  domain_name               = var.website_bucket_name
+  subject_alternative_names = [ "www.${var.website_bucket_name}", "*.${var.website_bucket_name}" ]
+  validation_method         = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
