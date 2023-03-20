@@ -12,7 +12,7 @@ resource "aws_route53_record" "s3_record" {
   type    = "A"
 
   alias {
-    name                   = aws_s3_bucket_website_configuration.website_configuration.website_endpoint
+    name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
     zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
     evaluate_target_health = false
   }
@@ -25,7 +25,7 @@ resource "aws_route53_record" "www_s3_record" {
   type    = "A"
 
   alias {
-    name                   = aws_s3_bucket_website_configuration.website_configuration.website_endpoint
+    name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
     zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
     evaluate_target_health = false
   }
