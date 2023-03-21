@@ -1,5 +1,9 @@
 # everything below is created only for prod env
 
+locals {
+  domain_alt_names = [ "www.${var.website_bucket_name}", "*.${var.website_bucket_name}" ]
+}
+
 resource "aws_route53_zone" "website_zone" {
   count = "${var.is_prod_env ? 1 : 0}"
   name  = var.website_bucket_name
@@ -34,7 +38,7 @@ resource "aws_route53_record" "www_s3_record" {
 resource "aws_acm_certificate" "ssl_certificate" {
   count                     = "${var.is_prod_env ? 1 : 0}"
   domain_name               = var.website_bucket_name
-  subject_alternative_names = [ "www.${var.website_bucket_name}", "*.${var.website_bucket_name}" ]
+  subject_alternative_names = local.domain_alt_names
   validation_method         = "DNS"
 
   lifecycle {
@@ -43,7 +47,7 @@ resource "aws_acm_certificate" "ssl_certificate" {
 }
 
 resource "aws_route53_record" "ssl_certificate_dns" {
-  count           = "${var.is_prod_env ? length(aws_acm_certificate.ssl_certificate[0].domain_validation_options) : 0}"
+  count           = "${var.is_prod_env ? length(var.domain_alt_names) + 1 : 0}"
   allow_overwrite = true
   name            = element(aws_acm_certificate.ssl_certificate[0].domain_validation_options.*.resource_record_name, count.index)
   type            = element(aws_acm_certificate.ssl_certificate[0].domain_validation_options.*.resource_record_type, count.index)
