@@ -43,8 +43,7 @@ resource "aws_acm_certificate_validation" "ssl_certificate_validate" {
   count                   = "${var.is_prod_env ? 1 : 0}"
   provider                = aws.virginia
   certificate_arn         = aws_acm_certificate.ssl_certificate[0].arn
-  # validation_record_fqdns = aws_route53_record.ssl_certificate_dns.*.fqdn
-  validation_record_fqdns = [for record in aws_route53_record.ssl_certificate_dns : record.fqdn]
+  validation_record_fqdns = aws_route53_record.ssl_certificate_dns.*.fqdn
 }
 
 ############# CloudFront #############
@@ -53,8 +52,15 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   count = "${var.is_prod_env ? 1 : 0}"
 
   origin {
-    domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
+    domain_name = aws_s3_bucket_website_configuration.website_configuration.website_endpoint
     origin_id   = local.s3_origin_id
+
+    custom_origin_config {
+      http_port              = "80"
+      https_port             = "443"
+      origin_protocol_policy = "http-only"
+      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
+    }
   }
 
   enabled             = true
