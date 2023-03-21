@@ -11,7 +11,6 @@ resource "aws_s3_bucket" "website_bucket" {
 }
 
 resource "aws_s3_bucket" "subdomain_bucket" {
-  # create bucket "www.annapivunova.me" only for prod env
   count = "${var.is_prod_env ? 1 : 0}"
   bucket = "www.${var.website_bucket_name}"
 

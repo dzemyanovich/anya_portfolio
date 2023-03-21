@@ -35,8 +35,14 @@ resource "aws_route53_record" "www_s3_record" {
   }
 }
 
+provider "aws" {
+  alias = "virginia"
+  region = "us-east-1"
+}
+
 resource "aws_acm_certificate" "ssl_certificate" {
   count                     = "${var.is_prod_env ? 1 : 0}"
+  provider                  = aws.virginia
   domain_name               = var.website_bucket_name
   subject_alternative_names = local.domain_alt_names
   validation_method         = "DNS"
