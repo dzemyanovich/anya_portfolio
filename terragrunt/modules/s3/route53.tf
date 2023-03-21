@@ -36,7 +36,7 @@ resource "aws_route53_record" "www_s3_record" {
 }
 
 provider "aws" {
-  alias = "virginia"
+  alias  = "virginia"
   region = "us-east-1"
 }
 
@@ -64,6 +64,7 @@ resource "aws_route53_record" "ssl_certificate_dns" {
 
 resource "aws_acm_certificate_validation" "ssl_certificate_validate" {
   count                   = "${var.is_prod_env ? 1 : 0}"
+  provider                = aws.virginia
   certificate_arn         = aws_acm_certificate.ssl_certificate[0].arn
   validation_record_fqdns = aws_route53_record.ssl_certificate_dns.*.fqdn
 }
