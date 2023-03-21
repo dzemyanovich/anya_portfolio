@@ -48,6 +48,7 @@ resource "aws_route53_record" "ssl_certificate_dns" {
   name            = element(aws_acm_certificate.ssl_certificate[0].domain_validation_options.*.resource_record_name, count.index)
   type            = element(aws_acm_certificate.ssl_certificate[0].domain_validation_options.*.resource_record_type, count.index)
   records         = [element(aws_acm_certificate.ssl_certificate[0].domain_validation_options.*.resource_record_value, count.index)]
+  zone_id         = aws_route53_zone.website_zone[0].zone_id
   ttl             = 60
 }
 
