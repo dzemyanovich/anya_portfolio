@@ -10,18 +10,18 @@ resource "aws_route53_zone" "website_zone" {
   name  = var.website_bucket_name
 }
 
-resource "aws_route53_record" "s3_record" {
-  count   = "${var.is_prod_env ? 1 : 0}"
-  zone_id = aws_route53_zone.website_zone[0].zone_id
-  name    = var.website_bucket_name
-  type    = "A"
+# resource "aws_route53_record" "s3_record" {
+#   count   = "${var.is_prod_env ? 1 : 0}"
+#   zone_id = aws_route53_zone.website_zone[0].zone_id
+#   name    = var.website_bucket_name
+#   type    = "A"
 
-  alias {
-    name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
-    zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
+#   alias {
+#     name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
+#     zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
+#     evaluate_target_health = false
+#   }
+# }
 
 resource "aws_route53_record" "www_s3_record" {
   count   = "${var.is_prod_env ? 1 : 0}"
@@ -40,6 +40,8 @@ provider "aws" {
   alias  = "virginia"
   region = "us-east-1"
 }
+
+############# SSL #############
 
 resource "aws_acm_certificate" "ssl_certificate" {
   count                     = "${var.is_prod_env ? 1 : 0}"
@@ -69,6 +71,8 @@ resource "aws_acm_certificate_validation" "ssl_certificate_validate" {
   certificate_arn         = aws_acm_certificate.ssl_certificate[0].arn
   validation_record_fqdns = aws_route53_record.ssl_certificate_dns.*.fqdn
 }
+
+############# CloudFront #############
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   count = "${var.is_prod_env ? 1 : 0}"
@@ -133,7 +137,7 @@ resource "aws_route53_record" "cloud_front_record" {
 
   alias {
     name                   = replace(aws_cloudfront_distribution.s3_distribution[0].domain_name, "/[.]$/", "")
-    zone_id                = "${aws_cloudfront_distribution.s3_distribution[0].hosted_zone_id}"
+    zone_id                = aws_cloudfront_distribution.s3_distribution[0].hosted_zone_id
     evaluate_target_health = true
   }
 
