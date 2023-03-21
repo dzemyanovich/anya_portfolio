@@ -10,32 +10,6 @@ resource "aws_route53_zone" "website_zone" {
   name  = var.website_bucket_name
 }
 
-# resource "aws_route53_record" "s3_record" {
-#   count   = "${var.is_prod_env ? 1 : 0}"
-#   zone_id = aws_route53_zone.website_zone[0].zone_id
-#   name    = var.website_bucket_name
-#   type    = "A"
-
-#   alias {
-#     name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
-#     zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
-#     evaluate_target_health = false
-#   }
-# }
-
-# resource "aws_route53_record" "www_s3_record" {
-#   count   = "${var.is_prod_env ? 1 : 0}"
-#   zone_id = aws_route53_zone.website_zone[0].zone_id
-#   name    = "www.${var.website_bucket_name}"
-#   type    = "A"
-
-#   alias {
-#     name                   = aws_s3_bucket_website_configuration.website_configuration.website_domain
-#     zone_id                = aws_s3_bucket.website_bucket.hosted_zone_id
-#     evaluate_target_health = false
-#   }
-# }
-
 provider "aws" {
   alias  = "virginia"
   region = "us-east-1"
@@ -116,8 +90,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   restrictions {
     geo_restriction {
-      # restriction_type = "whitelist"
-      # locations        = ["US", "CA", "GB", "DE"]
       restriction_type = "none"
       locations        = []
     }

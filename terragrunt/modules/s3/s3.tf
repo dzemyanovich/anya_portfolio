@@ -25,7 +25,7 @@ resource "aws_s3_bucket_website_configuration" "subdomain_configuration" {
 
   redirect_all_requests_to {
     host_name = var.website_bucket_name
-    protocol  = "http" # todo: change to https
+    protocol  = "https"
   }
 }
 
