@@ -4,7 +4,7 @@ import ManyProducts from '../../components/many-products/many-products';
 
 import haviLogo from '../../images/havi-logo.png';
 import haviLandingLogo from '../../images/havi-landing-logo.png';
-import supplyPlanningLogo from '../../images/supply-planning-logo.jpeg';
+// import supplyPlanningLogo from '../../images/supply-planning-logo.jpeg';
 
 export function HaviHeader() {
   return (
@@ -30,14 +30,17 @@ export function HaviContent() {
   const products: Product[] = [
     {
       name: 'Supply Planning',
-      path: '/products/havi/supply-planning',
-      imageSrc: supplyPlanningLogo,
+      // path: '/products/havi/supply-planning',
+      path: 'https://www.dropbox.com/s/k6ofkld5sv1r489/havi_supply_planning.pdf?dl=0',
+      // imageSrc: supplyPlanningLogo,
+      imageSrc: null,
       category: categories.productDesign,
       year: 2020,
     },
     {
       name: 'havi.com',
-      path: '/products/havi/landing',
+      // path: '/products/havi/landing',
+      path: 'https://www.dropbox.com/s/bpr67xdn1593sjh/havi_landing.pdf?dl=0',
       imageSrc: haviLandingLogo,
       category: categories.designLeadership,
       year: 2020,

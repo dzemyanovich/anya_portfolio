@@ -4,7 +4,7 @@ import ManyProducts from '../../components/many-products/many-products';
 
 import image from '../../images/burger.png';
 import haviLogo from '../../images/havi-logo.png';
-import eventOptimizerBackground from '../../images/event-optimizer-background.png';
+// import eventOptimizerBackground from '../../images/event-optimizer-background.png';
 
 export function McdonaldsHeader() {
   return (
@@ -33,15 +33,18 @@ export function McdonaldsContent() {
   const products = [
     {
       name: 'Event Optimizer',
-      path: '/products/mcdonalds/event-optimizer',
+      // path: '/products/mcdonalds/event-optimizer',
+      path: 'https://www.dropbox.com/s/gdrea0jdrmu2xap/mcdonalds_event_optimizer.pdf?dl=0',
       imageSrc: haviLogo,
       category: categories.designLeadership,
       year: 2019,
     },
     {
       name: 'Design Leadership',
-      path: '/products/mcdonalds/design-leadership',
-      imageSrc: eventOptimizerBackground,
+      // path: '/products/mcdonalds/design-leadership',
+      path: 'https://www.dropbox.com/s/k7f2vh0w30fhkch/mcdonalds_design_leadership.pdf?dl=0',
+      // imageSrc: eventOptimizerBackground,
+      imageSrc: null,
       category: categories.productDesign,
       year: 2020,
     },

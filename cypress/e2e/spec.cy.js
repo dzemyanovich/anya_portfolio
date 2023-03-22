@@ -73,7 +73,13 @@ describe('products page', () => {
 
   it('click on each company link', () => {
     cy.get('.company-link [role=link]').each((el) => {
-      visit(`${DOMAIN}${el.attr('data-href')}`);
+      const dataHref = el.attr('data-href');
+      if (dataHref.startsWith('https://')) {
+        // skip cases when company link leads to expternal page (e.g. dropbox pdf file)
+        return;
+      }
+
+      visit(`${DOMAIN}${dataHref}`);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
 
