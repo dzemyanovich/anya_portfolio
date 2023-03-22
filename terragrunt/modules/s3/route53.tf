@@ -123,3 +123,18 @@ resource "aws_route53_record" "cloud_front_record" {
 
   depends_on = [aws_cloudfront_distribution.s3_distribution[0]]
 }
+
+resource "aws_route53_record" "www_cloud_front_record" {
+  count   = "${var.is_prod_env ? 1 : 0}"
+  zone_id = aws_route53_zone.website_zone[0].zone_id
+  name    = "www.${var.website_bucket_name}"
+  type    = "A"
+
+  alias {
+    name                   = replace(aws_cloudfront_distribution.s3_distribution[0].domain_name, "/[.]$/", "")
+    zone_id                = aws_cloudfront_distribution.s3_distribution[0].hosted_zone_id
+    evaluate_target_health = true
+  }
+
+  depends_on = [aws_cloudfront_distribution.s3_distribution[0]]
+}
