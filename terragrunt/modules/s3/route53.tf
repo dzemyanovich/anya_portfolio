@@ -54,18 +54,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name = aws_s3_bucket_website_configuration.website_configuration.website_endpoint
     origin_id   = local.s3_origin_id
-
-    custom_origin_config {
-      http_port              = "80"
-      https_port             = "443"
-      origin_protocol_policy = "http-only"
-      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-    }
   }
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Some comment"
   default_root_object = "index.html"
 
   logging_config {
