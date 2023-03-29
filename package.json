@@ -41,7 +41,7 @@
     "cy-dev-chrome": "cypress run --browser chrome --config-file cypress.dev.js",
     "cy-dev-firefox": "cypress run --browser firefox --config-file cypress.dev.js",
     "cy-dev-edge": "cypress run --browser edge --config-file cypress.dev.js",
-    "cy-preprod": "yarn cy-preprod-chrome && yarn cy-preprod-edge",
+    "cy-preprod": "yarn cy-preprod-chrome && yarn cy-preprod-firefox && yarn cy-preprod-edge",
     "cy-preprod-chrome": "cypress run --browser chrome --config-file cypress.preprod.js",
     "cy-preprod-firefox": "cypress run --browser firefox --config-file cypress.preprod.js",
     "cy-preprod-edge": "cypress run --browser edge --config-file cypress.preprod.js",
