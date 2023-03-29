@@ -1,3 +1,4 @@
+# todo: make beautiful url: api.annapivunova.me
 resource "aws_api_gateway_rest_api" "auth_api" {
   name        = "${var.env}_auth_api"
   description = "AuthN/Z API"

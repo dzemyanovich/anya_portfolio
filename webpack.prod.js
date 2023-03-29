@@ -2,11 +2,9 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const path = require('path');
 
-const common = require('./webpack.common.js');
+const config = require('./webpack.shared');
 
-// todo: [MINOR] "yarn prod" results in taking webpack.preprod.js config (have no idea why)
-// that's why command is renamed to "yarn prod1"
-module.exports = merge(common, {
+module.exports = merge(config, {
   mode: 'production',
   devtool: false,
   devServer: {
