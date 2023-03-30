@@ -1,7 +1,5 @@
 @import '../../styles/shared';
 
-$product-image-padding: 30px;
-
 // desktop
 $margin: 60px;
 $desktop-product-item-width: 588px;
@@ -68,7 +66,7 @@ $mini-mobile: $tablet-product-item-width + $margin;
   .product-image {
     max-height: $desktop-product-item-height;
     max-width: $desktop-product-item-width;
-    padding: $product-image-padding;
+    padding: 30px;
   }
 }
 
@@ -195,7 +193,7 @@ $mini-mobile: $tablet-product-item-width + $margin;
     width: 100%;
 
     .product-image {
-      width: calc(100% - $product-image-padding * 2);
+      width: 100%;
     }
   }
 

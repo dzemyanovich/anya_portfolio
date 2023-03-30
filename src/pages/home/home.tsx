@@ -13,6 +13,7 @@ export default function Home() {
         <img src={pivunovaBrand} alt="" className="pivunova-logo" />
       </div>
       <div className="designer-title-wrapper title">
+        {/* todo: rename to "Principal Designer" */}
         <span className="designer-title">Lead Designer</span>
       </div>
       <HomeLink />
