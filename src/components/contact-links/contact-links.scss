@@ -1,0 +1,17 @@
+@import '../../styles/shared';
+
+.contact-links {
+  @include matrice-normal-700;
+
+  color: $gray-lighter;
+  display: flex;
+  font-size: 10px;
+  justify-content: space-between;
+  letter-spacing: 2.07px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.contact-link-text {
+  padding-left: 7px;
+}

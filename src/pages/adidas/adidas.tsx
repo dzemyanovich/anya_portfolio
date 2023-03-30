@@ -3,6 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import adidasShoe from '../../images/adidas-shoe.jpg';
+import blackBackground from '../../images/adidas/black-background.png';
+import whiteBackground from '../../images/adidas/white-background.png';
 
 export function AdidasHeader() {
   return (
@@ -11,11 +13,9 @@ export function AdidasHeader() {
       <div className="company-info">
         <div className="paragraph-title">About company</div>
         <div className="paragraph-content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut euismod felis. Vivamus pulvinar velit id
-          augue tempus imperdiet. Aliquam gravida accumsan est gravida vulputate. Nunc ullamcorper, sapien non
-          placerat molestie, ipsum erat laoreet nunc, eget molestie lacus diam vitae elit. Praesent finibus dolor
-          sed dolor finibus, ut consequat urna pretium. Duis rhoncus vitae nulla nec bibendum. Vivamus dapibus ornare
-          sollicitudin. Maecenas in urna lectus. Morbi tincidunt lobortis augue in congue.
+          Adidas is a German multinational corporation, founded and headquartered in Herzogenaurach,
+          Bavaria, that designs and manufactures shoes, clothing and accessories. It is the largest
+          sportswear manufacturer in Europe
         </div>
       </div>
     </>
@@ -30,6 +30,22 @@ export function AdidasContent() {
 
   const products: Product[] = [
     {
+      name: 'Smart Moodboard',
+      // eslint-disable-next-line max-len
+      path: 'https://pitch.com/public/19462a56-5560-4059-887a-fbffe5632407',
+      imageSrc: blackBackground,
+      category: categories.productDesign,
+      year: 2022,
+    },
+    {
+      name: 'KPI Jam',
+      // eslint-disable-next-line max-len
+      path: 'https://pitch.com/public/dd4cbaa8-a0e8-45bc-be75-b8e2c0224b51',
+      imageSrc: whiteBackground,
+      category: categories.productDesign,
+      year: 2022,
+    },
+    {
       name: 'Design Ops',
       // eslint-disable-next-line max-len
       path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
@@ -38,55 +54,7 @@ export function AdidasContent() {
       year: 2022,
     },
     {
-      name: 'Filters',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: categories.productDesign,
-      year: 2022,
-    },
-    {
-      name: 'Smart Moodboards',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: categories.productDesign,
-      year: 2022,
-    },
-    {
       name: 'CJM',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: null,
-      year: 2022,
-    },
-    {
-      name: 'Touch Table',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: categories.productDesign,
-      year: 2022,
-    },
-    {
-      name: 'Smart Mirror',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: null,
-      year: 2022,
-    },
-    {
-      name: 'Showroom Nike',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
-      imageSrc: null,
-      category: null,
-      year: 2022,
-    },
-    {
-      name: 'Design Systems',
       // eslint-disable-next-line max-len
       path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
       imageSrc: null,

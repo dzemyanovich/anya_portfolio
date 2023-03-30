@@ -4,13 +4,29 @@
   animation-delay: 0s;
 }
 
+.contact-title {
+  @include matrice-normal-700;
+
+  color: $white;
+  font-size: 24px;
+  letter-spacing: 1.2px;
+  line-height: 28px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
 .contact-page {
   @include fast-fade-in;
 
   align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
+
+  .contact-links {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: $max-mobile-width) {

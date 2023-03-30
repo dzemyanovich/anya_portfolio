@@ -33,8 +33,8 @@ $content-appear-duration: 1s;
 
 .about-image,
 .about-content {
-  max-width: $image-width;
   max-height: 433px; // hardcode so that image and content have the same height
+  max-width: $image-width;
 }
 
 .about-content {
@@ -82,32 +82,25 @@ $content-appear-duration: 1s;
   justify-content: space-between;
 
   &:first-child {
-    margin: 20px 0 40px 0;
+    margin: 20px 0 40px;
   }
 }
 
-.external-links {
-  @include matrice-normal-700;
-
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2.07px;
-}
-
-.external-links-row {
-  display: flex;
-}
-
-.external-link-text {
-  padding-left: 7px;
-}
-
-
 @media screen and (min-width: calc($max-tablet-width + 1px)) {
-  .about-me-paragraph .paragraph-title {
+  .about-container .paragraph:first-child .paragraph-title {
     padding-top: 0;
+  }
+
+  .about-content {
+    $gradient-height: 48px;
+    $mask-image: linear-gradient(to bottom, $black calc(100% - $gradient-height), transparent 100%);
+
+    -webkit-mask-image: $mask-image;
+    mask-image: $mask-image;
+
+    .paragraph:last-child {
+      margin-bottom: $gradient-height;
+    }
   }
 }
 
@@ -151,8 +144,8 @@ $content-appear-duration: 1s;
     animation: none;
     display: flex;
     flex-direction: column;
-    position: static;
     margin: 50px 0;
+    position: static;
   }
 
   .first-name {
@@ -179,7 +172,7 @@ $content-appear-duration: 1s;
     width: 100%;
   }
 
-  .external-links {
+  .about-content .contact-links {
     flex-flow: wrap;
 
     .custom-link {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 
 import HomeLink from '../../components/home-link/home-link';
-import CustomLink from '../../components/custom-link/custom-link';
+import ContactLinks from '../../components/contact-links/contact-links';
 import { resetScroll } from '../../utils/utils';
 
 import aboutImage from '../../images/about-image.jpg';
@@ -12,7 +12,6 @@ import mcdonalds from '../../images/brands/mcdonalds.svg';
 import subway from '../../images/brands/subway.svg';
 import renault from '../../images/brands/renault.svg';
 import schlumberger from '../../images/brands/schlumberger.svg';
-import arrowTopRight from '../../images/arrow-top-right.svg';
 import './about.scss';
 
 export default function About() {
@@ -33,16 +32,16 @@ export default function About() {
           <img src={aboutImage} alt="" className="about-image" />
         </div>
         <div className="about-content">
-          <div className="paragraph about-me-paragraph">
+          <div className="paragraph">
             <div className="paragraph-title">About me</div>
             <div className="paragraph-content">
               Designer that empowers brands to turn vision into value and help to build strategic
               solutions for products that play meaningful roles in people&apos;s lives.
               <br />
               <br />
-              I'm striving to bring emotions to users and impact business through product design
+              I&apos;m striving to bring emotions to users and impact business through product design
               and people leadership. Treating design leadership as a way to bring customer value
-              through teamwork and co-creation. I'm relying on behavioral design as a bridge
+              through teamwork and co-creation. I&apos;m relying on behavioral design as a bridge
               between psychology, experiences, and in-person interaction.
             </div>
           </div>
@@ -71,24 +70,7 @@ export default function About() {
           </div>
           <div className="paragraph">
             <div className="paragraph-content">
-              <div className="external-links">
-                <CustomLink to="https://www.linkedin.com/in/anna-pivunova/">
-                  <img src={arrowTopRight} alt="" />
-                  <span className="external-link-text">LinkedIn</span>
-                </CustomLink>
-                <CustomLink to="mailto:pivunovaanna@gmail.com">
-                  <img src={arrowTopRight} alt="" />
-                  <span className="external-link-text">Mail</span>
-                </CustomLink>
-                <CustomLink to="https://www.behance.net/ania_pivunbc2b">
-                  <img src={arrowTopRight} alt="" />
-                  <span className="external-link-text">Behance</span>
-                </CustomLink>
-                <CustomLink to="https://www.dropbox.com/s/8gmv0n6ikvp1dat/anna_pivunova_cv.pdf?dl=0">
-                  <img src={arrowTopRight} alt="" />
-                  <span className="external-link-text">CV</span>
-                </CustomLink>
-              </div>
+              <ContactLinks />
             </div>
           </div>
         </div>
