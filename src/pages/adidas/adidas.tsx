@@ -47,16 +47,14 @@ export function AdidasContent() {
     },
     {
       name: 'Design Ops',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
+      path: 'https://www.google.com/',
       imageSrc: null,
       category: categories.designLeadership,
       year: 2022,
     },
     {
       name: 'CJM',
-      // eslint-disable-next-line max-len
-      path: 'https://app.pitch.com/app/presentation/358c0ed6-80bf-4996-ad09-573751e8b73c/b28c907d-7638-4054-b127-0bc106dda4ac',
+      path: 'https://www.google.com/',
       imageSrc: null,
       category: null,
       year: 2022,
