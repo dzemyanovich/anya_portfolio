@@ -75,4 +75,6 @@ describe('CustomLink', () => {
     expect(window.open).toBeCalledTimes(1);
     expect(navigate).not.toBeCalled();
   });
+
+  // todo: add test for opening email
 });

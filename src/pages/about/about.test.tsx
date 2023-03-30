@@ -11,6 +11,7 @@ describe('About', () => {
     jest.mock('../../components/home-link/home-link', () => () => 'home link goes here');
   });
 
+  // todo: add more content checks
   it('renders component', async () => {
     const About = (await import('./about')).default;
 
@@ -23,4 +24,6 @@ describe('About', () => {
     expect(about.find('.about-image-container')).toHaveLength(1);
     expect(about.find('.about-content')).toHaveLength(1);
   });
+
+  // todo: add test for useEffect
 });

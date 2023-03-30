@@ -34,11 +34,13 @@ $content-appear-duration: 1s;
 .about-image,
 .about-content {
   max-width: $image-width;
+  max-height: 433px; // hardcode so that image and content have the same height
 }
 
 .about-content {
   animation: $content-appear-duration ease-out $content-appear-delay 1 fade-in forwards;
   opacity: 0;
+  overflow: scroll;
 }
 
 .about-image {
@@ -75,11 +77,56 @@ $content-appear-duration: 1s;
   margin-left: -76px;
 }
 
+.brands-container {
+  display: flex;
+  justify-content: space-between;
+
+  &:first-child {
+    margin: 20px 0 40px 0;
+  }
+}
+
+.external-links {
+  @include matrice-normal-700;
+
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.07px;
+}
+
+.external-links-row {
+  display: flex;
+}
+
+.external-link-text {
+  padding-left: 7px;
+}
+
+
+@media screen and (min-width: calc($max-tablet-width + 1px)) {
+  .about-me-paragraph .paragraph-title {
+    padding-top: 0;
+  }
+}
+
 @media screen and (max-width: $max-tablet-width) {
+  .about-image,
+  .about-content {
+    max-height: none;
+  }
+
   .about-page {
+    @include fast-fade-in;
+ 
     flex-direction: column;
     height: auto;
     padding: $container-mobile-padding 0;
+  }
+
+  .about-container .home-link {
+    @include no-animation;
   }
 
   .about-image-container {
@@ -97,21 +144,28 @@ $content-appear-duration: 1s;
   .about-content {
     animation: none;
     opacity: 1;
+    overflow: visible;
   }
 
-  .about-name,
+  .about-name {
+    animation: none;
+    display: flex;
+    flex-direction: column;
+    position: static;
+    margin: 50px 0;
+  }
+
+  .first-name {
+    align-self: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .last-name {
+    align-self: flex-end;
+  }
+
   .about-title {
     display: none;
-  }
-}
-
-@media screen and (max-width: $max-mobile-width) {
-  .about-page {
-    @include fast-fade-in;
-  }
-
-  .about-container .home-link {
-    @include no-animation;
   }
 }
 
@@ -123,5 +177,13 @@ $content-appear-duration: 1s;
   .about-image,
   .about-content {
     width: 100%;
+  }
+
+  .external-links {
+    flex-flow: wrap;
+
+    .custom-link {
+      width: 50%;
+    }
   }
 }

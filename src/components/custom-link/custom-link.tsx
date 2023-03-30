@@ -15,6 +15,8 @@ export default function CustomLink({ to, className, children }: CustomLink) {
   function goTo() {
     if (to.startsWith('https://')) {
       window.open(to);
+    } else if (to.startsWith('mailto:')) {
+      window.location.href = to;
     } else {
       navigate(to);
     }
