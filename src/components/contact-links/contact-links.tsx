@@ -5,7 +5,6 @@ import CustomLink from '../custom-link/custom-link';
 import arrowTopRight from '../../images/arrow-top-right.svg';
 import './contact-links.scss';
 
-// todo: add unit tests
 export default function ContactLinks() {
   return (
     <div className="contact-links">

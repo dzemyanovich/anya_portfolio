@@ -5,7 +5,6 @@ import ContactLinks from '../../components/contact-links/contact-links';
 
 import './contact.scss';
 
-// todo: add more unit tests
 export default function Contact() {
   return (
     <div className="contact-container">

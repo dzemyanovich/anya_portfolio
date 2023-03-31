@@ -14,6 +14,7 @@ describe('ProductPage', () => {
     jest.resetAllMocks();
     window.scrollTo = jest.fn();
     jest.mock('../home-link/home-link', () => () => 'home link goes here');
+    // cannot set different return values for isTouchDevice to test each case
     jest.mock('../../utils/utils', () => ({
       resetScroll: jest.fn(),
       isTouchDevice: () => true,
@@ -21,6 +22,11 @@ describe('ProductPage', () => {
   });
 
   it('returns rendered component', async () => {
+    jest.mock('../../utils/utils', () => ({
+      resetScroll: jest.fn(),
+      isTouchDevice: () => true,
+    }));
+
     const ProductPage = (await import('./product-page')).default;
 
     const productPage = shallow(
@@ -35,6 +41,11 @@ describe('ProductPage', () => {
   });
 
   it('touch device = true', async () => {
+    jest.mock('../../utils/utils', () => ({
+      resetScroll: jest.fn(),
+      isTouchDevice: () => true,
+    }));
+
     const windowSpy = jest.spyOn(window, 'addEventListener');
 
     const ProductPage = (await import('./product-page')).default;
@@ -47,6 +58,6 @@ describe('ProductPage', () => {
 
     expect(windowSpy).toBeCalledTimes(1);
     const call = windowSpy.mock.calls[0];
-    expect(call[0]).toBe('scroll') ;
+    expect(call[0]).toBe('scroll');
   });
 });

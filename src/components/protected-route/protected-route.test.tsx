@@ -10,6 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('ProtectedRoute', () => {
   beforeEach(() => {
     jest.mock('../../utils/auth', () => ({
+      // cannot set different return values for validateToken to test each case
       validateToken: () => Promise.resolve(true),
     }));
   });

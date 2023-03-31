@@ -108,6 +108,7 @@ describe('about page', () => {
     cy.contains('Principal Designer', { matchCase: false });
     cy.get('.about-image').should('be.visible');
     cy.get('.about-content').should('be.visible');
+    cy.get('.contact-links').should('be.visible');
   });
 });
 
@@ -118,6 +119,7 @@ describe('contact page', () => {
 
   it('check contact page', () => {
     cy.contains('let\'s get in touch', { matchCase: false });
+    cy.get('.contact-links').should('be.visible');
   });
 });
 

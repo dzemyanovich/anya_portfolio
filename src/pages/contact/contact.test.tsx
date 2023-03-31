@@ -4,6 +4,8 @@ global.TextEncoder = TextEncoder;
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
 
+import ContactLinks from '../../components/contact-links/contact-links';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Contact', () => {
@@ -19,6 +21,7 @@ describe('Contact', () => {
     );
 
     expect(contact.find('.contact-container')).toHaveLength(1);
-    expect(contact.find('.contact-page')).toHaveLength(1);
+    expect(contact.find('.contact-title')).toHaveLength(1);
+    expect(contact.find(ContactLinks)).toHaveLength(1);
   });
 });

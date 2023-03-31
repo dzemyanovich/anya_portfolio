@@ -76,5 +76,17 @@ describe('CustomLink', () => {
     expect(navigate).not.toBeCalled();
   });
 
-  // todo: add test for opening email
+  it('opens mailto', async () => {
+    const CustomLink = (await import('./custom-link')).default;
+
+    const customLink = shallow(
+      <CustomLink to="mailto:some_email@mail.com">
+        anything
+      </CustomLink>
+    );
+
+    customLink.simulate('click');
+    expect(window.open).not.toBeCalled();
+    expect(navigate).not.toBeCalled();
+  });
 });
