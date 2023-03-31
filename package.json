@@ -33,6 +33,7 @@
     "integration-preprod-local": "jest jest/integration/integration.test.ts --coverage=false --modulePathIgnorePatterns=[] --setupFilesAfterEnv '<rootDir>/jest/integration/setup.preprod.ts' '<rootDir>/jest/integration/setup.shared.ts'",
     "integration-prod": "jest jest/integration/integration.test.ts --coverage=false --modulePathIgnorePatterns=[] --setupFilesAfterEnv '<rootDir>/jest/integration/setup.prod.ts'",
     "integration-prod-local": "jest jest/integration/integration.test.ts --coverage=false --modulePathIgnorePatterns=[] --setupFilesAfterEnv '<rootDir>/jest/integration/setup.prod.ts' '<rootDir>/jest/integration/setup.shared.ts'",
+    "cy": "cypress open --config-file cypress.local.js",
     "cy-local": "yarn cy-local-chrome && yarn cy-local-firefox && yarn cy-local-edge",
     "cy-local-chrome": "cypress run --browser chrome --config-file cypress.local.js",
     "cy-local-firefox": "cypress run --browser firefox --config-file cypress.local.js",
