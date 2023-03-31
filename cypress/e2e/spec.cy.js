@@ -12,9 +12,6 @@ function visit(url) {
   cy.visit(url, { failOnStatusCode: false });
 }
 
-// todo: review all [MINOR] todos
-// todo: consider using another e2e tool
-// todo: consider using Gherkin language
 // todo: add testing for tablet and mobile (currently we have only desktop)
 describe('home page', () => {
   beforeEach(() => {

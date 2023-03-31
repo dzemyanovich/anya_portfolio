@@ -6,7 +6,6 @@ const config = require('./webpack.shared');
 
 module.exports = merge(config, {
   mode: 'production',
-  devtool: false,
   devServer: {
     hot: false,
     liveReload: false,

@@ -4,7 +4,6 @@ const path = require('path');
 module.exports = {
   context: __dirname,
   entry: './src/index.tsx',
-  devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
     publicPath: '/',

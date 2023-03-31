@@ -6,7 +6,7 @@ const config = require('./webpack.shared');
 
 module.exports = merge(config, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   output: {
     path: path.resolve(__dirname, 'dist_local'),
   },

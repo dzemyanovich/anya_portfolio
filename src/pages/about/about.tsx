@@ -21,7 +21,6 @@ export default function About() {
 
   return (
     <div className="about-container">
-      {/* todo: home link shouod be invisible content is scrolled down */}
       <HomeLink />
       <div className="about-page">
         <div className="about-image-container">
