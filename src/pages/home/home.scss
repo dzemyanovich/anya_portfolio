@@ -125,3 +125,15 @@ $links-animation-duration: 2s;
     opacity: 1;
   }
 }
+
+@media screen and (max-width: $mobile-width) {
+  .designer-title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: $mini-mobile-width) {
+  .designer-title {
+    font-size: 20px;
+  }
+}

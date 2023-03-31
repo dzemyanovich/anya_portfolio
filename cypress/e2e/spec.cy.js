@@ -22,7 +22,7 @@ describe('home page', () => {
   });
 
   it('check home page', () => {
-    cy.get('.designer-title').contains('lead designer', { matchCase: false });
+    cy.get('.designer-title').contains('principal designer', { matchCase: false });
 
     cy.get('.page-link').should('have.length', 4);
     cy.get('.designer-title').should('have.length', 1);
@@ -105,7 +105,7 @@ describe('about page', () => {
 
   it('check about page', () => {
     cy.contains('Anna Pivunova', { matchCase: false });
-    cy.contains('Lead Designer', { matchCase: false });
+    cy.contains('Principal Designer', { matchCase: false });
     cy.get('.about-image').should('be.visible');
     cy.get('.about-content').should('be.visible');
   });
@@ -117,7 +117,7 @@ describe('contact page', () => {
   });
 
   it('check contact page', () => {
-    cy.contains('Content will be added here...', { matchCase: false });
+    cy.contains('let\'s get in touch', { matchCase: false });
   });
 });
 
