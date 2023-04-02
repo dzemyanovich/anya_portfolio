@@ -1,31 +1,49 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile } = require('./shared');
 
-// todo: add testing for tablet and mobile (currently we have only desktop)
+const protectedUrl = '/products/adidas';
 
-describe('login', () => {
-  const protectedUrl = '/products/adidas';
+function beforeLogin() {
+  localStorage.clear();
+  visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
+}
 
+function correctLogin() {
+  login();
+
+  cy.wait(2000).then(() => {
+    cy.url().should('eq', `${DOMAIN}${protectedUrl}`)
+  });
+}
+
+function incorrectLogin() {
+  login('incorrect password');
+
+  cy.wait(2000).then(() => {
+    cy.url().should('not.eq', `${DOMAIN}${protectedUrl}`)
+  });
+}
+
+// todo: login tests work unstable
+describe('[desktop] login', () => {
   beforeEach(() => {
     useDesktop();
-    localStorage.clear();
-    visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
+    beforeLogin();
   });
 
-  it('correct login', () => {
-    login();
+  it('correct login', () => correctLogin);
 
-    cy.wait(2000).then(() => {
-      cy.url().should('eq', `${DOMAIN}${protectedUrl}`)
-    });
+  it('incorrect login', () => incorrectLogin);
+});
+
+describe('[small mobile] login', () => {
+  beforeEach(() => {
+    useSmallMobile();
+    beforeLogin();
   });
 
-  it('incorrect login', () => {
-    login('incorrect password');
+  it('correct login', () => correctLogin);
 
-    cy.wait(2000).then(() => {
-      cy.url().should('not.eq', `${DOMAIN}${protectedUrl}`)
-    });
-  });
+  it('incorrect login', () => incorrectLogin);
 });
 
 describe('access to protected routes', () => {

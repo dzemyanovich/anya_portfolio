@@ -1,13 +1,28 @@
-const { DOMAIN, visit, useDesktop } = require('./shared');
+const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
 
-describe('contact page', () => {
+function beforeContactPage() {
+  visit(`${DOMAIN}/contact`);
+}
+
+function checkContactPage() {
+  cy.contains('let\'s get in touch', { matchCase: false });
+  cy.get('.contact-links').should('be.visible');
+}
+
+describe('[desktop] contact page', () => {
   beforeEach(() => {
     useDesktop();
-    visit(`${DOMAIN}/contact`);
+    beforeContactPage();
   });
 
-  it('check contact page', () => {
-    cy.contains('let\'s get in touch', { matchCase: false });
-    cy.get('.contact-links').should('be.visible');
+  it('check contact page', () => checkContactPage);
+});
+
+describe('[small mobile] contact page', () => {
+  beforeEach(() => {
+    useSmallMobile();
+    beforeContactPage();
   });
+
+  it('check contact page', () => checkContactPage);
 });

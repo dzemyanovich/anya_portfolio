@@ -1,18 +1,24 @@
-const { DOMAIN, visit, useDesktop } = require('./shared');
+const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
 
-describe('home page', () => {
+function beforeHomePage() {
+  visit(DOMAIN);
+}
+
+function checkHomePage() {
+  cy.get('.designer-title').contains('principal designer', { matchCase: false });
+
+  cy.get('.page-link').should('have.length', 4);
+  cy.get('.designer-title').should('have.length', 1);
+  cy.get('.pivunova-brand').should('have.length', 1);
+}
+
+describe('[desktop] home page', () => {
   beforeEach(() => {
     useDesktop();
-    visit(DOMAIN);
+    beforeHomePage();
   });
 
-  it('check home page', () => {
-    cy.get('.designer-title').contains('principal designer', { matchCase: false });
-
-    cy.get('.page-link').should('have.length', 4);
-    cy.get('.designer-title').should('have.length', 1);
-    cy.get('.pivunova-brand').should('have.length', 1);
-  });
+  it('check home page', () => checkHomePage);
 
   it('click on products link', () => {
     cy.get('.products-link').click();
@@ -37,4 +43,13 @@ describe('home page', () => {
       expect(newUrl).to.eq(`${DOMAIN}/about`);
     });
   });
+});
+
+describe('[small mobile] home page', () => {
+  beforeEach(() => {
+    useSmallMobile();
+    beforeHomePage();
+  });
+
+  it('check home page', () => checkHomePage);
 });

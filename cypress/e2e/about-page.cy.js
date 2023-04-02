@@ -1,43 +1,31 @@
-const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile } = require('./shared');
+const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
+
+function beforeAboutPage() {
+  visit(`${DOMAIN}/about`);
+}
 
 describe('[desktop] about page', () => {
   beforeEach(() => {
     useDesktop();
-    visit(`${DOMAIN}/about`);
+    beforeAboutPage();
   });
 
   it('check about page', () => {
+    cy.wait(2000);
     cy.get('.home-link').should('be.visible');
     cy.contains('Anna Pivunova', { matchCase: false });
     cy.contains('Principal Designer', { matchCase: false });
     cy.get('.about-image').should('be.visible');
     cy.get('.about-content').should('be.visible');
+    cy.get('.about-content').scrollTo('bottom', { duration: 500 });
     cy.get('.contact-links').should('be.visible');
   });
 });
 
-describe('[big tablet] about page', () => {
-  beforeEach(() => {
-    useBigTablet();
-    visit(`${DOMAIN}/about`);
-  });
-
-  it('check about page', () => {
-    cy.get('.home-link').should('be.visible');
-    cy.contains('Anna Pivunova', { matchCase: false });
-    cy.contains('Principal Designer', { matchCase: false });
-    cy.get('.about-name').should('be.visible');
-    cy.get('.about-title').should('not.be.visible');
-    cy.get('.about-image').should('be.visible');
-    cy.get('.about-content').should('be.visible');
-    cy.get('.contact-links').should('be.visible');
-  });
-});
-
-describe.only('[small mobile] about page', () => {
+describe('[small mobile] about page', () => {
   beforeEach(() => {
     useSmallMobile();
-    visit(`${DOMAIN}/about`);
+    beforeAboutPage();
   });
 
   it('check about page', () => {

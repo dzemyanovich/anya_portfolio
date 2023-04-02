@@ -1,18 +1,24 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile } = require('./shared');
 
-describe('products page', () => {
+function beforeProductsPage() {
+  localStorage.clear();
+  visit(`${LOGIN_URL}?returnUrl=/products`);
+  login();
+  cy.wait(2000);
+}
+
+function checkProductsPage() {
+  cy.get('.products-page').should('have.length', 1);
+  cy.get('.all-company-links').should('have.length', 1);
+}
+
+describe('[desktop] products page', () => {
   beforeEach(() => {
     useDesktop();
-    localStorage.clear();
-    visit(`${LOGIN_URL}?returnUrl=/products`);
-    login();
-    cy.wait(2000);
+    beforeProductsPage();
   });
 
-  it('check products page', () => {
-    cy.get('.products-page').should('have.length', 1);
-    cy.get('.all-company-links').should('have.length', 1);
-  });
+  it('check products page', () => checkProductsPage);
 
   it('click on home link', () => {
     cy.get('.home-link').click();
@@ -43,4 +49,13 @@ describe('products page', () => {
       cy.go('back');
     });
   });
+});
+
+describe('[small mobile] products page', () => {
+  beforeEach(() => {
+    useSmallMobile();
+    beforeProductsPage();
+  });
+
+  it('check products page', () => checkProductsPage);
 });
