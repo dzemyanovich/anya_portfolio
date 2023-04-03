@@ -30,7 +30,7 @@ export function McdonaldsContent() {
     {
       name: 'Event Optimizer',
       // path: '/products/mcdonalds/event-optimizer',
-      path: 'https://www.dropbox.com/s/gdrea0jdrmu2xap/mcdonalds_event_optimizer.pdf?dl=0',
+      path: 'https://www.dropbox.com/s/sanhkkcln5moezx/mcdonalds_event_optimizer.pdf?dl=0',
       imageSrc: null,
       category: categories.productDesign,
       year: 2019,
@@ -38,8 +38,7 @@ export function McdonaldsContent() {
     {
       name: 'Design Leadership',
       // path: '/products/mcdonalds/design-leadership',
-      // todo: create new pdfs since these ones are with low quality
-      path: 'https://www.dropbox.com/s/k7f2vh0w30fhkch/mcdonalds_design_leadership.pdf?dl=0',
+      path: 'https://www.dropbox.com/s/wr6x3kyejseuh98/mcdonalds_design_leadership.pdf?dl=0',
       imageSrc: null,
       category: categories.designLeadership,
       year: 2020,

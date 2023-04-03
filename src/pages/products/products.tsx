@@ -143,13 +143,13 @@ export default class Products extends React.Component<ProductsProps, ProductsSta
       {
         name: 'EPAM Systems',
         // link: '/products/epam-systems',
-        link: 'https://www.dropbox.com/s/41ocel6ts6rg5nv/epam_systems.pdf?dl=0',
+        link: 'https://www.dropbox.com/s/mvcv8q7qcn981b7/epam_systems.pdf?dl=0',
         image: oldComputer,
       },
       {
         name: 'Zensupplies',
         // link: '/products/zensupplies',
-        link: 'https://www.dropbox.com/s/k98im8hxlpz5hz4/zensupplies.pdf?dl=0',
+        link: 'https://www.dropbox.com/s/9za6xoij7konm8y/zensupplies.pdf?dl=0',
         image: tooth,
       },
     ];

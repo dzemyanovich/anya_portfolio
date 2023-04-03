@@ -29,7 +29,7 @@ export function HaviContent() {
     {
       name: 'Supply Planning',
       // path: '/products/havi/supply-planning',
-      path: 'https://www.dropbox.com/s/k6ofkld5sv1r489/havi_supply_planning.pdf?dl=0',
+      path: 'https://www.dropbox.com/s/by4jv0mo9qgx8qf/havi_supply_planning.pdf?dl=0',
       // imageSrc: supplyPlanningLogo,
       imageSrc: null,
       category: categories.productDesign,
@@ -38,7 +38,7 @@ export function HaviContent() {
     {
       name: 'havi.com',
       // path: '/products/havi/landing',
-      path: 'https://www.dropbox.com/s/bpr67xdn1593sjh/havi_landing.pdf?dl=0',
+      path: 'https://www.dropbox.com/s/0rarnbqxk7vpx0s/havi_landing.pdf?dl=0',
       imageSrc: null,
       category: categories.designLeadership,
       year: 2020,
