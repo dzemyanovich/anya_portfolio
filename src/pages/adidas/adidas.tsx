@@ -42,21 +42,7 @@ export function AdidasContent() {
       // eslint-disable-next-line max-len
       path: 'https://pitch.com/public/dd4cbaa8-a0e8-45bc-be75-b8e2c0224b51',
       imageSrc: whiteBackground,
-      category: categories.productDesign,
-      year: 2022,
-    },
-    {
-      name: 'Design Ops',
-      path: 'https://www.google.com/',
-      imageSrc: null,
       category: categories.designLeadership,
-      year: 2022,
-    },
-    {
-      name: 'CJM',
-      path: 'https://www.google.com/',
-      imageSrc: null,
-      category: null,
       year: 2022,
     },
   ];
