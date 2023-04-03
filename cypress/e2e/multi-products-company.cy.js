@@ -24,11 +24,18 @@ describe('[small mobile] multi products company', () => {
     beforeScript();
   });
 
-  it('check content', () => {
-    [
-      `${DOMAIN}/products/adidas`,
-      `${DOMAIN}/products/mcdonalds`,
-      `${DOMAIN}/products/havi`,
-    ].map(url => checkCompanyProducts(url));
+  it('check adidas products', () => {
+    const url = `${DOMAIN}/products/adidas`;
+    checkCompanyProducts(url);
+  });
+
+  it('check mcdonalds products', () => {
+    const url = `${DOMAIN}/products/mcdonalds`;
+    checkCompanyProducts(url);
+  });
+
+  it('check havi products', () => {
+    const url = `${DOMAIN}/products/havi`;
+    checkCompanyProducts(url);
   });
 });

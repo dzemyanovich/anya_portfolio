@@ -1,6 +1,6 @@
 const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile } = require('./shared');
 
-function beforeProductsPage() {
+function beforeScript() {
   localStorage.clear();
   visit(`${LOGIN_URL}?returnUrl=/products`);
   login();
@@ -15,7 +15,7 @@ function checkProductsPage() {
 describe('[desktop] products page', () => {
   beforeEach(() => {
     useDesktop();
-    beforeProductsPage();
+    beforeScript();
   });
 
   it('check products page', () => checkProductsPage);
@@ -54,7 +54,7 @@ describe('[desktop] products page', () => {
 describe('[small mobile] products page', () => {
   beforeEach(() => {
     useSmallMobile();
-    beforeProductsPage();
+    beforeScript();
   });
 
   it('check products page', () => checkProductsPage);

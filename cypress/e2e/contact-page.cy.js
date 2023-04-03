@@ -1,6 +1,6 @@
 const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
 
-function beforeContactPage() {
+function beforeScript() {
   visit(`${DOMAIN}/contact`);
 }
 
@@ -12,7 +12,7 @@ function checkContactPage() {
 describe('[desktop] contact page', () => {
   beforeEach(() => {
     useDesktop();
-    beforeContactPage();
+    beforeScript();
   });
 
   it('check contact page', () => checkContactPage);
@@ -21,7 +21,7 @@ describe('[desktop] contact page', () => {
 describe('[small mobile] contact page', () => {
   beforeEach(() => {
     useSmallMobile();
-    beforeContactPage();
+    beforeScript();
   });
 
   it('check contact page', () => checkContactPage);

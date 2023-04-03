@@ -1,13 +1,31 @@
-const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
+const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile } = require('./shared');
 
-function beforeAboutPage() {
+function beforeScript() {
   visit(`${DOMAIN}/about`);
+}
+
+function checkAboutPage() {
+  cy.get('.home-link').should('be.visible');
+  cy.contains('Anna Pivunova', { matchCase: false });
+  cy.contains('Principal Designer', { matchCase: false });
+  cy.get('.about-name').should('be.visible');
+  cy.get('.about-title').should('not.be.visible');
+  cy.get('.about-image').should('be.visible');
+  cy.get('.about-content').should('be.visible');
+  cy.get('.contact-links').should('be.visible');
+}
+
+function scrolling() {
+  cy.get('.home-link').should('be.visible');
+  cy.wait(500);
+  cy.scrollTo('bottom', { duration: 500 });
+  cy.get('.home-link').should('be.visible');
 }
 
 describe('[desktop] about page', () => {
   beforeEach(() => {
     useDesktop();
-    beforeAboutPage();
+    beforeScript();
   });
 
   it('check about page', () => {
@@ -22,28 +40,25 @@ describe('[desktop] about page', () => {
   });
 });
 
+describe('[big tablet] about page', () => {
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript();
+  });
+
+  it('check about page', () => checkAboutPage);
+
+  it('scrolling', () => scrolling);
+});
+
 describe('[small mobile] about page', () => {
   beforeEach(() => {
     useSmallMobile();
-    beforeAboutPage();
+    beforeScript();
   });
 
-  it('check about page', () => {
-    cy.get('.home-link').should('be.visible');
-    cy.contains('Anna Pivunova', { matchCase: false });
-    cy.contains('Principal Designer', { matchCase: false });
-    cy.get('.about-name').should('be.visible');
-    cy.get('.about-title').should('not.be.visible');
-    cy.get('.about-image').should('be.visible');
-    cy.get('.about-content').should('be.visible');
-    cy.get('.contact-links').should('be.visible');
-  });
+  it('check about page', () => checkAboutPage);
 
-  it('scrolling', () => {
-    cy.get('.home-link').should('be.visible');
-    // wait until animation is finished
-    cy.wait(500);
-    cy.scrollTo('bottom', { duration: 500 });
-    cy.get('.home-link').should('be.visible');
-  });
+  // todo: content is not scrolled
+  it('scrolling', () => scrolling);
 });

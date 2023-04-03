@@ -1,6 +1,6 @@
 const { DOMAIN, visit, useDesktop, useSmallMobile } = require('./shared');
 
-function beforeHomePage() {
+function beforeScript() {
   visit(DOMAIN);
 }
 
@@ -15,7 +15,7 @@ function checkHomePage() {
 describe('[desktop] home page', () => {
   beforeEach(() => {
     useDesktop();
-    beforeHomePage();
+    beforeScript();
   });
 
   it('check home page', () => checkHomePage);
@@ -48,7 +48,7 @@ describe('[desktop] home page', () => {
 describe('[small mobile] home page', () => {
   beforeEach(() => {
     useSmallMobile();
-    beforeHomePage();
+    beforeScript();
   });
 
   it('check home page', () => checkHomePage);
