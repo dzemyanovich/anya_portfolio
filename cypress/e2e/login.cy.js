@@ -5,6 +5,7 @@ const protectedUrl = '/products/adidas';
 function beforeScript() {
   ignoreExceptions();
   localStorage.clear();
+  cy.wait(2000); // todo: just test
   visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
 }
 
@@ -15,6 +16,10 @@ function correctLogin() {
   cy.url().should('eq', `${DOMAIN}${protectedUrl}`);
 }
 
+// todo: this test practially always fails in gitlab ci -> firefox:
+// CypressError: `cy.type()` failed because it requires a DOM element.
+// No elements in the current DOM matched your query:
+// > cy.get(.password-input)
 function incorrectLogin() {
   login('incorrect password');
 
@@ -30,10 +35,6 @@ describe('[desktop] login', () => {
 
   it('correct login', () => correctLogin());
 
-  // todo: this test always fails in gitlab ci -> firefox:
-  // CypressError: `cy.type()` failed because it requires a DOM element.
-  // No elements in the current DOM matched your query:
-  // > cy.get(.password-input)
   it('incorrect login', () => incorrectLogin());
 });
 
