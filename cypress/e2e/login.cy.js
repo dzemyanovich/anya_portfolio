@@ -33,9 +33,9 @@ describe('[desktop] login', () => {
     beforeScript();
   });
 
-  it('correct login', () => correctLogin());
-
   it('incorrect login', () => incorrectLogin());
+
+  it('correct login', () => correctLogin());
 });
 
 describe('[small mobile] login', () => {
@@ -44,9 +44,9 @@ describe('[small mobile] login', () => {
     beforeScript();
   });
 
-  it('correct login', () => correctLogin());
-
   it('incorrect login', () => incorrectLogin());
+
+  it('correct login', () => correctLogin());
 });
 
 describe('access to protected routes', () => {
