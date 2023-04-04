@@ -3,6 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import haviLogo from '../../images/havi-logo.png';
+import productItemBlack from '../../images/product-item-black.png';
+import productItemWhite from '../../images/product-item-white.png';
 
 export function HaviHeader() {
   return (
@@ -31,8 +33,7 @@ export function HaviContent() {
       name: 'Supply Planning',
       // path: '/products/havi/supply-planning',
       path: 'https://www.dropbox.com/s/by4jv0mo9qgx8qf/havi_supply_planning.pdf?dl=0',
-      // imageSrc: supplyPlanningLogo,
-      imageSrc: null,
+      imageSrc: productItemBlack,
       category: categories.productDesign,
       year: 2020,
     },
@@ -40,7 +41,7 @@ export function HaviContent() {
       name: 'havi.com',
       // path: '/products/havi/landing',
       path: 'https://www.dropbox.com/s/0rarnbqxk7vpx0s/havi_landing.pdf?dl=0',
-      imageSrc: null,
+      imageSrc: productItemWhite,
       category: categories.designLeadership,
       year: 2020,
     },

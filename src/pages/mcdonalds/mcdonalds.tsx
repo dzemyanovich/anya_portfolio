@@ -3,6 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import image from '../../images/burger.png';
+import productItemBlack from '../../images/product-item-black.png';
+import productItemWhite from '../../images/product-item-white.png';
 
 export function McdonaldsHeader() {
   return (
@@ -31,7 +33,7 @@ export function McdonaldsContent() {
       name: 'Event Optimizer',
       // path: '/products/mcdonalds/event-optimizer',
       path: 'https://www.dropbox.com/s/sanhkkcln5moezx/mcdonalds_event_optimizer.pdf?dl=0',
-      imageSrc: null,
+      imageSrc: productItemBlack,
       category: categories.productDesign,
       year: 2019,
     },
@@ -39,7 +41,7 @@ export function McdonaldsContent() {
       name: 'Design Leadership',
       // path: '/products/mcdonalds/design-leadership',
       path: 'https://www.dropbox.com/s/wr6x3kyejseuh98/mcdonalds_design_leadership.pdf?dl=0',
-      imageSrc: null,
+      imageSrc: productItemWhite,
       category: categories.designLeadership,
       year: 2020,
     },
