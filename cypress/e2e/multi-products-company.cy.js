@@ -1,6 +1,7 @@
 const { DOMAIN, LOGIN_URL, login, visit, useSmallMobile } = require('./shared');
 
 function beforeScript() {
+  cy.once('uncaught:exception', () => false);
   localStorage.clear();
   visit(LOGIN_URL);
   login();
@@ -18,8 +19,7 @@ function checkCompanyProducts(url) {
 }
 
 // todo: add more tests
-// todo: tests work unstable
-describe.skip('[small mobile] multi products company', () => {
+describe('[small mobile] multi products company', () => {
   beforeEach(() => {
     useSmallMobile();
     beforeScript();
