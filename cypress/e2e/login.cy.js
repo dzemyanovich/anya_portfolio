@@ -6,7 +6,6 @@ function beforeScript() {
   ignoreExceptions();
   localStorage.clear();
   visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
-  cy.wait(1000); // todo: will it help???
 }
 
 function correctLogin() {
