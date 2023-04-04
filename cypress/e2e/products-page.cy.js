@@ -1,6 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
 
 function beforeScript() {
+  ignoreExceptions();
   localStorage.clear();
   visit(`${LOGIN_URL}?returnUrl=/products`);
   login();

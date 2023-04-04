@@ -1,6 +1,7 @@
-const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling } = require('./shared');
+const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling, ignoreExceptions } = require('./shared');
 
 function beforeScript() {
+  ignoreExceptions();
   visit(`${DOMAIN}/about`);
 }
 

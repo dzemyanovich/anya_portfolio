@@ -1,8 +1,9 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
 
 const protectedUrl = '/products/adidas';
 
 function beforeScript() {
+  ignoreExceptions();
   localStorage.clear();
   visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
 }
