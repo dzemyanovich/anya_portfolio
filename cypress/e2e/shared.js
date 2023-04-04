@@ -12,6 +12,10 @@ export function ensureScrolling() {
   expect(window.scrollY).to.eq(window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight));
 }
 
+export function ignoreExceptions() {
+  cy.once('uncaught:exception', () => false);
+}
+
 export function visit(url) {
   cy.visit(url, { failOnStatusCode: false });
 }

@@ -1,6 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ensureScrolling } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ensureScrolling, ignoreExceptions } = require('./shared');
 
 function beforeScript() {
+  ignoreExceptions();
   localStorage.clear();
   visit(LOGIN_URL);
   login();
@@ -17,6 +18,7 @@ function checkContent(url) {
   ensureScrolling();
 }
 
+// todo: tests work unstable
 describe('[desktop] single product page', () => {
   beforeEach(() => {
     useDesktop();

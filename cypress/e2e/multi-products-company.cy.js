@@ -1,7 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useSmallMobile, ensureScrolling } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useSmallMobile, ensureScrolling, ignoreExceptions } = require('./shared');
 
 function beforeScript() {
-  cy.once('uncaught:exception', () => false);
+  ignoreExceptions();
   localStorage.clear();
   visit(LOGIN_URL);
   login();
