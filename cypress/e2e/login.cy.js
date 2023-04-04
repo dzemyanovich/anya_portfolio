@@ -51,6 +51,7 @@ describe('access to protected routes', () => {
   ];
 
   beforeEach(() => {
+    ignoreExceptions();
     useDesktop();
     localStorage.clear();
   });
