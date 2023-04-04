@@ -18,7 +18,6 @@ function checkContent(url) {
   ensureScrolling();
 }
 
-// todo: tests work unstable
 describe('[desktop] single product page', () => {
   beforeEach(() => {
     useDesktop();
