@@ -30,6 +30,10 @@ describe('[desktop] login', () => {
 
   it('correct login', () => correctLogin());
 
+  // todo: this test always fails in gitlab ci -> firefox:
+  // CypressError: `cy.type()` failed because it requires a DOM element.
+  // No elements in the current DOM matched your query:
+  // > cy.get(.password-input)
   it('incorrect login', () => incorrectLogin());
 });
 

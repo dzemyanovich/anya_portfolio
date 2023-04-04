@@ -3,8 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import image from '../../images/burger.png';
-import productItemBlack from '../../images/product-item-black.png';
-import productItemWhite from '../../images/product-item-white.png';
+import productItemBlack from '../../images/mcdonalds/mcdonalds-item-black.png';
+import productItemWhite from '../../images/mcdonalds/mcdonalds-item-white.png';
 
 export function McdonaldsHeader() {
   return (

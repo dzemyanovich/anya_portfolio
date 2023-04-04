@@ -3,8 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import adidasShoe from '../../images/adidas-shoe.jpg';
-import blackBackground from '../../images/adidas/black-background.png';
-import whiteBackground from '../../images/adidas/white-background.png';
+import productItemBlack from '../../images/adidas/adidas-item-black.png';
+import productItemWhite from '../../images/adidas/adidas-item-white.png';
 
 export function AdidasHeader() {
   return (
@@ -33,7 +33,7 @@ export function AdidasContent() {
       name: 'Smart Moodboard',
       // eslint-disable-next-line max-len
       path: 'https://pitch.com/public/19462a56-5560-4059-887a-fbffe5632407',
-      imageSrc: blackBackground,
+      imageSrc: productItemBlack,
       category: categories.productDesign,
       year: 2022,
     },
@@ -41,7 +41,7 @@ export function AdidasContent() {
       name: 'KPI Jam',
       // eslint-disable-next-line max-len
       path: 'https://pitch.com/public/dd4cbaa8-a0e8-45bc-be75-b8e2c0224b51',
-      imageSrc: whiteBackground,
+      imageSrc: productItemWhite,
       category: categories.designLeadership,
       year: 2022,
     },

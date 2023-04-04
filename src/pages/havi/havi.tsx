@@ -3,8 +3,8 @@ import * as React from 'react';
 import ManyProducts from '../../components/many-products/many-products';
 
 import haviLogo from '../../images/havi-logo.png';
-import productItemBlack from '../../images/product-item-black.png';
-import productItemWhite from '../../images/product-item-white.png';
+import productItemBlack from '../../images/havi/havi-item-black.png';
+import productItemWhite from '../../images/havi/havi-item-white.png';
 
 export function HaviHeader() {
   return (
