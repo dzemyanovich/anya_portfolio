@@ -8,6 +8,10 @@ export function login(passwrod = MASTER_PASSWORD) {
     .type('{enter}');
 }
 
+export function ensureScrolling() {
+  expect(window.scrollY).to.eq(window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+}
+
 export function visit(url) {
   cy.visit(url, { failOnStatusCode: false });
 }

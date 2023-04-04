@@ -12,7 +12,8 @@ export function HaviHeader() {
         <div className="paragraph-title">About company</div>
         <div className="paragraph-content">
           HAVI is a global, privately owned company focused on innovating, optimizing and managing the supply
-          chains of leading brands
+          chains of leading brands: McDonald&apos;s, KFC, IKEA, Burger King, Pizza Hut, Subway, Costa Coffee,
+          etc.
         </div>
       </div>
     </>

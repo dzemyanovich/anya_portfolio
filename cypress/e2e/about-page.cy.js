@@ -1,4 +1,4 @@
-const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile } = require('./shared');
+const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling } = require('./shared');
 
 function beforeScript() {
   visit(`${DOMAIN}/about`);
@@ -20,6 +20,7 @@ function scrolling() {
   cy.wait(500);
   cy.scrollTo('bottom', { duration: 500 });
   cy.get('.home-link').should('be.visible');
+  ensureScrolling();
 }
 
 describe('[desktop] about page', () => {

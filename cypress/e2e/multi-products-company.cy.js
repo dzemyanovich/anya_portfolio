@@ -1,4 +1,4 @@
-const { DOMAIN, LOGIN_URL, login, visit, useBigTablet, useSmallMobile } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useSmallMobile, ensureScrolling } = require('./shared');
 
 function beforeScript() {
   cy.once('uncaught:exception', () => false);
@@ -16,22 +16,9 @@ function checkCompanyProducts(url) {
   cy.get('.home-link').should('be.visible');
   cy.scrollTo('bottom', { duration: 500 });
   cy.get('.home-link').should('not.exist');
+  ensureScrolling();
 }
 
-// todo: uskip
-describe.skip('[big tablet] multi products company', () => {
-  beforeEach(() => {
-    useBigTablet();
-    beforeScript();
-  });
-
-  it('// todo', () => {
-    cy.get('.company-page').scrollTo('right', { duration: 500 });
-  });
-});
-
-// todo: add more tests
-// todo: add tests for touch devices
 describe('[small mobile] multi products company', () => {
   beforeEach(() => {
     useSmallMobile();
