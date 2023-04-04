@@ -10,17 +10,15 @@ function beforeScript() {
 function correctLogin() {
   login();
 
-  cy.wait(2000).then(() => {
-    cy.url().should('eq', `${DOMAIN}${protectedUrl}`)
-  });
+  cy.wait(2000);
+  cy.url().should('eq', `${DOMAIN}${protectedUrl}`);
 }
 
 function incorrectLogin() {
   login('incorrect password');
 
-  cy.wait(2000).then(() => {
-    cy.url().should('not.eq', `${DOMAIN}${protectedUrl}`)
-  });
+  cy.wait(2000);
+  cy.url().should('not.eq', `${DOMAIN}${protectedUrl}`);
 }
 
 describe('[desktop] login', () => {
@@ -59,9 +57,8 @@ describe('access to protected routes', () => {
   it('cannot access protected route', () => {
     protectedUrls.map((protectedUrl) => {
       visit(`${DOMAIN}${protectedUrl}`);
-      cy.wait(1000).then(() => {
-        cy.url().should('eq', `${LOGIN_URL}?returnUrl=${protectedUrl}`)
-      });
+      cy.wait(1000);
+      cy.url().should('eq', `${LOGIN_URL}?returnUrl=${protectedUrl}`);
     });
   });
 
@@ -69,11 +66,9 @@ describe('access to protected routes', () => {
     visit(LOGIN_URL, { retryOnStatusCodeFailure: true });
     login();
 
-    cy.wait(1000).then(() => {
-      visit(LOGIN_URL);
-      cy.wait(500).then(() => {
-        cy.url().should('not.eq', LOGIN_URL)
-      });
-    });
+    cy.wait(1000)
+    visit(LOGIN_URL);
+    cy.wait(500);
+    cy.url().should('not.eq', LOGIN_URL)
   });
 });
