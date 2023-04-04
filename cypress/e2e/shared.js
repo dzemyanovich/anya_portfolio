@@ -2,7 +2,6 @@ export const DOMAIN = Cypress.env('domain');
 export const LOGIN_URL = `${DOMAIN}/login`;
 const MASTER_PASSWORD = Cypress.env('master_password');
 
-// todo: add tests for touch devices
 export function login(passwrod = MASTER_PASSWORD) {
   cy.get('.password-input')
     .type(passwrod)

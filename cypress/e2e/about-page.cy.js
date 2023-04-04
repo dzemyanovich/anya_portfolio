@@ -46,9 +46,9 @@ describe('[big tablet] about page', () => {
     beforeScript();
   });
 
-  it('check about page', () => checkAboutPage);
+  it('check about page', () => checkAboutPage());
 
-  it('scrolling', () => scrolling);
+  it('scrolling', () => scrolling());
 });
 
 describe('[small mobile] about page', () => {
@@ -57,8 +57,7 @@ describe('[small mobile] about page', () => {
     beforeScript();
   });
 
-  it('check about page', () => checkAboutPage);
+  it('check about page', () => checkAboutPage());
 
-  // todo: content is not scrolled
-  it('scrolling', () => scrolling);
+  it('scrolling', () => scrolling());
 });

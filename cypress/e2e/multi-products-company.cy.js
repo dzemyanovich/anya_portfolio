@@ -1,4 +1,4 @@
-const { DOMAIN, LOGIN_URL, login, visit, useSmallMobile } = require('./shared');
+const { DOMAIN, LOGIN_URL, login, visit, useBigTablet, useSmallMobile } = require('./shared');
 
 function beforeScript() {
   cy.once('uncaught:exception', () => false);
@@ -18,25 +18,29 @@ function checkCompanyProducts(url) {
   cy.get('.home-link').should('not.exist');
 }
 
+// todo: uskip
+describe.skip('[big tablet] multi products company', () => {
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript();
+  });
+
+  it('// todo', () => {
+    cy.get('.company-page').scrollTo('right', { duration: 500 });
+  });
+});
+
 // todo: add more tests
+// todo: add tests for touch devices
 describe('[small mobile] multi products company', () => {
   beforeEach(() => {
     useSmallMobile();
     beforeScript();
   });
 
-  it('check adidas products', () => {
-    const url = `${DOMAIN}/products/adidas`;
-    checkCompanyProducts(url);
-  });
+  it('check adidas products', () => checkCompanyProducts(`${DOMAIN}/products/adidas`));
 
-  it('check mcdonalds products', () => {
-    const url = `${DOMAIN}/products/mcdonalds`;
-    checkCompanyProducts(url);
-  });
+  it('check mcdonalds products', () => checkCompanyProducts(`${DOMAIN}/products/mcdonalds`));
 
-  it('check havi products', () => {
-    const url = `${DOMAIN}/products/havi`;
-    checkCompanyProducts(url);
-  });
+  it('check havi products', () => checkCompanyProducts(`${DOMAIN}/products/havi`));
 });

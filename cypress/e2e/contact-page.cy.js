@@ -15,7 +15,7 @@ describe('[desktop] contact page', () => {
     beforeScript();
   });
 
-  it('check contact page', () => checkContactPage);
+  it('check contact page', () => checkContactPage());
 });
 
 describe('[small mobile] contact page', () => {
@@ -24,5 +24,5 @@ describe('[small mobile] contact page', () => {
     beforeScript();
   });
 
-  it('check contact page', () => checkContactPage);
+  it('check contact page', () => checkContactPage());
 });

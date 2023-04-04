@@ -18,7 +18,7 @@ describe('[desktop] products page', () => {
     beforeScript();
   });
 
-  it('check products page', () => checkProductsPage);
+  it('check products page', () => checkProductsPage());
 
   it('click on home link', () => {
     cy.get('.home-link').click();
@@ -57,5 +57,5 @@ describe('[small mobile] products page', () => {
     beforeScript();
   });
 
-  it('check products page', () => checkProductsPage);
+  it('check products page', () => checkProductsPage());
 });

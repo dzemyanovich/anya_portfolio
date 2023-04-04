@@ -23,30 +23,29 @@ function incorrectLogin() {
   });
 }
 
-// todo: login tests work unstable
-describe.skip('[desktop] login', () => {
+describe('[desktop] login', () => {
   beforeEach(() => {
     useDesktop();
     beforeScript();
   });
 
-  it('correct login', () => correctLogin);
+  it('correct login', () => correctLogin());
 
-  it('incorrect login', () => incorrectLogin);
+  it('incorrect login', () => incorrectLogin());
 });
 
-describe.skip('[small mobile] login', () => {
+describe('[small mobile] login', () => {
   beforeEach(() => {
     useSmallMobile();
     beforeScript();
   });
 
-  it('correct login', () => correctLogin);
+  it('correct login', () => correctLogin());
 
-  it('incorrect login', () => incorrectLogin);
+  it('incorrect login', () => incorrectLogin());
 });
 
-describe.skip('access to protected routes', () => {
+describe('access to protected routes', () => {
   const protectedUrls = [
     '/products/adidas',
     '/products/mcdonalds',
