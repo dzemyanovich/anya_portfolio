@@ -68,12 +68,12 @@ describe('access to protected routes', () => {
   });
 
   it('cannot access login page when authenticatd', () => {
-    visit(LOGIN_URL, { retryOnStatusCodeFailure: true });
+    visit(LOGIN_URL);
     login();
 
     cy.wait(1000)
     visit(LOGIN_URL);
-    cy.wait(500);
+    cy.wait(1000);
     cy.url().should('not.eq', LOGIN_URL)
   });
 });
