@@ -64,12 +64,12 @@ body {
 }
 
 .page-link {
-  @include druk-normal-400;
+  @include matrice-normal-700;
 
   border-bottom: 1px solid transparent;
   color: $gray-lighter;
-  font-size: 14px;
-  letter-spacing: 2px;
+  font-size: 13px;
+  letter-spacing: 1.2px;
   padding-bottom: 3px;
   text-decoration: none;
 

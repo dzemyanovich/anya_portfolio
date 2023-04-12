@@ -1,9 +1,9 @@
 @import '../../styles/shared';
 
-$desktop-left-right-margin: 58px;
+$desktop-left-right-margin: 50px;
 $desktop-top-bottom-margin: 50px;
-$laptop-left-right-margin: 15px;
-$laptop-top-bottom-margin: 15px;
+$mobile-left-right-margin: 15px;
+$mobile-top-bottom-margin: 15px;
 
 // animation
 $title-animation-delay: 1s;
@@ -81,23 +81,23 @@ $links-animation-duration: 2s;
 
 @media screen and (max-width: $tablet-width) {
   .about-link {
-    margin-bottom: $laptop-top-bottom-margin;
-    margin-right: $laptop-left-right-margin;
+    margin-bottom: $mobile-top-bottom-margin;
+    margin-right: $mobile-left-right-margin;
   }
 
   .contact-link {
-    margin-right: $laptop-left-right-margin;
-    margin-top: $laptop-top-bottom-margin;
+    margin-right: $mobile-left-right-margin;
+    margin-top: $mobile-top-bottom-margin;
   }
 
   .products-link {
-    margin-bottom: $laptop-top-bottom-margin;
-    margin-left: $laptop-left-right-margin;
+    margin-bottom: $mobile-top-bottom-margin;
+    margin-left: $mobile-left-right-margin;
   }
 
   .home-link {
-    margin-left: $laptop-left-right-margin;
-    margin-top: $laptop-top-bottom-margin;
+    margin-left: $mobile-left-right-margin;
+    margin-top: $mobile-top-bottom-margin;
   }
 }
 
@@ -128,12 +128,12 @@ $links-animation-duration: 2s;
 
 @media screen and (max-width: $mobile-width) {
   .designer-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: $mini-mobile-width) {
   .designer-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
