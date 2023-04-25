@@ -241,6 +241,7 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
           <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
           <div className="gap" />
           <div className="company-header">{header}</div>
+          {/* todo: get rid of swipe tip */}
           {isTouchDevice() && isSwipeTipVisible && (
             <div className="swipe-tip">
               {isContentView

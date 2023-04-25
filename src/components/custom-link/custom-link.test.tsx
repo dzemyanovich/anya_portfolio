@@ -4,7 +4,7 @@ global.TextEncoder = TextEncoder;
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { shallow } from 'enzyme';
 
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 const navigate = jest.fn();
 
@@ -13,6 +13,21 @@ jest.mock('react-router-dom', () => ({
 }));
 
 window.open = jest.fn();
+
+function defineWindowLocation() {
+  const mockResponse = jest.fn();
+
+  Object.defineProperty(window, 'location', {
+    value: {
+      hash: {
+        endsWith: mockResponse,
+        includes: mockResponse,
+      },
+      assign: mockResponse,
+    },
+    writable: true,
+  });
+}
 
 describe('CustomLink', () => {
   it('returns rendered component', async () => {
@@ -77,6 +92,8 @@ describe('CustomLink', () => {
   });
 
   it('opens mailto', async () => {
+    defineWindowLocation();
+
     const CustomLink = (await import('./custom-link')).default;
 
     const customLink = shallow(
