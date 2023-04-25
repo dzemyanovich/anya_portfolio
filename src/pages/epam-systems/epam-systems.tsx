@@ -16,7 +16,7 @@ export function EpamSystemsHeader() {
           and product design agency. EPAM&apos;s global teams serve customers in more than 35 countries across North
           America, Europe, Asia, and Australia. EPAM was one of only four technology companies to appear on
           Forbes 25 Fastest Growing Public Tech Companies list every year of publication since 2013 and ranked
-          as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020.
+          as the top IT services company on Fortune&apos;s 100 Fastest-Growing Companies list in 2019 and 2020
         </div>
       </div>
     </>
