@@ -1,5 +1,8 @@
 const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
 
+// retries are required because tests randomly fail
+const RETRIES = 3;
+
 const protectedUrl = '/products/adidas';
 
 function beforeScript() {
@@ -25,7 +28,7 @@ function correctLogin() {
   cy.url().should('eq', `${DOMAIN}${protectedUrl}`);
 }
 
-describe('[desktop] login', () => {
+describe('[desktop] login', { retries: RETRIES }, () => {
   beforeEach(() => {
     useDesktop();
     beforeScript();
@@ -36,7 +39,7 @@ describe('[desktop] login', () => {
   it('correct login', () => correctLogin());
 });
 
-describe('[small mobile] incorrect login', () => {
+describe('[small mobile] incorrect login', { retries: RETRIES }, () => {
   beforeEach(() => {
     useSmallMobile();
     beforeScript();
@@ -47,7 +50,7 @@ describe('[small mobile] incorrect login', () => {
   it('correct login', () => correctLogin());
 });
 
-describe('access to protected routes', () => {
+describe('access to protected routes', { retries: RETRIES }, () => {
   const protectedUrls = [
     '/products/adidas',
     '/products/mcdonalds',

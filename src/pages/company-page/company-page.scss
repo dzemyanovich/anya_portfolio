@@ -112,19 +112,6 @@
   display: flex;
 }
 
-.swipe-tip {
-  animation: 2s ease-out 0s 1 fade-in;
-  position: fixed;
-  text-align: center;
-  top: 20px;
-  width: 100%;
-  z-index: 1;
-
-  img {
-    width: 70px;
-  }
-}
-
 // ####### START product page ######
 
 .transition-image {
@@ -203,6 +190,13 @@
 
   .company-single-product .section-container:nth-child(1) {
     padding-top: $section-padding;
+  }
+}
+
+@media (pointer:coarse) {
+  .company-page-container .home-link,
+  .company-page {
+    @include slow-fade-in;
   }
 }
 

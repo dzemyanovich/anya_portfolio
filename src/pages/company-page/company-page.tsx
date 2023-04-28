@@ -2,12 +2,10 @@ import * as React from 'react';
 
 import HomeLink from '../../components/home-link/home-link';
 import noScroll from '../../utils/no-scroll';
-import { isMobile, isWindows, resetScroll, isTouchDevice } from '../../utils/utils';
+import { isWindows, resetScroll, isTouchDevice, isMobile } from '../../utils/utils';
 import { HOME_LINK_VISIBLE } from '../../utils/global-vars';
 
 import './company-page.scss';
-import swipeLeft from '../../images/swipe-left.svg';
-import swipeDown from '../../images/swipe-down.svg';
 
 type CompanyPageProps = {
   title: string,
@@ -20,7 +18,6 @@ type CompanyPageState = {
   isLoading: boolean,
   isContentView: boolean,
   isHomeLinkVisible: boolean,
-  isSwipeTipVisible: boolean,
 };
 
 export default class CompanyPage extends React.Component<CompanyPageProps, CompanyPageState> {
@@ -36,27 +33,25 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
     // need to add 0.5 in case to detect that scroll reached the end.
     // I have not figured out why it happens
     this.MAGIC_NUMBER = 0.5;
-    // visible margin for home line and swipe tip
+    // visible margin for home line
     this.VISIBLE_MARGIN = 100;
 
     this.companyPageRef = null;
     this.companyHeaderRef = null;
     this.timeoutId = null;
 
-    this.swipeLeftRight = this.swipeLeftRight.bind(this);
     this.swipeUpDown = this.swipeUpDown.bind(this);
     this.scrollUpDown = this.scrollUpDown.bind(this);
     this.scrollLeftRight = this.scrollLeftRight.bind(this);
 
-    if (isMobile()) {
+    if (isTouchDevice()) {
       document.addEventListener('scroll', this.swipeUpDown);
     }
 
     this.state = {
       isLoading: true,
-      isContentView: isMobile(),
-      isHomeLinkVisible: isMobile(),
-      isSwipeTipVisible: false,
+      isContentView: isTouchDevice(),
+      isHomeLinkVisible: isTouchDevice(),
     };
   }
 
@@ -66,16 +61,18 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
     // need to invoke twice because sometimes content is not loaded after 100 ms
     setTimeout(resetScroll, 500);
 
-    // wait 2 or 0.5 seconds until animation finishes rendering
-    const waitTime = isMobile()
-      ? 500
-      : 2000;
+    let waitTime: number;
+    if (isTouchDevice()) {
+      waitTime = isMobile()
+        ? 500 // mobile
+        : 2500; // tablet
+    } else {
+      waitTime = 2000;
+    }
 
     noScroll.start();
     this.timeoutId = setTimeout(() => {
-      if (isTouchDevice()) {
-        this.companyPageRef.addEventListener('scroll', this.swipeLeftRight);
-      } else {
+      if (!isTouchDevice()) {
         window.addEventListener('wheel', this.scrollLeftRight, { passive: false });
       }
 
@@ -91,7 +88,6 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
     noScroll.end();
 
     if (isTouchDevice()) {
-      this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
       document.removeEventListener('scroll', this.swipeUpDown);
     } else {
       window.removeEventListener('wheel', this.scrollLeftRight);
@@ -99,49 +95,12 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
     }
   }
 
-  swipeLeftRight() {
-    const { scrollLeft, offsetWidth, scrollWidth } = this.companyPageRef;
-    const visible = scrollLeft + offsetWidth + this.VISIBLE_MARGIN >= scrollWidth;
-
-    this.setState({
-      isHomeLinkVisible: visible,
-      isSwipeTipVisible: visible,
-    });
-
-    if (scrollLeft + offsetWidth + this.MAGIC_NUMBER >= scrollWidth) {
-      this.companyPageRef.removeEventListener('scroll', this.swipeLeftRight);
-      document.addEventListener('scroll', this.swipeUpDown);
-
-      this.setState({
-        isContentView: true,
-      });
-    }
-  }
-
   swipeUpDown() {
     const isHomeLinkVisible = window.scrollY < this.companyHeaderRef.offsetHeight * HOME_LINK_VISIBLE;
 
-    if (isMobile()) {
-      this.setState({
-        isHomeLinkVisible,
-      });
-
-      return;
-    }
-
     this.setState({
-      isHomeLinkVisible: window.scrollY < this.companyHeaderRef.offsetHeight * HOME_LINK_VISIBLE,
-      isSwipeTipVisible: window.scrollY < this.VISIBLE_MARGIN,
+      isHomeLinkVisible,
     });
-
-    if (window.scrollY === 0) {
-      document.removeEventListener('scroll', this.swipeUpDown);
-      this.companyPageRef.addEventListener('scroll', this.swipeLeftRight);
-
-      this.setState({
-        isContentView: false,
-      });
-    }
   }
 
   scrollLeftRight(event: WheelEvent) {
@@ -220,7 +179,7 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
 
   render() {
     const { title, header, content, className } = this.props;
-    const { isLoading, isContentView, isHomeLinkVisible, isSwipeTipVisible } = this.state;
+    const { isLoading, isContentView, isHomeLinkVisible } = this.state;
     const hasManyProducts = [
       '/products/adidas',
       '/products/mcdonalds',
@@ -238,16 +197,12 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
           ${className}`}
           ref={el => { this.companyPageRef = el; }}
         >
-          <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
-          <div className="gap" />
-          <div className="company-header">{header}</div>
-          {/* todo: get rid of swipe tip */}
-          {isTouchDevice() && isSwipeTipVisible && (
-            <div className="swipe-tip">
-              {isContentView
-                ? <img src={swipeDown} alt="" />
-                : <img src={swipeLeft} alt="" />}
-            </div>
+          {!isTouchDevice() && (
+            <>
+              <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
+              <div className="gap" />
+              <div className="company-header">{header}</div>
+            </>
           )}
           {!isTouchDevice() && !hasManyProducts && (
             <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
