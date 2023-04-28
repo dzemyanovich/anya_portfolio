@@ -187,7 +187,10 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
     ].includes(window.location.pathname.toLowerCase());
 
     return (
-      <div className="company-page-container">
+      <div className={`
+        company-page-container
+        ${isTouchDevice() ? 'touch-device' : ''}`}
+      >
         {isHomeLinkVisible && <HomeLink />}
         <div
           className={`
@@ -197,14 +200,10 @@ export default class CompanyPage extends React.Component<CompanyPageProps, Compa
           ${className}`}
           ref={el => { this.companyPageRef = el; }}
         >
-          {!isTouchDevice() && (
-            <>
-              <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
-              <div className="gap" />
-              <div className="company-header">{header}</div>
-            </>
-          )}
-          {!isTouchDevice() && !hasManyProducts && (
+          <div className={`page-title ${isWindows() ? 'windows' : ''}`}>{title}</div>
+          <div className="gap" />
+          <div className="company-header">{header}</div>
+          {!hasManyProducts && (
             <div className="company-header fixed" ref={el => { this.companyHeaderRef = el; }}>
               {header}
             </div>

@@ -193,19 +193,30 @@
   }
 }
 
-@media (pointer:coarse) {
-  .company-page-container .home-link,
+.company-page-container.touch-device {
+  .home-link,
   .company-page {
     @include slow-fade-in;
+  }
+
+  > .page-title,
+  > .gap,
+  > .company-header,
+  .company-page.content-view .company-header.fixed {
+    display: none;
   }
 }
 
 @media screen and (max-width: $max-mobile-width) {
-  .company-page-container .home-link {
-    @include no-animation;
+  .company-page-container,
+  .company-page-container.touch-device {
+    .home-link {
+      @include no-animation;
+    }
   }
 
-  .company-page {
+  .company-page,
+  .company-page-container.touch-device .company-page {
     @include fast-fade-in;
 
     .page-title,
