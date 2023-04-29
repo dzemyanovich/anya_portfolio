@@ -8,8 +8,17 @@ function beforeScript() {
   cy.wait(2000);
 }
 
-function checkCompanyProducts(url) {
-  visit(url);
+function checkCompanyProducts(url, isTouchDevice) {
+  if (isTouchDevice) {
+    cy.visit(url, {
+      onBeforeLoad(win) {
+        // todo: set ontouchstart for each cypress test for tablet and mobile devices
+        win.ontouchstart = true;
+      },
+    });
+  } else {
+    cy.visit(url);
+  }
   cy.wait(500);
   cy.get('.company-image').should('be.visible');
   cy.get('.company-info').should('be.visible');
@@ -25,9 +34,9 @@ describe('[small mobile] multi products company', () => {
     beforeScript();
   });
 
-  it('check adidas products', () => checkCompanyProducts(`${DOMAIN}/products/adidas`));
+  it('check adidas products', () => checkCompanyProducts(`${DOMAIN}/products/adidas`, true));
 
-  it('check mcdonalds products', () => checkCompanyProducts(`${DOMAIN}/products/mcdonalds`));
+  it('check mcdonalds products', () => checkCompanyProducts(`${DOMAIN}/products/mcdonalds`, true));
 
-  it('check havi products', () => checkCompanyProducts(`${DOMAIN}/products/havi`));
+  it('check havi products', () => checkCompanyProducts(`${DOMAIN}/products/havi`, true));
 });
