@@ -16,8 +16,18 @@ export function ignoreExceptions() {
   cy.once('uncaught:exception', () => false);
 }
 
-export function visit(url) {
-  cy.visit(url, { failOnStatusCode: false });
+// todo: add more [tablet] and [mobile] e2e tests
+export function visit(url, isTouchDevice) {
+  if (!isTouchDevice) {
+    cy.visit(url, { failOnStatusCode: false });
+  } else {
+    cy.visit(url, {
+      failOnStatusCode: false,
+      onBeforeLoad(win) {
+        win.ontouchstart = true;
+      },
+    });
+  }
 }
 
 export function useDesktop() {

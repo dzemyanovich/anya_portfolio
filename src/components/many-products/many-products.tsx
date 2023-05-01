@@ -50,6 +50,7 @@ export default class ManyProducts extends React.Component<ManyProductsProps, Man
               const value = categories[key];
               const checked = currentCategory === value;
 
+              // todo: issue on Android while selecting
               return (
                 <div
                   className={`filter-option ${checked ? 'checked' : ''}`}

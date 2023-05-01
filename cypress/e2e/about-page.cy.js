@@ -1,8 +1,11 @@
-const { DOMAIN, visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling, ignoreExceptions } = require('./shared');
+const {
+  DOMAIN,
+  visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling, ignoreExceptions,
+} = require('./shared');
 
-function beforeScript() {
+function beforeScript(isTouchDevice) {
   ignoreExceptions();
-  visit(`${DOMAIN}/about`);
+  visit(`${DOMAIN}/about`, isTouchDevice);
 }
 
 function checkAboutPage() {
@@ -25,9 +28,11 @@ function scrolling() {
 }
 
 describe('[desktop] about page', () => {
+  const isTouchDevice = false;
+
   beforeEach(() => {
     useDesktop();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check about page', () => {
@@ -43,9 +48,11 @@ describe('[desktop] about page', () => {
 });
 
 describe('[big tablet] about page', () => {
+  const isTouchDevice = true;
+
   beforeEach(() => {
     useBigTablet();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check about page', () => checkAboutPage());
@@ -54,9 +61,11 @@ describe('[big tablet] about page', () => {
 });
 
 describe('[small mobile] about page', () => {
+  const isTouchDevice = true;
+
   beforeEach(() => {
     useSmallMobile();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check about page', () => checkAboutPage());

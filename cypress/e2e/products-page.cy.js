@@ -1,9 +1,9 @@
 const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
 
-function beforeScript() {
+function beforeScript(isTouchDevice) {
   ignoreExceptions();
   localStorage.clear();
-  visit(`${LOGIN_URL}?returnUrl=/products`);
+  visit(`${LOGIN_URL}?returnUrl=/products`, isTouchDevice);
   login();
   cy.wait(2000);
 }
@@ -14,9 +14,11 @@ function checkProductsPage() {
 }
 
 describe('[desktop] products page', () => {
+  const isTouchDevice = false;
+
   beforeEach(() => {
     useDesktop();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check products page', () => checkProductsPage());
@@ -37,7 +39,7 @@ describe('[desktop] products page', () => {
         return;
       }
 
-      visit(`${DOMAIN}${dataHref}`);
+      visit(`${DOMAIN}${dataHref}`, isTouchDevice);
 
       cy.get('.page-title').contains(el.text(), { matchCase: false });
 
@@ -53,9 +55,11 @@ describe('[desktop] products page', () => {
 });
 
 describe('[small mobile] products page', () => {
+  const isTouchDevice = true;
+
   beforeEach(() => {
     useSmallMobile();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check products page', () => checkProductsPage());

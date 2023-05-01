@@ -5,10 +5,10 @@ const RETRIES = 3;
 
 const protectedUrl = '/products/adidas';
 
-function beforeScript() {
+function beforeScript(isTouchDevice) {
   ignoreExceptions();
   localStorage.clear();
-  visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`);
+  visit(`${LOGIN_URL}?returnUrl=${protectedUrl}`, isTouchDevice);
 }
 
 function incorrectLogin() {
@@ -29,9 +29,11 @@ function correctLogin() {
 }
 
 describe('[desktop] login', { retries: RETRIES }, () => {
+  const isTouchDevice = false;  
+
   beforeEach(() => {
     useDesktop();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('incorrect login', () => incorrectLogin());
@@ -40,9 +42,11 @@ describe('[desktop] login', { retries: RETRIES }, () => {
 });
 
 describe('[small mobile] incorrect login', { retries: RETRIES }, () => {
+  const isTouchDevice = true;  
+
   beforeEach(() => {
     useSmallMobile();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('incorrect login', () => incorrectLogin());
@@ -51,6 +55,7 @@ describe('[small mobile] incorrect login', { retries: RETRIES }, () => {
 });
 
 describe('access to protected routes', { retries: RETRIES }, () => {
+  const isTouchDevice = false;
   const protectedUrls = [
     '/products/adidas',
     '/products/mcdonalds',
@@ -64,18 +69,18 @@ describe('access to protected routes', { retries: RETRIES }, () => {
 
   it('cannot access protected route', () => {
     protectedUrls.map((protectedUrl) => {
-      visit(`${DOMAIN}${protectedUrl}`);
+      visit(`${DOMAIN}${protectedUrl}`, isTouchDevice);
       cy.wait(1000);
       cy.url().should('eq', `${LOGIN_URL}?returnUrl=${protectedUrl}`);
     });
   });
 
   it('cannot access login page when authenticatd', () => {
-    visit(LOGIN_URL);
+    visit(LOGIN_URL, isTouchDevice);
     login();
 
     cy.wait(1000)
-    visit(LOGIN_URL);
+    visit(LOGIN_URL, isTouchDevice);
     cy.wait(1000);
     cy.url().should('not.eq', LOGIN_URL)
   });

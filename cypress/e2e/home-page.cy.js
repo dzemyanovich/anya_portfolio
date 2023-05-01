@@ -1,8 +1,8 @@
 const { DOMAIN, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
 
-function beforeScript() {
+function beforeScript(isTouchDevice) {
   ignoreExceptions();
-  visit(DOMAIN);
+  visit(DOMAIN, isTouchDevice);
 }
 
 function checkHomePage() {
@@ -14,9 +14,11 @@ function checkHomePage() {
 }
 
 describe('[desktop] home page', () => {
+  const isTouchDevice = false;
+
   beforeEach(() => {
     useDesktop();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check home page', () => checkHomePage());
@@ -47,9 +49,11 @@ describe('[desktop] home page', () => {
 });
 
 describe('[small mobile] home page', () => {
+  const isTouchDevice = true;
+
   beforeEach(() => {
     useSmallMobile();
-    beforeScript();
+    beforeScript(isTouchDevice);
   });
 
   it('check home page', () => checkHomePage());
