@@ -9,6 +9,8 @@ export function login(passwrod = MASTER_PASSWORD) {
 }
 
 export function ensureScrolling() {
+  // todo: even after scrolling 'window.scrollY' is zero
+  console.log('######## window.scrollY', window.scrollY);
   expect(window.scrollY).to.eq(window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight));
 }
 
