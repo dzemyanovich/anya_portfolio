@@ -8,10 +8,16 @@ export function login(passwrod = MASTER_PASSWORD) {
     .type('{enter}');
 }
 
-export function ensureScrolling() {
-  // todo: even after scrolling 'window.scrollY' is zero
-  console.log('######## window.scrollY', window.scrollY);
-  expect(window.scrollY).to.eq(window.scrollMaxY || (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+export function scrolledTop() {
+  cy.window()
+    .its('scrollY')
+    .should('equal', 0);
+}
+
+export function scrolledBottom() {
+  cy.window()
+    .its('scrollY')
+    .should('not.equal', 0); // todo: make comparison with actual scroll height
 }
 
 export function ignoreExceptions() {

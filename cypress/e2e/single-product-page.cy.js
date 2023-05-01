@@ -1,4 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ensureScrolling, ignoreExceptions } = require('./shared');
+const {
+  DOMAIN, LOGIN_URL,
+  login, visit, useDesktop, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
+} = require('./shared');
 
 function beforeScript(isTouchDevice) {
   ignoreExceptions();
@@ -14,8 +17,9 @@ function checkContent(url, isTouchDevice) {
   cy.get('.section').should('be.visible');
   cy.get('.section-image-container').should('be.visible');
   cy.get('.home-link').should('be.visible');
+  scrolledTop();
   cy.scrollTo('bottom', { duration: 500 });
-  ensureScrolling();
+  scrolledBottom();
 }
 
 describe('[desktop] single product page', () => {

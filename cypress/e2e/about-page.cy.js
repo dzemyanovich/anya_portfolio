@@ -1,6 +1,6 @@
 const {
   DOMAIN,
-  visit, useDesktop, useBigTablet, useSmallMobile, ensureScrolling, ignoreExceptions,
+  visit, useDesktop, useBigTablet, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
 } = require('./shared');
 
 function beforeScript(isTouchDevice) {
@@ -20,11 +20,9 @@ function checkAboutPage() {
 }
 
 function scrolling() {
-  cy.get('.home-link').should('be.visible');
-  cy.wait(500);
+  scrolledTop();
   cy.scrollTo('bottom', { duration: 500 });
-  cy.get('.home-link').should('be.visible');
-  ensureScrolling();
+  scrolledBottom();
 }
 
 describe('[desktop] about page', () => {

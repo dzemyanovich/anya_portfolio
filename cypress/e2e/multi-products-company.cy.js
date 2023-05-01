@@ -1,6 +1,6 @@
 const {
   DOMAIN, LOGIN_URL,
-  visit, login, useSmallMobile, ensureScrolling, ignoreExceptions,
+  visit, login, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
 } = require('./shared');
 
 function beforeScript(isTouchDevice) {
@@ -18,9 +18,10 @@ function checkCompanyProducts(url, isTouchDevice) {
   cy.get('.company-image').should('be.visible');
   cy.get('.company-info').should('be.visible');
   cy.get('.home-link').should('be.visible');
+  scrolledTop();
   cy.scrollTo('bottom', { duration: 500 });
   cy.get('.home-link').should('not.exist');
-  ensureScrolling();
+  scrolledBottom();
 }
 
 describe('[small mobile] multi products company', () => {
