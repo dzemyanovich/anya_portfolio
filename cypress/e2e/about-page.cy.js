@@ -23,6 +23,7 @@ function scrolling() {
   scrolledTop();
   cy.scrollTo('bottom', { duration: 500 });
   scrolledBottom();
+  // todo: check that home link is still visible
 }
 
 describe('[desktop] about page', () => {
