@@ -17,7 +17,7 @@ export function scrolledTop() {
 export function scrolledBottom() {
   cy.window()
     .its('scrollY')
-    .should('not.equal', 0); // todo: make comparison with actual scroll height
+    .should('not.equal', 0);
 }
 
 export function ignoreExceptions() {

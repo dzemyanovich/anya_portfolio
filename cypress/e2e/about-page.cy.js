@@ -20,10 +20,11 @@ function checkAboutPage() {
 }
 
 function scrolling() {
+  cy.get('.home-link').should('be.visible');
   scrolledTop();
   cy.scrollTo('bottom', { duration: 500 });
   scrolledBottom();
-  // todo: check that home link is still visible
+  cy.get('.home-link').should('be.visible');
 }
 
 describe('[desktop] about page', () => {
