@@ -1,6 +1,6 @@
 const {
   DOMAIN, LOGIN_URL,
-  login, visit, useDesktop, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
+  login, visit, useDesktop, useBigTablet, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
 } = require('./shared');
 
 function beforeScript(isTouchDevice) {
@@ -27,6 +27,23 @@ describe('[desktop] single product page', () => {
 
   beforeEach(() => {
     useDesktop();
+    beforeScript(isTouchDevice);
+  });
+
+  it('mcdonalds -> event optimizer', () => checkContent(`${DOMAIN}/products/mcdonalds/event-optimizer`, isTouchDevice));
+
+  it('mcdonalds -> design leadership', () => checkContent(`${DOMAIN}/products/mcdonalds/design-leadership`, isTouchDevice));
+
+  it('havi -> landing', () => checkContent(`${DOMAIN}/products/havi/landing`, isTouchDevice));
+
+  it('havi -> supply planning', () => checkContent(`${DOMAIN}/products/havi/supply-planning`, isTouchDevice));
+});
+
+describe('[big tablet] single product page', () => {
+  const isTouchDevice = true;
+
+  beforeEach(() => {
+    useBigTablet();
     beforeScript(isTouchDevice);
   });
 

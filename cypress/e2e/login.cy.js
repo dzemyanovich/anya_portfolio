@@ -1,4 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
+const {
+  DOMAIN, LOGIN_URL,
+  login, visit, useDesktop, useSmallMobile, useBigTablet, ignoreExceptions,
+} = require('./shared');
 
 // retries are required because tests randomly fail
 const RETRIES = 3;
@@ -41,7 +44,20 @@ describe('[desktop] login', { retries: RETRIES }, () => {
   it('correct login', () => correctLogin());
 });
 
-describe('[small mobile] incorrect login', { retries: RETRIES }, () => {
+describe('[big tablet] login', { retries: RETRIES }, () => {
+  const isTouchDevice = true;  
+
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript(isTouchDevice);
+  });
+
+  it('incorrect login', () => incorrectLogin());
+
+  it('correct login', () => correctLogin());
+});
+
+describe('[small mobile] login', { retries: RETRIES }, () => {
   const isTouchDevice = true;  
 
   beforeEach(() => {

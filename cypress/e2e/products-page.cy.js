@@ -1,4 +1,7 @@
-const { DOMAIN, LOGIN_URL, login, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
+const {
+  DOMAIN, LOGIN_URL,
+  login, visit, useDesktop, useBigTablet, useSmallMobile, ignoreExceptions,
+} = require('./shared');
 
 function beforeScript(isTouchDevice) {
   ignoreExceptions();
@@ -52,6 +55,17 @@ describe('[desktop] products page', () => {
       cy.go('back');
     });
   });
+});
+
+describe('[big tablet] products page', () => {
+  const isTouchDevice = true;
+
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check products page', () => checkProductsPage());
 });
 
 describe('[small mobile] products page', () => {

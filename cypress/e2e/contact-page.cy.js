@@ -1,4 +1,4 @@
-const { DOMAIN, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
+const { DOMAIN, visit, useDesktop, useSmallMobile, useBigTablet, ignoreExceptions } = require('./shared');
 
 function beforeScript(isTouchDevice) {
   ignoreExceptions();
@@ -15,6 +15,17 @@ describe('[desktop] contact page', () => {
 
   beforeEach(() => {
     useDesktop();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check contact page', () => checkContactPage());
+});
+
+describe('[big tablet] contact page', () => {
+  const isTouchDevice = true;  
+
+  beforeEach(() => {
+    useBigTablet();
     beforeScript(isTouchDevice);
   });
 

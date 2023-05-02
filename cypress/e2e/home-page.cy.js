@@ -1,4 +1,4 @@
-const { DOMAIN, visit, useDesktop, useSmallMobile, ignoreExceptions } = require('./shared');
+const { DOMAIN, visit, useDesktop, useSmallMobile, useBigTablet, ignoreExceptions } = require('./shared');
 
 function beforeScript(isTouchDevice) {
   ignoreExceptions();
@@ -46,6 +46,17 @@ describe('[desktop] home page', () => {
       expect(newUrl).to.eq(`${DOMAIN}/about`);
     });
   });
+});
+
+describe('[big tablet] home page', () => {
+  const isTouchDevice = true;
+
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check home page', () => checkHomePage());
 });
 
 describe('[small mobile] home page', () => {

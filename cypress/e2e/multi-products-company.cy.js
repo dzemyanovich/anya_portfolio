@@ -1,6 +1,6 @@
 const {
   DOMAIN, LOGIN_URL,
-  visit, login, useSmallMobile, scrolledTop, scrolledBottom, ignoreExceptions,
+  visit, login, useSmallMobile, useBigTablet, useDesktop, scrolledTop, scrolledBottom, ignoreExceptions,
 } = require('./shared');
 
 function beforeScript(isTouchDevice) {
@@ -11,10 +11,18 @@ function beforeScript(isTouchDevice) {
   cy.wait(2000);
 }
 
-function checkCompanyProducts(url, isTouchDevice) {
+function checkPageWithTitle(url, isTouchDevice) {
   visit(url, isTouchDevice);
 
-  cy.wait(500);
+  cy.get('.page-title').should('be.visible');
+  cy.get('.company-image').should('not.be.visible');
+  cy.get('.company-info').should('not.be.visible');
+  cy.get('.home-link').should('not.exist');
+}
+
+function checkPage(url, isTouchDevice) {
+  visit(url, isTouchDevice);
+
   cy.get('.company-image').should('be.visible');
   cy.get('.company-info').should('be.visible');
   cy.get('.home-link').should('be.visible');
@@ -24,6 +32,51 @@ function checkCompanyProducts(url, isTouchDevice) {
   scrolledBottom();
 }
 
+describe('[desktop] multi products company', () => {
+  const isTouchDevice = false;
+
+  beforeEach(() => {
+    useDesktop();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check adidas products', () => checkPageWithTitle(`${DOMAIN}/products/adidas`, isTouchDevice));
+
+  it('check mcdonalds products', () => checkPageWithTitle(`${DOMAIN}/products/mcdonalds`, isTouchDevice));
+
+  it('check havi products', () => checkPageWithTitle(`${DOMAIN}/products/havi`, isTouchDevice));
+});
+
+describe('[touch desktop] multi products company', () => {
+  const isTouchDevice = true;
+
+  beforeEach(() => {
+    useDesktop();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check adidas products', () => checkPage(`${DOMAIN}/products/adidas`, isTouchDevice));
+
+  it('check mcdonalds products', () => checkPage(`${DOMAIN}/products/mcdonalds`, isTouchDevice));
+
+  it('check havi products', () => checkPage(`${DOMAIN}/products/havi`, isTouchDevice));
+});
+
+describe('[big tablet] multi products company', () => {
+  const isTouchDevice = true;
+
+  beforeEach(() => {
+    useBigTablet();
+    beforeScript(isTouchDevice);
+  });
+
+  it('check adidas products', () => checkPage(`${DOMAIN}/products/adidas`, isTouchDevice));
+
+  it('check mcdonalds products', () => checkPage(`${DOMAIN}/products/mcdonalds`, isTouchDevice));
+
+  it('check havi products', () => checkPage(`${DOMAIN}/products/havi`, isTouchDevice));
+});
+
 describe('[small mobile] multi products company', () => {
   const isTouchDevice = true;
 
@@ -32,9 +85,9 @@ describe('[small mobile] multi products company', () => {
     beforeScript(isTouchDevice);
   });
 
-  it('check adidas products', () => checkCompanyProducts(`${DOMAIN}/products/adidas`, isTouchDevice));
+  it('check adidas products', () => checkPage(`${DOMAIN}/products/adidas`, isTouchDevice));
 
-  it('check mcdonalds products', () => checkCompanyProducts(`${DOMAIN}/products/mcdonalds`, isTouchDevice));
+  it('check mcdonalds products', () => checkPage(`${DOMAIN}/products/mcdonalds`, isTouchDevice));
 
-  it('check havi products', () => checkCompanyProducts(`${DOMAIN}/products/havi`, isTouchDevice));
+  it('check havi products', () => checkPage(`${DOMAIN}/products/havi`, isTouchDevice));
 });

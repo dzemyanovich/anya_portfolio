@@ -24,7 +24,6 @@ export function ignoreExceptions() {
   cy.once('uncaught:exception', () => false);
 }
 
-// todo: add more [tablet] and [mobile] e2e tests
 export function visit(url, isTouchDevice) {
   if (!isTouchDevice) {
     cy.visit(url, { failOnStatusCode: false });
