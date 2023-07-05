@@ -1,10 +1,33 @@
 # Envs
 
-| Env      | UI URL                                                                | API URL                                                            | Deployment                                            |
-| -------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------- |
-| dev      | http://dev4.annapivunova.me.s3-website.eu-central-1.amazonaws.com     | https://0wanj4yiyc.execute-api.eu-central-1.amazonaws.com/dev4     | Manual via running `yarn tg-apply` from local machine |
-| preprod  | http://preprod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com | https://qcgnmbwhui.execute-api.eu-central-1.amazonaws.com/preprod1 | Automatic via GitLab CI/CD                            |
-| prod     | https://annapivunova.me/                                              | https://0kqyjube0g.execute-api.eu-central-1.amazonaws.com/prod1    | Automatic GitLab CI/CD                                |
+| Env      | UI URL                                                                | API URL                                                            |
+| -------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| dev      | http://dev4.annapivunova.me.s3-website.eu-central-1.amazonaws.com     | https://0wanj4yiyc.execute-api.eu-central-1.amazonaws.com/dev4     |
+| preprod  | http://preprod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com | https://qcgnmbwhui.execute-api.eu-central-1.amazonaws.com/preprod1 |
+| prod     | https://annapivunova.me/                                              | https://0kqyjube0g.execute-api.eu-central-1.amazonaws.com/prod1    |
+
+# Deployment
+
+| Env      | Branch      | Deployment type                                                   |
+| -------- | ----------- | ----------------------------------------------------------------- |
+| dev      | develop     | Manual via running `yarn tg-apply` from local machine             |
+| preprod  | develop     | Automatic via GitLab CI/CD (just push commit to `develop` branch) |
+| prod     | master      | Automatic GitLab CI/CD  (just push commit to `master` branch)     |
+
+# Merging
+
+Via **rebase**, e.g. merging to `master` branch (commands should be executed one by one):
+
+| Command                | Description                                     |
+| ---------------------- | ----------------------------------------------- |
+| `git checkout develop` | Go to `develop` branch                          |
+| `git fetch`            | Get latest changes                              |
+| `git rebase`           | Apply latest changes locally                    |
+| `git checkout master`  | Go to `master` branch                           |
+| `git fetch`            | Get latest changes                              |
+| `git rebase`           | Apply latest changes locally                    |
+| `git rebase develop`   | Apply changes from `develop` branch to `master` |
+| `git push`             | Push changes                                    |
 
 # Tech stack
 
@@ -12,18 +35,18 @@ React, React Hooks, TypeScript, Sass, Webpack, ESLint, Stylelint, Jest, Cypress,
 
 # Scripts description
 
-| Script             | Description                                       |
-| ------------------ | ------------------------------------------------- | 
-| `yarn run-local`   | Run website with local config (development mode)  |
-| `yarn run-dev`     | Run website with dev config (production mode)     |
-| `yarn run-preprod` | Run website with preprod config (production mode) |
-| `yarn run-prod`    | Run website with prod config (production mode)    |
+| Script               | Description                                             |
+| -------------------- | ------------------------------------------------------- | 
+| `yarn run-local`     | Run application with local config (development mode)    |
+| `yarn run-dev`       | Run application with dev config (production mode)       |
+| `yarn run-preprod`   | Run application with preprod config (production mode)   |
+| `yarn run-prod`      | Run application with prod config (production mode)      |
+| `yarn build-local`   | Build application with local config (development mode)  |
+| `yarn build-dev`     | Build application with dev config (production mode)     |
+| `yarn build-preprod` | Build application with preprod config (production mode) |
+| `yarn build-prod`    | Build application with prod config (production mode)    |
 
 // TODO: add more
-
-# Deployment
-
-// TODO: add content
 
 # AWS setup guide
 In order to set up AWS infrastucture **locally**:
