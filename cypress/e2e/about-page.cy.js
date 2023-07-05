@@ -8,10 +8,11 @@ function beforeScript(isTouchDevice) {
   visit(`${DOMAIN}/about`, isTouchDevice);
 }
 
+// applicable for tablet and mobile views
 function checkAboutPage() {
   cy.get('.home-link').should('be.visible');
   cy.contains('Anna Pivunova', { matchCase: false });
-  cy.contains('Principal Designer', { matchCase: false });
+  cy.contains('Lead Designer', { matchCase: false });
   cy.get('.about-name').should('be.visible');
   cy.get('.about-title').should('not.be.visible');
   cy.get('.about-image').should('be.visible');
@@ -39,7 +40,7 @@ describe('[desktop] about page', () => {
     cy.wait(2000);
     cy.get('.home-link').should('be.visible');
     cy.contains('Anna Pivunova', { matchCase: false });
-    cy.contains('Principal Designer', { matchCase: false });
+    cy.contains('Lead Designer', { matchCase: false });
     cy.get('.about-image').should('be.visible');
     cy.get('.about-content').should('be.visible');
     cy.get('.about-content').scrollTo('bottom', { duration: 500 });

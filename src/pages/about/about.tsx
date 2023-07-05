@@ -28,7 +28,7 @@ export default function About() {
             <span className="first-name">Anna&nbsp;</span>
             <span className="last-name">Pivunova</span>
           </div>
-          <div className="about-title title">Principal Designer</div>
+          <div className="about-title title">Lead Designer</div>
           <img src={aboutImage} alt="" className="about-image" />
         </div>
         <div className="about-content">

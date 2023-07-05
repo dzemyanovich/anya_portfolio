@@ -6,7 +6,7 @@ function beforeScript(isTouchDevice) {
 }
 
 function checkHomePage() {
-  cy.get('.designer-title').contains('principal designer', { matchCase: false });
+  cy.get('.designer-title').contains('Lead Designer', { matchCase: false });
 
   cy.get('.page-link').should('have.length', 4);
   cy.get('.designer-title').should('have.length', 1);
