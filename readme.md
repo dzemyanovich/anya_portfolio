@@ -1,7 +1,29 @@
-# About
-https://annapivunova.me/
+# Envs
 
-**Tech stack**: React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, AWS Certificate Manager, AWS CloudFront, Node.js, Terraform, Terragrunt, GitLab CI
+| Env      | UI URL                                                                | API URL                                                            | Deployment                                            |
+| -------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------- |
+| dev      | http://dev4.annapivunova.me.s3-website.eu-central-1.amazonaws.com     | https://0wanj4yiyc.execute-api.eu-central-1.amazonaws.com/dev4     | Manual via running `yarn tg-apply` from local machine |
+| preprod  | http://preprod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com | https://qcgnmbwhui.execute-api.eu-central-1.amazonaws.com/preprod1 | Automatic via GitLab CI/CD                            |
+| prod     | https://annapivunova.me/                                              | https://0kqyjube0g.execute-api.eu-central-1.amazonaws.com/prod1    | Automatic GitLab CI/CD                                |
+
+# Tech stack
+
+React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, AWS Certificate Manager, AWS CloudFront, Node.js, Terraform, Terragrunt, GitLab CI
+
+# Scripts description
+
+| Script             | Description                                       |
+| ------------------ | ------------------------------------------------- | 
+| `yarn run-local`   | Run website with local config (development mode)  |
+| `yarn run-dev`     | Run website with dev config (production mode)     |
+| `yarn run-preprod` | Run website with preprod config (production mode) |
+| `yarn run-prod`    | Run website with prod config (production mode)    |
+
+// TODO: add more
+
+# Deployment
+
+// TODO: add content
 
 # AWS setup guide
 In order to set up AWS infrastucture **locally**:
@@ -16,9 +38,9 @@ jwt_secret = "some_value"
 
 # GitLab CI/CD setup guide
 Before running pipeline set the following env vars:
-```
+
 | Env var                      | Value        | Comments                                       |
-| ---------------------------- | ------------ |                                                |
+| ---------------------------- | ------------ | ---------------------------------------------- |
 | AWS_ACCESS_KEY_ID            | "some_value" |                                                |
 | AWS_SECRET_ACCESS_KEY        | "some_value" |                                                |
 | AWS_DEFAULT_REGION           | "some_value" |                                                |
@@ -26,7 +48,6 @@ Before running pipeline set the following env vars:
 | TF_VAR_jwt_secret            | "some_value" |                                                |
 | CYPRESS_master_password      | "some_value" | site password (used in Cypress e2e tests)      |
 | MASTER_PASSWORD              | "some_value" | site password (used in jest integration tests) |
-```
 
 **!!! IMPORTANT !!!** `TF_VAR_secrets_storage_value` and `TF_VAR_jwt_secret` are shared between **all envs**: dev, preprod, prod
 
