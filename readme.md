@@ -8,7 +8,7 @@
 
 # Tech stack
 
-React, React Hooks, TypeScript, sass, webpack, eslint, stylelint, jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, AWS Certificate Manager, AWS CloudFront, Node.js, Terraform, Terragrunt, GitLab CI
+React, React Hooks, TypeScript, Sass, Webpack, ESLint, Stylelint, Jest, Cypress, AWS Lambda, AWS API Gateway, AWS S3, AWS Secrets Manager, AWS Route 53, AWS Certificate Manager, AWS CloudFront, Node.js, Terraform, Terragrunt, GitLab CI
 
 # Scripts description
 
