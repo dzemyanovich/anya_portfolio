@@ -10,6 +10,7 @@ stages:
   - e2e
 
 variables:
+  TG_IMAGE: alpine/terragrunt:1.5.2
   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
   CYPRESS_IMAGE: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
 
@@ -72,7 +73,7 @@ unit:
 .plan:
   stage: plan
   image:
-    name: alpine/terragrunt:1.5.2
+    name: $TG_IMAGE
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
@@ -99,7 +100,7 @@ plan-prod:
 .apply:
   stage: apply
   image:
-    name: alpine/terragrunt
+    name: $TG_IMAGE
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
@@ -127,7 +128,7 @@ apply-prod:
 # .destroy:
 #   stage: destroy
 #   image:
-#     name: alpine/terragrunt
+#     name: $TG_IMAGE
 #     entrypoint:
 #       - '/usr/bin/env'
 #       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  
