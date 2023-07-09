@@ -72,7 +72,7 @@ unit:
 .plan:
   stage: plan
   image:
-    name: alpine/terragrunt
+    name: alpine/terragrunt:1.5.2
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'  

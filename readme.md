@@ -82,6 +82,15 @@ React, React Hooks, TypeScript, Sass, Webpack, ESLint, Stylelint, Jest, Cypress,
 | `yarn cy-prod-firefox`           | Run Cypress e2e tests on prod env in Firefox                         |
 | `yarn cy-prod-edge`              | Run Cypress e2e tests on prod env in Edge                            |
 
+# Prerequisites
+- Node.js 14.21.3
+- Terragrunt 0.48.1 (Terraform 1.5.2 is used under the hood). Use `brew` to install
+> Terraform / Terragrunt usage is restricted in Belarus. In order to run commands locally from Belarus location, you need to be connected to Europe / USA VPN (sometimes you need to switch between different VPN countries several times). Othewise, you'll see the following error:
+```
+Error: Invalid provider registry host
+The host "registry.terraform.io" given in provider source address "registry.terraform.io/hashicorp/aws" does not offer a Terraform provider registry.
+```
+
 # AWS setup guide
 In order to set up AWS infrastucture **locally**:
 - create `terragrunt/modules/secrets-manager/terraform.tfvars`:
