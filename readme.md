@@ -91,7 +91,7 @@ Error: Invalid provider registry host
 The host "registry.terraform.io" given in provider source address "registry.terraform.io/hashicorp/aws" does not offer a Terraform provider registry.
 ```
 
-# AWS setup guide
+# AWS setup
 In order to set up AWS infrastucture **locally**:
 - create `terragrunt/modules/secrets-manager/terraform.tfvars`:
 ```
@@ -102,8 +102,8 @@ jwt_secret = "some_value"
 jwt_secret = "some_value"
 ```
 
-# GitLab CI/CD setup guide
-Before running pipeline set the following env vars:
+# GitLab CI/CD setup
+Before running pipeline set the following env vars (variables should be **not protected**):
 
 | Env var                      | Value        | Comments                                       |
 | ---------------------------- | ------------ | ---------------------------------------------- |
@@ -117,7 +117,7 @@ Before running pipeline set the following env vars:
 
 **!!! IMPORTANT !!!** `TF_VAR_secrets_storage_value` and `TF_VAR_jwt_secret` are shared between **all envs**: dev, preprod, prod
 
-# Cypress setup guide
+# Cypress setup
 Create `cypress.env.json` in root folder:
 ```
 {
@@ -125,7 +125,7 @@ Create `cypress.env.json` in root folder:
 }
 ```
 
-# Jest integration tests setup guide
+# Jest integration tests setup
 Create file `jest/integration/setup.shared.ts`:
 ```
 process.env.MASTER_PASSWORD = 'some_value';
