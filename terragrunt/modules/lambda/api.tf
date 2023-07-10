@@ -20,7 +20,7 @@ resource "aws_api_gateway_resource" "validate_token_api_resource" {
   path_part   = "validate-token"
 }
 
-############## login POST ##############
+############## POST login ##############
 
 resource "aws_api_gateway_method" "login_post_method" {
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
@@ -73,7 +73,7 @@ resource "aws_api_gateway_integration_response" "login_post_integration_response
   }
 }
 
-############## validate-token POST ##############
+############## POST validate-token ##############
 
 resource "aws_api_gateway_method" "validate_token_post_method" {
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
@@ -126,7 +126,7 @@ resource "aws_api_gateway_integration_response" "validate_token_post_integration
   }
 }
 
-############## login OPTIONS (for cors) ##############
+############## OPTIONS login (for cors) ##############
 
 resource "aws_api_gateway_method" "login_options_method" {
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
@@ -178,7 +178,7 @@ resource "aws_api_gateway_integration_response" "login_options_integration_respo
   }
 }
 
-############## validate-token OPTIONS (for cors) ##############
+############## OPTIONS validate-token (for cors) ##############
 
 resource "aws_api_gateway_method" "validate_token_options_method" {
   rest_api_id   = aws_api_gateway_rest_api.auth_api.id
