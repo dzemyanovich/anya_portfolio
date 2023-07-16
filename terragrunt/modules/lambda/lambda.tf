@@ -1,5 +1,5 @@
 resource "aws_iam_role" "iam_for_lambda" {
-  name = "${var.env}_iam_for_lambda"
+  name = "${var.product}_${var.env}_iam_for_lambda"
 
   assume_role_policy = <<EOF
 {
@@ -18,6 +18,11 @@ resource "aws_iam_role" "iam_for_lambda" {
 EOF
 }
 
+resource "aws_iam_role_policy_attachment" "lambda_basic_access" {
+  role       = aws_iam_role.iam_for_lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
 resource "aws_iam_role_policy_attachment" "lambda_access_secrets" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
@@ -25,7 +30,7 @@ resource "aws_iam_role_policy_attachment" "lambda_access_secrets" {
 
 resource "aws_lambda_function" "login_lambda" {
   filename          = data.archive_file.lambda_zip.output_path
-  function_name     = "${var.env}-login"
+  function_name     = "${var.product}-${var.env}-login"
   role              = aws_iam_role.iam_for_lambda.arn
   handler           = "login.handler"
   source_code_hash  = data.archive_file.lambda_zip.output_base64sha256
@@ -42,7 +47,7 @@ resource "aws_lambda_function" "login_lambda" {
 
 resource "aws_lambda_function" "validate_token_lambda" {
   filename          = data.archive_file.lambda_zip.output_path
-  function_name     = "${var.env}-validate-token"
+  function_name     = "${var.product}-${var.env}-validate-token"
   role              = aws_iam_role.iam_for_lambda.arn
   source_code_hash  = data.archive_file.lambda_zip.output_base64sha256
   handler           = "validate-token.handler"

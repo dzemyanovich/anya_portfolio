@@ -58,7 +58,6 @@ React, React Hooks, TypeScript, Sass, Webpack, ESLint, Stylelint, Jest, Cypress,
 | `yarn test`                      | Run unit tests via jest w/o coverage                                 |
 | `yarn test-cover`                | Run unit tests via jest with coverage                                |
 | `yarn test-open`                 | Run unit tests via jest with coverage and open report file           |
-| `yarn integration-dev`           | Run integration tests for dev env from GitLab CI/CD pipeline         |
 | `yarn integration-dev-local`     | Run integration tests for dev env from local machine                 |
 | `yarn integration-preprod`       | Run integration tests for preprod env from GitLab CI/CD pipeline     |
 | `yarn integration-preprod-local` | Run integration tests for preprod env from local machine             |

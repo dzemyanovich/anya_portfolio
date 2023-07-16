@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "auth_api" {
-  name        = "${var.env}_auth_api"
+  name        = "${var.product}_${var.env}_auth_api"
   description = "AuthN/Z API"
 
   depends_on  = [
@@ -251,6 +251,7 @@ resource "aws_api_gateway_deployment" "auth_api_deployment" {
 
   triggers = {
     redeployment = sha1(jsonencode([
+      aws_iam_role.iam_for_lambda.id,
       aws_api_gateway_resource.login_api_resource.id,
       aws_api_gateway_method.login_post_method.id,
       aws_api_gateway_integration.login_post_integration.id,
