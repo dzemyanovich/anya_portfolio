@@ -131,3 +131,7 @@ Create file `jest/integration/setup.shared.ts`:
 ```
 process.env.MASTER_PASSWORD = 'some_value';
 ```
+
+# FAQ
+
+How to clear AWS CloudFront cache (usually required after deployment to prod) - https://www.simplified.guide/aws/cloudfront/invalidate-cache
