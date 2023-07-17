@@ -6,6 +6,8 @@
 | preprod  | http://preprod1.annapivunova.me.s3-website.eu-central-1.amazonaws.com | https://qcgnmbwhui.execute-api.eu-central-1.amazonaws.com/preprod1 |
 | prod     | https://annapivunova.me/                                              | https://0kqyjube0g.execute-api.eu-central-1.amazonaws.com/prod1    |
 
+Swagger - https://documenter.getpostman.com/view/18920801/2s946h6rYa
+
 # Deployment
 
 | Env      | Branch      | Deployment type                                                   |
