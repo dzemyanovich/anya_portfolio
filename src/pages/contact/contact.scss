@@ -35,16 +35,21 @@
   }
 }
 
-@media screen and (max-width: $mobile-width) {
+@media screen and (max-width: $mini-mobile-width) {
   .contact-title {
     text-align: center;
   }
 
   .contact-page {
-    padding: $container-mobile-padding;
+    padding: 0 20px;
+  }
 
-    .contact-links {
-      width: 100%;
+  .contact-page .contact-links {
+    flex-flow: wrap;
+    width: 100%;
+
+    .custom-link {
+      width: 50%;
     }
   }
 }
