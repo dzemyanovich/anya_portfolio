@@ -15,3 +15,13 @@
 .contact-link-text {
   padding-left: 7px;
 }
+
+@media screen and (max-width: $mobile-width) {
+  .contact-links {
+    flex-flow: wrap;
+
+    .custom-link {
+      width: 50%;
+    }
+  }
+}

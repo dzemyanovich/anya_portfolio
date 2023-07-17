@@ -4,7 +4,6 @@ $image-width: 350px;
 $image-margin: 90px;
 $image-right: -($image-margin + calc($image-width / 2));
 $title-margin: 52px;
-$container-mobile-padding: 50px;
 
 // animations
 $container-appear-delay: 1s;
@@ -170,13 +169,5 @@ $content-appear-duration: 1s;
   .about-image,
   .about-content {
     width: 100%;
-  }
-
-  .about-content .contact-links {
-    flex-flow: wrap;
-
-    .custom-link {
-      width: 50%;
-    }
   }
 }

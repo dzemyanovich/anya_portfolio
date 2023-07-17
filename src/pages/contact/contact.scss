@@ -34,3 +34,17 @@
     @include no-animation;
   }
 }
+
+@media screen and (max-width: $mobile-width) {
+  .contact-title {
+    text-align: center;
+  }
+
+  .contact-page {
+    padding: $container-mobile-padding;
+
+    .contact-links {
+      width: 100%;
+    }
+  }
+}
