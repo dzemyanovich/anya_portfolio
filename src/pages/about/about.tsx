@@ -48,15 +48,31 @@ export default function About() {
           <div className="paragraph">
             <div className="paragraph-title">Clients</div>
             <div className="paragraph-content">
-              <div className="brands-container">
-                <img src={adidas} alt="" />
-                <img src={epam} alt="" />
-                <img src={mcdonalds} alt="" />
+              <div className="two-rows-view">
+                <div className="brands-container">
+                  <img src={adidas} alt="" />
+                  <img src={epam} alt="" />
+                  <img src={mcdonalds} alt="" />
+                </div>
+                <div className="brands-container">
+                  <img src={subway} alt="" />
+                  <img src={renault} alt="" />
+                  <img src={schlumberger} alt="" />
+                </div>
               </div>
-              <div className="brands-container">
-                <img src={subway} alt="" />
-                <img src={renault} alt="" />
-                <img src={schlumberger} alt="" />
+              <div className="three-rows-view">
+                <div className="brands-container">
+                  <img src={adidas} alt="" />
+                  <img src={epam} alt="" />
+                </div>
+                <div className="brands-container">
+                  <img src={mcdonalds} alt="" />
+                  <img src={subway} alt="" />
+                </div>
+                <div className="brands-container">
+                  <img src={renault} alt="" />
+                  <img src={schlumberger} alt="" />
+                </div>
               </div>
             </div>
           </div>

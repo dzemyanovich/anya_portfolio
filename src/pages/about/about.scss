@@ -76,11 +76,15 @@ $content-appear-duration: 1s;
   margin-left: -76px;
 }
 
+.three-rows-view {
+  display: none;
+}
+
 .brands-container {
   display: flex;
   justify-content: space-between;
 
-  &:first-child {
+  &:not(:last-child) {
     margin: 20px 0 35px;
   }
 }
@@ -169,5 +173,15 @@ $content-appear-duration: 1s;
   .about-image,
   .about-content {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: $mini-mobile-width) {
+  .two-rows-view {
+    display: none;
+  }
+
+  .three-rows-view {
+    display: block;
   }
 }
