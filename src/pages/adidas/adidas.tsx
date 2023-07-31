@@ -38,9 +38,9 @@ export function AdidasContent() {
       year: 2022,
     },
     {
-      name: 'KPI Jam',
+      name: 'Design Team Optimization ',
       // eslint-disable-next-line max-len
-      path: 'https://pitch.com/public/dd4cbaa8-a0e8-45bc-be75-b8e2c0224b51',
+      path: 'https://pitch.com/public/8b8db27d-0d7f-428b-a54f-4ba0d50790c5',
       imageSrc: productItemWhite,
       category: categories.designLeadership,
       year: 2022,
