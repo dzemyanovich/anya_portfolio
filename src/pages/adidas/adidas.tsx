@@ -31,7 +31,6 @@ export function AdidasContent() {
   const products: Product[] = [
     {
       name: 'Smart Moodboard',
-      // eslint-disable-next-line max-len
       path: 'https://pitch.com/public/19462a56-5560-4059-887a-fbffe5632407',
       imageSrc: productItemBlack,
       category: categories.productDesign,
@@ -39,7 +38,6 @@ export function AdidasContent() {
     },
     {
       name: 'Design Team Optimization ',
-      // eslint-disable-next-line max-len
       path: 'https://pitch.com/public/8b8db27d-0d7f-428b-a54f-4ba0d50790c5',
       imageSrc: productItemWhite,
       category: categories.designLeadership,

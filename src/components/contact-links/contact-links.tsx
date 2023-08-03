@@ -20,7 +20,8 @@ export default function ContactLinks() {
         <img src={arrowTopRight} alt="" />
         <span className="contact-link-text">Behance</span>
       </CustomLink>
-      <CustomLink to="https://www.dropbox.com/s/8gmv0n6ikvp1dat/anna_pivunova_cv.pdf?dl=0">
+      {/* eslint-disable-next-line max-len */}
+      <CustomLink to="https://www.dropbox.com/scl/fi/cqcvwoox6uiqbkapbb04c/CV_Anna-Pivunova_Lead-UX-Designer.pdf?rlkey=82w2w4o4qr5l1jbgc29hf0qwb&dl=0">
         <img src={arrowTopRight} alt="" />
         <span className="contact-link-text">CV</span>
       </CustomLink>
