@@ -98,9 +98,9 @@ In order to set up AWS infrastucture **locally**:
 ```
 jwt_secret = "some_value"
 ```
-- create `terragrunt/modules/lambda/terraform.tfvars`:
+- create `terragrunt/modules/lambda/terraform.tfvars` with site password value:
 ```
-jwt_secret = "some_value"
+secrets_storage_value = "some_value"
 ```
 
 # GitLab CI/CD setup
